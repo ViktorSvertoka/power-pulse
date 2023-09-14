@@ -1,3 +1,28 @@
+# Examples of writing commits on a project
+
+## We use the following types of commits:
+
+- Feat(HTML) Added new functionality
+
+- Fix(JS) Error correction
+
+- Perf(JPEG) Changes to improve performance
+
+- Refactor(PNG) Code edits without fixing bugs or adding new features
+
+- Revert(JS) Rollback to previous commits
+
+- Style(SCSS) Code style edits
+
+- Docs(README) Documentation update
+
+Choose from the list the description of the commit that fits your task, in
+brackets we write the file in which we worked, and in the body of the commit we
+write what we did (changed) etc.
+
+- `Look at Figma layout`
+  [**Layout Figma**](https://www.figma.com/file/FHAaMcWwZCDbzWPlowFhEf/Power-Pulse?type=design&node-id=0-1&mode=design)
+
 # React + Vite template
 
 Цей проєкт було створено за допомогою [Create Vite](https://vitejs.dev/). Для
@@ -93,8 +118,17 @@
   <App />
 </BrowserRouter>
 ```
-### Додавання змінних в  .env
-Для зберігання конфігураційних даних, таких як API ключі, адреси серверів, порти та інші змінні використовуйте файл `.env`. Для цього необхідно з назви файлу `.env.template` видалити зайві ".template",після чого файл відповідатиме умовам файлу `.ignore` і буде зберігатися лише локально, не публікуючись на віддаленому репозиторії з метою безпеки. Задля використання змінних на GitHub-pages усі змінні, передбачені файлом .env, слід додати до файлу `.github/workflows/deploy.yml`, а також до налаштувань репозиторію. Для цього слід перейти (`Settings` > `Secrets and variables` > `Actions`)
+
+### Додавання змінних в .env
+
+Для зберігання конфігураційних даних, таких як API ключі, адреси серверів, порти
+та інші змінні використовуйте файл `.env`. Для цього необхідно з назви файлу
+`.env.template` видалити зайві ".template",після чого файл відповідатиме умовам
+файлу `.ignore` і буде зберігатися лише локально, не публікуючись на віддаленому
+репозиторії з метою безпеки. Задля використання змінних на GitHub-pages усі
+змінні, передбачені файлом .env, слід додати до файлу
+`.github/workflows/deploy.yml`, а також до налаштувань репозиторію. Для цього
+слід перейти (`Settings` > `Secrets and variables` > `Actions`)
 
 ![Add enviroments from .env](./src/assets/secrets.png)
 
