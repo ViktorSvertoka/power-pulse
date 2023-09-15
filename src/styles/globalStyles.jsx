@@ -78,9 +78,14 @@ img {
   height: auto;
 }
 
+input, textarea, select, button {
+  font: inherit;
+}
+
 button {
     cursor: pointer;
     border: none;
+
   }
 `;
 
