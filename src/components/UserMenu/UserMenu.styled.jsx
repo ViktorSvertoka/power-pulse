@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const UserContainer = styled.div`
@@ -14,6 +14,10 @@ export const Navigation = styled.nav`
   justify-content: center;
   align-items: center;
   gap: 8px;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const StyledLink = styled(NavLink)`
@@ -42,4 +46,21 @@ export const UserData = styled.div`
   gap: 8px;
 
   margin-left: 30px;
+`;
+
+export const LogoutLink = styled(Link)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
+  color: rgba(239, 237, 232, 1);
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const ProfileIcon = styled.svg`
+  stroke: rgba(239, 237, 232, 0.4);
 `;
