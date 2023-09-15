@@ -72,6 +72,12 @@ h6 {
   padding: 0;
 }
 
+h2{
+    font-family: 'RobotoBold', sans-serif;
+    color: #EFEDE8;
+
+}
+
 img {
   display: block;
   max-width: 100%;

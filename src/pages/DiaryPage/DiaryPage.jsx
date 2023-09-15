@@ -1,18 +1,20 @@
 import DaySwitch from '../../components/Diary/DaySwitch/DaySwitch';
-import DayProducts from '../../components/Diary/DayProducts/DayProducts';
-import DayExercises from '../../components/Diary/DayExercises/DayExercises';
+import DashboardItemBig from '../../components/DashboardItemBig/DashboardItemBig';
 import DayDashboard from '../../components/Diary/DayDashboard/DayDashboard';
-import { DiaryTitle, Wrapper } from './DiaryPage.styled';
+import { DiaryTitle, WrapperAll, WrapTitleDate } from './DiaryPage.styled';
 
 const DiaryPage = () => {
   return (
-    <Wrapper>
-      <DiaryTitle>Diary</DiaryTitle>
-      <DaySwitch></DaySwitch>
-      <DayProducts></DayProducts>
-      <DayExercises></DayExercises>
-      <DayDashboard></DayDashboard>
-    </Wrapper>
+    <WrapperAll>
+      <WrapTitleDate>
+        <DiaryTitle>Diary</DiaryTitle>
+        <DaySwitch></DaySwitch>
+      </WrapTitleDate>
+      <WrapTitleDate>
+        <DashboardItemBig></DashboardItemBig>
+        <DayDashboard></DayDashboard>
+      </WrapTitleDate>
+    </WrapperAll>
   );
 };
 
