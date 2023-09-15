@@ -1,13 +1,12 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const HeaderContainer = styled.div`
-  max-width: 1440px;
+export const UserContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 10px;
-  margin: 0 auto;
+  gap: 10px;
 `;
 
 export const Navigation = styled.nav`
@@ -16,7 +15,7 @@ export const Navigation = styled.nav`
   align-items: center;
 `;
 
-export const StyledLink = styled(Link)`
+export const StyledLink = styled(NavLink)`
   padding: 8px 16px;
   color: #ffffff; /* White text color */
   text-shadow:
