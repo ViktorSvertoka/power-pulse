@@ -24,14 +24,16 @@ const BtnPrev = styled.button`
   width: 16px;
   height: 16px;
   flex-shrink: 0;
-  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  color: white;
 `;
 
 const BtnNext = styled.button`
   width: 16px;
   height: 16px;
   flex-shrink: 0;
-  cursor: pointer;
 `;
 
 const DayChangeIcon = styled.svg``;
