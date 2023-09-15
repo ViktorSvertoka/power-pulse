@@ -12,10 +12,8 @@ const DateLabel = styled.p`
   align-items: center;
   justify-content: center;
   color: #efede8;
-  font-family: Roboto;
+  font-family: 'RobotoBold';
   font-size: 24px;
-  font-style: normal;
-  font-weight: 700;
   line-height: 32px;
 `;
 

@@ -73,7 +73,7 @@ h6 {
 }
 
 h2{
-    font-family: 'RobotoBold', sans-serif;
+        font-family: 'RobotoBold';
     color: #EFEDE8;
 
 }
