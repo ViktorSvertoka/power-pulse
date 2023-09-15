@@ -1,6 +1,9 @@
+import { Link, NavLink } from 'react-router-dom';
 import {
   ImgAvatar,
+  LogoutLink,
   Navigation,
+  ProfileIcon,
   StyledLink,
   UserContainer,
   UserData,
@@ -15,12 +18,22 @@ export const UserMenu = () => {
         <StyledLink to="/exercises">Exercises</StyledLink>
       </Navigation>
       <UserData>
-        <StyledLink to="/profile">Icon Settings</StyledLink>
-        <ImgAvatar src="/" width={46} height={46} />
-        <button type="button">
-          Log Out
-          {/* <svg /> */}
-        </button>
+        <NavLink to="/profile">
+          <ProfileIcon width="28" height="28">
+            <use href="../../../src/images/sprite.svg#icon-settings"></use>
+          </ProfileIcon>
+        </NavLink>
+        <ImgAvatar
+          src="../../../src/images/0-default.jpg"
+          width={46}
+          height={46}
+        />
+        <LogoutLink to="/">
+          <span>Logout</span>
+          <svg width="20" height="20">
+            <use href="../../../src/images/sprite.svg#icon-log-out"></use>
+          </svg>
+        </LogoutLink>
       </UserData>
     </UserContainer>
   );
