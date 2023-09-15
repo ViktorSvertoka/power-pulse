@@ -7,6 +7,8 @@ export const UserContainer = styled.div`
   align-items: center;
   padding: 10px;
   gap: 8px;
+
+  background-color: var(--black-color);
 `;
 
 export const Navigation = styled.nav`
