@@ -6,36 +6,40 @@ export const UserContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 10px;
-  gap: 10px;
+  gap: 8px;
 `;
 
 export const Navigation = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 8px;
 `;
 
 export const StyledLink = styled(NavLink)`
-  padding: 8px 16px;
-  color: #ffffff; /* White text color */
-  text-shadow:
-    0 0 5px #00baff,
-    0 0 10px #00baff,
-    0 0 20px #00baff,
-    0 0 40px #00baff,
-    0 0 80px #00baff;
-  transition:
-    color 0.3s,
-    text-shadow 0.3s;
+  padding: 10px 27px;
+  color: rgba(239, 237, 232, 1);
+
+  border: 1px solid rgba(239, 237, 232, 0.2);
+  border-radius: 12px;
 
   &:hover,
-  &:focus {
-    color: #00baff; /* Blue text color on hover/focus */
-    text-shadow:
-      0 0 5px #00baff,
-      0 0 10px #00baff,
-      0 0 20px #00baff,
-      0 0 40px #00baff,
-      0 0 80px #00baff;
+  :focus {
+    background-color: rgba(230, 83, 60, 1);
   }
+`;
+
+export const ImgAvatar = styled.img`
+  display: inline-block;
+  border: 1px solid rgba(230, 83, 60, 1);
+  border-radius: 50%;
+`;
+
+export const UserData = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  margin-left: 30px;
 `;

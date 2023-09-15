@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { HeaderContainer, Navigation, StyledLink } from './Header.styled';
+import { HeaderContainer } from './Header.styled';
 import { UserMenu } from '../UserMenu/UserMenu';
 
 export const Header = () => {

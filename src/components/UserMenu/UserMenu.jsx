@@ -1,4 +1,10 @@
-import { Navigation, StyledLink, UserContainer } from './UserMenu.styled';
+import {
+  ImgAvatar,
+  Navigation,
+  StyledLink,
+  UserContainer,
+  UserData,
+} from './UserMenu.styled';
 
 export const UserMenu = () => {
   return (
@@ -8,14 +14,14 @@ export const UserMenu = () => {
         <StyledLink to="/products">Products</StyledLink>
         <StyledLink to="/exercises">Exercises</StyledLink>
       </Navigation>
-      <div>
+      <UserData>
         <StyledLink to="/profile">Icon Settings</StyledLink>
-        {/* <img src="/" /> */}
+        <ImgAvatar src="/" width={46} height={46} />
         <button type="button">
           Log Out
           {/* <svg /> */}
         </button>
-      </div>
+      </UserData>
     </UserContainer>
   );
 };
