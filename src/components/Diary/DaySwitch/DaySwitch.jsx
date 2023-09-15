@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { useState } from 'react';
 import {
   Wrap,
@@ -9,6 +7,7 @@ import {
   DayChangeIcon,
   BtnNext,
 } from './DaySwitch.styled';
+import Icon from '../../Icon/Icon';
 
 const DaySwitch = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -36,11 +35,11 @@ const DaySwitch = () => {
     <Wrap>
       <DateLabel>{formattedDate}</DateLabel>
       <CalenderIcon />
-      <BtnPrev onClick={switchToPreviousDay}>
-        <DayChangeIcon />
+      <BtnPrev onClick={switchToPreviousDay} className="button">
+        <Icon symbolId="icon-arrow-left" width="16" height="16" />
       </BtnPrev>
-      <BtnNext onClick={switchToNextDay}>
-        <DayChangeIcon />
+      <BtnNext onClick={switchToNextDay} className="button">
+        <Icon symbolId="icon-arrow-right" width="16" height="16" />
       </BtnNext>
     </Wrap>
   );
