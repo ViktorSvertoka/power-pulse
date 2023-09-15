@@ -23,7 +23,8 @@
     "react-select": "^5.7.4",
     "redux": "^4.2.1",
     "styled-components": "^6.0.7",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "yup": "^1.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
