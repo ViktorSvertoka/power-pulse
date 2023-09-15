@@ -25,18 +25,15 @@ const Title = styled.h3`
   font-feature-settings:
     'clig' off,
     'liga' off;
-  font-family: Roboto;
+  font-family: 'RobotoBold', sans-serif;
   font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
   line-height: 18px;
 `;
 
 const Value = styled.p`
   color: #efede8;
-  font-family: Roboto;
+  font-family: 'RobotoBold';
   font-size: 24px;
-  font-weight: 700;
   line-height: 32px;
   margin-top: auto;
 `;

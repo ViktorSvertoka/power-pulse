@@ -22,10 +22,8 @@ const WrapperTitleBtn = styled.div`
 
 const Title = styled.h3`
   color: rgba(239, 237, 232, 0.5);
-  font-family: Roboto;
+  font-family: 'RobotoMedium';
   font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
   line-height: 18px;
 `;
 
@@ -37,10 +35,8 @@ const AddBtn = styled.button`
   padding: 0;
   background-color: transparent;
   color: #e6533c;
-  font-family: Roboto;
+  font-family: 'RobotoMedium';
   font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
   line-height: 24px;
 `;
 
@@ -51,10 +47,8 @@ const DefaultText = styled.p`
   transform: translate(-50%, -50%);
 
   color: rgba(239, 237, 232, 0.3);
-  font-family: Roboto;
+  font-family: 'RobotoRegular';
   font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
   line-height: 24px;
 `;
 
