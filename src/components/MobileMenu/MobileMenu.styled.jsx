@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const MenuWrapper = styled.div`
+  background-color: var(--orange-color);
   display: flex;
   flex-direction: column;
   height: 100vh;
