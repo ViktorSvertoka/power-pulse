@@ -1,12 +1,12 @@
-import { HeaderContainer, Navigation, StyledLink } from './Header.styled';
+import { Link } from 'react-router-dom';
+import { HeaderContainer } from './Header.styled';
+import { UserMenu } from '../UserMenu/UserMenu';
 
 export const Header = () => {
   return (
     <HeaderContainer>
-      <Navigation>
-        <StyledLink to="/signup">SignUpPage</StyledLink>
-        <StyledLink to="/signin">SignInPage</StyledLink>
-      </Navigation>
+      <Link to="/">Logo</Link>
+      <UserMenu />
     </HeaderContainer>
   );
 };
