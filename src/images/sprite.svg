@@ -43,7 +43,7 @@
 <path fill="none" stroke="#efede8" style="stroke: var(--color2, #efede8)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.4615" d="M8 8l16 16"></path>
 </symbol>
 <symbol id="icon-arrow-left" viewBox="0 0 42 32">
-<path fill="none" stroke="#e6533c" style="stroke: var(--color3, #e6533c)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="4.8" d="M18.133 29.333l-13.333-13.333M4.8 16l13.333-13.333M4.8 16h32"></path>
+<path stroke="#e6533c" style="stroke: var(--color3, #e6533c)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="4.8" d="M18.133 29.333l-13.333-13.333M4.8 16l13.333-13.333M4.8 16h32"></path>
 </symbol>
 <symbol id="icon-arrow-right" viewBox="0 0 42 32">
 <path fill="none" stroke="#e6533c" style="stroke: var(--color3, #e6533c)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="4.8" d="M23.467 29.333l13.333-13.333M36.8 16l-13.333-13.333M36.8 16h-32"></path>
