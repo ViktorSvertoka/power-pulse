@@ -8,9 +8,9 @@ import { LogoutLink } from '../UserMenu/UserMenu.styled';
 export const MobileMenu = ({ isOpen }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(isOpen);
 
-  const openMenu = () => {
-    setMenuIsOpen(true);
-  };
+  // const openMenu = () => {
+  //   setMenuIsOpen(true);
+  // };
 
   const closeMenu = () => {
     setMenuIsOpen(false);

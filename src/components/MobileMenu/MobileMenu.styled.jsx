@@ -60,8 +60,6 @@ export const CloseButton = styled.button`
   cursor: pointer;
 
   svg {
-    width: 20px;
-    height: 20px;
-    fill: #fff;
+    stroke: #fff;
   }
 `;

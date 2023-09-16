@@ -25,7 +25,7 @@ export const UserMenu = () => {
             <use href="./images/sprite.svg#icon-settings"></use>
           </ProfileIcon>
         </NavLink>
-        <ImgAvatar src="../../images/0-default.jpg" width={46} height={46} />
+        <ImgAvatar src="/public/0-default.jpg" width={46} height={46} />
         <LogoutLink to="/">
           <span>Logout</span>
           <svg width="20" height="20">
