@@ -22,6 +22,7 @@ export const MenuWrapper = styled.div`
   width: 200px;
   padding: 19px 20px 21px 20px;
   z-index: 10;
+  top: 0;
 
   @media screen and (min-width: 768px) {
     width: 350px;
@@ -34,13 +35,11 @@ export const MenuWrapper = styled.div`
     &.shown {
       transform: translateX(0%);
       opacity: 1;
-      pointer-events: auto;
     }
 
     &.hidden {
       transform: translateX(100%);
       opacity: 0;
-      pointer-events: none;
     }
 
     transition:
@@ -62,8 +61,8 @@ export const CloseButton = styled.button`
 `;
 
 export const IconWrapper = styled.svg`
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   fill: #ffffff;
   stroke: #ffffff;
 `;

@@ -9,8 +9,6 @@ import {
 } from './MobileMenu.styled';
 import sprite from '../../assets/sprite.svg';
 
-import { LogoutLink } from '../UserMenu/UserMenu.styled';
-
 export const MobileMenu = ({ isOpen }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(isOpen);
 
@@ -57,16 +55,15 @@ export const MobileMenu = ({ isOpen }) => {
       >
         <CloseButton onClick={closeMenu}>
           <IconWrapper>
-            <use href={sprite + `#icon-x`} />
+            <use href={`${sprite}#icon-x`} />
           </IconWrapper>
         </CloseButton>
         <UserMenu></UserMenu>
-        <LogoutLink to="/">
-          <span>Logout</span>
-          <IconWrapper>
-            <use href={`${sprite}#icon-x`} />
-          </IconWrapper>
-        </LogoutLink>
+
+        <span>Logout</span>
+        <IconWrapper>
+          <use href={`${sprite}#icon-x`} />
+        </IconWrapper>
       </MenuWrapper>
     </>
   );
