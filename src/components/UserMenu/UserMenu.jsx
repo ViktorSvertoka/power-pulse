@@ -22,18 +22,18 @@ export const UserMenu = () => {
       <UserData>
         <NavLink to="/profile">
           <ProfileIcon width="28" height="28">
-            <use href="../../../src/images/sprite.svg#icon-settings"></use>
+            <use href="./src/images/sprite.svg#icon-settings"></use>
           </ProfileIcon>
         </NavLink>
         <ImgAvatar
-          src="../../../src/images/0-default.jpg"
+          src="./src/images/0-default.jpg"
           width={46}
           height={46}
         />
         <LogoutLink to="/">
           <span>Logout</span>
           <svg width="20" height="20">
-            <use href="../../../src/images/sprite.svg#icon-log-out"></use>
+            <use href="./src/images/sprite.svg#icon-log-out"></use>
           </svg>
         </LogoutLink>
       </UserData>
