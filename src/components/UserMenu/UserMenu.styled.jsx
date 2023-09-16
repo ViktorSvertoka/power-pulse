@@ -23,6 +23,10 @@ export const Navigation = styled.nav`
 `;
 
 export const StyledLink = styled(NavLink)`
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.33;
+
   padding: 10px 27px;
   color: rgba(239, 237, 232, 1);
 
@@ -56,6 +60,9 @@ export const LogoutLink = styled(Link)`
   align-items: center;
   gap: 5px;
 
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.33;
   color: rgba(239, 237, 232, 1);
 
   @media screen and (max-width: 1439px) {
