@@ -1,6 +1,12 @@
 import DashboardItem from '../../DashboardItem/DashboardItem';
-import Icon from '../../Icon/Icon';
-import { Grid, GridItem, Wrapper } from './DayDashboard.styled';
+import ExclamationCircle from '../ExclamationCircle/ExclamationCircle';
+import {
+  Grid,
+  GridItem,
+  TextWarning,
+  WrapWarning,
+  Wrapper,
+} from './DayDashboard.styled';
 
 const icons = [
   'icon-apple',
@@ -24,13 +30,13 @@ const DayDashboard = () => {
           );
         })}
       </Grid>
-      <div>
-        <Icon symbolId="icon-arrow-right" width="16" height="16" />
-        <span>
+      <WrapWarning>
+        <ExclamationCircle />
+        <TextWarning>
           Record all your meals in a calorie diary every day. This will help me
           be aware of my nutrition and make me responsible for my choices.
-        </span>
-      </div>
+        </TextWarning>
+      </WrapWarning>
     </Wrapper>
   );
 };

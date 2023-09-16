@@ -3,7 +3,7 @@ const spritePath = '/src/images/sprite.svg';
 
 const Icon = ({ symbolId, width, height }) => {
   return (
-    <svg className="icon" width={width} height={height}>
+    <svg width={width} height={height}>
       <use xlinkHref={`${spritePath}#${symbolId}`} />
     </svg>
   );
