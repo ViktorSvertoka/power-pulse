@@ -46,6 +46,9 @@ export const MenuWrapper = styled.div`
       transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
       opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
+  @media screen and (min-width: 1440px) {
+    display: none;
+  }
 `;
 
 export const CloseButton = styled.button`
