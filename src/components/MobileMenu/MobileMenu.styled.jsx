@@ -1,5 +1,19 @@
 import styled from 'styled-components';
 
+export const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255 255 255 / 0.5);
+  backdrop-filter: blur(1px);
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  z-index: 1200;
+`;
+
 export const MenuWrapper = styled.div`
   background-color: var(--orange-color);
   display: flex;
@@ -15,20 +29,36 @@ export const MenuWrapper = styled.div`
 
   @media screen and (max-width: 1439px) {
     position: absolute;
-    z-index: 999;
 
     &.shown {
       transform: translateX(0%);
       opacity: 1;
+      pointer-events: auto;
     }
 
     &.hidden {
       transform: translateX(-100%);
       opacity: 0;
+      pointer-events: none;
     }
 
     transition:
-      transform 750ms cubic-bezier(0.4, 0, 0.2, 1),
-      opacity 750ms cubic-bezier(0.4, 0, 0.2, 1);
+      transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+`;
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
   }
 `;
