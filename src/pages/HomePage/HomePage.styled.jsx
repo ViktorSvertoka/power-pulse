@@ -15,27 +15,26 @@ export const HomeTitle = styled.h1`
   color: var(--white-color);
 `;
 
-export const TitleContainer = styled.div`
-  display: none;
-
-  @media screen and (min-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    gap: 64px;
-    max-width: 720px;
-    margin-top: 120px;
-  }
-`;
-
 export const TitleContainerTablet = styled.div`
   display: flex;
   flex-direction: column;
   gap: 64px;
   max-width: 720px;
   margin-top: 120px;
-
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1440px) {
     display: none;
+  }
+`;
+
+export const TitleContainer = styled.div`
+  display: none;
+
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    max-width: 720px;
+    margin-top: 120px;
   }
 `;
 
@@ -56,6 +55,7 @@ export const HomePhoto = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
+  height: 812px;
   text-align: center;
 
   @media (min-device-pixel-ratio: 2),
@@ -67,7 +67,7 @@ export const HomePhoto = styled.div`
 
   @media screen and (min-width: 375px) {
     width: 100%;
-    height: 100%;
+    height: 812px;
   }
   @media screen and (min-width: 768px) {
     background-image: url('../../../src/images/hero-tablet-1x.jpg');
@@ -78,9 +78,9 @@ export const HomePhoto = styled.div`
       background-image: url('../../../src/images/hero-tablet-2x.jpg');
     }
     width: 100%;
-    height: 500px;
+    height: 1024px;
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1440px) {
     background-image: url('../../../src/images/hero-1x.jpg');
 
     @media (min-device-pixel-ratio: 2),
@@ -89,8 +89,8 @@ export const HomePhoto = styled.div`
       (min-resolution: 2dppx) {
       background-image: url('../../../src/images/hero-2x.jpg');
     }
-    width: 720px;
-    height: 800px;
-    margin-top: -82px;
+    width: 670px;
+    height: 1005px;
+    /* margin-top: -82px; */
   }
 `;
