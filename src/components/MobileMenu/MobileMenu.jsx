@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { UserMenu, LogoutLink } from '../UserMenu/UserMenu';
+import { UserMenu } from '../UserMenu/UserMenu';
 import { MenuWrapper, Overlay, CloseButton } from './MobileMenu.styled';
+import { LogoutLink } from '../UserMenu/UserMenu.styled';
 
 export const MobileMenu = ({ isOpen, handleClick }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(isOpen);
