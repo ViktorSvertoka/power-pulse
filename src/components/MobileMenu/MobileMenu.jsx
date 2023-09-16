@@ -7,7 +7,7 @@ import {
   CloseButton,
   IconWrapper,
 } from './MobileMenu.styled';
-import sprite from '../../assets/sprite.svg';
+import sprite from '../../images/sprite.svg';
 
 export const MobileMenu = ({ isOpen }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(isOpen);
