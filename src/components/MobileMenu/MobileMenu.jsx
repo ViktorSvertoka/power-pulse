@@ -5,9 +5,11 @@ import {
   MenuWrapper,
   Overlay,
   CloseButton,
-  IconWrapper,
+  Svg,
+  Img,
 } from './MobileMenu.styled';
 import sprite from '../../images/sprite.svg';
+import images from '../../images/0-default.jpg';
 
 export const MobileMenu = ({ isOpen }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(isOpen);
@@ -54,16 +56,18 @@ export const MobileMenu = ({ isOpen }) => {
         onClick={handleBackdropClick}
       >
         <CloseButton onClick={closeMenu}>
-          <IconWrapper>
+          <Svg>
             <use href={`${sprite}#icon-x`} />
-          </IconWrapper>
+          </Svg>
         </CloseButton>
+
         <UserMenu></UserMenu>
 
         <span>Logout</span>
-        <IconWrapper>
+        <Svg>
           <use href={`${sprite}#icon-x`} />
-        </IconWrapper>
+        </Svg>
+        <Img src={images} alt="Images"></Img>
       </MenuWrapper>
     </>
   );

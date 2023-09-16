@@ -60,9 +60,14 @@ export const CloseButton = styled.button`
   cursor: pointer;
 `;
 
-export const IconWrapper = styled.svg`
+export const Svg = styled.svg`
   width: 30px;
   height: 30px;
   fill: #ffffff;
   stroke: #ffffff;
+`;
+
+export const Img = styled.img`
+  width: 150px;
+  height: 150px;
 `;
