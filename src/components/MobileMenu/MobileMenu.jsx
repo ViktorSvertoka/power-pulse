@@ -1,8 +1,14 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { UserMenu } from '../UserMenu/UserMenu';
-import { MenuWrapper, Overlay, CloseButton } from './MobileMenu.styled';
-import Icon from '../Icon/Icon';
+import {
+  MenuWrapper,
+  Overlay,
+  CloseButton,
+  IconWrapper,
+} from './MobileMenu.styled';
+import sprite from '../../assets/sprite.svg';
+
 import { LogoutLink } from '../UserMenu/UserMenu.styled';
 
 export const MobileMenu = ({ isOpen }) => {
@@ -50,15 +56,16 @@ export const MobileMenu = ({ isOpen }) => {
         onClick={handleBackdropClick}
       >
         <CloseButton onClick={closeMenu}>
-          <Icon symbolId="icon-x" width="16" height="16" />
+          <IconWrapper>
+            <use href={sprite + `#icon-x`} />
+          </IconWrapper>
         </CloseButton>
-
         <UserMenu></UserMenu>
         <LogoutLink to="/">
           <span>Logout</span>
-          <svg width="20" height="20">
-            <use href="../../../src/images/sprite.svg#icon-log-out"></use>
-          </svg>
+          <IconWrapper>
+            <use href={`${sprite}#icon-x`} />
+          </IconWrapper>
         </LogoutLink>
       </MenuWrapper>
     </>

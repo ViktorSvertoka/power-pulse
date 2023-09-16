@@ -11,7 +11,7 @@ export const Overlay = styled.div`
   display: flex;
   justify-content: start;
   align-items: center;
-  z-index: 1200;
+  z-index: 1;
 `;
 
 export const MenuWrapper = styled.div`
@@ -21,6 +21,7 @@ export const MenuWrapper = styled.div`
   height: 100vh;
   width: 200px;
   padding: 19px 20px 21px 20px;
+  z-index: 10;
 
   @media screen and (min-width: 768px) {
     width: 350px;
@@ -37,7 +38,7 @@ export const MenuWrapper = styled.div`
     }
 
     &.hidden {
-      transform: translateX(-100%);
+      transform: translateX(100%);
       opacity: 0;
       pointer-events: none;
     }
@@ -58,8 +59,11 @@ export const CloseButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;
+`;
 
-  svg {
-    stroke: #fff;
-  }
+export const IconWrapper = styled.svg`
+  width: 20px;
+  height: 20px;
+  fill: #ffffff;
+  stroke: #ffffff;
 `;
