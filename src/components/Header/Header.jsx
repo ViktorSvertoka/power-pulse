@@ -14,7 +14,7 @@ export const Header = () => {
     <HeaderContainer>
       <LogoLink to="/">
         <svg width={152} height={17}>
-          <use href="../../../src/images/sprite.svg#icon-logo"></use>
+          <use href="./src/images/sprite.svg#icon-logo"></use>
         </svg>
       </LogoLink>
       <UserContainer>
