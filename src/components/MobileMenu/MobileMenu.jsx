@@ -5,7 +5,7 @@ import { MenuWrapper, Overlay, CloseButton } from './MobileMenu.styled';
 import Icon from '../Icon/Icon';
 import { LogoutLink } from '../UserMenu/UserMenu.styled';
 
-export const MobileMenu = ({ isOpen, handleClick }) => {
+export const MobileMenu = ({ isOpen }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(isOpen);
 
   const openMenu = () => {
@@ -53,7 +53,7 @@ export const MobileMenu = ({ isOpen, handleClick }) => {
           <Icon symbolId="icon-x" width="16" height="16" />
         </CloseButton>
 
-        <UserMenu handleClick={handleClick}></UserMenu>
+        <UserMenu></UserMenu>
         <LogoutLink to="/">
           <span>Logout</span>
           <svg width="20" height="20">
@@ -67,7 +67,6 @@ export const MobileMenu = ({ isOpen, handleClick }) => {
 
 MobileMenu.propTypes = {
   isOpen: PropTypes.bool.isRequired,
-  handleClick: PropTypes.func.isRequired,
 };
 
 export default MobileMenu;
