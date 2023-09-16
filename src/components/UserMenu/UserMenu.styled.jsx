@@ -7,6 +7,7 @@ export const UserContainer = styled.div`
   align-items: center;
   padding: 10px;
   gap: 8px;
+
   background-color: var(--black-color);
 `;
 
@@ -16,7 +17,7 @@ export const Navigation = styled.nav`
   align-items: center;
   gap: 8px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1439px) {
     display: none;
   }
 `;
@@ -57,7 +58,7 @@ export const LogoutLink = styled(Link)`
 
   color: rgba(239, 237, 232, 1);
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1439px) {
     display: none;
   }
 `;
