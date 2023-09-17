@@ -11,7 +11,7 @@ export const Overlay = styled.div`
   display: flex;
   justify-content: start;
   align-items: center;
-  z-index: 1;
+  z-index: 999;
 `;
 
 export const MenuWrapper = styled.div`
@@ -21,7 +21,7 @@ export const MenuWrapper = styled.div`
   height: 100vh;
   width: 200px;
   padding: 19px 20px 21px 20px;
-  z-index: 10;
+  z-index: 1000;
   top: 0;
 
   @media screen and (min-width: 768px) {
