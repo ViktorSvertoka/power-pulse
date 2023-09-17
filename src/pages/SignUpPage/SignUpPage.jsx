@@ -1,14 +1,12 @@
-// import RegisterForm from '../../components/RegisterForm/RegisterForm';
-import { Container, WrapContainer } from './RegistrationPageStyled';
+import { Container } from './RegistrationPageStyled';
 
-   import RegisterForm from '../../components/RegisterForm/RegisterForm';
+import RegisterForm from '../../components/RegisterForm/RegisterForm';
 const SignUpPage = () => {
   return (
     <Container>
-      <WrapContainer><RegisterForm /></WrapContainer>
+      <RegisterForm />
     </Container>
   );
 };
 
 export default SignUpPage;
-// {/* </RegisterForm> */} <div>SignUp</div>

@@ -4,43 +4,23 @@ import backgroundMob from 'src/images/hero-1x.jpg';
 
 export const Container = styled.div`
   display: flex;
-  /* max-width: 100vw; */
-  max-width: 1440px;
+  max-width: 100vw;
+  /* max-width: 1440px; */
   height: 100vh;
   background-image: url(${backgroundMob});
-  /* background-size: 40% 100%; */
-  background-color: #040404;
-  background-position: right;
+  /* background-size: 50% 100%; */
+  /* background-position: 50% right; */
   background-repeat: no-repeat;
-`;
-// export const Container = styled.div`
-//
-// `;
-// #040404 RegPage
-export const WrapContainer = styled.div`
-  display: flex;
-  /* box-sizing: border-box; */
-  width: 496px;
-  /* height: 336px; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* margin-left: auto; */
-  /* margin-right: auto; */
-  padding: 40px 12px;
-  /* gap: 26px; */
-  background-color: #040404;
-  /* box-shadow: 3px 8px 14px rgba(136, 198, 253, 0.19); */
-  margin-left: 100px;
-  margin-top: 200px;
-
+  background-size: 50% 100%;
   /* @media screen and (min-width: 375px) {
-    max-width: 480px;
-    border-radius: 40px;
-  }
-
+    /* max-width: 100vw;
+    max-width: 100vw; */
+    /* background-size: 50% 100%; */
+    background-position: right;
+   
+  /*
   @media screen and (min-width: 768px) {
-    max-width: 608px;
+    max-width: 100vw;
     padding: 60px 75px;
     border-radius: 40px;
     gap: 22px;
@@ -50,10 +30,5 @@ export const WrapContainer = styled.div`
     gap: 8px;
   } */
 `;
-// export const InputContainer = styled.div`
-//   box-sizing: border-box;
-//   width: 100%;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// `; 
+
+
