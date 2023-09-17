@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
-import { HeaderContainer, LogoLink, UserContainer } from './Header.styled';
+import { HeaderContainer, LogoLink, Svg, UserContainer } from './Header.styled';
 import { UserMenu } from '../UserMenu/UserMenu';
 import MobileMenu from '../MobileMenu/MobileMenu';
 import { MobileMenuButton } from '../MobileMenuButton/MobileMenuButton';
 import { useState } from 'react';
+import sprite from '../../images/sprite.svg';
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,9 +13,9 @@ export const Header = () => {
   return (
     <HeaderContainer>
       <LogoLink to="/">
-        <svg width={152} height={17}>
-          <use href="./src/images/sprite.svg#icon-logo"></use>
-        </svg>
+        <Svg>
+          <use href={`${sprite}#icon-logo`}></use>
+        </Svg>
       </LogoLink>
       <UserContainer>
         <UserMenu />
