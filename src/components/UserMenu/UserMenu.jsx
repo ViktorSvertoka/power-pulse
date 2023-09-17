@@ -1,4 +1,6 @@
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import sprite from '../../images/sprite.svg';
+import images from '../../images/0-default.jpg';
 import {
   ImgAvatar,
   LogoutLink,
@@ -8,11 +10,9 @@ import {
   UserContainer,
   UserData,
 } from './UserMenu.styled';
-// import { Container } from '../../styles/container';
 
 export const UserMenu = () => {
   return (
-    // <Container>
     <UserContainer>
       <Navigation>
         <StyledLink to="/diary">Diary</StyledLink>
@@ -21,19 +21,18 @@ export const UserMenu = () => {
       </Navigation>
       <UserData>
         <NavLink to="/profile">
-          <ProfileIcon width="28" height="28">
-            <use href="./images/sprite.svg#icon-settings"></use>
+          <ProfileIcon>
+            <use href={`${sprite}#icon-settings`}></use>
           </ProfileIcon>
         </NavLink>
-        <ImgAvatar src="/public/0-default.jpg" width={46} height={46} />
+        <ImgAvatar src={images} />
         <LogoutLink to="/">
           <span>Logout</span>
           <svg width="20" height="20">
-            <use href="../images/sprite.svg#icon-log-out"></use>
+            <use href={`${sprite}#icon-log-out`}></use>
           </svg>
         </LogoutLink>
       </UserData>
     </UserContainer>
-    // </Container>
   );
 };

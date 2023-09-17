@@ -40,9 +40,16 @@ export const StyledLink = styled(NavLink)`
 `;
 
 export const ImgAvatar = styled.img`
+  width: 37px;
+  height: 37px;
   display: inline-block;
   border: 1px solid rgba(230, 83, 60, 1);
   border-radius: 50%;
+
+  @media screen and (min-width: 768px) {
+    width: 46px;
+    height: 46px;
+  }
 `;
 
 export const UserData = styled.div`
@@ -71,5 +78,12 @@ export const LogoutLink = styled(Link)`
 `;
 
 export const ProfileIcon = styled.svg`
+  width: 24px;
+  height: 24px;
   stroke: rgba(239, 237, 232, 0.4);
+
+  @media screen and (min-width: 768px) {
+    width: 28px;
+    height: 28px;
+  }
 `;
