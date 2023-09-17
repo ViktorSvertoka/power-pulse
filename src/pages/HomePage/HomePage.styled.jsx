@@ -1,5 +1,11 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import heroMobile1 from '../../images/hero-mobile-1x.jpg';
+import heroMobile2 from '../../images/hero-mobile-2x.jpg';
+import heroTablet1 from '../../images/hero-tablet-1x.jpg';
+import heroTablet2 from '../../images/hero-tablet-2x.jpg';
+import hero1 from '../../images/hero-1x.jpg';
+import hero2 from '../../images/hero-2x.jpg';
 
 export const HomeSection = styled.section`
   max-width: 1440px;
@@ -281,7 +287,7 @@ export const SpanRunMan = styled.span`
 `;
 
 export const HomePhoto = styled.div`
-  background-image: url('../../../src/images/hero-mobile-1x.jpg');
+  background-image: url(${heroMobile1});
 
   background-position: center;
   background-repeat: no-repeat;
@@ -293,7 +299,7 @@ export const HomePhoto = styled.div`
     (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    background-image: url('../../../src/images/hero-mobile-2x.jpg');
+    background-image: url(${heroMobile2});
   }
 
   @media screen and (min-width: 375px) {
@@ -301,24 +307,24 @@ export const HomePhoto = styled.div`
     height: 812px;
   }
   @media screen and (min-width: 768px) {
-    background-image: url('../../../src/images/hero-tablet-1x.jpg');
+    background-image: url(${heroTablet1});
     @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url('../../../src/images/hero-tablet-2x.jpg');
+      background-image: url(${heroTablet2});
     }
     width: 100%;
     height: 1024px;
   }
   @media screen and (min-width: 1440px) {
-    background-image: url('../../../src/images/hero-1x.jpg');
+    background-image: url(${hero1});
 
     @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url('../../../src/images/hero-2x.jpg');
+      background-image: url(${hero2});
     }
     width: 100%;
     height: 1005px;
