@@ -33,7 +33,11 @@ export const MenuWrapper = styled.div`
     }
 
     &.hidden {
-      right: -100%;
+      position: absolute;
+      clip: rect(0 0 0 0);
+      width: 1px;
+      height: 1px;
+      margin: -1px;
     }
 
     transition: right 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -84,15 +88,15 @@ export const Logout = styled(Link)`
 export const NavMenu = styled.nav`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 16px;
   margin-top: 245px;
   margin-bottom: 382px;
 `;
 
 export const NavMenuLink = styled(NavLink)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
