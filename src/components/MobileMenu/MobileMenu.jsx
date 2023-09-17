@@ -11,7 +11,7 @@ import {
 import sprite from '../../images/sprite.svg';
 import images from '../../images/0-default.jpg';
 
-export const MobileMenu = ({ isOpen }) => {
+const MobileMenu = ({ isOpen }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(isOpen);
 
   // const openMenu = () => {
@@ -76,3 +76,5 @@ export const MobileMenu = ({ isOpen }) => {
 MobileMenu.propTypes = {
   isOpen: PropTypes.bool.isRequired,
 };
+
+export default MobileMenu;
