@@ -6,23 +6,20 @@ export const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgb(255 255 255 / 0.5);
-  backdrop-filter: blur(1px);
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  z-index: 999;
+  background-color: transparent;
+  z-index: 1;
 `;
 
 export const MenuWrapper = styled.div`
-  background-color: var(--orange-color);
+  position: absolute;
+  top: 0;
   display: flex;
   flex-direction: column;
   height: 100vh;
   width: 200px;
   padding: 19px 20px 21px 20px;
-  z-index: 1000;
-  top: 0;
+  background-color: var(--orange-color);
+  z-index: 2;
 
   @media screen and (min-width: 768px) {
     width: 350px;
@@ -30,22 +27,17 @@ export const MenuWrapper = styled.div`
   }
 
   @media screen and (max-width: 1439px) {
-    position: absolute;
-
     &.shown {
-      transform: translateX(0%);
-      opacity: 1;
+      right: 0;
     }
 
     &.hidden {
-      transform: translateX(100%);
-      opacity: 0;
+      right: -100%;
     }
 
-    transition:
-      transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
-      opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: right 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
+
   @media screen and (min-width: 1440px) {
     display: none;
   }
@@ -53,21 +45,15 @@ export const MenuWrapper = styled.div`
 
 export const CloseButton = styled.button`
   position: absolute;
-  top: 30px;
-  right: 30px;
+  top: 26px;
+  right: 32px;
   background: none;
   border: none;
   cursor: pointer;
 `;
 
 export const Svg = styled.svg`
-  width: 30px;
-  height: 30px;
-  fill: #ffffff;
+  width: 32px;
+  height: 32px;
   stroke: #ffffff;
-`;
-
-export const Img = styled.img`
-  width: 150px;
-  height: 150px;
 `;

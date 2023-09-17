@@ -1,22 +1,10 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { UserMenu } from '../UserMenu/UserMenu';
-import {
-  MenuWrapper,
-  Overlay,
-  CloseButton,
-  Svg,
-  Img,
-} from './MobileMenu.styled';
+import { MenuWrapper, Overlay, CloseButton, Svg } from './MobileMenu.styled';
 import sprite from '../../images/sprite.svg';
-import images from '../../images/0-default.jpg';
 
 const MobileMenu = ({ isOpen }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(isOpen);
-
-  // const openMenu = () => {
-  //   setMenuIsOpen(true);
-  // };
 
   const closeMenu = () => {
     setMenuIsOpen(false);
@@ -24,6 +12,12 @@ const MobileMenu = ({ isOpen }) => {
 
   const handleEscKey = event => {
     if (event.key === 'Escape') {
+      closeMenu();
+    }
+  };
+
+  const handleBackdropClick = event => {
+    if (event.target === event.currentTarget) {
       closeMenu();
     }
   };
@@ -37,12 +31,6 @@ const MobileMenu = ({ isOpen }) => {
       window.removeEventListener('keydown', handleEscKey);
     };
   }, [menuIsOpen]);
-
-  const handleBackdropClick = event => {
-    if (event.target === event.currentTarget) {
-      closeMenu();
-    }
-  };
 
   useEffect(() => {
     setMenuIsOpen(isOpen);
@@ -61,13 +49,10 @@ const MobileMenu = ({ isOpen }) => {
           </Svg>
         </CloseButton>
 
-        <UserMenu></UserMenu>
-
         <span>Logout</span>
         <Svg>
           <use href={`${sprite}#icon-x`} />
         </Svg>
-        <Img src={images} alt="Images"></Img>
       </MenuWrapper>
     </>
   );
