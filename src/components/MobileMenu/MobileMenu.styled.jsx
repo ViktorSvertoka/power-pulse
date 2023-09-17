@@ -1,3 +1,4 @@
+import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Overlay = styled.div`
@@ -53,7 +54,65 @@ export const CloseButton = styled.button`
 `;
 
 export const Svg = styled.svg`
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
+  stroke: #ffffff;
+
+  @media screen and (min-width: 768px) {
+    width: 32px;
+    height: 32px;
+  }
+`;
+
+export const Logout = styled(Link)`
+  position: absolute;
+  bottom: 26px;
+  left: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.33;
+  color: rgba(239, 237, 232, 1);
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+`;
+
+export const NavMenu = styled.nav`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 245px;
+  margin-bottom: 382px;
+`;
+
+export const NavMenuLink = styled(NavLink)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 10px 27px;
+  color: rgba(239, 237, 232, 1);
+  border: 1px solid rgba(239, 237, 232, 0.2);
+  border-radius: 12px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+
+  &:hover,
+  :focus {
+    border: 1px solid var(--white-color);
+  }
+`;
+
+export const LogoutSvg = styled.svg`
+  width: 20px;
+  height: 20px;
   stroke: #ffffff;
 `;

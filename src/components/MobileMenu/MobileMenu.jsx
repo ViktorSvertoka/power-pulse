@@ -1,6 +1,15 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { MenuWrapper, Overlay, CloseButton, Svg } from './MobileMenu.styled';
+import {
+  MenuWrapper,
+  Overlay,
+  CloseButton,
+  Svg,
+  Logout,
+  NavMenu,
+  NavMenuLink,
+  LogoutSvg,
+} from './MobileMenu.styled';
 import sprite from '../../images/sprite.svg';
 
 const MobileMenu = ({ isOpen }) => {
@@ -48,11 +57,23 @@ const MobileMenu = ({ isOpen }) => {
             <use href={`${sprite}#icon-x`} />
           </Svg>
         </CloseButton>
-
-        <span>Logout</span>
-        <Svg>
-          <use href={`${sprite}#icon-x`} />
-        </Svg>
+        <NavMenu>
+          <NavMenuLink to="/diary" onClick={closeMenu}>
+            Diary
+          </NavMenuLink>
+          <NavMenuLink to="/products" onClick={closeMenu}>
+            Products
+          </NavMenuLink>
+          <NavMenuLink to="/exercises" onClick={closeMenu}>
+            Exercises
+          </NavMenuLink>
+        </NavMenu>
+        <Logout to="/" onClick={closeMenu}>
+          <span>Logout</span>
+          <LogoutSvg>
+            <use href={`${sprite}#icon-log-out-white`} />
+          </LogoutSvg>
+        </Logout>
       </MenuWrapper>
     </>
   );
