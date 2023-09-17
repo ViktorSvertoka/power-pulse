@@ -10,11 +10,9 @@ import {
   UserContainer,
   UserData,
 } from './UserMenu.styled';
-// import { Container } from '../../styles/container';
 
 export const UserMenu = () => {
   return (
-    // <Container>
     <UserContainer>
       <Navigation>
         <StyledLink to="/diary">Diary</StyledLink>
@@ -36,6 +34,5 @@ export const UserMenu = () => {
         </LogoutLink>
       </UserData>
     </UserContainer>
-    // </Container>
   );
 };

@@ -36,6 +36,7 @@ export const UserContainer = styled.div`
 export const Svg = styled.svg`
   width: 126px;
   height: 13px;
+
   @media screen and (min-width: 768px) {
     width: 152px;
     height: 17px;

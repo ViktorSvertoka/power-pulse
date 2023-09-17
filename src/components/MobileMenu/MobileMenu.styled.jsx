@@ -1,3 +1,4 @@
+import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Overlay = styled.div`
@@ -6,23 +7,20 @@ export const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgb(255 255 255 / 0.5);
-  backdrop-filter: blur(1px);
-  display: flex;
-  justify-content: start;
-  align-items: center;
+  background-color: transparent;
   z-index: 1;
 `;
 
 export const MenuWrapper = styled.div`
-  background-color: var(--orange-color);
+  position: absolute;
+  top: 0;
   display: flex;
   flex-direction: column;
   height: 100vh;
   width: 200px;
   padding: 19px 20px 21px 20px;
-  z-index: 10;
-  top: 0;
+  background-color: var(--orange-color);
+  z-index: 2;
 
   @media screen and (min-width: 768px) {
     width: 350px;
@@ -30,22 +28,17 @@ export const MenuWrapper = styled.div`
   }
 
   @media screen and (max-width: 1439px) {
-    position: absolute;
-
     &.shown {
-      transform: translateX(0%);
-      opacity: 1;
+      right: 0;
     }
 
     &.hidden {
-      transform: translateX(100%);
-      opacity: 0;
+      right: -100%;
     }
 
-    transition:
-      transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
-      opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: right 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
+
   @media screen and (min-width: 1440px) {
     display: none;
   }
@@ -53,21 +46,73 @@ export const MenuWrapper = styled.div`
 
 export const CloseButton = styled.button`
   position: absolute;
-  top: 30px;
-  right: 30px;
+  top: 26px;
+  right: 32px;
   background: none;
   border: none;
   cursor: pointer;
 `;
 
 export const Svg = styled.svg`
-  width: 30px;
-  height: 30px;
-  fill: #ffffff;
+  width: 24px;
+  height: 24px;
   stroke: #ffffff;
+
+  @media screen and (min-width: 768px) {
+    width: 32px;
+    height: 32px;
+  }
 `;
 
-export const Img = styled.img`
-  width: 150px;
-  height: 150px;
+export const Logout = styled(Link)`
+  position: absolute;
+  bottom: 26px;
+  left: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.33;
+  color: rgba(239, 237, 232, 1);
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+`;
+
+export const NavMenu = styled.nav`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 245px;
+  margin-bottom: 382px;
+`;
+
+export const NavMenuLink = styled(NavLink)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 10px 27px;
+  color: rgba(239, 237, 232, 1);
+  border: 1px solid rgba(239, 237, 232, 0.2);
+  border-radius: 12px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+
+  &:hover,
+  :focus {
+    border: 1px solid var(--white-color);
+  }
+`;
+
+export const LogoutSvg = styled.svg`
+  width: 20px;
+  height: 20px;
+  stroke: #ffffff;
 `;

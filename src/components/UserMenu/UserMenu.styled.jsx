@@ -82,7 +82,11 @@ export const ProfileIcon = styled.svg`
   width: 24px;
   height: 24px;
 
+
   stroke: var(--normal-color);
+
+  stroke: rgba(239, 237, 232, 0.4);
+
 
   @media screen and (min-width: 768px) {
     width: 28px;

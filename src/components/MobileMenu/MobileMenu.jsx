@@ -1,22 +1,19 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { UserMenu } from '../UserMenu/UserMenu';
 import {
   MenuWrapper,
   Overlay,
   CloseButton,
   Svg,
-  Img,
+  Logout,
+  NavMenu,
+  NavMenuLink,
+  LogoutSvg,
 } from './MobileMenu.styled';
 import sprite from '../../images/sprite.svg';
-import images from '../../images/0-default.jpg';
 
-export const MobileMenu = ({ isOpen }) => {
+const MobileMenu = ({ isOpen }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(isOpen);
-
-  // const openMenu = () => {
-  //   setMenuIsOpen(true);
-  // };
 
   const closeMenu = () => {
     setMenuIsOpen(false);
@@ -24,6 +21,12 @@ export const MobileMenu = ({ isOpen }) => {
 
   const handleEscKey = event => {
     if (event.key === 'Escape') {
+      closeMenu();
+    }
+  };
+
+  const handleBackdropClick = event => {
+    if (event.target === event.currentTarget) {
       closeMenu();
     }
   };
@@ -37,12 +40,6 @@ export const MobileMenu = ({ isOpen }) => {
       window.removeEventListener('keydown', handleEscKey);
     };
   }, [menuIsOpen]);
-
-  const handleBackdropClick = event => {
-    if (event.target === event.currentTarget) {
-      closeMenu();
-    }
-  };
 
   useEffect(() => {
     setMenuIsOpen(isOpen);
@@ -60,14 +57,23 @@ export const MobileMenu = ({ isOpen }) => {
             <use href={`${sprite}#icon-x`} />
           </Svg>
         </CloseButton>
-
-        <UserMenu></UserMenu>
-
-        <span>Logout</span>
-        <Svg>
-          <use href={`${sprite}#icon-x`} />
-        </Svg>
-        <Img src={images} alt="Images"></Img>
+        <NavMenu>
+          <NavMenuLink to="/diary" onClick={closeMenu}>
+            Diary
+          </NavMenuLink>
+          <NavMenuLink to="/products" onClick={closeMenu}>
+            Products
+          </NavMenuLink>
+          <NavMenuLink to="/exercises" onClick={closeMenu}>
+            Exercises
+          </NavMenuLink>
+        </NavMenu>
+        <Logout to="/" onClick={closeMenu}>
+          <span>Logout</span>
+          <LogoutSvg>
+            <use href={`${sprite}#icon-log-out-white`} />
+          </LogoutSvg>
+        </Logout>
       </MenuWrapper>
     </>
   );

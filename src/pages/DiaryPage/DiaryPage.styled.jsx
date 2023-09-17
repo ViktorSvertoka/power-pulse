@@ -6,12 +6,12 @@ const WrapperAll = styled.div`
   padding: 52px 96px 68px;
   background: #040404;
   width: 1440px;
-  margin: 0 auto;
   min-height: 100vh;
 `;
 
 const WrapTitleDate = styled.div`
   display: flex;
+  padding: 0;
 `;
 
 const DiaryTitle = styled.h2`

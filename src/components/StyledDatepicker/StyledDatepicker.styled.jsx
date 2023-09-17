@@ -16,12 +16,18 @@ export const DataBtn = styled.div`
     font-size: 16px;
   }
 `;
+
+export const Wrapper = styled.div`
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(0%, 0%);
+`;
+
 export const CalendarGlobalStyles = createGlobalStyle`
   .react-datepicker__wrapper {
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+  
 
   }
   .react-datepicker {
@@ -32,8 +38,7 @@ export const CalendarGlobalStyles = createGlobalStyle`
     display: flex;
     flex-direction: column;
     align-items: center;
-   width: 215px;
-height: 236px;
+ 
     padding: 9px 18px;
   background-color: #EF8964;
         font-family: 'RobotoRegular';
@@ -42,18 +47,20 @@ height: 236px;
   .react-datepicker__month-container {
     float: inherit;
     box-sizing: border-box;
+    
   }
-  .react-datepicker__header {
-    position: relative;
-    background-color: #EF8964;
-  }
-  .react-datepicker__day-names {
+   .react-datepicker__day-names {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 8px 8px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   }
+  .react-datepicker__header {
+    position: relative;
+    background-color: #EF8964;
+  }
+ 
   .react-datepicker__header:not(.react-datepicker__header--has-time-select) {
     border-bottom: 0px;
     padding: 0;
