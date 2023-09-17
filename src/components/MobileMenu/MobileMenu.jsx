@@ -76,5 +76,3 @@ export const MobileMenu = ({ isOpen }) => {
 MobileMenu.propTypes = {
   isOpen: PropTypes.bool.isRequired,
 };
-
-export default MobileMenu;
