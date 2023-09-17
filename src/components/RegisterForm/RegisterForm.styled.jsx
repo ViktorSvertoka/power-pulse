@@ -1,36 +1,37 @@
 import { Field } from 'formik';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-// import { devices } from '../../constants/breakpoints';
-// import { colors } from 'constants/colors';
 
 export const FormContainer = styled.div`
   box-sizing: border-box;
-  max-width: 500px;
-  /* height: 400px; */
+  width: 500px;
+  padding-left: 100px;
+  padding-top: 150px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  /* margin-left: auto;
-  margin-right: auto; */
-  /* padding: 40px 12px; */
- 
-  /* gap: 26px; */
-  background-color: #040404;
+  align-items: flex-start;
 
-  /* @media screen and (min-width: 375px) {
-    max-width: 480px;
-    margin-left: auto;
-  margin-right: auto;
-  } */
-
-  /* @media screen and (min-width: 768px) {
-    max-width: 608px;
-    padding: 60px 75px;
-    border-radius: 40px;
-    gap: 22px;
+  /* @media screen and (max-width: 374px) {
+    max-width: 100%;
+    /* margin-left: auto;
+    margin-right: auto; 
+    padding-left: 20px;
+    padding-right: 20px;
+  } 
+  @media screen and (min-width: 375px) {
+    max-width: 100%;
+    
+    padding-left: 32px;
+    padding-top: 140px;
   }
+  
+  @media screen and (min-width: 768px) {
+    max-width: 500px;
+    
 
+     
+  }*/
+/*
   @media screen and (min-width: 1440px) {
     gap: 8px;
   } */
@@ -44,28 +45,40 @@ export const Title = styled.h2`
   color: #efede8;
   margin-bottom: 32px;
 
-  /* @media screen and (min-width: 375px) {
-    margin-bottom: 40px;
-    font-size: 36px;
-    letter: 4%;
-    font-weight: 500;
-  }*/
+  @media screen and (min-width: 375px) {
+    font-size: 24px;
+
+    font-weight: 700;
+  }
 `;
+
+export const Text = styled.p`
+  font-size: 13px;
+  line-height: 1.33;
+  letter-spacing: 0.04em;
+  text-align: flex-start;
+  color: rgba(239, 237, 232, 0.3);
+  margin-bottom: 20px;
+`;
+
 export const InputContainer = styled.div`
   box-sizing: border-box;
   max-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+  
 `;
-// export const InputWrap = styled.div`
-//   box-sizing: border-box;
-//   width: 100%;
-//   position: relative;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// `;
+export const InputWrap = styled.div`
+  box-sizing: border-box;
+  max-width: 364px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  /* align-items: center; */
+`;
 
 export const BtnContainer = styled.div`
   box-sizing: border-box;
@@ -81,15 +94,16 @@ export const Input = styled(Field)`
   outline: 1px solid rgba(239, 237, 232, 0.3);
   border: 1px solid rgba(239, 237, 232, 0.3);
   /* border: none; */
+  position: relative;
   border-radius: 12px;
   padding: 14px 14px 14px;
   font-family: inherit;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.04em;
-  color: #efede8;
-  background-color: #040404;
-  margin-bottom: 10px;
+  color: #e8efed;
+  background-color: rgba(4, 4, 4, 0.01);
+  /* margin-bottom: 10px; */
   &:hover {
     border: 1px solid #e6533c;
   }
@@ -115,18 +129,22 @@ export const ErrorWrap = styled.div`
   justify-content: left;
   height: 14px;
   color: rgba(248, 5, 5, 0.973);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
+  padding-top: 5px;
 
-  
+  /* margin-top: 5px; */
 `;
 export const Button = styled.button`
-  max-width: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 199px;
   padding: 16px 60px;
-  margin-top:64px;
+  margin-top: 64px;
   margin-bottom: 12px;
 
-  color: var('--white-color');
+  color: #ffff;
   background-color: #ef8964;
   border-radius: 16px;
   border: none;
@@ -143,90 +161,103 @@ export const Button = styled.button`
   }
 `;
 
-export const Text = styled.p`
-  font-size: 16px;
+export const StyledLink = styled(Link)`
+  font-size: 12px;
   line-height: 1.33;
   letter-spacing: 0.04em;
-  text-align: flex-start;
-  color: rgba(239, 237, 232, 0.3);
+  text-decoration: underline;
+  display: inline-block;
+  color: #ffff;
+`;
+////////////////////////////////////////////////////////////////////////////
+export const IconBtn = styled.button`
+  width: 44px;
+  height: 53px;
+  position: absolute;
+  right: 7px;
+  padding: 10px 0;
+  background-color: inherit;
+  border: none;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  cursor: pointer;
+`;
+export const Svg = styled.svg`
+  width: 30px;
+  height: 30px;
+
+  stroke: #efede8;
 `;
 
-// export const StyledLink = styled(Link)`
-//   font-size: 12px;
-//   line-height: 1.33;
-//   letter-spacing: 0.04em;
-//   text-decoration: underline;
-//   display: inline-block;
-//   color: #ffff;
-// `;
-// export const IconBtn = styled.button`
-//   width: 40px;
-//   height: 48px;
-//   position: absolute;
-//   right: 12px;
-//   padding: 12px 0;
-//   background-color: #fff;
-//   border: none;
-//   border-top-right-radius: 40px;
-//   border-bottom-right-radius: 40px;
-//   cursor: pointer;
-// `;
+export const SvgLayc = styled.svg`
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  stroke: #3cbf61;
+`;
 
-// export const CrossIcon = styled.button`
-//   width: 24px;
-//   height: 24px;
-//   position: absolute;
-//   right: 18px;
-//   padding: 12px 0;
-//   background-color: #fff;
-//   border: none;
-//   border-top-right-radius: 40px;
-//   border-bottom-right-radius: 40px;
-//   cursor: pointer;
-// `;
-// export const ConfirmIcon = styled.button`
-//   width: 24px;
-//   height: 24px;
-//   position: absolute;
-//   right: 18px;
-//   padding: 12px 0;
-//   background-color: #fff;
-//   border: none;
-//   border-top-right-radius: 40px;
-//   border-bottom-right-radius: 40px;
-// `;
+export const SvgEror = styled.svg`
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  /* display: inline-block; */
+  vertical-align: middle;
+`;
+export const CrossIcon = styled.button`
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 18px;
+  padding: 12px 0;
+  background-color: #fff;
+  border: none;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  cursor: pointer;
+`;
+export const ConfirmIcon = styled.button`
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 18px;
+  padding: 12px 5px;
+  background-color: #fff;
+  border: none;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+`;
 
-// export const ConfirmMessage = styled.div`
-//   display: flex;
-//   width: 100%;
-//   align-items: center;
-//   justify-content: left;
-//   height: 14px;
-//   font-size: 12px;
-//   color: rgba(26, 218, 9, 0.801);
-//   padding-left: 12px;
-//   font-size: 12px;
-//   font-weight: 400;
-//   /* @media screen and (${devices.tablet}) {
-//     height: 32px;
-//   } */
-// `;
-
-// export const PasswordComnfirIcon = styled.button`
-//   width: 24px;
-//   height: 24px;
-//   position: absolute;
-//   right: 60px;
-//   padding: 12px 0;
-//   background-color: #ffff;
-//   border: none;
-// `;
-// export const PasswordCrossIcon = styled.button`
-//   width: 24px;
-//   height: 24px;
-//   position: absolute;
-//   right: 60px;
-//   padding: 12px 0;
-//   background-color: #ffff;
-//   border: none;
-// `;
+export const ConfirmMessage = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: left;
+  height: 14px;
+  font-size: 12px;
+  color: rgba(26, 218, 9, 0.801);
+  padding-left: 12px;
+  font-size: 12px;
+  font-weight: 400;
+  padding-top: 10px;
+`;
+/* @media screen and (${devices.tablet}) {
+    height: 32px;
+  } */
+export const PasswordComnfirIcon = styled.button`
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 60px;
+  padding: 12px 0;
+  background-color: #ffff;
+  border: none;
+`;
+export const PasswordCrossIcon = styled.button`
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 60px;
+  padding: 12px 0;
+  background-color: #ffff;
+  border: none;
+`;
