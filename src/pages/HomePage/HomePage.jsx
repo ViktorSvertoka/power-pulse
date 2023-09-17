@@ -13,6 +13,12 @@ import {
   IconPlayContainer,
   TutorialTitle,
   TextTutorial,
+  Calories,
+  SvgRunMan,
+  IconRunManContainer,
+  TitleRunMan,
+  SpanRunMan,
+  SvgLine,
 } from './HomePage.styled';
 import sprite from '../../images/sprite.svg';
 
@@ -21,6 +27,9 @@ const HomePage = () => {
     <Container>
       <HomeSection>
         <TitleContainer>
+          <SvgLine>
+            <use href={`${sprite}#icon-line`}></use>
+          </SvgLine>
           <HomeTitle>Transforming your body shape with Power Pulse</HomeTitle>
           <BtnHomeContainer>
             <HomePageLink to="/signup">Sign Up</HomePageLink>
@@ -29,6 +38,9 @@ const HomePage = () => {
         </TitleContainer>
         <HomePhoto>
           <TitleContainerTablet>
+            <SvgLine>
+              <use href={`${sprite}#icon-line`}></use>
+            </SvgLine>
             <HomeTitle>Transforming your body shape with Power Pulse</HomeTitle>
             <BtnHomeContainer>
               <HomePageLink to="/signup">Sign Up</HomePageLink>
@@ -46,14 +58,16 @@ const HomePage = () => {
                 350+ <TextTutorial>tutorial</TextTutorial>
               </TutorialTitle>
             </Tutorial>
-            <div>
-              <svg width={20} height={20}>
-                <use href="/"></use>
-              </svg>
-              <h3>
-                500 <span>cal</span>
-              </h3>
-            </div>
+            <Calories>
+              <IconRunManContainer>
+                <SvgRunMan>
+                  <use href={`${sprite}#icon-running-stick-figure`}></use>
+                </SvgRunMan>
+              </IconRunManContainer>
+              <TitleRunMan>
+                500 <SpanRunMan>cal</SpanRunMan>
+              </TitleRunMan>
+            </Calories>
           </CuteSquaresContainer>
         </HomePhoto>
       </HomeSection>

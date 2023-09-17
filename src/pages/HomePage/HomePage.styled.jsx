@@ -1,13 +1,13 @@
-import styled from 'styled-components';
-import sprite from '../../images/sprite.svg';
 import { NavLink } from 'react-router-dom';
-// import images from '../../images';
+import styled from 'styled-components';
 
 export const HomeSection = styled.section`
-  /* max-width: 1440px;
+  max-width: 1440px;
   display: flex;
   align-items: center;
-  padding-left: 96px; */
+  @media screen and (min-width: 1440px) {
+    padding-left: 96px;
+  }
 `;
 
 export const HomeTitle = styled.h1`
@@ -32,11 +32,28 @@ export const HomeTitle = styled.h1`
   }
 `;
 
+export const SvgLine = styled.svg`
+  position: absolute;
+  top: 120px;
+  left: 11px;
+  width: 98px;
+  height: 35px;
+
+  @media screen and (min-width: 768px) {
+    top: 160px;
+    left: 12px;
+    width: 185px;
+    height: 67px;
+  }
+`;
+
 export const TitleContainerTablet = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   max-width: 720px;
   margin-bottom: 230px;
+
   @media screen and (min-width: 1440px) {
     display: none;
   }
@@ -46,6 +63,7 @@ export const TitleContainer = styled.div`
   display: none;
 
   @media screen and (min-width: 1440px) {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 64px;
@@ -95,6 +113,13 @@ export const CuteSquaresContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 70px;
+
+  @media screen and (min-width: 768px) {
+    gap: 56px;
+  }
+  @media screen and (min-width: 1440px) {
+    gap: 39px;
+  }
 `;
 
 export const Tutorial = styled.div`
@@ -105,9 +130,22 @@ export const Tutorial = styled.div`
   padding: 14px 18px;
   width: 146px;
   height: 66px;
+  margin-left: 121px;
+  margin-right: 108px;
 
   border-radius: 12px;
   background: #303030;
+
+  @media screen and (min-width: 768px) {
+    width: 206px;
+    height: 96px;
+    margin-left: 331px;
+    margin-right: 231px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-top: 536px;
+    margin-left: 0;
+  }
 `;
 export const Svg = styled.svg`
   display: block;
@@ -159,6 +197,89 @@ export const TextTutorial = styled.p`
   }
 `;
 
+export const Calories = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+  margin-left: auto;
+  margin-right: 20px;
+
+  width: 119px;
+  height: 76px;
+
+  border-radius: 12px;
+  background: var(--orange-light-color);
+
+  @media screen and (min-width: 768px) {
+    width: 180px;
+    height: 110px;
+    gap: 12px;
+
+    margin-right: 32px;
+  }
+`;
+
+export const SvgRunMan = styled.svg`
+  display: block;
+  width: 12px;
+  height: 12px;
+
+  @media screen and (min-width: 768px) {
+    width: 16px;
+    height: 16px;
+  }
+`;
+
+export const IconRunManContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: auto;
+  margin-left: 18px;
+
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  padding: 4px;
+  background-color: var(--beige-color);
+
+  @media screen and (min-width: 768px) {
+    margin-left: 28px;
+    width: 24px;
+    height: 24px;
+  }
+`;
+
+export const TitleRunMan = styled.h3`
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1; /* 100% */
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  color: var(--white-color);
+
+  @media screen and (min-width: 768px) {
+    font-size: 48px;
+    line-height: 1.04;
+  }
+`;
+
+export const SpanRunMan = styled.span`
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.33;
+  text-transform: lowercase;
+  color: var(--white-color);
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+`;
+
 export const HomePhoto = styled.div`
   background-image: url('../../../src/images/hero-mobile-1x.jpg');
 
@@ -199,8 +320,8 @@ export const HomePhoto = styled.div`
       (min-resolution: 2dppx) {
       background-image: url('../../../src/images/hero-2x.jpg');
     }
-    width: 670px;
+    width: 100%;
     height: 1005px;
-    /* margin-top: -82px; */
+    margin-top: -82px;
   }
 `;
