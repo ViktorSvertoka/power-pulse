@@ -7,7 +7,7 @@ import sprite from '../../images/sprite.svg';
 
 import {
   Button,
-  BtnContainer,
+ 
   ErrorWrap,
   FormContainer,
   Input,
@@ -15,22 +15,17 @@ import {
   InputWrap,
   Title,
   IconBtn,
-  CrossIcon,
-  ConfirmIcon,
+ 
   StyledLink,
   ConfirmMessage,
-  PasswordComnfirIcon,
-  PasswordCrossIcon,
+  
   Svg,
   SvgLayc,
   SvgEror,
-  // InputContainer,
-  // Title,
-  // Input,
-  // FormContainer,
-  // Button,
+  
+  
   Text,
-  // BtnContainer,
+  
 } from './RegisterForm.styled';
 
 
@@ -190,6 +185,7 @@ const RegisterForm = () => {
                 <label htmlFor="password" hidden>
                   Password
                 </label>
+                
                 <Input
                   id="password"
                   type={passwordVisible ? 'text' : 'password'}
@@ -198,7 +194,8 @@ const RegisterForm = () => {
                   className={`${'defoult'}
                     ${touched.password && !errors.password && 'success'}
                     ${touched.password && errors.password && 'error'}`}
-                />
+                  />
+                
                 {touched.password && isFieldValid(errors, 'password')}
                 {/* {touched.password && hasFieldError(errors, 'password')} */}
                 {passwordVisible ? (
@@ -220,7 +217,6 @@ const RegisterForm = () => {
                     </Svg>
                   </IconBtn>
                 )}
-
                 {touched.password && !errors.password ? (
                   <ConfirmMessage>
                     <SvgLayc>
