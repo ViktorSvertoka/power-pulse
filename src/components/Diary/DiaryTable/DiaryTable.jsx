@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Heading,
   RecommendCell,
@@ -44,14 +43,30 @@ const DiaryTable = () => {
               }
               if (cellIndex === 5) {
                 return (
-                  <Td key={cellIndex} style={{ border: 'none' }}>
+                  <Td
+                    key={cellIndex}
+                    style={{
+                      border: 'none',
+                      textOverflow: 'none',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
                     <Svg>
                       <use href={`${sprite}#icon-trash`} />
                     </Svg>
                   </Td>
                 );
               }
-              return <Td key={cellIndex}>Произвольный текст</Td>;
+              return (
+                <Td
+                  key={cellIndex}
+                  style={{
+                    textOverflow: 'ellipsis',
+                  }}
+                >
+                  Произвольный текст
+                </Td>
+              );
             })}
           </Tr>
         ))}

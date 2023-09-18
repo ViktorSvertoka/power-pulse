@@ -26,15 +26,14 @@ const Tr = styled.tr`
 
 const Td = styled.td`
   height: 40px;
-  display: flex;
   align-items: center;
   border-radius: 12px;
-  padding: 8px 14px; /* Изменено для соответствия требованиям */
+  padding: 8px 14px;
   border: 1px solid rgba(239, 237, 232, 0.3);
   color: #efede8;
-  white-space: nowrap; /* Запрет переноса текста на новую строку */
-  overflow: hidden; /* Скрытие избыточного текста */
-  text-overflow: ellipsis; /* Добавление многоточия в конце строки */
+  white-space: nowrap;
+
+  overflow: hidden;
   font-family: 'RobotoRegular';
   font-size: 14px;
   font-weight: 400;
@@ -65,7 +64,7 @@ const RecommendWrap = styled.div`
 const RecommendCell = styled.span`
   width: 14px;
   height: 14px;
-  border-radius: 10px;
+  border-radius: 7px;
   background: #419b09;
 `;
 
