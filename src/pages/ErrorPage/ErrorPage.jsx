@@ -1,4 +1,3 @@
-// ErrorPage.js
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -7,9 +6,13 @@ import {
   Content,
   Title404,
   Text404,
-  Button,
-  StyledLink, // Import StyledLink from your styled components file
+  Svg,
+  StyledLink, 
 } from './ErrorPage.styled';
+import  Button  from '../../components/HomeBtn/HomeBtn';
+
+import sprite from '../../images/sprite.svg';
+
 
 const ErrorPage = () => {
   const navigate = useNavigate();
@@ -21,9 +24,9 @@ const ErrorPage = () => {
   return (
     <Section>
       <StyledLink to="/">
-        <svg width={152} height={17}>
-          <use href="../../../src/images/sprite.svg#icon-logo"></use>
-        </svg>
+         <Svg>
+          <use href={`${sprite}#icon-logo-white`} />
+        </Svg>
       </StyledLink>
       <Left>
         <Content>
@@ -34,9 +37,12 @@ const ErrorPage = () => {
             space. Perhaps this page went on vacation or decided to disappear
             into another dimension. We apologize for this inconvenience.
           </Text404>
-          <Button type="button" onClick={handleClick}>
-            Go Home
-          </Button>
+             <Button
+            className="Button"
+            text="Go Home"
+            type="button"
+            onClick={handleClick}
+          />
         </Content>
       </Left>
     </Section>
