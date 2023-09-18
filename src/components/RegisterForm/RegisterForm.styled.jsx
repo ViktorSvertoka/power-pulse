@@ -4,49 +4,52 @@ import styled from 'styled-components';
 
 export const FormContainer = styled.div`
   box-sizing: border-box;
-  width: 500px;
-  padding-left: 100px;
-  padding-top: 150px;
+  max-width: 500px;
+ 
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 
-  /* @media screen and (max-width: 374px) {
-    max-width: 100%;
-    /* margin-left: auto;
-    margin-right: auto; 
+  @media screen and (max-width: 374px) {
+   
+    padding-top:90px;
     padding-left: 20px;
     padding-right: 20px;
-  } 
+  }
+
   @media screen and (min-width: 375px) {
-    max-width: 100%;
     
-    padding-left: 32px;
-    padding-top: 140px;
+    padding-left: 20px;
+    padding-top: 90px;
+    padding-right:20px;
+    
   }
   
   @media screen and (min-width: 768px) {
     max-width: 500px;
-    
+    padding-left: 32px;
+    padding-top: 140px;
 
      
-  }*/
-/*
+  }
+  
   @media screen and (min-width: 1440px) {
-    gap: 8px;
-  } */
+     padding-left: 100px;
+  padding-top: 150px;
+    
+  } 
 `;
 
 export const Title = styled.h2`
   box-sizing: border-box;
   font-weight: 700;
-  font-size: 32px;
+  font-size: 24px;
   line-height: 1.38;
   color: #efede8;
   margin-bottom: 32px;
 
-  @media screen and (min-width: 375px) {
-    font-size: 24px;
+  @media screen and (min-width: 768px) {
+    font-size: 32px;
 
     font-weight: 700;
   }
@@ -63,21 +66,20 @@ export const Text = styled.p`
 
 export const InputContainer = styled.div`
   box-sizing: border-box;
-  max-width: 100%;
-  display: flex;
+  max-width: 364px;
+  
   flex-direction: column;
   align-items: flex-start;
-
-  
+  position: relative;
 `;
 export const InputWrap = styled.div`
   box-sizing: border-box;
-  max-width: 364px;
-  position: relative;
+  max-width: 100%;
+  
   display: flex;
   flex-direction: column;
   margin-top: 20px;
-  /* align-items: center; */
+ 
 `;
 
 export const BtnContainer = styled.div`
@@ -90,10 +92,10 @@ export const BtnContainer = styled.div`
 
 export const Input = styled(Field)`
   box-sizing: border-box;
-  width: 364px;
+  max-width: 364px;
   outline: 1px solid rgba(239, 237, 232, 0.3);
   border: 1px solid rgba(239, 237, 232, 0.3);
-  /* border: none; */
+  
   position: relative;
   border-radius: 12px;
   padding: 14px 14px 14px;
@@ -103,7 +105,7 @@ export const Input = styled(Field)`
   letter-spacing: 0.04em;
   color: #e8efed;
   background-color: rgba(4, 4, 4, 0.01);
-  /* margin-bottom: 10px; */
+  
   &:hover {
     border: 1px solid #e6533c;
   }
@@ -133,7 +135,7 @@ export const ErrorWrap = styled.div`
   font-weight: 400;
   padding-top: 5px;
 
-  /* margin-top: 5px; */
+  
 `;
 export const Button = styled.button`
   display: flex;
@@ -159,6 +161,11 @@ export const Button = styled.button`
   &:hover {
     background: #e6533c;
   }
+  @media screen and (max-width: 768px) {
+   
+    padding: 16px 40px;
+    margin-top:28px;
+  }
 `;
 
 export const StyledLink = styled(Link)`
@@ -169,9 +176,9 @@ export const StyledLink = styled(Link)`
   display: inline-block;
   color: #ffff;
 `;
-////////////////////////////////////////////////////////////////////////////
+
 export const IconBtn = styled.button`
-  width: 44px;
+  width: 53px;
   height: 53px;
   position: absolute;
   right: 7px;
@@ -181,6 +188,17 @@ export const IconBtn = styled.button`
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
   cursor: pointer;
+
+  @media screen and (max-width: 375px) {
+    width: 53px;
+    height: 1px;
+    right: 2px;
+  }
+  @media screen and (min-width: 375px) {
+    width: 53px;
+    height: 53px;
+    right: 2px;
+  }
 `;
 export const Svg = styled.svg`
   width: 30px;
@@ -200,7 +218,7 @@ export const SvgEror = styled.svg`
   width: 16px;
   height: 16px;
   margin-right: 10px;
-  /* display: inline-block; */
+  
   vertical-align: middle;
 `;
 export const CrossIcon = styled.button`
@@ -240,9 +258,7 @@ export const ConfirmMessage = styled.div`
   font-weight: 400;
   padding-top: 10px;
 `;
-/* @media screen and (${devices.tablet}) {
-    height: 32px;
-  } */
+
 export const PasswordComnfirIcon = styled.button`
   width: 24px;
   height: 24px;

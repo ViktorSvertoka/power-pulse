@@ -10,13 +10,15 @@ export const Container = styled.div`
   background-image: url(${backgroundMob});
   /* background-size: 50% 100%; */
   /* background-position: 50% right; */
+  background-position: right;
   background-repeat: no-repeat;
   background-size: 50% 100%;
   /* @media screen and (min-width: 375px) {
     /* max-width: 100vw;
+    
     max-width: 100vw; */
     /* background-size: 50% 100%; */
-    background-position: right;
+    
    
   /*
   @media screen and (min-width: 768px) {

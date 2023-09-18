@@ -1,5 +1,12 @@
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 	<defs>
+	<symbol id="icon-checkbox-circle-fill" viewBox="0 0 32 32">
+<path fill="#3cbf61" style="fill: var(--color1, #3cbf61)" d="M16 29.333c-7.364 0-13.333-5.969-13.333-13.333s5.969-13.333 13.333-13.333c7.364 0 13.333 5.969 13.333 13.333s-5.969 13.333-13.333 13.333zM14.459 21.98l9.427-9.428-1.885-1.885-7.541 7.543-3.772-3.772-1.885 1.885 5.657 5.657z"></path>
+</symbol>
+
+<symbol id="icon-red" viewBox="0 0 32 32">
+<path fill="#d80027" style="fill: var(--color1, #d80027)" d="M16 29.333c-7.364 0-13.333-5.969-13.333-13.333s5.969-13.333 13.333-13.333c7.364 0 13.333 5.969 13.333 13.333s-5.969 13.333-13.333 13.333zM14.459 21.98l9.427-9.428-1.885-1.885-7.541 7.543-3.772-3.772-1.885 1.885 5.657 5.657z"></path>
+</symbol>
 		<symbol id="icon-bubble" viewBox="0 0 32 32">
 			<path fill="#ef8964" style="fill: var(--color1, #ef8964)" d="M20.793 16.346c3.778 0 6.84-3.062 6.84-6.84s-3.062-6.84-6.84-6.84c-3.778 0-6.84 3.062-6.84 6.84s3.062 6.84 6.84 6.84z">
 			</path>
