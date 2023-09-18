@@ -1,12 +1,18 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import heroMobile1 from '../../images/hero-mobile-1x.jpg';
+import heroMobile2 from '../../images/hero-mobile-2x.jpg';
+import heroTablet1 from '../../images/hero-tablet-1x.jpg';
+import heroTablet2 from '../../images/hero-tablet-2x.jpg';
+import hero1 from '../../images/hero-1x.jpg';
+import hero2 from '../../images/hero-2x.jpg';
 
 export const Section = styled.div`
   position: relative;
-  background-image: url(/src/images/hero-mobile-1x.jpg);
+  background-image: url(${heroMobile1});
   background-image: -webkit-image-set(
-    url(/src/images/hero-mobile-1x.jpg) 1x,
-    url(/src/images/hero-mobile-2x.jpg) 2x
+    url(${heroMobile1}); 1x,
+    url(${heroMobile2}); 2x
   );
   color: #efede8;
   background-repeat: no-repeat;
@@ -24,10 +30,10 @@ export const Section = styled.div`
     width: 768px;
     background-color: rgba(0, 0, 0, 1);
 
-    background-image: url(/src/images/hero-tablet-1x.jpg);
+    background-image: url(${heroTablet1});
     background-image: -webkit-image-set(
-      url(/src/images/hero-tablet-1x.jpg) 1x,
-      url(/src/images/hero-tablet-2x.jpg) 2x
+     url(${heroTablet1}); 1x,
+     url(${heroTablet2}); 2x
     );
     background-position: bottom 0 right 0%;
   }
@@ -36,10 +42,10 @@ export const Section = styled.div`
     width: 1440px;
     height: 800px;
 
-    background-image: url(/src/images/hero-1x.jpg) 771px;
+    background-image: url(${hero1}); 771px;
     background-image: -webkit-image-set(
-      url(/src/images/hero-1x.jpg) 1x,
-      url(/src/images/hero-2x.jpg) 2x
+      url(${hero1}); 1x,
+      url(${hero2}); 2x
     );
   }
 `;
@@ -101,38 +107,23 @@ export const Text404 = styled.p`
   }
 `;
 
-export const Button = styled.button`
-  margin-top: 28px;
-  display: flex;
-  padding: 12px 40px;
-  justify-content: center;
-  align-items: center;
-  text-transform: capitalize;
-  font-family: inherit;
-  background-color: #e6533c;
-  color: white;
-  border-radius: 12px;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: calc(18 / 16);
-  border: 1px solid rgba(239, 237, 232, 0.3);
-  transition: background 0.3s ease-out;
 
-  &:hover {
-    color: white;
-    background: #ef8964;
-  }
+export const StyledLink = styled(Link)`
+  position: absolute;
+  left: 32px;
+  top: 32px;
 
-  @media screen and (min-width: 768px) {
-    padding: 16px 60px;
-    font-size: 20px;
-    line-height: 1.2;
+   @media screen and (min-width: 1440px) {
+  left: 96px;
   }
 `;
 
-export const StyledLink = styled(Link)`
-  background: none;
-  position: absolute;
-  left: 20px;
-  top: 24px;
+export const Svg = styled.svg`
+  width: 126px;
+  height: 13px;
+
+  @media screen and (min-width: 768px) {
+    width: 152px;
+    height: 17px;
+  }
 `;
