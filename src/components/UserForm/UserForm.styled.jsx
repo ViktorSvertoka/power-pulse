@@ -1,28 +1,5 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  margin-left: 20px;
-  margin-right: 20px;
-`;
-
-export const Title = styled.h2`
-  color: #efede8;
-  font-family: RobotoBold;
-  font-size: 24px;
-  line-height: 28px;
-  margin-top: 40px;
-`;
-
-export const Avatar = styled.div`
-  width: 90px;
-  height: 90px;
-  border-radius: 100px;
-  border: 1px solid #e6533c;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
 export const Input = styled.input`
   width: 335px;
   padding: 14px;
