@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 export const FormContainer = styled.div`
   box-sizing: border-box;
-  max-width: 500px;
+  max-width: 335px;
  
   display: flex;
   flex-direction: column;
@@ -94,8 +94,8 @@ export const Input = styled(Field)`
   box-sizing: border-box;
   max-width: 364px;
   outline: 1px solid rgba(239, 237, 232, 0.3);
-  border: 1px solid rgba(239, 237, 232, 0.3);
-  
+  /*border: 1px solid rgba(239, 237, 232, 0.3);*/
+  border: none;
   position: relative;
   border-radius: 12px;
   padding: 14px 14px 14px;
@@ -105,18 +105,18 @@ export const Input = styled(Field)`
   letter-spacing: 0.04em;
   color: #e8efed;
   background-color: rgba(4, 4, 4, 0.01);
-  
+
   &:hover {
-    border: 1px solid #e6533c;
+    outline: 1px solid #e6533c;
   }
   &:focus {
-    border: 1px solid #e6533c;
+    outline: 1px solid #e6533c;
   }
   &.default {
     outline: 1px solid rgba(239, 237, 232, 0.3);
   }
   &.success {
-    outline: 1px solid rgba(26, 218, 9, 0.801);
+    outline: 1px solid #3cbf61;
   }
   &.error {
     outline: 1px solid rgba(248, 5, 5, 0.973);
@@ -252,7 +252,7 @@ export const ConfirmMessage = styled.div`
   justify-content: left;
   height: 14px;
   font-size: 12px;
-  color: rgba(26, 218, 9, 0.801);
+  color: #3cbf61;
   padding-left: 12px;
   font-size: 12px;
   font-weight: 400;
