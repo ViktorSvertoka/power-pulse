@@ -10,7 +10,7 @@ import SignInPage from './pages/SignInPage/SignInPage';
 import DiaryPage from './pages/DiaryPage/DiaryPage';
 import ProductsPage from './pages/ProductsPage/ProductsPage';
 import ExercisesPage from './pages/ExercisesPage/ExercisesPage';
-import ProfilePage from './pages/ProfilePage/ProfilePage';
+import UserPage from './pages/UserPage/UserPage';
 import HomePage from './pages/HomePage/HomePage';
 import SignUpAccessPage from './pages/SignUpAccessPage/SignUpAccessPage';
 import SignUpBloodPage from './pages/SignUpBloodPage/SignUpBloodPage';
@@ -33,7 +33,7 @@ function App() {
         <Route path="diary" element={<DiaryPage />} />
         <Route path="products" element={<ProductsPage />} />
         <Route path="exercises" element={<ExercisesPage />} />
-        <Route path="profile" element={<ProfilePage />} />
+        <Route path="profile" element={<UserPage />} />
 
         <Route path="*" element={<ErrorPage />} />
       </Route>
