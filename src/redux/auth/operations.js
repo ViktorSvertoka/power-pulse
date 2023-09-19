@@ -3,18 +3,16 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://power-pulse-back-end.onrender.com';
 
-// Utility to add JWT
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-// Utility to remove JWT
 const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = '';
 };
 
 /*
- * POST @ /users/signup
+ * POST @ /api/auth/register
  * body: { name, email, password }
  */
 export const register = createAsyncThunk(
@@ -83,7 +81,7 @@ export const refreshUser = createAsyncThunk(
     try {
       // If there is a token, add it to the HTTP header and perform the request
       setAuthHeader(persistedToken);
-      const res = await axios.get('/users/current');
+      const res = await axios.get('/api/auth/current');
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

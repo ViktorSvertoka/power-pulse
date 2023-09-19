@@ -32,8 +32,8 @@ import {
   Text,
   // BtnContainer,
 } from './RegisterForm.styled';
-
-
+import { useDispatch } from 'react-redux';
+import { register } from '../../redux/auth/operations';
 
 const registrationValidationSchema = Yup.object().shape({
   name: Yup.string()
@@ -46,9 +46,6 @@ const registrationValidationSchema = Yup.object().shape({
     .max(16, 'Password must be no more than 16 characters')
     .matches(/^(?=.*[a-z])/, 'Please create a stronger password')
     .required('Required'),
-  confirmPassword: Yup.string()
-    .oneOf([Yup.ref('password'), null], 'Passwords must match')
-    .required('Required'),
 });
 
 const initialValues = {
@@ -58,7 +55,9 @@ const initialValues = {
 };
 
 const RegisterForm = () => {
-  const dispatch = data => console.log('Dispatched data:', data);
+  const dispatch = useDispatch();
+
+  // const dispatch = data => console.log('Dispatched data:', data);
   // useDispatch();
 
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -77,15 +76,16 @@ const RegisterForm = () => {
   // };
 
   const handleSubmit = ({ name, email, password }, { resetForm }) => {
-    const dispatch = data => console.log('Dispatched data:', data);
-    dispatch({
-      name,
-      email,
-      password,
-    });
+    dispatch(
+      register({
+        name,
+        email,
+        password,
+      }),
+    );
     resetForm();
   };
- 
+
   // registerUser
 
   const hasFieldError = (errors, fieldName) => errors[fieldName];
