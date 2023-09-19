@@ -1,4 +1,5 @@
 import { Container } from '../../styles/container';
+import images from '../../images/0-default.jpg';
 import {
   ExercisesTitle,
   ExercisesItem,
@@ -22,35 +23,36 @@ const ExercisesPage = () => {
       </Wrap>
       <ImageList>
         <ImageItem>
-          <Image src="/src/images/0-default.jpg" alt="image" />
+          <Image src={images} alt="image" />
         </ImageItem>
-        <ImageItem>
-          <Image src="/src/images/0-default.jpg" alt="image" />
+         <ImageItem>
+          <Image src={images} alt="image" />
         </ImageItem>
-        <ImageItem>
-          <Image src="/src/images/0-default.jpg" alt="image" />
+         <ImageItem>
+          <Image src={images} alt="image" />
         </ImageItem>
-        <ImageItem>
-          <Image src="/src/images/0-default.jpg" alt="image" />
+         <ImageItem>
+          <Image src={images} alt="image" />
         </ImageItem>
-        <ImageItem>
-          <Image src="/src/images/0-default.jpg" alt="image" />
+         <ImageItem>
+          <Image src={images} alt="image" />
         </ImageItem>
-        <ImageItem>
-          <Image src="/src/images/0-default.jpg" alt="image" />
+         <ImageItem>
+          <Image src={images} alt="image" />
         </ImageItem>
-        <ImageItem>
-          <Image src="/src/images/0-default.jpg" alt="image" />
+         <ImageItem>
+          <Image src={images} alt="image" />
         </ImageItem>
-        <ImageItem>
-          <Image src="/src/images/0-default.jpg" alt="image" />
+         <ImageItem>
+          <Image src={images} alt="image" />
         </ImageItem>
-        <ImageItem>
-          <Image src="/src/images/0-default.jpg" alt="image" />
+         <ImageItem>
+          <Image src={images} alt="image" />
         </ImageItem>
-        <ImageItem>
-          <Image src="/src/images/0-default.jpg" alt="image" />
+         <ImageItem>
+          <Image src={images} alt="image" />
         </ImageItem>
+              
       </ImageList>
     </Container>
   );
