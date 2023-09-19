@@ -73,6 +73,10 @@ const DiaryTable = () => {
                     textOverflow: 'ellipsis',
                   }}
 
+
+                  index={cellIndex}
+
+
                   index={cellIndex}
 
                 >
