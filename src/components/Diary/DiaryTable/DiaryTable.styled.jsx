@@ -31,6 +31,7 @@ const Tr = styled.tr`
   gap: 8px;
 `;
 
+
 const Th = styled.th`
   flex: 0 0 auto;
   width: ${props => {
@@ -44,9 +45,18 @@ const Th = styled.th`
   align-items: center;
   gap: 8px;
   color: #ef8964;
+
+
+  font-family: 'RobotoRegular';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+
   font-family: 'RobotoRegular';
   font-size: 12px;
   line-height: 1.5;
+
 `;
 
 const Td = styled.td`

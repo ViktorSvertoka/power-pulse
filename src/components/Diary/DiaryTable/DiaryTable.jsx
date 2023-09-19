@@ -51,6 +51,7 @@ const DiaryTable = () => {
                       border: 'none',
                       textOverflow: 'none',
                       whiteSpace: 'nowrap',
+
                       padding: '0',
                       display: 'flex',
                       alignItems: 'center',
@@ -58,18 +59,26 @@ const DiaryTable = () => {
                     index={cellIndex}
                   >
                     <Svg index={cellIndex}>
+
                       <use href={`${sprite}#icon-trash`} />
                     </Svg>
                   </Td>
                 );
               }
+
               return (
                 <Td
                   key={cellIndex}
                   style={{
                     textOverflow: 'ellipsis',
                   }}
+
+
                   index={cellIndex}
+
+
+                  index={cellIndex}
+
                 >
                   Произвольный текст
                 </Td>
