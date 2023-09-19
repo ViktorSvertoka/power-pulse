@@ -27,7 +27,7 @@ export const StyledLink = styled(NavLink)`
   font-weight: 400;
   line-height: 1.33;
 
-  padding: 10px 27px;
+  padding: 32px 27px;
   color: var(--white-color);
 
   border: 1px solid var(--normal-color);
@@ -82,11 +82,9 @@ export const ProfileIcon = styled.svg`
   width: 24px;
   height: 24px;
 
-
   stroke: var(--normal-color);
 
   stroke: rgba(239, 237, 232, 0.4);
-
 
   @media screen and (min-width: 768px) {
     width: 28px;
