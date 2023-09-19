@@ -1,4 +1,4 @@
-import { Container, Title } from './UserPage.styled';
+import { Container, Title, Wrapper } from './UserPage.styled';
 import DashboardItem from '../../components/DashboardItem/DashboardItem';
 import ExclamationMark from '../../components/ExclamationMark/ExclamationMark';
 import UserForm from '../../components/UserForm/UserForm';
@@ -10,18 +10,10 @@ const UserPage = () => {
     <Container>
       <Title>Profile Settings</Title>
       <UserProfile />
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: '14px',
-          marginTop: '40px',
-        }}
-      >
+      <Wrapper>
         <DashboardItem color="var(--orange-color)" iconId="icon-fork-knife" />
         <DashboardItem color="var(--orange-color)" iconId="icon-dumbbell" />
-      </div>
+      </Wrapper>
       <ExclamationMark />
       <Logout />
       <UserForm />
