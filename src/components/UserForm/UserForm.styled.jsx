@@ -1,5 +1,15 @@
 import styled from 'styled-components';
 
+export const FormContainer = styled.div`
+  margin-top: 20px;
+`;
+
+export const SectionTitle = styled.p`
+  color: var(--normal-color);
+  margin-bottom: 4px;
+  font-size: 12px;
+`;
+
 export const Input = styled.input`
   width: 335px;
   padding: 14px;
@@ -13,7 +23,14 @@ export const Input = styled.input`
   font-size: 14;
 `;
 
-export const Select = styled.select`
+export const WrapperInputField = styled.div`
+  display: inline-flex;
+  align-items: flex-end;
+  margin-top: 20px;
+  gap: 14px;
+`;
+
+export const InputField = styled.input`
   width: 165px;
   padding: 14px;
   align-items: center;
