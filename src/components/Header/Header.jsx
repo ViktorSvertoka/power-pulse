@@ -5,10 +5,11 @@ import { UserMenu } from '../UserMenu/UserMenu';
 import MobileMenu from '../MobileMenu/MobileMenu';
 import { MobileMenuButton } from '../MobileMenuButton/MobileMenuButton';
 import { useState } from 'react';
+import { useAuth } from '../../hooks/useAuth.js';
 import sprite from '../../images/sprite.svg';
 
 export const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { isLoggedIn } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const onClickMenuBtn = () => {
     setIsOpen({ isOpen: !isOpen });
