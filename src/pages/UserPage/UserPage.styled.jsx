@@ -12,3 +12,11 @@ export const Title = styled.h2`
   line-height: 28px;
   margin-top: 40px;
 `;
+
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin-top: 40px;
+`;

@@ -1,3 +1,4 @@
+import sprite from '../../images/sprite.svg';
 import { Wrappper, WrapperMark, Text } from './ExclamationMark.styled';
 
 const ExclamationMark = () => {
@@ -5,7 +6,7 @@ const ExclamationMark = () => {
     <Wrappper>
       <WrapperMark>
         <svg width="24" height="24">
-          <use href="./src/images/sprite.svg#icon-attention"></use>
+          <use href={`${sprite}#icon-attention`}></use>
         </svg>
       </WrapperMark>
       <Text>

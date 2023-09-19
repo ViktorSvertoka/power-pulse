@@ -27,9 +27,14 @@ export const ButtonClouse = styled.button`
   position: absolute;
   top: 14px;
   right: 14px;
+  @media screen and (min-width: 768px) {
+  
+    width: 26px;
+    height: 26px;
+  }
 `;
 
-export const SvgClouse = styled.button`
+export const SvgClouse = styled.svg`
   width: 20px;
   height: 20px;
 
