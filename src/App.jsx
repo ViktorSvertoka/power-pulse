@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import SharedLayout from './components/SharedLayout/SharedLayout';
 // import FirstPage from './pages/FirstPage/FirstPage';
 // import SecondPage from './pages/SecondPage/SecondPage';
@@ -18,11 +18,12 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { refreshUser } from './redux/auth/operations';
 import { useAuth } from './hooks/useAuth';
-import { RestrictedRoute } from './components/RestrictedRoute/RestrictedRoute';
+// import { RestrictedRoute } from './components/RestrictedRoute/RestrictedRoute';
 
 const test = import.meta.env.VITE_API_TEST;
 
 function App() {
+  const { isLoggedIn } = useAuth();
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
 
@@ -35,16 +36,21 @@ function App() {
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<HomePage />} />
-          <Route path="signup" element={<SignUpPage />} />
+          <Route
+            path="signup"
+            element={
+              isLoggedIn ? <Navigate to="/params" replace /> : <SignUpPage />
+            }
+          />
           <Route path="params">
-            <Route path="body" element={<SignUpBodyPage />} />
+            <Route index element={<SignUpBodyPage />} />
             <Route path="blood" element={<SignUpBloodPage />} />
             <Route path="access" element={<SignUpAccessPage />} />
           </Route>
           <Route
             path="signin"
             element={
-              <RestrictedRoute component={<SignInPage />} redirectTo="/diary" />
+              isLoggedIn ? <Navigate to="/diary" replace /> : <SignInPage />
             }
           />
           <Route path="diary" element={<DiaryPage />} />
