@@ -18,6 +18,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { refreshUser } from './redux/auth/operations';
 import { useAuth } from './hooks/useAuth';
+import { RestrictedRoute } from './components/RestrictedRoute/RestrictedRoute';
 
 const test = import.meta.env.VITE_API_TEST;
 
@@ -40,7 +41,12 @@ function App() {
             <Route path="blood" element={<SignUpBloodPage />} />
             <Route path="access" element={<SignUpAccessPage />} />
           </Route>
-          <Route path="signin" element={<SignInPage />} />
+          <Route
+            path="signin"
+            element={
+              <RestrictedRoute component={<SignInPage />} redirectTo="/diary" />
+            }
+          />
           <Route path="diary" element={<DiaryPage />} />
           <Route path="products" element={<ProductsPage />} />
           <Route path="exercises" element={<ExercisesPage />} />
