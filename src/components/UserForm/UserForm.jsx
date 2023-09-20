@@ -1,76 +1,41 @@
-import { Input, Select, Button, Label } from './UserForm.styled';
+import {
+  FormContainer,
+  SectionTitle,
+  Input,
+  WrapperInputField,
+  InputField,
+  Button,
+  Label,
+} from './UserForm.styled';
 
 const UserForm = () => {
   return (
     <>
-      <div style={{ marginTop: 20 }}>
-        <p
-          style={{
-            color: 'var(--normal-color)',
-            marginBottom: 4,
-            fontSize: 12,
-          }}
-        >
-          Basic info
-        </p>
+      <FormContainer>
+        <SectionTitle>Basic info</SectionTitle>
         <Input></Input>
         <Input></Input>
-      </div>
-      <div
-        style={{
-          display: 'inline-flex',
-          alignItems: 'flex-start',
-          marginTop: 20,
-          gap: 14,
-        }}
-      >
+      </FormContainer>
+
+      <WrapperInputField>
         <form action="#">
-          <p
-            style={{
-              color: 'var(--normal-color)',
-              marginBottom: 4,
-              fontSize: 12,
-            }}
-          >
-            Height
-          </p>
-          <Select></Select>
+          <SectionTitle>Height</SectionTitle>
+          <InputField />
         </form>
         <form action="#">
-          <p
-            style={{
-              color: 'var(--normal-color)',
-              marginBottom: 4,
-              fontSize: 12,
-            }}
-          >
-            Current Weight
-          </p>
-          <Select></Select>
+          <SectionTitle>Current Weight</SectionTitle>
+          <InputField />
         </form>
-      </div>
-      <div
-        style={{
-          display: 'inline-flex',
-          alignItems: 'flex-end',
-          marginTop: 20,
-          gap: 14,
-        }}
-      >
+      </WrapperInputField>
+
+      <WrapperInputField>
         <form action="#">
-          <p
-            style={{
-              color: 'var(--normal-color)',
-              marginBottom: 4,
-              fontSize: 12,
-            }}
-          >
-            Desired Weight
-          </p>
-          <Select></Select>
+          <SectionTitle>Desired Weight</SectionTitle>
+          <InputField />
         </form>
-        <Select></Select>
-      </div>
+        <InputField />
+      </WrapperInputField>
+
       <div
         style={{
           display: 'flex',
