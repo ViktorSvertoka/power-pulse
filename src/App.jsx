@@ -14,30 +14,42 @@ import UserPage from './pages/UserPage/UserPage';
 import HomePage from './pages/HomePage/HomePage';
 import SignUpAccessPage from './pages/SignUpAccessPage/SignUpAccessPage';
 import SignUpBloodPage from './pages/SignUpBloodPage/SignUpBloodPage';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { refreshUser } from './redux/auth/operations';
+import { useAuth } from './hooks/useAuth';
 
 const test = import.meta.env.VITE_API_TEST;
 
 function App() {
-  console.log(test);
-  return (
-    <Routes>
-      <Route path="/" element={<SharedLayout />}>
-        <Route index element={<HomePage />} />
-        <Route path="signup" element={<SignUpPage />} />
-        <Route path="params">
-          <Route path="body" element={<SignUpBodyPage />} />
-          <Route path="blood" element={<SignUpBloodPage />} />
-          <Route path="access" element={<SignUpAccessPage />} />
-        </Route>
-        <Route path="signin" element={<SignInPage />} />
-        <Route path="diary" element={<DiaryPage />} />
-        <Route path="products" element={<ProductsPage />} />
-        <Route path="exercises" element={<ExercisesPage />} />
-        <Route path="profile" element={<UserPage />} />
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
 
-        <Route path="*" element={<ErrorPage />} />
-      </Route>
-    </Routes>
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, []);
+
+  return (
+    !isRefreshing && (
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="signup" element={<SignUpPage />} />
+          <Route path="params">
+            <Route path="body" element={<SignUpBodyPage />} />
+            <Route path="blood" element={<SignUpBloodPage />} />
+            <Route path="access" element={<SignUpAccessPage />} />
+          </Route>
+          <Route path="signin" element={<SignInPage />} />
+          <Route path="diary" element={<DiaryPage />} />
+          <Route path="products" element={<ProductsPage />} />
+          <Route path="exercises" element={<ExercisesPage />} />
+          <Route path="profile" element={<UserPage />} />
+
+          <Route path="*" element={<ErrorPage />} />
+        </Route>
+      </Routes>
+    )
   );
 }
 export default App;

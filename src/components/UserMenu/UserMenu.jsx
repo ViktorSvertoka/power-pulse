@@ -10,8 +10,13 @@ import {
   UserContainer,
   UserData,
 } from './UserMenu.styled';
+import { useDispatch } from 'react-redux';
+import { logOut } from '../../redux/auth/operations';
 
 export const UserMenu = () => {
+  const dispatch = useDispatch();
+
+  const handleLogOut = () => dispatch(logOut());
   return (
     <UserContainer>
       <Navigation>
@@ -26,7 +31,7 @@ export const UserMenu = () => {
           </ProfileIcon>
         </NavLink>
         <ImgAvatar src={images} />
-        <LogoutLink to="/">
+        <LogoutLink to="/" onClick={handleLogOut}>
           <span>Logout</span>
           <svg width="20" height="20">
             <use href={`${sprite}#icon-log-out`}></use>
