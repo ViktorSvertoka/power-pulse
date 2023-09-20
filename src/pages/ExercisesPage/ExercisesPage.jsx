@@ -1,14 +1,14 @@
 import { Container } from '../../styles/container';
-import images from '../../images/0-default.jpg';
+
 import {
-  ExercisesTitle,
-  ExercisesItem,
   Wrap,
+  ExercisesTitle,
   ExercisesNavList,
-  ImageList,
-  Image,
-  ImageItem,
+  ExercisesFilter,
 } from './ExercisesPage.styled';
+
+import { WaistList } from '../../components/MainExercises/Waist/WaistList/WaistList';
+import { ExercisesList } from '../../components/MainExercises/Exercises/ExercisesList/ExercisesList';
 
 const ExercisesPage = () => {
   return (
@@ -16,44 +16,14 @@ const ExercisesPage = () => {
       <Wrap>
         <ExercisesTitle>Exercises</ExercisesTitle>
         <ExercisesNavList>
-          <ExercisesItem>Body parts</ExercisesItem>
-          <ExercisesItem>Muscules</ExercisesItem>
-          <ExercisesItem>Equipment</ExercisesItem>
+          <ExercisesFilter>Body parts</ExercisesFilter>
+          <ExercisesFilter>Muscules</ExercisesFilter>
+          <ExercisesFilter>Equipment</ExercisesFilter>
         </ExercisesNavList>
       </Wrap>
-      <ImageList>
-        <ImageItem>
-          <Image src={images} alt="image" />
-        </ImageItem>
-         <ImageItem>
-          <Image src={images} alt="image" />
-        </ImageItem>
-         <ImageItem>
-          <Image src={images} alt="image" />
-        </ImageItem>
-         <ImageItem>
-          <Image src={images} alt="image" />
-        </ImageItem>
-         <ImageItem>
-          <Image src={images} alt="image" />
-        </ImageItem>
-         <ImageItem>
-          <Image src={images} alt="image" />
-        </ImageItem>
-         <ImageItem>
-          <Image src={images} alt="image" />
-        </ImageItem>
-         <ImageItem>
-          <Image src={images} alt="image" />
-        </ImageItem>
-         <ImageItem>
-          <Image src={images} alt="image" />
-        </ImageItem>
-         <ImageItem>
-          <Image src={images} alt="image" />
-        </ImageItem>
-              
-      </ImageList>
+      <WaistList></WaistList>
+
+      <ExercisesList></ExercisesList>
     </Container>
   );
 };

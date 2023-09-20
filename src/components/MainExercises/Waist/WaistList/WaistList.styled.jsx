@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ExercisesLi = styled.li`
+export const WaistListUl = styled.ul`
   @media screen and (min-width: 375px) {
   }
 
