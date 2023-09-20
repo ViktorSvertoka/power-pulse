@@ -4,10 +4,12 @@ import {
   CalenderBtn,
   BtnPrev,
   BtnNext,
+  Svg,
 } from './DaySwitch.styled';
 import Icon from '../../Icon/Icon';
 import StyledDatepicker from '../../StyledDatepicker/StyledDatepicker';
 import { useState, useRef } from 'react';
+import sprite from '../../../images/sprite.svg';
 
 const DaySwitch = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -47,7 +49,9 @@ const DaySwitch = () => {
     <Wrap>
       <CalenderBtn onClick={handleCalenderBtnClick} ref={buttonRef}>
         <DateLabel>{formattedDate}</DateLabel>
-        <Icon symbolId="icon-calendar-orange" width="24" height="24" />
+        <Svg>
+          <use href={`${sprite}#icon-calendar-orange`} />
+        </Svg>
       </CalenderBtn>
 
       <BtnPrev

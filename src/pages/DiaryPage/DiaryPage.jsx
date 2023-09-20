@@ -1,7 +1,12 @@
 import DaySwitch from '../../components/Diary/DaySwitch/DaySwitch';
 import DashboardItemBig from '../../components/DashboardItemBig/DashboardItemBig';
 import DayDashboard from '../../components/Diary/DayDashboard/DayDashboard';
-import { DiaryTitle, WrapperAll, WrapTitleDate } from './DiaryPage.styled';
+import {
+  DiaryTitle,
+  WrapperAll,
+  WrapTitleDate,
+  WrapDashboard,
+} from './DiaryPage.styled';
 import { Container } from '../../styles/container';
 
 const DiaryPage = () => {
@@ -12,10 +17,10 @@ const DiaryPage = () => {
           <DiaryTitle>Diary</DiaryTitle>
           <DaySwitch></DaySwitch>
         </WrapTitleDate>
-        <WrapTitleDate>
+        <WrapDashboard>
           <DashboardItemBig></DashboardItemBig>
           <DayDashboard></DayDashboard>
-        </WrapTitleDate>
+        </WrapDashboard>
       </WrapperAll>
     </Container>
   );

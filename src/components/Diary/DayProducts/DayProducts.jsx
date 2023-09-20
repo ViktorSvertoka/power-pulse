@@ -1,4 +1,3 @@
-import React from 'react';
 import Icon from '../../Icon/Icon';
 import DiaryTable from '../DiaryTable/DiaryTable';
 import {
@@ -7,11 +6,12 @@ import {
   AddBtn,
   DefaultText,
   WrapperTitleBtn,
+  Svg,
 } from './DayProducts.styled';
+import sprite from '../../../images/sprite.svg';
 
 const DayProducts = () => {
-  // Предположим, у вас есть какое-то условие для отображения DiaryTable
-  const condition = true; // Измените на ваше условие
+  const condition = true;
 
   return (
     <Wrapper>
@@ -19,7 +19,9 @@ const DayProducts = () => {
         <Title>Products</Title>
         <AddBtn>
           Add product
-          <Icon symbolId="icon-arrow-right" width="16" height="16" />
+          <Svg>
+            <use href={`${sprite}#icon-arrow-right`} />
+          </Svg>
         </AddBtn>
       </WrapperTitleBtn>
       {condition ? (

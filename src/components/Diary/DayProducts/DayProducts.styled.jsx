@@ -10,6 +10,14 @@ const Wrapper = styled.div`
   border: 1px solid rgba(239, 237, 232, 0.2);
   background: rgba(239, 237, 232, 0.05);
   padding: 16px;
+
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    width: 704px;
+  }
+
+  @media screen and (min-width: 375px) and (max-width: 767px) {
+    width: 342px;
+  }
 `;
 
 const WrapperTitleBtn = styled.div`
@@ -22,9 +30,16 @@ const WrapperTitleBtn = styled.div`
 
 const Title = styled.h3`
   color: rgba(239, 237, 232, 0.5);
-  font-family: 'RobotoMedium';
+  font-family: 'RobotoRegular';
   font-size: 14px;
-  line-height: 18px;
+  line-height: 1.3;
+`;
+
+const Svg = styled.svg`
+  width: 16px;
+  height: 16px;
+  fill: #e6533c;
+  stroke: #e6533c;
 `;
 
 const AddBtn = styled.button`
@@ -52,4 +67,4 @@ const DefaultText = styled.p`
   line-height: 24px;
 `;
 
-export { Wrapper, Title, AddBtn, DefaultText, WrapperTitleBtn };
+export { Wrapper, Title, AddBtn, DefaultText, WrapperTitleBtn, Svg };

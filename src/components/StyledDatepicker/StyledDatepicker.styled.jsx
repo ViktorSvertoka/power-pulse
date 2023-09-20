@@ -22,6 +22,7 @@ export const Wrapper = styled.div`
   left: 50%;
   top: 50%;
   transform: translate(0%, 0%);
+  z-index: 999;
 `;
 
 export const CalendarGlobalStyles = createGlobalStyle`

@@ -1,7 +1,8 @@
 import DashboardItem from '../../DashboardItem/DashboardItem';
 import ExclamationCircle from '../ExclamationCircle/ExclamationCircle';
 import {
-  Grid,
+  Circle,
+  FlexContainer,
   GridItem,
   TextWarning,
   WrapWarning,
@@ -20,18 +21,20 @@ const icons = [
 const DayDashboard = () => {
   return (
     <Wrapper>
-      <Grid>
+      <FlexContainer>
         {icons.map((iconId, index) => {
           const color = index < 2 ? '#E6533C' : 'rgba(239, 237, 232, 0.05)';
           return (
             <GridItem key={index}>
-              <DashboardItem color={color} iconId={iconId} />
+              <DashboardItem color={color} iconId={iconId} icons={icons} />
             </GridItem>
           );
         })}
-      </Grid>
+      </FlexContainer>{' '}
       <WrapWarning>
-        <ExclamationCircle />
+        <Circle>
+          <ExclamationCircle />
+        </Circle>
         <TextWarning>
           Record all your meals in a calorie diary every day. This will help me
           be aware of my nutrition and make me responsible for my choices.

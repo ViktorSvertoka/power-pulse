@@ -3,11 +3,15 @@ import styled from 'styled-components';
 const Table = styled.table`
   display: flex;
   flex-direction: column;
-  max-height: 164px;
+  max-height: 184px;
   max-width: 100%;
   overflow-x: hidden;
-  margin: 16px;
   border-radius: 12px;
+  margin: 16px;
+
+  @media screen and (max-width: 1439px) {
+    margin: 0;
+  }
 `;
 
 const Thead = styled.thead`
@@ -15,6 +19,7 @@ const Thead = styled.thead`
   flex-direction: column;
   width: 100%;
   gap: 8px;
+  padding: 8px 0;
 `;
 
 const Tbody = styled.tbody`
@@ -25,7 +30,6 @@ const Tbody = styled.tbody`
 `;
 
 const Tr = styled.tr`
-  width: 100%;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -34,13 +38,7 @@ const Tr = styled.tr`
 
 const Th = styled.th`
   flex: 0 0 auto;
-  width: ${props => {
-    if (props.index === 0) return '212px';
-    if (props.index === 1) return '166px';
-    if (props.index === 2 || props.index === 3) return '105px';
-    if (props.index === 4) return '110px';
-    return 'auto';
-  }};
+
   display: flex;
   align-items: center;
   gap: 8px;
@@ -57,17 +55,32 @@ const Th = styled.th`
   font-size: 12px;
   line-height: 1.5;
 
+
+  @media screen and (max-width: 1439px) {
+    width: ${props => {
+      if (props.index === 0) return '204px';
+      if (props.index === 1) return '128px';
+      if (props.index === 2 || props.index === 3) return '90px';
+      if (props.index === 4) return '80px';
+      return 'auto';
+    }};
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: ${props => {
+      if (props.index === 0) return '212px';
+      if (props.index === 1) return '166px';
+      if (props.index === 2 || props.index === 3) return '105px';
+      if (props.index === 4) return '110px';
+      return 'auto';
+    }};
+  }
+
 `;
 
 const Td = styled.td`
   flex: 0 0 auto;
-  width: ${props => {
-    if (props.index === 0) return '212px';
-    if (props.index === 1) return '166px';
-    if (props.index === 2 || props.index === 3) return '105px';
-    if (props.index === 4) return '110px';
-    return 'auto';
-  }};
+
   height: ${props => (props.index === 5 ? '40px' : 'auto')};
   align-items: center;
   border-radius: 12px;
@@ -81,6 +94,26 @@ const Td = styled.td`
   font-size: ${props => (props.index === 4 ? '16px' : '14px')};
   font-weight: ${props => (props.index === 4 ? '700' : '400')};
   line-height: 1.5;
+
+  @media screen and (min-width: 1440px) {
+    width: ${props => {
+      if (props.index === 0) return '212px';
+      if (props.index === 1) return '166px';
+      if (props.index === 2 || props.index === 3) return '105px';
+      if (props.index === 4) return '110px';
+      return 'auto';
+    }};
+  }
+
+  @media screen and (max-width: 1439px) {
+    width: ${props => {
+      if (props.index === 0) return '204px';
+      if (props.index === 1) return '128px';
+      if (props.index === 2 || props.index === 3) return '90px';
+      if (props.index === 4) return '80px';
+      return 'auto';
+    }};
+  }
 `;
 
 const Heading = styled.div`
