@@ -3,7 +3,7 @@ import { ProductsListUl } from './ProductsList.styles';
 //import BasicModalWindow from '../../BasicModalWindow/BasicModalWindow';
 // import AddProductForm from "../../AddProductModalWindow/AddProductModalWindow";
 //import { AddProductSuccess } from '../AddProductSuccess/AddProductSuccess';
-import { SearchNotResult } from "../searchNotResult/searchNotResult";
+import { SearchNotResult } from '../SearchNotResult/SearchNotResult';
 
 const listProducts = [
   {
@@ -191,10 +191,14 @@ const listProducts = [
 export const ProductsList = () => {
   return (
     <>
-    {[].length > 0 ? (<ProductsListUl>
-      {listProducts &&
-        listProducts.map(el => <ProductsItem key={el.title} el={el} />)}
-    </ProductsListUl>): (<SearchNotResult/>)}
+      {[].length > 0 ? (
+        <ProductsListUl>
+          {listProducts &&
+            listProducts.map(el => <ProductsItem key={el.title} el={el} />)}
+        </ProductsListUl>
+      ) : (
+        <SearchNotResult />
+      )}
     </>
   );
 };
