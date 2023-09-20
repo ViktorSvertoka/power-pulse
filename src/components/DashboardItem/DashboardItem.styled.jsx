@@ -12,6 +12,12 @@ const Container = styled.div`
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.2);
   background-color: ${({ color }) => color};
+
+  @media screen and (min-width: 375px) and (max-width: 767px) {
+    padding: 8px;
+    width: 157px;
+    height: 96px;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -27,15 +33,19 @@ const Title = styled.h3`
     'liga' off;
   font-family: 'RobotoBold', sans-serif;
   font-size: 12px;
-  line-height: 18px;
+  line-height: 1.5;
 `;
 
 const Value = styled.p`
   color: #efede8;
   font-family: 'RobotoBold';
   font-size: 24px;
-  line-height: 32px;
+  line-height: 1.3;
   margin-top: auto;
+
+  @media screen and (min-width: 375px) and (max-width: 767px) {
+    font-size: 18px;
+  }
 `;
 
 export { Container, Title, Value, Wrapper };

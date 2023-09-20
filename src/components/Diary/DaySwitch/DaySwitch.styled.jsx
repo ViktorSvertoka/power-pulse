@@ -19,6 +19,10 @@ const DateLabel = styled.p`
   line-height: 1.33;
   margin: 0;
   padding: 0;
+
+  @media screen and (min-width: 375px) and (max-width: 767px) {
+    font-size: 18px;
+  }
 `;
 
 const CalenderBtn = styled.button`
@@ -28,6 +32,22 @@ const CalenderBtn = styled.button`
   margin-right: 40px;
   background-color: transparent;
   gap: 8px;
+
+  @media screen and (min-width: 375px) and (max-width: 767px) {
+    margin-right: 20px;
+  }
+`;
+
+export const Svg = styled.svg`
+  width: 24px;
+  height: 24px;
+  fill: #ef8964;
+  stroke: #ef8964;
+
+  @media screen and (min-width: 375px) and (max-width: 767px) {
+    width: 20px;
+    height: 20px;
+  }
 `;
 
 const BtnPrev = styled.button`
