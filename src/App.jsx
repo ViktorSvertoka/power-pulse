@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes, useParams } from 'react-router-dom';
 import SharedLayout from './components/SharedLayout/SharedLayout';
 // import FirstPage from './pages/FirstPage/FirstPage';
 // import SecondPage from './pages/SecondPage/SecondPage';
@@ -24,11 +24,11 @@ import { useAuth } from './hooks/useAuth';
 // } from './components/RestrictedRoute/RestrictedRoute';
 
 const test = import.meta.env.VITE_API_TEST;
-
+console.log(test);
 function App() {
   const dispatch = useDispatch();
   const { isRefreshing, isLoggedIn } = useAuth();
-  const shouldRedirect = !isLoggedIn && !isRefreshing;
+  const shouldRedirect = !isRefreshing && !isLoggedIn;
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -38,7 +38,12 @@ function App() {
     !isRefreshing && (
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-          <Route index element={<HomePage />} />
+          <Route
+            index
+            element={
+              isLoggedIn ? <Navigate to="/diary" replace /> : <HomePage />
+            }
+          />
           <Route
             path="signup"
             element={
@@ -46,8 +51,18 @@ function App() {
             }
           />
           <Route path="params">
-            <Route index element={<SignUpBodyPage />} />
-            <Route path="blood" element={<SignUpBloodPage />} />
+            <Route
+              index
+              element={
+                shouldRedirect ? <Navigate to="/signup" /> : <SignUpBodyPage />
+              }
+            />
+            <Route
+              path="blood"
+              element={
+                shouldRedirect ? <Navigate to="/" /> : <SignUpBloodPage />
+              }
+            />
             <Route path="access" element={<SignUpAccessPage />} />
           </Route>
           <Route
@@ -58,19 +73,19 @@ function App() {
           />
           <Route
             path="diary"
-            element={shouldRedirect ? <Navigate to="/" /> : <DiaryPage />}
+            element={isLoggedIn ? <DiaryPage /> : <Navigate to="/" />}
           />
           <Route
             path="products"
-            element={shouldRedirect ? <Navigate to="/" /> : <ProductsPage />}
+            element={!isLoggedIn ? <Navigate to="/" /> : <ProductsPage />}
           />
           <Route
             path="exercises"
-            element={shouldRedirect ? <Navigate to="/" /> : <ExercisesPage />}
+            element={!isLoggedIn ? <Navigate to="/" /> : <ExercisesPage />}
           />
           <Route
             path="profile"
-            element={shouldRedirect ? <Navigate to="/" /> : <UserPage />}
+            element={!isLoggedIn ? <Navigate to="/" /> : <UserPage />}
           />
 
           <Route path="*" element={<ErrorPage />} />
