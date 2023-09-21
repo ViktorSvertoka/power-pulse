@@ -24,18 +24,22 @@ import {
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operations';
 
+
 // let EMAIL_REGX = `^(([^<>()\[\]\\.,;:\s@"]+(.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/`;
 
 // let emailSchema = Yup.string().matches(EMAIL_REGX, 'Invalid email address');
+
 
 const registrationValidationSchema = Yup.object().shape({
   name: Yup.string()
     .required('Required')
     .min(2, 'Name must be at least 2 characters')
     .max(16, 'Name must be no more than 16 characters'),
+
   email: Yup.string()
     .email('Invalid email address')
     .required('Required'),
+
   password: Yup.string()
     .min(6, 'Password must be at least 6 characters')
     .max(16, 'Password must be no more than 16 characters')

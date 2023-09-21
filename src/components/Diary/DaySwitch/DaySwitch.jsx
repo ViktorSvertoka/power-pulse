@@ -6,7 +6,6 @@ import {
   BtnNext,
   Svg,
 } from './DaySwitch.styled';
-import Icon from '../../Icon/Icon';
 import StyledDatepicker from '../../StyledDatepicker/StyledDatepicker';
 import { useState, useRef } from 'react';
 import sprite from '../../../images/sprite.svg';
@@ -61,7 +60,9 @@ const DaySwitch = () => {
         className="button"
         tabIndex={isDatepickerOpen ? -1 : 0}
       >
-        <Icon symbolId="icon-chevron-left" width="16" height="16" />
+        <Svg>
+          <use href={`${sprite}#icon-chevron-left`} />
+        </Svg>
       </BtnPrev>
 
       <BtnNext
@@ -71,7 +72,9 @@ const DaySwitch = () => {
         className="button"
         tabIndex={isDatepickerOpen ? -1 : 0}
       >
-        <Icon symbolId="icon-chevron-right" width="16" height="16" />
+        <Svg>
+          <use href={`${sprite}#icon-chevron-right`} />
+        </Svg>
       </BtnNext>
 
       {isDatepickerOpen && (

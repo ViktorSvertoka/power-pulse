@@ -6,20 +6,10 @@ const Table = styled.table`
   max-height: 184px;
   max-width: 100%;
   overflow-x: hidden;
-  border-radius: 12px;
-  margin: 16px;
 
   @media screen and (max-width: 1439px) {
     margin: 0;
   }
-`;
-
-const Thead = styled.thead`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: 8px;
-  padding: 8px 0;
 `;
 
 const Tbody = styled.tbody`
@@ -27,60 +17,23 @@ const Tbody = styled.tbody`
   flex-direction: column;
   width: 100%;
   gap: 8px;
+  padding: 16px;
 `;
 
 const Tr = styled.tr`
+  position: relative;
   display: flex;
+  width: 100%;
   align-items: center;
   gap: 8px;
+
+  @media screen and (max-width: 767px) {
+    flex-wrap: wrap;
+  }
 `;
 
-
-const Th = styled.th`
+const Th = styled.td`
   flex: 0 0 auto;
-
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #ef8964;
-
-
-  font-family: 'RobotoRegular';
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 18px;
-
-  font-family: 'RobotoRegular';
-  font-size: 12px;
-  line-height: 1.5;
-
-
-  @media screen and (max-width: 1439px) {
-    width: ${props => {
-      if (props.index === 0) return '204px';
-      if (props.index === 1) return '128px';
-      if (props.index === 2 || props.index === 3) return '90px';
-      if (props.index === 4) return '80px';
-      return 'auto';
-    }};
-  }
-
-  @media screen and (min-width: 1440px) {
-    width: ${props => {
-      if (props.index === 0) return '212px';
-      if (props.index === 1) return '166px';
-      if (props.index === 2 || props.index === 3) return '105px';
-      if (props.index === 4) return '110px';
-      return 'auto';
-    }};
-  }
-
-`;
-
-const Td = styled.td`
-  flex: 0 0 auto;
-
   height: ${props => (props.index === 5 ? '40px' : 'auto')};
   align-items: center;
   border-radius: 12px;
@@ -89,7 +42,6 @@ const Td = styled.td`
     props.index === 5 ? 'none' : '1px solid rgba(239, 237, 232, 0.3)'};
   color: #efede8;
   white-space: nowrap;
-  overflow: hidden;
   font-family: 'RobotoRegular';
   font-size: ${props => (props.index === 4 ? '16px' : '14px')};
   font-weight: ${props => (props.index === 4 ? '700' : '400')};
@@ -114,16 +66,28 @@ const Td = styled.td`
       return 'auto';
     }};
   }
+
+  @media screen and (max-width: 767px) {
+    width: ${props => {
+      if (props.index === 0) return '297px';
+      if (props.index === 1) return '251px';
+      if (props.index === 2 || props.index === 3) return '81px';
+      if (props.index === 4) return '76px';
+      return 'auto';
+    }};
+  }
 `;
 
-const Heading = styled.div`
+const Heading = styled.span`
+  position: relative;
+  top: -30px;
+  left: -12px;
   color: #ef8964;
   font-family: 'RobotoRegular';
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
-  border: none;
 `;
 
 const RecommendWrap = styled.div`
@@ -156,14 +120,12 @@ const Svg = styled.svg`
 
 export {
   Table,
-  Thead,
   Tbody,
   Tr,
   Th,
-  Td,
   Heading,
+  RecommendWrap,
   RecommendCell,
   RecommendText,
-  RecommendWrap,
   Svg,
 };

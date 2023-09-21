@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   RecommendCell,
   RecommendText,
@@ -5,53 +6,45 @@ import {
   Svg,
   Table,
   Tbody,
-  Td,
-  Thead,
   Th,
   Tr,
+  Heading,
 } from './DiaryTable.styled';
-
 import sprite from '../../../images/sprite.svg';
 
+const headings = ['Title', 'Category', 'Calories', 'Weight', 'Recommend', ''];
+
 const DiaryTable = () => {
-  const headings = ['Title', 'Category', 'Calories', 'Weight', 'Recommend', ''];
   const rows = Array(6).fill(null);
   const cells = Array(6).fill(null);
 
   return (
     <Table>
-      <Thead>
-        <Tr>
-          {headings.map((heading, index) => (
-            <Th key={index} index={index}>
-              {heading}
-            </Th>
-          ))}
-        </Tr>
-      </Thead>
       <Tbody>
         {rows.map((row, rowIndex) => (
           <Tr key={rowIndex}>
             {cells.map((cell, cellIndex) => {
               if (cellIndex === 4) {
                 return (
-                  <Td key={cellIndex} index={cellIndex}>
+                  <Th key={cellIndex} index={cellIndex}>
+                    <Heading>{headings[cellIndex]}</Heading>
+
                     <RecommendWrap>
                       <RecommendCell></RecommendCell>
                       <RecommendText>Yes</RecommendText>
                     </RecommendWrap>
-                  </Td>
+                  </Th>
                 );
               }
+
               if (cellIndex === 5) {
                 return (
-                  <Td
+                  <Th
                     key={cellIndex}
                     style={{
                       border: 'none',
                       textOverflow: 'none',
                       whiteSpace: 'nowrap',
-
                       padding: '0',
                       display: 'flex',
                       alignItems: 'center',
@@ -59,29 +52,22 @@ const DiaryTable = () => {
                     index={cellIndex}
                   >
                     <Svg index={cellIndex}>
-
                       <use href={`${sprite}#icon-trash`} />
                     </Svg>
-                  </Td>
+                  </Th>
                 );
               }
 
               return (
-                <Td
+                <Th
                   key={cellIndex}
                   style={{
                     textOverflow: 'ellipsis',
                   }}
-
-
                   index={cellIndex}
-
-
-                  index={cellIndex}
-
                 >
-                  Произвольный текст
-                </Td>
+                  <Heading>{headings[cellIndex]}</Heading>Default text
+                </Th>
               );
             })}
           </Tr>

@@ -37,12 +37,13 @@ const WrapTitleDate = styled.div`
 
 const WrapDashboard = styled.div`
   display: flex;
-  align-items: center;
   justify-content: space-between;
   padding: 0;
   width: 100%;
 
   @media screen and (max-width: 1439px) {
+    align-items: center;
+
     flex-direction: column;
     gap: 82px;
   }

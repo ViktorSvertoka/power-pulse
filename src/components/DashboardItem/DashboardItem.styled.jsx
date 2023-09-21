@@ -26,6 +26,13 @@ const Wrapper = styled.div`
   gap: 8px;
 `;
 
+const Svg = styled.svg`
+  width: 16px;
+  height: 16px;
+  fill: #e6533c;
+  stroke: #e6533c;
+`;
+
 const Title = styled.h3`
   color: rgba(239, 237, 232, 0.8);
   font-feature-settings:
@@ -48,4 +55,4 @@ const Value = styled.p`
   }
 `;
 
-export { Container, Title, Value, Wrapper };
+export { Container, Title, Value, Wrapper, Svg };
