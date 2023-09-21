@@ -1,5 +1,4 @@
-import { Image } from '../../../../pages/ExercisesPage/ExercisesPage.styled';
-import { ExercisesLi } from './ExercisesItem.styled';
+import { ExercisesLi, Image } from './ExercisesItem.styled';
 import images from '../../../../images/0-default.jpg';
 
 export const ExercisesItem = () => {
