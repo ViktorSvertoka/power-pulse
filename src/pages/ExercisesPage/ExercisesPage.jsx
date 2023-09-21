@@ -9,8 +9,13 @@ import {
 
 import { WaistList } from '../../components/MainExercises/Waist/WaistList/WaistList';
 import { ExercisesList } from '../../components/MainExercises/Exercises/ExercisesList/ExercisesList';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { selectAllExercises } from '../../redux/exercises/selectorsExercises';
 
 const ExercisesPage = () => {
+  // const dispatch = useDispatch();
+  // const exercises = useSelector(selectAllExercises);
+  // console.log(exercises);
   return (
     <Container>
       <Wrap>

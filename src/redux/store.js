@@ -11,6 +11,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/slice';
+import { exercisesReducer } from './exercises/sliceExercises';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -29,6 +30,7 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
+    exercises: exercisesReducer,
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',
