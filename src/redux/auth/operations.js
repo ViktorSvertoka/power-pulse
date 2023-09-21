@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 axios.defaults.baseURL = 'https://power-pulse-back-end.onrender.com';
 
@@ -53,7 +53,6 @@ export const logIn = createAsyncThunk(
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     await axios.post('/api/auth/logout');
-    // After a successful logout, remove the token from the HTTP header
     clearAuthHeader();
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);

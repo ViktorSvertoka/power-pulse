@@ -5,32 +5,33 @@ import styled from 'styled-components';
 export const FormContainer = styled.div`
   box-sizing: border-box;
   max-width: 335px;
-
+  height:100%;
+  margin:0px auto;
+  margin-bottom:20px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 
   @media screen and (max-width: 374px) {
     padding-top: 90px;
-    padding-left: 20px;
-    padding-right: 20px;
+    
   }
 
   @media screen and (min-width: 375px) {
-    padding-left: 20px;
-    padding-top: 90px;
-    padding-right: 20px;
+     margin-left: 20px; 
+    
+    
   }
 
   @media screen and (min-width: 768px) {
     max-width: 500px;
-    padding-left: 32px;
-    padding-top: 140px;
+    margin-left: 35px;
+    margin-top: 100px;
   }
 
   @media screen and (min-width: 1440px) {
-    padding-left: 100px;
-    padding-top: 150px;
+    margin-left: 100px;
+    margin-top: 150px;
   }
 `;
 
@@ -40,39 +41,46 @@ export const Title = styled.h2`
   font-size: 24px;
   line-height: 1.38;
   color: #efede8;
-  margin-bottom: 32px;
+  margin-bottom: 10px;
 
   @media screen and (min-width: 768px) {
     font-size: 32px;
-
+    
     font-weight: 700;
   }
 `;
 
 export const Text = styled.p`
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.33;
   letter-spacing: 0.04em;
   text-align: flex-start;
   color: rgba(239, 237, 232, 0.3);
-  margin-bottom: 20px;
+  margin-top: 12px;
 `;
 
 export const InputContainer = styled.div`
   box-sizing: border-box;
-  max-width: 364px;
-
+  width: 335px;
+  
   flex-direction: column;
   align-items: flex-start;
   position: relative;
+  margin-bottom: 40px;
+  @media screen and (min-width: 768px) {
+   width: 365px;
+  }
 `;
 export const InputWrap = styled.div`
   box-sizing: border-box;
-  max-width: 100%;
+  width: 100%;
 
   display: flex;
   flex-direction: column;
   margin-top: 20px;
+  @media screen and (min-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const BtnContainer = styled.div`
@@ -85,9 +93,9 @@ export const BtnContainer = styled.div`
 
 export const Input = styled(Field)`
   box-sizing: border-box;
-  max-width: 364px;
+  width: 100%;
   outline: 1px solid rgba(239, 237, 232, 0.3);
-  /*border: 1px solid rgba(239, 237, 232, 0.3);*/
+ 
   border: none;
   position: relative;
   border-radius: 12px;
@@ -116,9 +124,9 @@ export const Input = styled(Field)`
   }
 `;
 export const ErrorWrap = styled.div`
-  box-sizing: border-box;
+  
   display: flex;
-  width: 100%;
+  /* width: 100%; */
   padding-left: 12px;
   align-items: center;
   justify-content: left;
@@ -129,11 +137,12 @@ export const ErrorWrap = styled.div`
   padding-top: 5px;
 `;
 export const Button = styled.button`
-  display: flex;
+  box-sizing: border-box;
+  /* display: flex; */
   align-items: center;
   justify-content: center;
-  max-width: 199px;
-  padding: 16px 60px;
+  max-width: 196px;
+  padding: 12px 60px;
   margin-top: 64px;
   margin-bottom: 12px;
 
@@ -153,8 +162,9 @@ export const Button = styled.button`
     background: #e6533c;
   }
   @media screen and (max-width: 768px) {
-    padding: 16px 40px;
+    padding: 12px 40px;
     margin-top: 28px;
+    max-width: 190px;
   }
 `;
 
