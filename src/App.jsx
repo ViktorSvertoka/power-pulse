@@ -18,14 +18,17 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { refreshUser } from './redux/auth/operations';
 import { useAuth } from './hooks/useAuth';
-// import { RestrictedRoute } from './components/RestrictedRoute/RestrictedRoute';
+// import {
+//   PrivateRoute,
+//   RestrictedRoute,
+// } from './components/RestrictedRoute/RestrictedRoute';
 
 const test = import.meta.env.VITE_API_TEST;
 
 function App() {
-  const { isLoggedIn } = useAuth();
   const dispatch = useDispatch();
-  const { isRefreshing } = useAuth();
+  const { isRefreshing, isLoggedIn } = useAuth();
+  const shouldRedirect = !isLoggedIn && !isRefreshing;
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -53,10 +56,22 @@ function App() {
               isLoggedIn ? <Navigate to="/diary" replace /> : <SignInPage />
             }
           />
-          <Route path="diary" element={<DiaryPage />} />
-          <Route path="products" element={<ProductsPage />} />
-          <Route path="exercises" element={<ExercisesPage />} />
-          <Route path="profile" element={<UserPage />} />
+          <Route
+            path="diary"
+            element={shouldRedirect ? <Navigate to="/" /> : <DiaryPage />}
+          />
+          <Route
+            path="products"
+            element={shouldRedirect ? <Navigate to="/" /> : <ProductsPage />}
+          />
+          <Route
+            path="exercises"
+            element={shouldRedirect ? <Navigate to="/" /> : <ExercisesPage />}
+          />
+          <Route
+            path="profile"
+            element={shouldRedirect ? <Navigate to="/" /> : <UserPage />}
+          />
 
           <Route path="*" element={<ErrorPage />} />
         </Route>

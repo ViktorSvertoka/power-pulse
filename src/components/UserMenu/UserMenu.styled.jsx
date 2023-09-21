@@ -27,7 +27,7 @@ export const StyledLink = styled(NavLink)`
   font-weight: 400;
   line-height: 1.33;
 
-  padding: 32px 27px;
+  padding: 10px 27px;
   color: var(--white-color);
 
   border: 1px solid var(--normal-color);
@@ -62,16 +62,19 @@ export const UserData = styled.div`
   margin-left: 30px;
 `;
 
-export const LogoutLink = styled(Link)`
+export const LogoutBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
+  padding: 10px;
 
   font-size: 16px;
   font-weight: 400;
   line-height: 1.33;
   color: var(--white-color);
+
+  background-color: var(--black-color);
 
   @media screen and (max-width: 1439px) {
     display: none;

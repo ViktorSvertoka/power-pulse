@@ -3,7 +3,7 @@ import sprite from '../../images/sprite.svg';
 import images from '../../images/0-default.jpg';
 import {
   ImgAvatar,
-  LogoutLink,
+  LogoutBtn,
   Navigation,
   ProfileIcon,
   StyledLink,
@@ -31,12 +31,12 @@ export const UserMenu = () => {
           </ProfileIcon>
         </NavLink>
         <ImgAvatar src={images} />
-        <LogoutLink to="/" onClick={handleLogOut}>
+        <LogoutBtn type="button" onClick={handleLogOut}>
           <span>Logout</span>
           <svg width="20" height="20">
             <use href={`${sprite}#icon-log-out`}></use>
           </svg>
-        </LogoutLink>
+        </LogoutBtn>
       </UserData>
     </UserContainer>
   );
