@@ -1,4 +1,3 @@
-import Icon from '../../Icon/Icon';
 import DiaryTable from '../DiaryTable/DiaryTable';
 import {
   Wrapper,

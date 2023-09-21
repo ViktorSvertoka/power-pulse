@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 
-import { Title, Value, Container, Wrapper } from './DashboardItem.styled';
-import Icon from '../Icon/Icon';
-
+import { Title, Value, Container, Wrapper, Svg } from './DashboardItem.styled';
+import sprite from '../../images/sprite.svg';
 const DashboardItem = ({ color, iconId, icons }) => {
   const title = [
     'Daily calorie intake',
@@ -19,7 +18,9 @@ const DashboardItem = ({ color, iconId, icons }) => {
   return (
     <Container color={color}>
       <Wrapper>
-        <Icon symbolId={iconId} width="20" height="20" />
+        <Svg>
+          <use href={`${sprite}#${iconId}`} />
+        </Svg>
         <Title>{titleText}</Title>
       </Wrapper>
       <Value>2200</Value>

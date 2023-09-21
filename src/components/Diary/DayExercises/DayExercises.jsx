@@ -1,4 +1,5 @@
-import Icon from '../../Icon/Icon';
+import sprite from '../../../images/sprite.svg';
+
 import {
   Wrapper,
   Title,
@@ -6,19 +7,27 @@ import {
   DefaultText,
   WrapperTitleBtn,
 } from '../DayProducts/DayProducts.styled';
+import { Svg } from '../DaySwitch/DaySwitch.styled';
+import DiaryTable from '../DiaryTable/DiaryTable';
 
 const DayExercises = () => {
+  const condition = true;
   return (
     <Wrapper>
       <WrapperTitleBtn>
         <Title>Exercises</Title>
         <AddBtn>
           Add product
-          <Icon symbolId="icon-arrow-right" width="16" height="16" />
+          <Svg>
+            <use href={`${sprite}#icon-arrow-right`} />
+          </Svg>{' '}
         </AddBtn>
       </WrapperTitleBtn>
-
-      <DefaultText>Not found products</DefaultText>
+      {condition ? (
+        <DiaryTable />
+      ) : (
+        <DefaultText>Not found products</DefaultText>
+      )}
     </Wrapper>
   );
 };

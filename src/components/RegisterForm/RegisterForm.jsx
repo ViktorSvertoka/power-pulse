@@ -7,7 +7,6 @@ import sprite from '../../images/sprite.svg';
 
 import {
   Button,
- 
   ErrorWrap,
   FormContainer,
   Input,
@@ -15,27 +14,28 @@ import {
   InputWrap,
   Title,
   IconBtn,
- 
   StyledLink,
   ConfirmMessage,
-  
   Svg,
   SvgLayc,
   SvgEror,
-  
-  
   Text,
-  
 } from './RegisterForm.styled';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operations';
+
+const emailValidation = Yup.string().matches(
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\\$%\\^&\\*])(?=.{8,128})/,
+
+  'Invalid email address',
+);
 
 const registrationValidationSchema = Yup.object().shape({
   name: Yup.string()
     .required('Required')
     .min(2, 'Name must be at least 2 characters')
     .max(16, 'Name must be no more than 16 characters'),
-  email: Yup.string().email('Invalid email address').required('Required'),
+  email: emailValidation.required('Required'),
   password: Yup.string()
     .min(6, 'Password must be at least 6 characters')
     .max(16, 'Password must be no more than 16 characters')
@@ -185,7 +185,7 @@ const RegisterForm = () => {
                 <label htmlFor="password" hidden>
                   Password
                 </label>
-                
+
                 <Input
                   id="password"
                   type={passwordVisible ? 'text' : 'password'}
@@ -194,8 +194,8 @@ const RegisterForm = () => {
                   className={`${'defoult'}
                     ${touched.password && !errors.password && 'success'}
                     ${touched.password && errors.password && 'error'}`}
-                  />
-                
+                />
+
                 {touched.password && isFieldValid(errors, 'password')}
                 {/* {touched.password && hasFieldError(errors, 'password')} */}
                 {passwordVisible ? (
