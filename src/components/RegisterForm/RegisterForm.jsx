@@ -6,6 +6,7 @@ import sprite from '../../images/sprite.svg';
 // import { registerUser } from '../../redux/operations/fetchUser';
 
 import {
+  FormBox,
   Button,
   ErrorWrap,
   FormContainer,
@@ -20,6 +21,7 @@ import {
   SvgLayc,
   SvgEror,
   Text,
+  TextIn,
 } from './RegisterForm.styled';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operations';
@@ -97,15 +99,16 @@ const RegisterForm = () => {
       validationSchema={registrationValidationSchema}
     >
       {({ isSubmitting, errors, touched, values, setFieldValue }) => (
-        <Form autoComplete="off">
+        <FormBox autoComplete="off">
           <FormContainer>
-            <InputContainer>
-              <Title>Sign Up</Title>
+            <Title>Sign Up</Title>
               <Text>
                 Thank you for your interest in our platform. To complete the
                 registration process, please provide us with the following
                 information.
               </Text>
+            <InputContainer>
+              
               <InputWrap>
                 <label htmlFor="name" hidden>
                   Name
@@ -245,13 +248,13 @@ const RegisterForm = () => {
               </InputWrap>
             </InputContainer>
 
-            <Button type="submit">Sign In</Button>
-            <Text>
+            <Button type="submit">Sign Un</Button>
+            <TextIn>
               Already have account?
               <StyledLink to="/signin">Sign In</StyledLink>
-            </Text>
+            </TextIn>
           </FormContainer>
-        </Form>
+        </FormBox>
       )}
     </Formik>
   );
