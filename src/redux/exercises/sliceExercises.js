@@ -5,6 +5,7 @@ import {
   deleteExercise,
   fetchBodyParts,
   fetchEquipment,
+  fetchExercises,
   fetchMuscules,
 } from './operationsExercises';
 
@@ -20,6 +21,7 @@ const handleRejected = (state, action) => {
 const exercisesSlice = createSlice({
   name: 'exercises',
   initialState: {
+    exercises: [],
     bodyParts: [],
     muscules: [],
     equipment: [],
@@ -28,6 +30,12 @@ const exercisesSlice = createSlice({
   },
   extraReducers: builder =>
     builder
+      .addCase(fetchExercises.pending, handlePending)
+      .addCase(fetchExercises.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.exercises = action.payload;
+      })
       .addCase(fetchBodyParts.pending, handlePending)
       .addCase(fetchBodyParts.fulfilled, (state, action) => {
         state.isLoading = false;
