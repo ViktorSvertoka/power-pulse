@@ -2,6 +2,8 @@ export const selectLoading = state => state.exercises.loading;
 
 export const selectFilter = state => state.exercises.filter;
 
+export const selectExercises = state => state.exercises.exercises;
+
 export const selectBodyParts = state => state.exercises.bodyParts;
 
 export const selectMuscules = state => state.exercises.muscules;

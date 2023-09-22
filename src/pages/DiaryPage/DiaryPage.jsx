@@ -8,8 +8,19 @@ import {
   WrapDashboard,
 } from './DiaryPage.styled';
 import { Container } from '../../styles/container';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchExercises } from '../../redux/exercises/operationsExercises';
+import { selectExercises } from '../../redux/exercises/selectorsExercises';
 
 const DiaryPage = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchExercises());
+  });
+
+  const exercises = useSelector(selectExercises);
+  console.log(exercises);
   return (
     <Container>
       <WrapperAll>
