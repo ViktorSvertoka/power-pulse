@@ -18,6 +18,10 @@ export const Avatar = styled.div`
   align-items: center;
 `;
 
+export const Photo = styled.img`
+  border-radius: 100px;
+`;
+
 export const Button = styled.button`
   position: relative;
   top: -13px;
