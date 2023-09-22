@@ -6,39 +6,32 @@ export const FormBox = styled(Form)`
   box-sizing: border-box;
   max-width: 500px;
   @media screen and (max-width: 375px) {
-    
     margin-left: 20px;
     margin-right: 20px;
-    
-    
   }
   @media screen and (max-width: 768px) {
-   
-     margin-left: 25px;
-     margin-top:90px;
-     margin-bottom: 20px;
-  
+    margin-left: 25px;
+    margin-top: 90px;
+    margin-bottom: 20px;
+
     max-width: 335px;
   }
   @media screen and (min-width: 768px) {
     width: 500px;
-    margin-left:32px;
-    
+    margin-left: 32px;
+
     margin-top: 140px;
     margin-bottom: 40px;
   }
-  
-   @media screen and (min-width: 1440px) {
-    
-     margin-top: 100px;
-    margin-left: 150px;   
+
+  @media screen and (min-width: 1440px) {
+    margin-top: 100px;
+    margin-left: 150px;
   }
 `;
 
 export const FormContainer = styled.div`
   box-sizing: border-box;
-
- 
 `;
 
 export const Title = styled.h2`
@@ -64,7 +57,7 @@ export const TextIn = styled.p`
   text-align: center;
   color: rgba(239, 237, 232, 0.3);
   margin-top: 12px;
-  max-width:180px;
+  max-width: 180px;
 `;
 export const Text = styled.p`
   font-size: 16px;
@@ -78,6 +71,8 @@ export const Text = styled.p`
 
 export const Input = styled(Field)`
   width: 100%;
+  outline: 1px solid rgba(239, 237, 232, 0.3);
+  border: none;
   position: relative;
   box-sizing: border-box;
   height: 46px;
@@ -93,7 +88,6 @@ export const Input = styled(Field)`
   background-color: transparent;
   border-radius: 12px;
 
-  outline: 1px solid rgba(239, 237, 232, 0.3);
   &::placeholder {
     color: var(--normal-color);
     font-family: 'RobotoRegular';
@@ -108,8 +102,9 @@ export const Input = styled(Field)`
 
   &:hover,
   &:focus {
-    outline: var(--hover-color);
-    outline: 0;
+    outline: 1px solid #e6533c;
+
+    /* outline: 0; */
   }
   &.default {
     outline: 1px solid rgba(239, 237, 232, 0.3);
@@ -122,8 +117,6 @@ export const Input = styled(Field)`
   }
 `;
 
-
-
 export const InputContainer = styled.div`
   box-sizing: border-box;
 
@@ -133,23 +126,21 @@ export const InputContainer = styled.div`
   position: relative;
   margin-bottom: 40px;
   margin-top: 20px;
-
+  margin-bottom: 28px;
   @media screen and (min-width: 375px) {
     width: 335px;
   }
   @media screen and (min-width: 768px) {
     width: 364px;
+    margin-bottom: 64px;
   }
 `;
 export const InputWrap = styled.div`
- 
   max-width: 100%;
 
   display: flex;
   flex-direction: column;
   margin-top: 10px;
-
-  
 `;
 
 export const BtnContainer = styled.div`
@@ -166,9 +157,9 @@ export const ErrorWrap = styled.div`
   padding-left: 12px;
   align-items: center;
   justify-content: left;
-  
+  height: 14px;
   color: rgba(248, 5, 5, 0.973);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
   padding-top: 5px;
 `;
@@ -291,7 +282,7 @@ export const ConfirmMessage = styled.div`
   padding-left: 12px;
   font-size: 12px;
   font-weight: 400;
-  padding-top: 10px;
+  padding-top: 5px;
 `;
 
 export const PasswordComnfirIcon = styled.button`
