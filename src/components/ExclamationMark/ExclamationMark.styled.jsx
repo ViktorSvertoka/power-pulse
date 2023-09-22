@@ -19,4 +19,8 @@ export const WrapperMark = styled.div`
 export const Text = styled.p`
   color: var(--normal-color);
   font-family: 'RobotoRegular';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
 `;

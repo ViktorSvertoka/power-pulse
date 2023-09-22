@@ -3,24 +3,25 @@ import ExclamationMark from '../../components/ExclamationMark/ExclamationMark';
 import UserForm from '../../components/UserForm/UserForm';
 import Logout from '../../components/Logout/Logout';
 import UserProfile from '../../components/UserProfile/UserProfile';
-import DashboardItem from '../../components/DashboardItem/DashboardItem';
+import Daily from '../../components/Daily/Daily';
 
 const UserPage = () => {
-  const icons = ['icon-fork-knife', 'icon-dumbbell'];
   return (
     <Container>
       <Title>Profile Settings</Title>
       <UserProfile />
       <Wrapper>
-        <DashboardItem
+        <Daily
           color="var(--orange-color)"
           iconId="icon-fork-knife"
-          icons={icons}
+          text="Daily calorie intake"
+          value="2200"
         />
-        <DashboardItem
+        <Daily
           color="var(--orange-color)"
           iconId="icon-dumbbell"
-          icons={icons}
+          text="Daily norm of sports"
+          value="110 min"
         />
       </Wrapper>
       <ExclamationMark />
