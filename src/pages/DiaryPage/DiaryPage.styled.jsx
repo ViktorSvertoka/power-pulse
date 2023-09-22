@@ -1,68 +1,47 @@
 import styled from 'styled-components';
 
-const WrapperAll = styled.div`
+export const DiaryWrapper = styled.div`
+  padding: 40px 20px 80px 20px;
+  @media screen and (min-width: 768px) {
+    padding: 72px 32px 64px 32px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding: 72px 96px 68px 96px;
+  }
+`;
+
+export const DiaryPageContainer = styled.div`
+  width: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 52px 96px 68px;
-  background: #040404;
-  width: 100%;
-  min-height: 100vh;
-  margin: 0;
 
-  @media screen and (max-width: 1439px) {
-    padding: 52px 0 64px;
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
+    justify-content: space-between;
   }
 `;
 
-const WrapTitleDate = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 52px 0 32px;
-  width: 100%;
+export const CustomDivForCards = styled.div`
+  width: auto;
 
-  @media screen and (min-width: 768px) and (max-width: 1439px) {
-    max-width: 704px;
+  @media screen and (min-width: 768px) {
+    margin-top: 64px;
+    order: 1;
   }
 
-  @media screen and (min-width: 375px) and (max-width: 767px) {
-    max-width: 335px;
-    padding: 40px 0;
-  }
-
-  @media screen and (max-width: 374px) {
+  @media screen and (min-width: 1440px) {
+    margin-top: 0;
   }
 `;
 
-const WrapDashboard = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 0;
-  width: 100%;
+export const CustomDivForTables = styled.div`
+  width: auto;
 
-  @media screen and (max-width: 1439px) {
-    align-items: center;
-
-    flex-direction: column;
-    gap: 82px;
+  @media screen and (min-width: 768px) {
+    width: 704px;
   }
 
-  @media screen and (max-width: 767px) {
-    flex-direction: column-reverse;
+  @media screen and (min-width: 1440px) {
+    width: 826px;
   }
 `;
-
-const DiaryTitle = styled.h2`
-  margin: 20px 0;
-  line-height: 44px;
-  font-size: 32px;
-
-  @media screen and (min-width: 374px) and (max-width: 767px) {
-    margin: 0;
-    font-size: 24px;
-    line-height: 1.1;
-  }
-`;
-
-export { WrapperAll, DiaryTitle, WrapTitleDate, WrapDashboard };

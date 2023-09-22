@@ -24,7 +24,6 @@ import { useAuth } from './hooks/useAuth';
 // } from './components/RestrictedRoute/RestrictedRoute';
 
 const test = import.meta.env.VITE_API_TEST;
-console.log(test);
 function App() {
   const dispatch = useDispatch();
   const { isRefreshing, isLoggedIn } = useAuth();
