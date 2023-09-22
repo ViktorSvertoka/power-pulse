@@ -36,7 +36,7 @@ const exercisesSlice = createSlice({
         state.error = null;
         state.exercises = action.payload;
       })
-      .addCase(fetchExercises.pending, handlePending)
+      .addCase(fetchBodyParts.pending, handlePending)
       .addCase(fetchBodyParts.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;

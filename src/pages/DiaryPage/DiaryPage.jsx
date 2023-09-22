@@ -17,7 +17,7 @@ const DiaryPage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchExercises());
-  });
+  }, []);
 
   const exercises = useSelector(selectExercises);
   console.log(exercises);
