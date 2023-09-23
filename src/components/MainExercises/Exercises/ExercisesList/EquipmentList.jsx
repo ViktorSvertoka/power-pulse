@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'; // Импортируйте useState
+import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { PropTypes } from 'prop-types';
 import { fetchEquipment } from '../../../../redux/exercises/operationsExercises';
 import { selectEquipment } from '../../../../redux/exercises/selectorsExercises';
 import { ExercisesUl } from './ExercisesList.styled';
@@ -24,6 +24,8 @@ export const EquipmentList = () => {
 
     if (windowWidth >= 768 && windowWidth <= 1439) {
       return 9;
+    } else if (windowWidth < 375 || windowWidth >= 1440) {
+      return 10;
     } else {
       return 10;
     }
@@ -58,12 +60,14 @@ export const EquipmentList = () => {
           <ExercisesItem key={item._id} exercisesItem={item} />
         ))}
       </ExercisesUl>
-      <Pagination
-        itemsPerPage={itemsPerPage}
-        totalItems={equipment.length}
-        currentPage={currentPage}
-        onPageChange={handlePageChange}
-      />
+      {itemsPerPage < equipment.length && (
+        <Pagination
+          itemsPerPage={itemsPerPage}
+          totalItems={equipment.length}
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+        />
+      )}
     </PaginationContainer>
   );
 };

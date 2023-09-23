@@ -58,12 +58,14 @@ export const MusculesList = () => {
           <ExercisesItem key={item._id} exercisesItem={item} />
         ))}
       </ExercisesUl>
-      <Pagination
-        itemsPerPage={itemsPerPage}
-        totalItems={muscules.length}
-        currentPage={currentPage}
-        onPageChange={handlePageChange}
-      />
+      {itemsPerPage < muscules.length && (
+        <Pagination
+          itemsPerPage={itemsPerPage}
+          totalItems={muscules.length}
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+        />
+      )}
     </PaginationContainer>
   );
 };

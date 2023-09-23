@@ -58,13 +58,14 @@ export const BodyPartList = () => {
           <ExercisesItem key={item._id} exercisesItem={item} />
         ))}
       </ExercisesUl>
-
-      <Pagination
-        itemsPerPage={itemsPerPage}
-        totalItems={bodyParts.length}
-        currentPage={currentPage}
-        onPageChange={handlePageChange}
-      />
+      {itemsPerPage < bodyParts.length && (
+        <Pagination
+          itemsPerPage={itemsPerPage}
+          totalItems={bodyParts.length}
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+        />
+      )}
     </PaginationContainer>
   );
 };

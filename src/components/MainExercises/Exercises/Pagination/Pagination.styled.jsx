@@ -47,6 +47,9 @@ export const PaginationContainer = styled.div`
     height: 14px;
   }
 
+  @media screen and (min-width: 768px) {
+  }
+
   @media screen and (min-width: 1440px) {
     justify-content: baseline;
     height: 100%;
