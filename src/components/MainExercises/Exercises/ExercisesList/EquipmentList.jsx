@@ -1,10 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react'; // Импортируйте useState
 import { useDispatch, useSelector } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { fetchEquipment } from '../../../../redux/exercises/operationsExercises';
 import { selectEquipment } from '../../../../redux/exercises/selectorsExercises';
 import { ExercisesUl } from './ExercisesList.styled';
 import { ExercisesItem } from '../ExercisesItem/ExercisesItem';
+
+import Pagination from '../Pagination/Pagination';
+import { PaginationContainer } from '../Pagination/Pagination.styled';
 
 export const EquipmentList = () => {
   const dispatch = useDispatch();
@@ -14,12 +17,33 @@ export const EquipmentList = () => {
   }, [dispatch]);
 
   const equipment = useSelector(selectEquipment);
+  const itemsPerPage = 10; // Количество элементов на странице
+  const [currentPage, setCurrentPage] = useState(1); // Текущая страница
+
+  // Функция для обработки изменения страницы
+  const handlePageChange = newPage => {
+    setCurrentPage(newPage);
+  };
+
+  // Вычисляем индекс начального и конечного элемента на текущей странице
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = equipment.slice(indexOfFirstItem, indexOfLastItem);
+
   return (
-    <ExercisesUl>
-      {equipment.map(item => (
-        <ExercisesItem key={item._id} exercisesItem={item} />
-      ))}
-    </ExercisesUl>
+    <PaginationContainer>
+      <ExercisesUl>
+        {currentItems.map(item => (
+          <ExercisesItem key={item._id} exercisesItem={item} />
+        ))}
+      </ExercisesUl>
+      <Pagination
+        itemsPerPage={itemsPerPage}
+        totalItems={equipment.length}
+        currentPage={currentPage}
+        onPageChange={handlePageChange}
+      />
+    </PaginationContainer>
   );
 };
 

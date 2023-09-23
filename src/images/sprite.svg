@@ -697,5 +697,10 @@
 			<path fill="#efede8" style="fill: var(--color1, #efede8)" d="M23.686 6.602c1.823 0 3.301-1.478 3.301-3.301s-1.478-3.301-3.301-3.301c-1.823 0-3.301 1.478-3.301 3.301s1.478 3.301 3.301 3.301z">
 			</path>
 		</symbol>
+
+		<symbol id="pagination-btn" viewBox="0 0 32 32">
+          <path fill="none" stroke="#e6533c" style="stroke: var(--color1, #e6533c)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.2857" d="M30.857 16c0 8.205-6.652 14.857-14.857 14.857s-14.857-6.652-14.857-14.857c0-8.205 6.652-14.857 14.857-14.857s14.857 6.652 14.857 14.857z"></path>
+          <path fill="#e6533c" style="fill: var(--color1, #e6533c)" d="M25.143 16c0 5.049-4.093 9.143-9.143 9.143s-9.143-4.093-9.143-9.143c0-5.049 4.093-9.143 9.143-9.143s9.143 4.093 9.143 9.143z"></path>
+        </symbol>
 	</defs>
 </svg>
