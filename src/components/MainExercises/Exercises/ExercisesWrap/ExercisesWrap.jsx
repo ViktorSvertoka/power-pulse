@@ -40,7 +40,7 @@ export const ExercisesWrap = () => {
           </ExercisesFilter>
         </ExercisesNavList>
       </ExercisesBox>
-      <ExercisesList></ExercisesList>
+      <ExercisesList />
     </ExercisesWrapper>
   );
 };

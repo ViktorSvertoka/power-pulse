@@ -1,8 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { logOut } from '../auth/operations';
 import {
-  addExercise,
-  deleteExercise,
   fetchBodyParts,
   fetchEquipment,
   fetchExercises,
@@ -56,21 +53,21 @@ const exercisesSlice = createSlice({
         state.error = null;
         state.equipment = action.payload;
       })
-      .addCase(fetchEquipment.rejected, handleRejected)
-      .addCase(addExercise.pending, handlePending)
-      .addCase(addExercise.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        state.items = [...items, action.payload];
-      })
-      .addCase(addExercise.rejected, handleRejected)
-      .addCase(deleteExercise.pending, handlePending)
-      .addCase(deleteExercise.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        state.items = state.items.filter(item => item.id !== action.payload.id);
-      })
-      .addCase(deleteExercise.rejected, handleRejected),
+      .addCase(fetchEquipment.rejected, handleRejected),
+  // .addCase(addExercise.pending, handlePending)
+  // .addCase(addExercise.fulfilled, (state, action) => {
+  //   state.isLoading = false;
+  //   state.error = null;
+  //   state.items = [...items, action.payload];
+  // })
+  // .addCase(addExercise.rejected, handleRejected)
+  // .addCase(deleteExercise.pending, handlePending)
+  // .addCase(deleteExercise.fulfilled, (state, action) => {
+  //   state.isLoading = false;
+  //   state.error = null;
+  //   state.items = state.items.filter(item => item.id !== action.payload.id);
+  // })
+  // .addCase(deleteExercise.rejected, handleRejected),
   // extraReducers: {
   //   [fetchBodyParts.pending]: handlePending,
   //   [addExercise.pending]: handlePending,

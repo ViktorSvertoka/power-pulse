@@ -49,26 +49,26 @@ export const fetchEquipment = createAsyncThunk(
   },
 );
 
-export const addExercise = createAsyncThunk(
-  'exercises/addExercise',
-  async (exercise, thunkAPI) => {
-    try {
-      const response = await axios.post('/exercises', exercise);
-      return response.data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
-    }
-  },
-);
+// export const addExercise = createAsyncThunk(
+//   'exercises/addExercise',
+//   async (exercise, thunkAPI) => {
+//     try {
+//       const response = await axios.post('/exercises', exercise);
+//       return response.data;
+//     } catch (e) {
+//       return thunkAPI.rejectWithValue(e.message);
+//     }
+//   },
+// );
 
-export const deleteExercise = createAsyncThunk(
-  'exercises/deleteExercise',
-  async (exerciseId, thunkAPI) => {
-    try {
-      const response = await axios.delete(`/exercises/${exerciseId}`);
-      return response.data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
-    }
-  },
-);
+// export const deleteExercise = createAsyncThunk(
+//   'exercises/deleteExercise',
+//   async (exerciseId, thunkAPI) => {
+//     try {
+//       const response = await axios.delete(`/exercises/${exerciseId}`);
+//       return response.data;
+//     } catch (e) {
+//       return thunkAPI.rejectWithValue(e.message);
+//     }
+//   },
+// );
