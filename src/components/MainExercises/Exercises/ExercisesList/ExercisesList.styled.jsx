@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const ExercisesUl = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
   @media screen and (min-width: 375px) {
   }
 

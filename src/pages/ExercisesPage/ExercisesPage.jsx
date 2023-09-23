@@ -5,12 +5,10 @@ import { ExercisesWrap } from '../../components/MainExercises/Exercises/Exercise
 
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  selectBodyParts,
   selectEquipment,
   selectMuscules,
 } from '../../redux/exercises/selectorsExercises';
 import {
-  fetchBodyParts,
   fetchEquipment,
   fetchMuscules,
 } from '../../redux/exercises/operationsExercises';
@@ -20,16 +18,12 @@ const ExercisesPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchBodyParts());
-  }, []);
-  useEffect(() => {
     dispatch(fetchMuscules());
   }, []);
   useEffect(() => {
     dispatch(fetchEquipment());
   }, []);
-  const bodyParts = useSelector(selectBodyParts);
-  console.log(bodyParts);
+
   const muscules = useSelector(selectMuscules);
   console.log(muscules);
   const equipment = useSelector(selectEquipment);
@@ -37,9 +31,8 @@ const ExercisesPage = () => {
 
   return (
     <Container>
-      <WaistList></WaistList>
-
       <ExercisesWrap></ExercisesWrap>
+      <WaistList></WaistList>
     </Container>
   );
 };
