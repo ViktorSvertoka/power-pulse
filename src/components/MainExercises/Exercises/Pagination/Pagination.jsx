@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import sprite from '../../../../images/sprite.svg';
+import { PaginationItem } from './Pagination.styled';
 
 const Pagination = ({
   itemsPerPage,
@@ -20,7 +21,7 @@ const Pagination = ({
 
     for (let i = 1; i <= totalPages; i++) {
       pageNumbers.push(
-        <li
+        <PaginationItem
           key={i}
           className={`page-item ${i === currentPage ? 'active' : ''}`}
         >
@@ -32,7 +33,7 @@ const Pagination = ({
               </svg>
             )}
           </button>
-        </li>,
+        </PaginationItem>,
       );
     }
 

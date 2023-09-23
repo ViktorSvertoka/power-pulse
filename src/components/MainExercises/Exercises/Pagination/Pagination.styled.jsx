@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 
-export const PaginationContainer = styled.nav`
+export const PaginationContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 90px;
+  height: 100vh;
+
   ul.pagination {
     display: flex;
     list-style: none;
@@ -40,4 +46,13 @@ export const PaginationContainer = styled.nav`
     width: 14px;
     height: 14px;
   }
+
+  @media screen and (min-width: 1440px) {
+    justify-content: baseline;
+    height: 100%;
+  }
+`;
+
+export const PaginationItem = styled.li`
+  margin-top: 32px;
 `;
