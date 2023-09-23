@@ -17,8 +17,31 @@ export const EquipmentList = () => {
   }, [dispatch]);
 
   const equipment = useSelector(selectEquipment);
-  const itemsPerPage = 10;
   const [currentPage, setCurrentPage] = useState(1);
+
+  const determineItemsPerPage = () => {
+    const windowWidth = window.innerWidth;
+
+    if (windowWidth >= 768 && windowWidth <= 1439) {
+      return 9;
+    } else {
+      return 10;
+    }
+  };
+
+  const [itemsPerPage, setItemsPerPage] = useState(determineItemsPerPage);
+
+  const handleResize = () => {
+    setItemsPerPage(determineItemsPerPage());
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const handlePageChange = newPage => {
     setCurrentPage(newPage);
