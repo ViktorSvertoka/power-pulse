@@ -58,6 +58,7 @@ export const BodyPartList = () => {
           <ExercisesItem key={item._id} exercisesItem={item} />
         ))}
       </ExercisesUl>
+
       <Pagination
         itemsPerPage={itemsPerPage}
         totalItems={bodyParts.length}
