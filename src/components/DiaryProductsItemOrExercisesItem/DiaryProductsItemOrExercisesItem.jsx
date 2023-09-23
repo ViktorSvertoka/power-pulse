@@ -7,14 +7,14 @@ import {
   DayNoContentText,
   ArrowRight,
   DayDiarySubDiv,
-} from './DayDiaryProductsOrExercises.styled';
+} from './DiaryProductsItemOrExercisesItem.styled';
 import sprite from '../../images/sprite.svg';
-import TableForDiary from '../TableForDiary/TableForDiary';
-import TableForDiaryOnMobile from '../TableForDiaryOnMobile/TableForDiaryOnMobile';
+import DiaryTable from '../DiaryTable/DiaryTable';
+import DiaryTableOnMobile from '../DiaryTableMob/DiaryTableMob';
 import { useDispatch } from 'react-redux';
 import { deleteExercise, deleteProduct } from '../../redux/diary/operations';
 
-const DayDiaryProductsOrExercises = ({
+const DiaryProductsItemOrExercisesItem = ({
   to,
   marginBottom,
   list,
@@ -48,14 +48,14 @@ const DayDiaryProductsOrExercises = ({
       </DayDiarySubDiv>
       {list.length !== 0 ? (
         <>
-          <TableForDiary
+          <DiaryTable
             list={list}
             productTable={productTable}
             exerciseTable={exerciseTable}
             onDelete={handleDelete}
             date={date}
           />
-          <TableForDiaryOnMobile
+          <DiaryTableOnMobile
             list={list}
             productTable={productTable}
             exerciseTable={exerciseTable}
@@ -72,7 +72,7 @@ const DayDiaryProductsOrExercises = ({
   );
 };
 
-DayDiaryProductsOrExercises.propTypes = {
+DiaryProductsItemOrExercisesItem.propTypes = {
   to: PropTypes.string,
   marginBottom: PropTypes.number,
   list: PropTypes.array,
@@ -81,4 +81,4 @@ DayDiaryProductsOrExercises.propTypes = {
   date: PropTypes.string,
 };
 
-export default DayDiaryProductsOrExercises;
+export default DiaryProductsItemOrExercisesItem;
