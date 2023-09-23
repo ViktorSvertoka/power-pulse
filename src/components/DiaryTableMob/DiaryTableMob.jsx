@@ -2,16 +2,16 @@ import PropTypes from 'prop-types';
 
 import sprite from '../../images/sprite.svg';
 
-import { DeleteBtn, DeleteIcon } from '../TableForDiary/TableForDiary.styled';
+import { DeleteBtn, DeleteIcon } from '../DiaryTable/DiaryTable.styled';
 import {
   BottomContainer,
   Cell,
   CellValue,
   ContainerForTable,
   CustomContainer,
-} from './TableForDiaryOnMobile.styled';
+} from './DiaryTableMob.styled';
 
-const TableForDiaryOnMobile = ({
+const DiaryTableOnMobile = ({
   list,
   productTable,
   exerciseTable,
@@ -113,7 +113,7 @@ const TableForDiaryOnMobile = ({
   );
 };
 
-TableForDiaryOnMobile.propTypes = {
+DiaryTableOnMobile.propTypes = {
   list: PropTypes.array,
   productTable: PropTypes.bool,
   exerciseTable: PropTypes.bool,
@@ -121,4 +121,4 @@ TableForDiaryOnMobile.propTypes = {
   date: PropTypes.string,
 };
 
-export default TableForDiaryOnMobile;
+export default DiaryTableOnMobile;

@@ -9,7 +9,7 @@ import {
   ColumnNameExercises,
   BeforeForCell,
   CustomContainer,
-} from './TableForDiary.styled';
+} from './DiaryTable.styled';
 import {
   Table,
   Header,

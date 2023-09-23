@@ -4,6 +4,7 @@ export const List = styled.ul`
   display: grid;
   width: 335px;
   gap: 13px;
+  margin-bottom: 48px;
 
   grid-template-columns: repeat(2, 1fr);
 

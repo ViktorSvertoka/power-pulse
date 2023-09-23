@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 export const getDiaryList = createAsyncThunk(
   'getDiaryList',
   async (date, { rejectWithValue }) => {
+    console.log('date', date);
     try {
       const { data } = await axios.get(`/diary?date=${date}`);
       console.log('data', date);
@@ -23,7 +24,7 @@ export const deleteProduct = createAsyncThunk(
     try {
       const { productId, date } = productDetails;
       await axios.delete(
-        `/api/diary/delete-product?date=${date}&productId=${productId}`,
+        `/diary/delete-product?date=${date}&productId=${productId}`,
       );
       return productId;
     } catch (error) {
