@@ -2,18 +2,6 @@ import styled from 'styled-components';
 
 export const ExercisesLi = styled.li`
   position: relative;
-  /* &:not(:last-child) {
-    margin-bottom: 20px;
-  } */
-
-  @media screen and (min-width: 375px) {
-  }
-
-  @media screen and (min-width: 768px) {
-  }
-
-  @media screen and (min-width: 1440px) {
-  }
 `;
 
 export const Image = styled.img`
@@ -35,9 +23,6 @@ export const Image = styled.img`
     width: 224px;
     height: 206px;
   }
-
-  @media screen and (min-width: 1440px) {
-  }
 `;
 
 export const TitleContainer = styled.div`
@@ -53,15 +38,6 @@ export const TitleContainer = styled.div`
 
   width: 100%;
   height: auto;
-
-  @media screen and (min-width: 375px) {
-  }
-
-  @media screen and (min-width: 768px) {
-  }
-
-  @media screen and (min-width: 1440px) {
-  }
 `;
 export const ExerciseItemTitle = styled.h3`
   font-size: 20px;

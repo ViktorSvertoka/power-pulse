@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import { ExercisesList } from '../ExercisesList/ExercisesList';
+import { BodyPartList } from '../ExercisesList/BodyPartList';
 import {
-  ExercisesFilter,
-  ExercisesNavList,
   ExercisesTitle,
   ExercisesWrapper,
   ExercisesBox,
 } from './ExercisesWrap.styled';
+import { MusculesList } from '../ExercisesList/MusculesList';
+import { EquipmentList } from '../ExercisesList/EquipmentList';
+import { ExercisesNavigation } from '../ExercisesNavigation/ExercisesNavigation';
 
 export const ExercisesWrap = () => {
   const [activeFilter, setActiveFilter] = useState('Body parts');
@@ -19,28 +20,14 @@ export const ExercisesWrap = () => {
     <ExercisesWrapper>
       <ExercisesBox>
         <ExercisesTitle>Exercises</ExercisesTitle>
-        <ExercisesNavList>
-          <ExercisesFilter
-            className={activeFilter === 'Body parts' ? 'active' : ''}
-            onClick={() => handleFilterClick('Body parts')}
-          >
-            Body parts
-          </ExercisesFilter>
-          <ExercisesFilter
-            className={activeFilter === 'Muscules' ? 'active' : ''}
-            onClick={() => handleFilterClick('Muscules')}
-          >
-            Muscules
-          </ExercisesFilter>
-          <ExercisesFilter
-            className={activeFilter === 'Equipment' ? 'active' : ''}
-            onClick={() => handleFilterClick('Equipment')}
-          >
-            Equipment
-          </ExercisesFilter>
-        </ExercisesNavList>
+        <ExercisesNavigation
+          activeFilter={activeFilter}
+          handleFilterClick={handleFilterClick}
+        />
       </ExercisesBox>
-      <ExercisesList />
+      {activeFilter === 'Body parts' && <BodyPartList />}
+      {activeFilter === 'Muscules' && <MusculesList />}
+      {activeFilter === 'Equipment' && <EquipmentList />}
     </ExercisesWrapper>
   );
 };

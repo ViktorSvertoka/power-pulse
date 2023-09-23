@@ -5,14 +5,14 @@ import {
   Image,
   TitleContainer,
 } from './ExercisesItem.styled';
-// import images from '../../../../images/0-default.jpg';
+import images from '../../../../images/0-default.jpg';
 import { PropTypes } from 'prop-types';
 
-export const ExercisesItem = ({ bodyPartItem }) => {
-  const { name, filter, imgURL } = bodyPartItem;
+export const ExercisesItem = ({ exercisesItem }) => {
+  const { name, filter, imgURL } = exercisesItem;
   return (
     <ExercisesLi>
-      <Image src={imgURL} alt="image" />
+      <Image src={imgURL ? imgURL : images} alt={name} />
       <TitleContainer>
         <ExerciseItemTitle>{name}</ExerciseItemTitle>
         <ExerciseItemText>{filter}</ExerciseItemText>
@@ -22,10 +22,5 @@ export const ExercisesItem = ({ bodyPartItem }) => {
 };
 
 ExercisesItem.propTypes = {
-  bodyPartItem: PropTypes.object,
+  exercisesItem: PropTypes.object,
 };
-
-// filter: 'Body parts';
-// imgURL: 'https://res.cloudinary.com/dn4iogcf4/image/upload/v1694469564/categories/shoulders_deqz9d.jpg';
-// name: 'shoulders';
-// _id: '6509875f502455678718dcef';
