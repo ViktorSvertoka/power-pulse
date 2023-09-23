@@ -17,15 +17,13 @@ export const EquipmentList = () => {
   }, [dispatch]);
 
   const equipment = useSelector(selectEquipment);
-  const itemsPerPage = 10; // Количество элементов на странице
-  const [currentPage, setCurrentPage] = useState(1); // Текущая страница
+  const itemsPerPage = 10;
+  const [currentPage, setCurrentPage] = useState(1);
 
-  // Функция для обработки изменения страницы
   const handlePageChange = newPage => {
     setCurrentPage(newPage);
   };
 
-  // Вычисляем индекс начального и конечного элемента на текущей странице
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = equipment.slice(indexOfFirstItem, indexOfLastItem);

@@ -26,7 +26,7 @@ const Pagination = ({
         >
           <button className="page-link" onClick={() => handlePageChange(i)}>
             {i}
-            {i === currentPage && ( // Вставляем иконку только для активной кнопки
+            {i === currentPage && (
               <svg>
                 <use href={`${sprite}#pagination-btn`} />
               </svg>
