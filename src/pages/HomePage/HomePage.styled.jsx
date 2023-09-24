@@ -8,17 +8,21 @@ import hero1 from '../../images/hero-1x.jpg';
 import hero2 from '../../images/hero-2x.jpg';
 
 export const HomeSection = styled.section`
-  max-width: 1440px;
-  display: flex;
-  align-items: center;
+  max-width: 1400px;
+  margin: 0 20px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    max-width: 240px;
+    margin: 0 32px;
+  }
   @media screen and (min-width: 1440px) {
-    padding-left: 96px;
+    margin-left: 96px;
   }
 `;
 
 export const HomeTitle = styled.h1`
-  width: 100%;
-  margin: 80px 20px 40px;
+  width: 335px;
 
   font-family: inherit;
   font-size: 38px;
@@ -40,14 +44,14 @@ export const HomeTitle = styled.h1`
 
 export const SvgLine = styled.svg`
   position: absolute;
-  top: 120px;
-  left: 11px;
+  top: 43px;
+  left: -8px;
   width: 98px;
   height: 35px;
 
   @media screen and (min-width: 768px) {
-    top: 160px;
-    left: 12px;
+    top: 85px;
+    left: -17px;
     width: 185px;
     height: 67px;
   }
@@ -57,8 +61,16 @@ export const TitleContainerTablet = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  max-width: 720px;
-  margin-bottom: 230px;
+
+  margin-top: 65px;
+  height: 250px;
+  gap: 40px;
+
+  @media screen and (min-width: 768px) {
+    max-width: 240px;
+    margin-top: 108px;
+    gap: 64px;
+  }
 
   @media screen and (min-width: 1440px) {
     display: none;
@@ -73,7 +85,8 @@ export const TitleContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 64px;
-    max-width: 720px;
+    max-width: 770px;
+
     margin-top: 120px;
   }
 `;
@@ -81,13 +94,22 @@ export const TitleContainer = styled.div`
 export const BtnHomeContainer = styled.div`
   display: flex;
   gap: 20px;
-  margin-left: 20px;
 `;
 
 export const BtnHomeTablet = styled.div`
   display: flex;
-  gap: 20px;
-  margin-bottom: 230px;
+  text-align: center;
+
+  & > a:not(:last-child) {
+    margin-right: 14px;
+    white-space: nowrap;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+
+    width: 380px;
+  }
 `;
 
 export const HomePageLink = styled(NavLink)`
@@ -105,11 +127,21 @@ export const HomePageLink = styled(NavLink)`
   :focus {
     background-color: var(--orange-color);
   }
+  @media screen and (min-width: 375px) {
+    width: 136px;
+    heigth: 42px;
+  }
 
   @media screen and (min-width: 768px) {
     font-size: 20px;
     font-weight: 500;
     line-height: 1.2;
+
+    width: 190px;
+    height: 56px;
+
+    margin-right: 20px;
+    white-space: nowrap;
 
     padding: 16px 60px;
   }
@@ -118,6 +150,7 @@ export const HomePageLink = styled(NavLink)`
 export const CuteSquaresContainer = styled.div`
   display: flex;
   flex-direction: column;
+
   gap: 70px;
 
   @media screen and (min-width: 768px) {
@@ -132,12 +165,12 @@ export const Tutorial = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
-  padding: 14px 18px;
+  gap: 12px;
+  padding: 20px 36px 20px 23px;
   width: 146px;
   height: 66px;
-  margin-left: 121px;
-  margin-right: 108px;
+  margin-left: 42px;
+  margin-top: 432px;
 
   border-radius: 12px;
   background: #303030;
@@ -145,11 +178,11 @@ export const Tutorial = styled.div`
   @media screen and (min-width: 768px) {
     width: 206px;
     height: 96px;
-    margin-left: 331px;
-    margin-right: 231px;
+    margin-left: 3px;
+    margin-top: 582px;
   }
   @media screen and (min-width: 1440px) {
-    margin-top: 536px;
+    margin-top: 384px;
     margin-left: 0;
   }
 `;
@@ -167,13 +200,15 @@ export const IconPlayContainer = styled.div`
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  overflow: hidden;
+
   padding: 9px;
+
   background-color: var(--orange-light-color);
 
   @media screen and (min-width: 768px) {
     width: 40px;
     height: 40px;
+    padding: 11px;
   }
 `;
 
@@ -195,6 +230,7 @@ export const TextTutorial = styled.p`
   font-size: 12px;
   font-weight: 400;
   line-height: 1.33;
+  white-space: nowrap;
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
@@ -209,8 +245,7 @@ export const Calories = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 8px;
-  margin-left: auto;
-  margin-right: 20px;
+  margin-left: 163px;
 
   width: 119px;
   height: 76px;
@@ -224,6 +259,10 @@ export const Calories = styled.div`
     gap: 12px;
 
     margin-right: 32px;
+    margin-left: 287px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-left: 458px;
   }
 `;
 
@@ -289,11 +328,12 @@ export const SpanRunMan = styled.span`
 export const HomePhoto = styled.div`
   background-image: url(${heroMobile1});
 
-  background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: 812px;
+  background-position: right;
+  background-size: contain;
+  width: 298px;
+  height: 669px;
+  margin-top: 180px;
 
   @media (min-device-pixel-ratio: 2),
     (-webkit-min-device-pixel-ratio: 2),
@@ -303,8 +343,10 @@ export const HomePhoto = styled.div`
   }
 
   @media screen and (min-width: 375px) {
-    width: 100%;
-    height: 812px;
+    background-position-y: bottom;
+    height: 681px;
+    margin-top: -252px;
+    margin-left: 57px;
   }
   @media screen and (min-width: 768px) {
     background-image: url(${heroTablet1});
@@ -314,10 +356,14 @@ export const HomePhoto = styled.div`
       (min-resolution: 2dppx) {
       background-image: url(${heroTablet2});
     }
-    width: 100%;
-    height: 1024px;
+
+    width: 670px;
+    height: 893px;
+    margin-top: 46px;
+    margin-left: -3px;
   }
   @media screen and (min-width: 1440px) {
+    background-size: 100%;
     background-image: url(${hero1});
 
     @media (min-device-pixel-ratio: 2),
@@ -326,8 +372,10 @@ export const HomePhoto = styled.div`
       (min-resolution: 2dppx) {
       background-image: url(${hero2});
     }
-    width: 100%;
-    height: 1005px;
-    margin-top: -82px;
+
+    width: 670px;
+    height: 800px;
+    margin-left: 76px;
+    margin-top: -83px;
   }
 `;

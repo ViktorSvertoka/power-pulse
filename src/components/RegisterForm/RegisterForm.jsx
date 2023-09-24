@@ -20,15 +20,14 @@ import {
   SvgLayc,
   SvgEror,
   Text,
+  Text1,
 } from './RegisterForm.styled';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operations';
 
-
 // let EMAIL_REGX = `^(([^<>()\[\]\\.,;:\s@"]+(.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/`;
 
 // let emailSchema = Yup.string().matches(EMAIL_REGX, 'Invalid email address');
-
 
 const registrationValidationSchema = Yup.object().shape({
   name: Yup.string()
@@ -36,9 +35,7 @@ const registrationValidationSchema = Yup.object().shape({
     .min(2, 'Name must be at least 2 characters')
     .max(16, 'Name must be no more than 16 characters'),
 
-  email: Yup.string()
-    .email('Invalid email address')
-    .required('Required'),
+  email: Yup.string().email('Invalid email address').required('Required'),
 
   password: Yup.string()
     .min(6, 'Password must be at least 6 characters')
@@ -245,11 +242,11 @@ const RegisterForm = () => {
               </InputWrap>
             </InputContainer>
 
-            <Button type="submit">Sign In</Button>
-            <Text>
+            <Button type="submit">Sign Up</Button>
+            <Text1>
               Already have account?
               <StyledLink to="/signin">Sign In</StyledLink>
-            </Text>
+            </Text1>
           </FormContainer>
         </Form>
       )}
