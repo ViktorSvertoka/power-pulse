@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
-export const CustomContainer = styled.div`
+export const WrapAll = styled.div`
   display: none;
 
-  @media (max-width: 767px) {
+  @media (min-width: 767px) {
     display: block;
   }
 `;
@@ -14,12 +14,6 @@ export const DeleteBtn = styled.button`
   background-color: inherit;
   border: none;
   display: flex;
-
-  transition: scale 250ms ease-in-out;
-
-  &:hover {
-    scale: 1.1;
-  }
 `;
 
 export const DeleteIcon = styled.svg`
@@ -133,7 +127,7 @@ export const BeforeForCell = styled.div`
   height: 14px;
   border-radius: 10px;
   margin-right: 8px;
-  background: ${props => props.bgColor};
+  background: ${props => props.bgcolor};
 `;
 
 export const BASELINE_THEME_EXERCISES = {
@@ -201,9 +195,11 @@ export const BASELINE_THEME = {
   Header: `display: none;`,
   BaseRow: ``,
   Row: `
+  font-family: 'RobotoRegular'; 
     font-size: 16px;
+    line-height: 1.5;
     background-color: inherit;
-    color: #EF8964;
+    color: #EFEDE8;
   `,
   HeaderRow: `
     background-color: inherit;`,
@@ -219,7 +215,10 @@ export const BASELINE_THEME = {
     padding: 8px 10px 8px 14px;
     margin: 0 8px 8px 0;
     border-radius: 12px;
-    border: 1px solid 'rgba(239, 237, 232, 0.30)';
+    border: 1px solid rgba(239, 237, 232, 0.30);
+      white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
     :nth-of-type(5) {
       margin-right: 12px;
