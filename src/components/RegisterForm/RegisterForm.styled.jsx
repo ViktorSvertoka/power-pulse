@@ -2,7 +2,6 @@ import { Field, Form } from 'formik';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-
 export const FormContainer = styled.div`
   box-sizing: border-box;
   max-width: 335px;
@@ -18,6 +17,8 @@ export const FormContainer = styled.div`
 
   @media screen and (min-width: 1440px) {
     margin-top: 119px;
+  }
+`;
 
 export const FormBox = styled(Form)`
   display: flex;
@@ -45,7 +46,6 @@ export const FormBox = styled(Form)`
   @media screen and (min-width: 1440px) {
     margin-top: 100px;
     margin-left: 150px;
-
   }
 `;
 
@@ -80,11 +80,10 @@ export const TextIn = styled.p`
   margin-top: 12px;
   max-width: 180px;
 `;
-export const Text = styled.p`
 
+export const Text = styled.p`
   font-size: 14px;
   line-height: 1.28;
-
 
   font-size: 16px;
   line-height: 1.33;
@@ -104,7 +103,6 @@ export const Text = styled.p`
     margin-bottom: 32px;
   }
 `;
-
 
 export const InputContainer = styled.div`
   box-sizing: border-box;
@@ -141,7 +139,6 @@ export const BtnContainer = styled.div`
 
   align-items: flex-start;
 `;
-
 
 export const Input = styled(Field)`
   width: 100%;
@@ -216,6 +213,7 @@ export const InputContainer = styled.div`
     margin-bottom: 64px;
   }
 `;
+
 export const InputWrap = styled.div`
   max-width: 100%;
 
@@ -251,7 +249,6 @@ export const ErrorWrap = styled.div`
 `;
 
 export const Button = styled.button`
-
   width: 136px;
   height: 42px;
   box-sizing: border-box;
@@ -289,14 +286,12 @@ export const Button = styled.button`
   border: 1px solid rgba(239, 237, 232, 0.3);
   transition: background 0.3s ease-out;
 
-
   &:hover {
     color: white;
     background: #ef8964;
   }
 
   @media screen and (min-width: 768px) {
-
     width: 190px;
     height: 56px;
 
@@ -307,7 +302,6 @@ export const Button = styled.button`
     padding: 16px 60px;
     font-size: 20px;
     line-height: 1.2;
-
   }
 `;
 
@@ -339,7 +333,6 @@ export const IconBtn = styled.button`
     right: 2px;
   }
   @media screen and (min-width: 375px) {
-
     width: 53px;
     height: 53px;
     right: 30px;
@@ -347,9 +340,9 @@ export const IconBtn = styled.button`
     width: 30px;
     height: 30px;
     right: 1px;
-
   }
 `;
+
 export const Svg = styled.svg`
   width: 25px;
   height: 25px;
@@ -372,6 +365,7 @@ export const SvgEror = styled.svg`
 
   vertical-align: middle;
 `;
+
 export const CrossIcon = styled.button`
   width: 24px;
   height: 24px;
@@ -384,6 +378,7 @@ export const CrossIcon = styled.button`
   border-bottom-right-radius: 40px;
   cursor: pointer;
 `;
+
 export const ConfirmIcon = styled.button`
   width: 24px;
   height: 24px;
@@ -419,6 +414,7 @@ export const PasswordComnfirIcon = styled.button`
   background-color: #ffff;
   border: none;
 `;
+
 export const PasswordCrossIcon = styled.button`
   width: 24px;
   height: 24px;
