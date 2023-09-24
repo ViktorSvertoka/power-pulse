@@ -62,7 +62,7 @@ const RegisterForm = () => {
   // useDispatch();
 
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [passworConfirmdVisible, setPasswordConfirmVisible] = useState(false);
+  // const [passworConfirmdVisible, setPasswordConfirmVisible] = useState(false);
 
   const handleClickPasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
