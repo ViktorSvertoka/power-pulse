@@ -22,19 +22,14 @@ export const Photo = styled.img`
   border-radius: 100px;
 `;
 
-export const Button = styled.button`
-  position: relative;
-  top: -13px;
-  width: 22px;
-  height: 22px;
-  border: none;
-  background-color: transparent;
+export const Button = styled.div`
+  cursor: pointer;
 `;
 
 export const IconBtn = styled.svg`
   width: 24px;
   height: 24px;
   position: relative;
-  top: -1.5px;
-  left: -7px;
+  top: -13px;
+  left: 0px;
 `;
