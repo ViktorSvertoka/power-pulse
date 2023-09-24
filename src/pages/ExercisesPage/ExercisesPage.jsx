@@ -1,29 +1,13 @@
 import { Container } from '../../styles/container';
 
-import {
-  Wrap,
-  ExercisesTitle,
-  ExercisesNavList,
-  ExercisesFilter,
-} from './ExercisesPage.styled';
-
-import { WaistList } from '../../components/MainExercises/Waist/WaistList/WaistList';
-import { ExercisesList } from '../../components/MainExercises/Exercises/ExercisesList/ExercisesList';
+// import { WaistList } from '../../components/MainExercises/Waist/WaistList/WaistList';
+import { ExercisesWrap } from '../../components/MainExercises/Exercises/ExercisesWrap/ExercisesWrap';
 
 const ExercisesPage = () => {
   return (
     <Container>
-      <Wrap>
-        <ExercisesTitle>Exercises</ExercisesTitle>
-        <ExercisesNavList>
-          <ExercisesFilter>Body parts</ExercisesFilter>
-          <ExercisesFilter>Muscules</ExercisesFilter>
-          <ExercisesFilter>Equipment</ExercisesFilter>
-        </ExercisesNavList>
-      </Wrap>
-      <WaistList></WaistList>
-
-      <ExercisesList></ExercisesList>
+      <ExercisesWrap></ExercisesWrap>
+      {/* <WaistList></WaistList> */}
     </Container>
   );
 };

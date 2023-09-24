@@ -1,15 +1,9 @@
-import { useState, useEffect, useRef } from 'react';
 import DatePicker from 'react-datepicker';
 import { CalendarGlobalStyles, Wrapper } from './StyledDatepicker.styled';
 import 'react-datepicker/dist/react-datepicker.css';
+import PropTypes from 'prop-types';
 
-const StyledDatepicker = ({
-  isOpen,
-  setIsOpen,
-  selectedDate,
-  setSelectedDate,
-  buttonRef,
-}) => {
+const StyledDatepicker = ({ selectedDate, setSelectedDate, isOpen }) => {
   const handleDateChange = date => {
     setSelectedDate(date);
   };
@@ -35,6 +29,12 @@ const StyledDatepicker = ({
       <CalendarGlobalStyles />
     </Wrapper>
   );
+};
+
+StyledDatepicker.propTypes = {
+  selectedDate: PropTypes.instanceOf(Date),
+  setSelectedDate: PropTypes.func,
+  isOpen: PropTypes.bool,
 };
 
 export default StyledDatepicker;

@@ -19,7 +19,7 @@ export const DataBtn = styled.div`
 
 export const Wrapper = styled.div`
   position: absolute;
-  left: 50%;
+  left: -40%;
   top: 50%;
   transform: translate(0%, 0%);
   z-index: 999;

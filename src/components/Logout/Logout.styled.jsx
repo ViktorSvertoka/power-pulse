@@ -5,8 +5,8 @@ export const LogoutLink = styled(Link)`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-
   color: var(--white-color);
+  margin-top: 40px;
 
   @media screen and (min-width: 1200px) {
     display: none;

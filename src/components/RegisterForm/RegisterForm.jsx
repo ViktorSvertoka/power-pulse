@@ -6,6 +6,7 @@ import sprite from '../../images/sprite.svg';
 // import { registerUser } from '../../redux/operations/fetchUser';
 
 import {
+  FormBox,
   Button,
   ErrorWrap,
   FormContainer,
@@ -57,7 +58,7 @@ const RegisterForm = () => {
   // useDispatch();
 
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [passworConfirmdVisible, setPasswordConfirmVisible] = useState(false);
+  // const [passworConfirmdVisible, setPasswordConfirmVisible] = useState(false);
 
   const handleClickPasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
@@ -94,15 +95,15 @@ const RegisterForm = () => {
       validationSchema={registrationValidationSchema}
     >
       {({ isSubmitting, errors, touched, values, setFieldValue }) => (
-        <Form autoComplete="off">
+        <FormBox autoComplete="off">
           <FormContainer>
+            <Title>Sign Up</Title>
+            <Text>
+              Thank you for your interest in our platform. To complete the
+              registration process, please provide us with the following
+              information.
+            </Text>
             <InputContainer>
-              <Title>Sign Up</Title>
-              <Text>
-                Thank you for your interest in our platform. To complete the
-                registration process, please provide us with the following
-                information.
-              </Text>
               <InputWrap>
                 <label htmlFor="name" hidden>
                   Name
@@ -248,7 +249,7 @@ const RegisterForm = () => {
               <StyledLink to="/signin">Sign In</StyledLink>
             </TextIn>
           </FormContainer>
-        </Form>
+        </FormBox>
       )}
     </Formik>
   );
