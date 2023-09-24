@@ -178,7 +178,7 @@ export const Tutorial = styled.div`
   @media screen and (min-width: 768px) {
     width: 206px;
     height: 96px;
-    margin-left: 3px;
+    margin-left: 64px;
     margin-top: 582px;
   }
   @media screen and (min-width: 1440px) {
@@ -376,6 +376,6 @@ export const HomePhoto = styled.div`
     width: 670px;
     height: 800px;
     margin-left: 76px;
-    margin-top: -83px;
+    margin-top: -85px;
   }
 `;

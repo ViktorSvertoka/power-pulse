@@ -20,31 +20,6 @@ export const WrapperSignInPage = styled.section`
   }
 `;
 
-// export const ContainerSignInPage = styled.div`
-//   position: relative;
-//   margin-left: auto;
-//   margin-right: auto;
-//   width: 320px;
-//   padding-left: 5px;
-//   padding-top: 117px;
-
-//   @media screen and (min-width: 375px) {
-//     width: 375px;
-//     padding-left: 20px;
-//     padding-top: 127px;
-//   }
-//   @media screen and (min-width: 768px) {
-//     width: 768px;
-//     padding-left: 32px;
-//     padding-top: 189px;
-//   }
-//   @media screen and (min-width: 1440px) {
-//     width: 1440px;
-//     padding-left: 96px;
-//     padding-top: 200px;
-//   }
-// `;
-
 export const FormSignInPage = styled.form`
   width: 300px;
 
@@ -451,7 +426,7 @@ export const HomePhoto = styled.div`
     }
     width: 437px;
     height: 893px;
-    margin-top: 40px;
+    margin-top: 44px;
     margin-left: -66px;
   }
   @media screen and (min-width: 1440px) {
@@ -468,6 +443,6 @@ export const HomePhoto = styled.div`
     width: 670px;
     height: 800px;
     margin-left: 309px;
-    margin-top: -83px;
+    margin-top: -85px;
   }
 `;

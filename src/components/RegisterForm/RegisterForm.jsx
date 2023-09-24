@@ -21,11 +21,7 @@ import {
   SvgLayc,
   SvgEror,
   Text,
-
-  Text1,
-
   TextIn,
-
 } from './RegisterForm.styled';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operations';
@@ -102,13 +98,12 @@ const RegisterForm = () => {
         <FormBox autoComplete="off">
           <FormContainer>
             <Title>Sign Up</Title>
-              <Text>
-                Thank you for your interest in our platform. To complete the
-                registration process, please provide us with the following
-                information.
-              </Text>
+            <Text>
+              Thank you for your interest in our platform. To complete the
+              registration process, please provide us with the following
+              information.
+            </Text>
             <InputContainer>
-              
               <InputWrap>
                 <label htmlFor="name" hidden>
                   Name
@@ -248,19 +243,11 @@ const RegisterForm = () => {
               </InputWrap>
             </InputContainer>
 
-
             <Button type="submit">Sign Up</Button>
-            <Text1>
-              Already have account?
-              <StyledLink to="/signin">Sign In</StyledLink>
-            </Text1>
-
-            <Button type="submit">Sign Un</Button>
             <TextIn>
               Already have account?
               <StyledLink to="/signin">Sign In</StyledLink>
             </TextIn>
-
           </FormContainer>
         </FormBox>
       )}
