@@ -20,7 +20,7 @@ import {
   SvgLayc,
   SvgEror,
   Text,
-  Text1,
+  TextIn,
 } from './RegisterForm.styled';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operations';
@@ -243,10 +243,10 @@ const RegisterForm = () => {
             </InputContainer>
 
             <Button type="submit">Sign Up</Button>
-            <Text1>
+            <TextIn>
               Already have account?
               <StyledLink to="/signin">Sign In</StyledLink>
-            </Text1>
+            </TextIn>
           </FormContainer>
         </Form>
       )}

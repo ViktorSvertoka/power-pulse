@@ -287,7 +287,7 @@ export const PasswordCrossIcon = styled.button`
   border: none;
 `;
 
-export const Text1 = styled.p`
+export const TextIn = styled.p`
   font-size: 12px;
   line-height: 1.33;
   letter-spacing: 0.04em;

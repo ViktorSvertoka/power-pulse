@@ -178,7 +178,7 @@ export const Tutorial = styled.div`
   @media screen and (min-width: 768px) {
     width: 206px;
     height: 96px;
-    margin-left: 3px;
+    margin-left: 64px;
     margin-top: 582px;
   }
   @media screen and (min-width: 1440px) {
