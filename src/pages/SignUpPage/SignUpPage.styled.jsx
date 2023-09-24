@@ -225,7 +225,7 @@ export const HomePhoto = styled.div`
   @media screen and (min-width: 375px) {
     background-position-y: bottom;
     height: 570px;
-    margin-top: -303px;
+    margin-top: -294px;
     margin-left: 76px;
   }
   @media screen and (min-width: 768px) {
@@ -238,8 +238,8 @@ export const HomePhoto = styled.div`
     }
     width: 437px;
     height: 893px;
-    margin-top: 40px;
-    margin-left: -36px;
+    margin-top: 44px;
+    margin-left: -197px;
   }
   @media screen and (min-width: 1440px) {
     background-size: 100%;
@@ -254,7 +254,7 @@ export const HomePhoto = styled.div`
 
     width: 670px;
     height: 800px;
-    margin-left: 339px;
-    margin-top: -83px;
+    margin-left: 178px;
+    margin-top: -85px;
   }
 `;

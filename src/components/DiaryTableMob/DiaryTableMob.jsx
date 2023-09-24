@@ -4,11 +4,11 @@ import sprite from '../../images/sprite.svg';
 
 import { DeleteBtn, DeleteIcon } from '../DiaryTable/DiaryTable.styled';
 import {
-  BottomContainer,
+  BottomWrap,
   Cell,
   CellValue,
-  ContainerForTable,
-  CustomContainer,
+  TableWrap,
+  WrapAll,
 } from './DiaryTableMob.styled';
 
 const DiaryTableOnMobile = ({
@@ -21,9 +21,9 @@ const DiaryTableOnMobile = ({
   return (
     <>
       {productTable && (
-        <CustomContainer>
+        <WrapAll>
           {list.map(item => (
-            <ContainerForTable key={item._id}>
+            <TableWrap key={item._id}>
               <Cell>
                 Title<CellValue>{item.title}</CellValue>
               </Cell>
@@ -32,7 +32,7 @@ const DiaryTableOnMobile = ({
                 Category<CellValue>{item.category}</CellValue>
               </Cell>
 
-              <BottomContainer>
+              <BottomWrap>
                 <Cell>
                   Calories
                   <CellValue>{item.calories}</CellValue>
@@ -58,16 +58,16 @@ const DiaryTableOnMobile = ({
                     </DeleteBtn>
                   </CellValue>
                 </Cell>
-              </BottomContainer>
-            </ContainerForTable>
+              </BottomWrap>
+            </TableWrap>
           ))}
-        </CustomContainer>
+        </WrapAll>
       )}
 
       {exerciseTable && (
-        <CustomContainer>
+        <WrapAll>
           {list.map(item => (
-            <ContainerForTable key={item._id}>
+            <TableWrap key={item._id}>
               <Cell>
                 Body Part<CellValue>{item.bodyPart}</CellValue>
               </Cell>
@@ -80,7 +80,7 @@ const DiaryTableOnMobile = ({
                 Name<CellValue>{item.name}</CellValue>
               </Cell>
 
-              <BottomContainer>
+              <BottomWrap>
                 <Cell>
                   Target <CellValue>{item.target}</CellValue>
                 </Cell>
@@ -104,10 +104,10 @@ const DiaryTableOnMobile = ({
                     </DeleteBtn>
                   </CellValue>
                 </Cell>
-              </BottomContainer>
-            </ContainerForTable>
+              </BottomWrap>
+            </TableWrap>
           ))}
-        </CustomContainer>
+        </WrapAll>
       )}
     </>
   );

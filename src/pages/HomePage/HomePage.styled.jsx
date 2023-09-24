@@ -376,6 +376,6 @@ export const HomePhoto = styled.div`
     width: 670px;
     height: 800px;
     margin-left: 76px;
-    margin-top: -83px;
+    margin-top: -85px;
   }
 `;

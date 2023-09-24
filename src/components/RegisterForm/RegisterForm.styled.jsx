@@ -4,9 +4,8 @@ import styled from 'styled-components';
 
 export const FormContainer = styled.div`
   box-sizing: border-box;
-  max-width: 335px;
 
-  margin: 60px 20px 0 20px;
+  margin: 45px 20px 0 20px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -19,6 +18,7 @@ export const FormContainer = styled.div`
     margin-top: 119px;
   }
 `;
+
 export const FormBox = styled(Form)`
   display: flex;
   box-sizing: border-box;
@@ -27,24 +27,8 @@ export const FormBox = styled(Form)`
     margin-left: 20px;
     margin-right: 20px;
   }
-  @media screen and (max-width: 768px) {
-    margin-left: 25px;
-    margin-top: 90px;
-    margin-bottom: 20px;
-
-    max-width: 335px;
-  }
   @media screen and (min-width: 768px) {
     width: 500px;
-    margin-left: 32px;
-
-    margin-top: 140px;
-    margin-bottom: 40px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    margin-top: 100px;
-    margin-left: 150px;
   }
 `;
 
@@ -69,10 +53,9 @@ export const Text = styled.p`
   font-size: 14px;
   line-height: 1.28;
 
-  font-size: 16px;
-  line-height: 1.33;
+  font-size: 14px;
+  line-height: 1.28;
   letter-spacing: 0.01em;
-  text-align: justify;
 
   text-align: flex-start;
   color: rgba(239, 237, 232, 0.3);
@@ -82,6 +65,7 @@ export const Text = styled.p`
   @media screen and (min-width: 768px) {
     font-size: 16px;
     line-height: 1.5;
+    letter-spacing: 0;
     width: 496px;
     height: 48px;
     margin-bottom: 32px;
@@ -96,7 +80,6 @@ export const InputContainer = styled.div`
   align-items: flex-start;
   position: relative;
   margin-bottom: 20px;
-
   @media screen and (min-width: 768px) {
     width: 365px;
     margin-bottom: 40px;
@@ -106,23 +89,6 @@ export const InputContainer = styled.div`
 export const InputWrap = styled.div`
   box-sizing: border-box;
   width: 100%;
-
-  display: flex;
-  margin-bottom: 20px;
-
-  // flex-direction: column;
-
-  @media screen and (min-width: 768px) {
-    // width: 100%;
-  }
-`;
-
-export const BtnContainer = styled.div`
-  box-sizing: border-box;
-  max-width: 100%;
-  display: flex;
-
-  align-items: flex-start;
 `;
 
 export const Input = styled(Field)`
@@ -184,7 +150,6 @@ export const ErrorWrap = styled.div`
   display: flex;
 
   /* width: 100%; */
-  // padding-left: 12px;
 
   width: 100%;
   padding-left: 12px;
@@ -195,7 +160,6 @@ export const ErrorWrap = styled.div`
   color: rgba(248, 5, 5, 0.973);
   font-size: 12px;
   font-weight: 400;
-  // padding-top: 5px;
 `;
 
 export const Button = styled.button`
@@ -268,7 +232,7 @@ export const IconBtn = styled.button`
   width: 40px;
   height: 40px;
   position: absolute;
-  right: 7px;
+  right: 2px;
 
   padding: 10px 0;
   background-color: inherit;
@@ -277,21 +241,17 @@ export const IconBtn = styled.button`
   border-bottom-right-radius: 12px;
   cursor: pointer;
 
-  @media screen and (max-width: 375px) {
-    width: 50px;
-    height: 50px;
-    right: 2px;
-  }
-  @media screen and (min-width: 375px) {
+  @media screen and (min-width: 768px) {
     width: 53px;
     height: 53px;
     right: 30px;
 
     width: 30px;
     height: 30px;
-    right: 1px;
+    right: 40px;
   }
 `;
+
 export const Svg = styled.svg`
   width: 25px;
   height: 25px;
@@ -314,6 +274,7 @@ export const SvgEror = styled.svg`
 
   vertical-align: middle;
 `;
+
 export const CrossIcon = styled.button`
   width: 24px;
   height: 24px;
@@ -326,6 +287,7 @@ export const CrossIcon = styled.button`
   border-bottom-right-radius: 40px;
   cursor: pointer;
 `;
+
 export const ConfirmIcon = styled.button`
   width: 24px;
   height: 24px;
@@ -361,6 +323,7 @@ export const PasswordComnfirIcon = styled.button`
   background-color: #ffff;
   border: none;
 `;
+
 export const PasswordCrossIcon = styled.button`
   width: 24px;
   height: 24px;
