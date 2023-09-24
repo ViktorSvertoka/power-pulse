@@ -31,7 +31,7 @@ const diary = createSlice({
     builder.addCase(getDiaryList.pending, handlePending);
     builder.addCase(getDiaryList.fulfilled, (state, { payload }) => {
       state.isLoading = false;
-      state.products = payload.products;
+      state.products = payload;
       state.exercises = payload.exercises;
     });
     builder.addCase(getDiaryList.rejected, (state, { payload }) => {

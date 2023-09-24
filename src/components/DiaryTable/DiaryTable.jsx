@@ -67,7 +67,7 @@ const TableForDiary = ({
                       <Cell>{item.amount}</Cell>
                       <Cell>
                         <BeforeForCell
-                          bgColor={item.recommend ? '#419B09' : '#E9101D'}
+                          bgcolor={item.recommend ? '#419B09' : '#E9101D'}
                         />
                         {item.recommend ? 'Yes' : 'No'}
                       </Cell>
