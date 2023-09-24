@@ -11,9 +11,9 @@ import {
 } from './UserForm.styled';
 
 const RadioOption = ({ id, name, value, checked, label, onChange }) => (
-  <div className="leave__radio">
+  <div className="radio">
     <input
-      className="leave__radio-input"
+      className="radio-input"
       type="radio"
       id={id}
       name={name}
@@ -21,7 +21,7 @@ const RadioOption = ({ id, name, value, checked, label, onChange }) => (
       checked={checked}
       onChange={onChange}
     />
-    <label className="leave__radio-label" htmlFor={id}>
+    <label className="radio-label" htmlFor={id}>
       {label}
     </label>
   </div>
@@ -37,20 +37,26 @@ RadioOption.propTypes = {
 };
 
 const UserForm = () => {
-  const [selectedValue, setSelectedValue] = useState('Male');
+  const [selectedSex, setSelectedSex] = useState('Male');
   const [selectedBlood, setSelectedBlood] = useState('1');
-  const [selectedQuestion, setSelectedQuestion] = useState('choice-1');
+  const [selectedLevel, setSelectedLevel] = useState('1');
 
-  const handleRadioChange = event => {
-    setSelectedValue(event.target.value);
+  const handleSexChange = event => {
+    setSelectedSex(event.target.value);
   };
 
   const handleBloodChange = event => {
     setSelectedBlood(event.target.value);
   };
 
-  const handleQuestionChange = event => {
-    setSelectedQuestion(event.target.value);
+  const handleLevelChange = event => {
+    setSelectedLevel(event.target.value);
+  };
+
+  const handleSupmit = () => {
+    console.log('Selected Blood:', selectedBlood);
+    console.log('Selected Sex:', selectedSex);
+    console.log('Selected Level:', selectedLevel);
   };
 
   const bloodOptions = [
@@ -65,30 +71,30 @@ const UserForm = () => {
     { id: 'Female', value: 'Female', label: 'Female' },
   ];
 
-  const questionOptions = [
+  const levelOptions = [
     {
-      id: 'choice-1',
-      value: 'choice-1',
+      id: 'level-1',
+      value: '1',
       label: 'Sedentary lifestyle (little or no physical activity)',
     },
     {
-      id: 'choice-2',
-      value: 'choice-2',
+      id: 'level-2',
+      value: '2',
       label: 'Light activity (light exercises/sports 1-3 days per week)',
     },
     {
-      id: 'choice-3',
-      value: 'choice-3',
+      id: 'level-3',
+      value: '3',
       label: 'Moderately active (moderate exercises/sports 3-5 days per week)',
     },
     {
-      id: 'choice-4',
-      value: 'choice-4',
+      id: 'level-4',
+      value: '4',
       label: 'Very active (intense exercises/sports 6-7 days per week)',
     },
     {
-      id: 'choice-5',
-      value: 'choice-5',
+      id: 'level-5',
+      value: '5',
       label:
         'Extremely active (very strenuous exercises/sports and physical work)',
     },
@@ -128,48 +134,46 @@ const UserForm = () => {
           gap: 8,
         }}
       >
-        <form>
-          <WrapperRadio>
-            {bloodOptions.map(option => (
-              <RadioOption
-                key={option.id}
-                id={option.id}
-                name="Blood"
-                value={option.value}
-                checked={selectedBlood === option.value}
-                label={option.label}
-                onChange={handleBloodChange}
-              />
-            ))}
+        <WrapperRadio>
+          {bloodOptions.map(option => (
+            <RadioOption
+              key={option.id}
+              id={option.id}
+              name="Blood"
+              value={option.value}
+              checked={selectedBlood === option.value}
+              label={option.label}
+              onChange={handleBloodChange}
+            />
+          ))}
 
-            {sexOptions.map(option => (
-              <RadioOption
-                key={option.id}
-                id={option.id}
-                name="Sex"
-                value={option.value}
-                checked={selectedValue === option.value}
-                label={option.label}
-                onChange={handleRadioChange}
-              />
-            ))}
+          {sexOptions.map(option => (
+            <RadioOption
+              key={option.id}
+              id={option.id}
+              name="Sex"
+              value={option.value}
+              checked={selectedSex === option.value}
+              label={option.label}
+              onChange={handleSexChange}
+            />
+          ))}
 
-            {questionOptions.map(option => (
-              <RadioOption
-                key={option.id}
-                id={option.id}
-                name="question"
-                value={option.value}
-                checked={selectedQuestion === option.value}
-                label={option.label}
-                onChange={handleQuestionChange}
-              />
-            ))}
-          </WrapperRadio>
-        </form>
+          {levelOptions.map(option => (
+            <RadioOption
+              key={option.id}
+              id={option.id}
+              name="levelActivity"
+              value={option.value}
+              checked={selectedLevel === option.value}
+              label={option.label}
+              onChange={handleLevelChange}
+            />
+          ))}
+        </WrapperRadio>
       </div>
 
-      <Button>Save</Button>
+      <Button onClick={handleSupmit}>Save</Button>
     </>
   );
 };
