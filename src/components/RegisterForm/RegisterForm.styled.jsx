@@ -1,6 +1,7 @@
-import { Field } from 'formik';
+import { Field, Form } from 'formik';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+
 
 export const FormContainer = styled.div`
   box-sizing: border-box;
@@ -17,7 +18,39 @@ export const FormContainer = styled.div`
 
   @media screen and (min-width: 1440px) {
     margin-top: 119px;
+
+export const FormBox = styled(Form)`
+  display: flex;
+  box-sizing: border-box;
+  max-width: 500px;
+  @media screen and (max-width: 375px) {
+    margin-left: 20px;
+    margin-right: 20px;
   }
+  @media screen and (max-width: 768px) {
+    margin-left: 25px;
+    margin-top: 90px;
+    margin-bottom: 20px;
+
+    max-width: 335px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 500px;
+    margin-left: 32px;
+
+    margin-top: 140px;
+    margin-bottom: 40px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-top: 100px;
+    margin-left: 150px;
+
+  }
+`;
+
+export const FormContainer = styled.div`
+  box-sizing: border-box;
 `;
 
 export const Title = styled.h2`
@@ -30,15 +63,33 @@ export const Title = styled.h2`
 
   @media screen and (min-width: 768px) {
     font-size: 32px;
+
     font-weight: 700;
 
     margin-bottom: 16px;
   }
 `;
 
+export const TextIn = styled.p`
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: 0.01em;
+  text-align: justify;
+  text-align: center;
+  color: rgba(239, 237, 232, 0.3);
+  margin-top: 12px;
+  max-width: 180px;
+`;
 export const Text = styled.p`
+
   font-size: 14px;
   line-height: 1.28;
+
+
+  font-size: 16px;
+  line-height: 1.33;
+  letter-spacing: 0.01em;
+  text-align: justify;
 
   text-align: flex-start;
   color: rgba(239, 237, 232, 0.3);
@@ -53,6 +104,7 @@ export const Text = styled.p`
     margin-bottom: 32px;
   }
 `;
+
 
 export const InputContainer = styled.div`
   box-sizing: border-box;
@@ -90,28 +142,45 @@ export const BtnContainer = styled.div`
   align-items: flex-start;
 `;
 
+
 export const Input = styled(Field)`
-  box-sizing: border-box;
   width: 100%;
 
   outline: 1px solid rgba(239, 237, 232, 0.3);
 
   border: none;
   position: relative;
-  border-radius: 12px;
-  padding: 14px 14px 14px;
-  font-family: inherit;
+  box-sizing: border-box;
+  height: 46px;
+  color: var(--white-color);
+  font-family: 'RobotoRegular';
   font-size: 16px;
   line-height: 1.5;
-  letter-spacing: 0.04em;
-  color: #e8efed;
-  background-color: rgba(4, 4, 4, 0.01);
+  margin-bottom: 4px;
+  margin-top: 4px;
+  padding-left: 14px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  background-color: transparent;
+  border-radius: 12px;
 
-  &:hover {
-    outline: 1px solid #e6533c;
+  &::placeholder {
+    color: var(--normal-color);
+    font-family: 'RobotoRegular';
+    font-size: 14px;
+    line-height: 1.28;
+
+    @media screen and (min-width: 768px) {
+      font-size: 16px;
+      line-height: 1.5;
+    }
   }
+
+  &:hover,
   &:focus {
     outline: 1px solid #e6533c;
+
+    /* outline: 0; */
   }
   &.default {
     outline: 1px solid rgba(239, 237, 232, 0.3);
@@ -128,19 +197,61 @@ export const Input = styled(Field)`
     height: 46px;
   }
 `;
+
+export const InputContainer = styled.div`
+  box-sizing: border-box;
+
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  margin-bottom: 40px;
+  margin-top: 20px;
+  margin-bottom: 28px;
+  @media screen and (min-width: 375px) {
+    width: 335px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 364px;
+    margin-bottom: 64px;
+  }
+`;
+export const InputWrap = styled.div`
+  max-width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+`;
+
+export const BtnContainer = styled.div`
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+`;
+
 export const ErrorWrap = styled.div`
   display: flex;
+
   /* width: 100%; */
   // padding-left: 12px;
+
+  width: 100%;
+  padding-left: 12px;
+
   align-items: center;
   justify-content: left;
   height: 14px;
   color: rgba(248, 5, 5, 0.973);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
   // padding-top: 5px;
 `;
+
 export const Button = styled.button`
+
   width: 136px;
   height: 42px;
   box-sizing: border-box;
@@ -163,17 +274,40 @@ export const Button = styled.button`
   letter-spacing: 0.04em;
   cursor: pointer;
 
+  display: flex;
+  padding: 12px 40px;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+  font-family: inherit;
+  background-color: #e6533c;
+  color: white;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: calc(18 / 16);
+  border: 1px solid rgba(239, 237, 232, 0.3);
+  transition: background 0.3s ease-out;
+
+
   &:hover {
-    background: #e6533c;
+    color: white;
+    background: #ef8964;
   }
 
   @media screen and (min-width: 768px) {
+
     width: 190px;
     height: 56px;
 
     font-size: 20px;
     line-height: 1.2;
     letter-spacing: 0;
+
+    padding: 16px 60px;
+    font-size: 20px;
+    line-height: 1.2;
+
   }
 `;
 
@@ -187,10 +321,11 @@ export const StyledLink = styled(Link)`
 `;
 
 export const IconBtn = styled.button`
-  width: 53px;
-  height: 53px;
+  width: 40px;
+  height: 40px;
   position: absolute;
   right: 7px;
+
   padding: 10px 0;
   background-color: inherit;
   border: none;
@@ -199,20 +334,27 @@ export const IconBtn = styled.button`
   cursor: pointer;
 
   @media screen and (max-width: 375px) {
-    width: 53px;
-    height: 1px;
+    width: 50px;
+    height: 50px;
     right: 2px;
   }
   @media screen and (min-width: 375px) {
+
     width: 53px;
     height: 53px;
     right: 30px;
+
+    width: 30px;
+    height: 30px;
+    right: 1px;
+
   }
 `;
 export const Svg = styled.svg`
-  width: 30px;
-  height: 30px;
-
+  width: 25px;
+  height: 25px;
+  margin-top: 6px;
+  margin-right: 5px;
   stroke: #efede8;
 `;
 
@@ -265,7 +407,7 @@ export const ConfirmMessage = styled.div`
   padding-left: 12px;
   font-size: 12px;
   font-weight: 400;
-  padding-top: 10px;
+  padding-top: 5px;
 `;
 
 export const PasswordComnfirIcon = styled.button`
@@ -283,7 +425,7 @@ export const PasswordCrossIcon = styled.button`
   position: absolute;
   right: 60px;
   padding: 12px 0;
-  background-color: #ffff;
+  background-color: #fff;
   border: none;
 `;
 

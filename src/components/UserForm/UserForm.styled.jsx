@@ -41,16 +41,78 @@ export const InputField = styled.input`
   color: #efede8;
 `;
 
-export const Radio = styled.input`
-  /*  */
-`;
-
 export const Label = styled.label`
   color: #efede8;
   font-family: Roboto;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
+`;
+
+export const WrapperRadio = styled.div`
+  .radio {
+    position: relative;
+  }
+
+  .radio-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+
+  .radio-label {
+    padding-left: 28px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.71em;
+    letter-spacing: -0.28px;
+    color: #fff;
+  }
+
+  .radio-label::before {
+    content: '';
+    display: block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #636366;
+    background-color: transparent;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 0;
+    z-index: 1;
+  }
+
+  .radio-label::after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border: 2px solid var(--orange-color);
+    background-color: var(--orange-color);
+    border-radius: 50%;
+    opacity: 0;
+    position: absolute;
+    top: 7px;
+    left: 4px;
+    z-index: 2;
+  }
+
+  .radio-input:checked + .radio-label::before {
+    border-color: var(--orange-color);
+  }
+
+  .radio-input:checked + .radio-label::after {
+    opacity: 1;
+  }
 `;
 
 export const Button = styled.button`

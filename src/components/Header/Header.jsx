@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 import { HeaderContainer, LogoLink, Svg, UserContainer } from './Header.styled';
 import { UserMenu } from '../UserMenu/UserMenu';
 import MobileMenu from '../MobileMenu/MobileMenu';
