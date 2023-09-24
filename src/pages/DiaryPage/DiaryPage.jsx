@@ -17,7 +17,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { getDiaryList } from '../../redux/diary/operations';
 import {
-  getDiaryExercises,
+  // getDiaryExercises,
   getDiaryProducts,
 } from '../../redux/diary/selectors';
 import DaySwitch from '../../components/DaySwitch/DaySwitch';
@@ -26,8 +26,8 @@ import ExclamationCircle from '../../components/ExclamationCircle/ExclamationCir
 
 const Diary = () => {
   const productsList = useSelector(getDiaryProducts);
-  const exercisesList = useSelector(getDiaryExercises);
-
+  // const exercisesList = useSelector(getDiaryExercises);
+  console.log(productsList);
   const dispatch = useDispatch();
 
   const date = '26/09/2023';
@@ -35,6 +35,10 @@ const Diary = () => {
   useEffect(() => {
     dispatch(getDiaryList(date));
   }, [dispatch]);
+
+  if (!productsList) {
+    return null;
+  }
 
   return (
     <Container>
@@ -66,7 +70,7 @@ const Diary = () => {
             />
 
             <DiaryProductsItemOrExercisesItem
-              list={exercisesList}
+              // list={exercisesList}
               exerciseTable
               date={date}
               to={'/exercises'}
