@@ -15,18 +15,34 @@ const UserProfile = () => {
     </svg>
   );
 
-  const handleAvatarChange = () => {
-    setAvatarUrl('');
+  const handleAvatarChange = event => {
+    const file = event.target.files[0];
+    if (file) {
+      const blob = new Blob([file]);
+      const objectURL = URL.createObjectURL(blob);
+      setAvatarUrl(objectURL);
+    }
   };
 
   return (
     <Wrapper>
       <Avatar>{avatarUrl ? avatarUser : avatarLogo}</Avatar>
-      <Button type="button" onClick={handleAvatarChange}>
-        <IconBtn>
-          <use href={`${sprite}#icon-add-avatar`}></use>
-        </IconBtn>
-      </Button>
+      <form id="upload-form">
+        <input
+          type="file"
+          id="file-input"
+          name="file"
+          style={{ display: 'none' }}
+          onChange={handleAvatarChange}
+        />
+        <label htmlFor="file-input">
+          <Button>
+            <IconBtn>
+              <use href={`${sprite}#icon-add-avatar`}></use>
+            </IconBtn>
+          </Button>
+        </label>
+      </form>
       <p style={{ color: '#EFEDE8' }}>Anna Rybachok</p>
       <p style={{ color: 'var(--normal-color)' }}>User</p>
     </Wrapper>
