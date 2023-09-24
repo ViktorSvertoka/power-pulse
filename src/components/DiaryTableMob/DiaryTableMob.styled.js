@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const CustomContainer = styled.div`
+export const WrapAll = styled.div`
   overflow: auto;
   margin-top: 22px;
   height: 254px;
@@ -14,12 +14,12 @@ export const CustomContainer = styled.div`
     border-radius: 12px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 768px) {
     display: none;
   }
 `;
 
-export const ContainerForTable = styled.div`
+export const TableWrap = styled.div`
   padding-right: 14px;
   margin-bottom: 40px;
   height: auto;
@@ -29,7 +29,7 @@ export const ContainerForTable = styled.div`
   }
 `;
 
-export const BottomContainer = styled.div`
+export const BottomWrap = styled.div`
   display: flex;
   height: 64px;
 
@@ -85,11 +85,14 @@ export const Cell = styled.div`
   font-size: 12px;
   line-height: 1.5;
 
-  color: '#EF8964';
+  color: #ef8964;
 `;
 
 export const CellValue = styled.p`
   display: flex;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   align-items: center;
   margin-top: 8px;
   margin-bottom: 16px;
@@ -99,7 +102,7 @@ export const CellValue = styled.p`
   line-height: 1.29;
 
   border-radius: 12px;
-  border: 1px solid 'rgba(239, 237, 232, 0.20)';
+  border: 1px solid rgba(239, 237, 232, 0.2);
 
   color: #efede8;
 
