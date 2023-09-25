@@ -4,9 +4,7 @@ import sprite from '../../images/sprite.svg';
 import { Button, Avatar, Photo, Wrapper, IconBtn } from './UserProfile.styled';
 
 const UserProfile = () => {
-  const [avatarUrl, setAvatarUrl] = useState(
-    'https://images.squarespace-cdn.com/content/v1/58d1b3ff1b631bb1893d108d/813f4928-6cc6-4bc8-a4e4-265f94b4d665/matthew-hamilton-tNCH0sKSZbA-unsplash.jpg?format=1500w',
-  );
+  const [avatarUrl, setAvatarUrl] = useState('');
 
   const avatarUser = <Photo src={avatarUrl} width="100%" alt="Avatar" />;
   const avatarLogo = (
@@ -23,6 +21,19 @@ const UserProfile = () => {
       setAvatarUrl(objectURL);
     }
   };
+
+  // const uploadAvatarToServer = async event => {
+  //   const file = event.target.files[0];
+  //   if (file) {
+  //     try {
+  //       const formData = new FormData();
+  //       formData.append('avatar', file);
+  //       console.log(formData);
+  //     } catch (error) {
+  //       console.error('Помилка при відправленні файлу на сервер', error);
+  //     }
+  //   }
+  // };
 
   return (
     <Wrapper>
