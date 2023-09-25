@@ -13,6 +13,7 @@ import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/slice';
 import { exercisesReducer } from './exercises/sliceExercises';
 import { diaryReducer } from './diary/slice';
+import { productsReducer } from './products/sliceProducts';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -33,6 +34,7 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     exercises: exercisesReducer,
     diary: diaryReducer,
+    products: productsReducer,
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',
