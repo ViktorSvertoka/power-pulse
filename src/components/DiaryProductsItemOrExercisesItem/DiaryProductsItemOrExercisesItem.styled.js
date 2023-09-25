@@ -56,15 +56,6 @@ export const AddLink = styled(NavLink)`
   transition:
     scale 250ms ease-in-out,
     color 250ms ease-in-out;
-
-  &:hover {
-    scale: 1.1;
-    color: #ef8964;
-
-    svg {
-      stroke: #ef8964;
-    }
-  }
 `;
 
 export const DayNoContentText = styled.p`
@@ -73,15 +64,14 @@ export const DayNoContentText = styled.p`
   left: 50%;
   transform: translate(-50%, -50%);
 
-  color: rgba(239, 237, 232, 0.5);
+  color: rgba(239, 237, 232, 0.3);
 `;
 
 export const ArrowRight = styled.svg`
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   margin-left: 8px;
 
   stroke: #e6533c;
-
-  transition: stroke 250ms ease-in-out;
+  fill: #e6533c;
 `;

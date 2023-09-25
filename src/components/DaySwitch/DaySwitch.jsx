@@ -1,5 +1,5 @@
 // DaySwitch.js
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import StyledDatepicker from '../../components/StyledDatepicker/StyledDatepicker';

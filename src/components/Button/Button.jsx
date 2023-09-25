@@ -6,13 +6,13 @@ function Button({
   background,
   color,
   border,
-  hoverBackground,
+  hoverbackground,
   hoverColor,
 }) {
   return (
     <Btn
       style={{ background, color, border }}
-      hoverBackground={hoverBackground}
+      hoverbackground={hoverbackground}
       hoverColor={hoverColor}
     >
       {text}
@@ -25,7 +25,7 @@ Button.propTypes = {
   background: PropTypes.string,
   color: PropTypes.string,
   border: PropTypes.string,
-  hoverBackground: PropTypes.string,
+  hoverbackground: PropTypes.string,
   hoverColor: PropTypes.string,
 };
 

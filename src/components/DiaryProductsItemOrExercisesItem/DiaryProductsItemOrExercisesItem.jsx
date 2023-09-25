@@ -42,7 +42,7 @@ const DiaryProductsItemOrExercisesItem = ({
         <AddLink to={to}>
           Add {productTable ? 'product' : 'exercise'}
           <ArrowRight>
-            <use href={sprite + `#arrow-right`}></use>
+            <use href={sprite + `#icon-arrow-right`}></use>
           </ArrowRight>
         </AddLink>
       </DayDiarySubDiv>

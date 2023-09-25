@@ -11,7 +11,7 @@ export const Btn = styled.button`
   border-radius: 12px;
 
   &:hover {
-    background: ${props => props.hoverBackground};
+    background: ${props => props.hoverbackground};
     color: ${props => props.hoverColor};
   }
 
