@@ -9,7 +9,7 @@ import { ExercisesItem } from '../ExercisesItem/ExercisesItem';
 import Pagination from '../Pagination/Pagination';
 import { PaginationContainer } from '../Pagination/Pagination.styled';
 
-export const MusculesList = () => {
+export const MusculesList = ({ handleFilterClick, handleSetExName }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -55,7 +55,12 @@ export const MusculesList = () => {
     <PaginationContainer>
       <ExercisesUl>
         {currentItems.map(item => (
-          <ExercisesItem key={item._id} exercisesItem={item} />
+          <ExercisesItem
+            key={item._id}
+            exercisesItem={item}
+            handleFilterClick={handleFilterClick}
+            handleSetExName={handleSetExName}
+          />
         ))}
       </ExercisesUl>
       {itemsPerPage < muscules.length && (

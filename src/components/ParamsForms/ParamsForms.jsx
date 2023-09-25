@@ -36,7 +36,6 @@ import {
   StyledButtonSecond2,
   StyledButtonThird,
   WraperButtonPagin,
-  
 } from './ParamsForm.styled';
 import Step1 from './Step1';
 import Step2 from './Step2';
@@ -155,7 +154,6 @@ const ParamsForm = () => {
   return (
     <WrapperBodiPage>
       <WrapperParamsPage step={step}>
-        
         <FormContainer>
           {step === 0 && (
             <>
@@ -207,7 +205,7 @@ const ParamsForm = () => {
                     )}
                     {step === 2 && (
                       <Step3
-                        onSubmit={handleSubmit}
+                        // onSubmit={handleSubmit}
                         onPrevStep={prevStep}
                         formErrors={formErrors}
                       />
@@ -257,7 +255,6 @@ const ParamsForm = () => {
           )}
         </FormContainer>
       </WrapperParamsPage>
-      
     </WrapperBodiPage>
   );
 };

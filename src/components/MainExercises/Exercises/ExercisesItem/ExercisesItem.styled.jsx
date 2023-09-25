@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const ExercisesLi = styled.li`
   position: relative;
+  cursor: pointer;
 `;
 
 export const Image = styled.img`
