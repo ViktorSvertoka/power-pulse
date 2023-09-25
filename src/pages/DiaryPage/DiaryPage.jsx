@@ -1,6 +1,5 @@
-import DairyStatisticList from '../../components/DairyStatisticList/DairyStatisticList';
-import DiaryProductsItemOrExercisesItem from '../../components/DiaryProductsItemOrExercisesItem/DiaryProductsItemOrExercisesItem';
-
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   DiaryWrapper,
   CustomDivForTables,
@@ -11,40 +10,40 @@ import {
   DescriptionText,
   DescriptionWrapper,
 } from './DiaryPage.styled';
-
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-
 import { getDiaryList } from '../../redux/diary/operations';
-import {
-  // getDiaryExercises,
-  getDiaryProducts,
-} from '../../redux/diary/selectors';
+import { getDiaryProducts } from '../../redux/diary/selectors';
 import DaySwitch from '../../components/DaySwitch/DaySwitch';
 import { Container } from '../../styles/container';
 import ExclamationCircle from '../../components/ExclamationCircle/ExclamationCircle';
+import DairyStatisticList from '../../components/DairyStatisticList/DairyStatisticList';
+import DiaryProductsItemOrExercisesItem from '../../components/DiaryProductsItemOrExercisesItem/DiaryProductsItemOrExercisesItem';
 
 const Diary = () => {
+  const [formatDate, setFormatDate] = useState('');
   const productsList = useSelector(getDiaryProducts);
-  // const exercisesList = useSelector(getDiaryExercises);
   const dispatch = useDispatch();
 
-  const date = '26/09/2023';
-
-  useEffect(() => {
-    dispatch(getDiaryList(date));
-  }, [dispatch]);
-
-  if (!productsList) {
-    return null;
-  }
+  const handleSelectedDateChange = date => {
+    console.log('dateHandle', date);
+    if (date) {
+      const formattedDate = `${String(date.getDate()).padStart(
+        2,
+        '0',
+      )}/${String(date.getMonth() + 1).padStart(2, '0')}/${date.getFullYear()}`;
+      setFormatDate(formattedDate);
+      dispatch(getDiaryList(formattedDate));
+    }
+  };
 
   return (
     <Container>
       <DiaryWrapper>
         <TitleAndSwitchContainer>
           <StyledTitle>Diary</StyledTitle>
-          <DaySwitch></DaySwitch>
+          <DaySwitch
+            setSelectedDate={handleSelectedDateChange}
+            onDateChange={handleSelectedDateChange}
+          />
         </TitleAndSwitchContainer>
 
         <DiaryPageContainer>
@@ -61,20 +60,19 @@ const Diary = () => {
           </WrapperCards>
           <CustomDivForTables>
             <DiaryProductsItemOrExercisesItem
+              key={formatDate}
               marginBottom={40}
               list={productsList}
               productTable
-              date={date}
+              date={formatDate}
               to={'/products'}
             />
-
             <DiaryProductsItemOrExercisesItem
-              // list={exercisesList}
               exerciseTable
-              date={date}
+              date={formatDate}
               to={'/exercises'}
             />
-          </CustomDivForTables>{' '}
+          </CustomDivForTables>
         </DiaryPageContainer>
       </DiaryWrapper>
     </Container>

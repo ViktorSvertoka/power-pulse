@@ -49,6 +49,7 @@ const DiaryProductsItemOrExercisesItem = ({
       {list && list.length !== undefined && list.length !== 0 ? (
         <>
           <DiaryTable
+            key={list}
             list={list}
             productTable={productTable}
             exerciseTable={exerciseTable}

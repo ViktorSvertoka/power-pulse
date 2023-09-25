@@ -29,10 +29,10 @@ const diary = createSlice({
   initialState: contactsInitialValue,
   extraReducers: builder => {
     builder.addCase(getDiaryList.pending, handlePending);
-    builder.addCase(getDiaryList.fulfilled, (state, { payload }) => {
+    builder.addCase(getDiaryList.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.products = payload;
-      state.exercises = payload.exercises;
+      state.products = action.payload;
+      console.log(action.payload);
     });
     builder.addCase(getDiaryList.rejected, (state, { payload }) => {
       state.productsAndExercisesError = payload;
