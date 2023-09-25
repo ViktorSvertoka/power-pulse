@@ -39,28 +39,51 @@ const backgroundImages = {
   },
 };
 export const WrapperBodiPage = styled.div`
-  margin: 0px auto;
-  height: 90vh;
-  border: 1px solid #aa0707;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: 100%;
+  justify-content: space-between;
+  padding-top: 50px;
+
+  /* margin: 0px auto; */
+
+  
   position: relative;
-bottom:0;
+
+  @media screen and (max-width: 375px) {
+    /* height: 95%; */
+    max-width: 335px;
+    /* margin-top:50px; */
+    padding: 0px 10px 10px 10px;
+  }
   @media screen and (min-width: 375px) {
-    width: 375px;
+    /* margin-top: 90px; */
+    margin-left: auto;
+    margin-right: auto;
+    /* height: 89%; */
+    width: 335px;
   }
 
   @media screen and (min-width: 768px) {
-    width: 768px;
+    width: 523px;
+    padding-top: 120px;
+    margin-left: 32px;
+    /* height: 80%; */
   }
 
   @media screen and (min-width: 1440px) {
-    width: 1440px;
+    width: 523px;
+    margin-left: 90px;
   }
 `;
 
 export const WrapperParamsPage = styled.div`
-  border: 1px solid #fff;
+  display: flex;
+  box-sizing: border-box;
+  
   margin: 0px auto;
-  height: 90vh;
+  height: 88vh;
   margin-left: auto;
   margin-right: auto;
   background-color: transparent;
@@ -80,7 +103,7 @@ export const WrapperParamsPage = styled.div`
 
   @media screen and (min-width: 375px) {
     width: 375px;
-    height: 90vh;
+    height: 89vh;
     margin-left: auto;
     margin-right: auto;
     background-color: transparent;
@@ -143,40 +166,31 @@ export const WrapperParamsPage = styled.div`
 `;
 
 export const FormContainer = styled.div`
-display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  border: 2px solid rgba(34, 16, 196, 0.3);
-display:flex;
+  
+  display: flex;
   flex-direction: column;
-  height: 74vh;
-  margin-top: 90px;
-
-  margin-left: 20px;
-  margin-right: 20px;
+  
   max-width: 335px;
-
+  margin-right: 0;
+ margin-left: 0;
   border-radius: 5px;
   background-color: transparent;
   @media screen and (max-width: 375px) {
-    max-width: 335px;
-    height: 80vh;
+   
   }
   @media screen and (min-width: 375px) {
     width: 523px;
-    height: 81vh;
+    
   }
 
   @media screen and (min-width: 768px) {
     max-width: 523px;
-    margin-top: 140px;
-    margin-left: 90px;
-    height: 73vh;
+    
   }
 
   @media screen and (min-width: 1440px) {
     width: 523px;
-    /* height: 80vh; */
+    
   }
 `;
 
@@ -190,14 +204,14 @@ export const FormHeader = styled.h2`
   text-align: left;
   padding-bottom: 20px;
   color: #efede8;
-  font-family: Roboto;
+  font-family: 'RobotoBold';
   font-size: 24px;
 
   font-weight: 700;
   line-height: 1.16;
   @media screen and (min-width: 375px) {
     color: #efede8;
-    font-family: Roboto;
+    font-family: 'RobotoBold';
     font-size: 32px;
     font-style: normal;
     font-weight: 700;
@@ -208,28 +222,28 @@ export const FormHeader = styled.h2`
 export const FormParagraph = styled.p`
   text-align: left;
   color: rgba(239, 237, 232, 0.3);
-  font-family: Roboto;
+  font-family: 'RobotoRegular';
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 1.28; /* 128.571% */
-
+  line-height: 1.28; 
+margin-bottom:50px;
   color: var(--normal-color);
   @media screen and (min-width: 375px) {
+    
   }
 
   @media screen and (min-width: 768px) {
-    padding-bottom: 50px;
+    /* padding-bottom: 50px; */
     line-height: 1.3;
-    font-family: Roboto;
+    font-family: 'RobotoRegular';
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     max-width: 496px;
   }
 
-  @media screen and (min-width: 1440px) {
-  }
+ 
 `;
 
 export const FormField = styled.div`
@@ -254,13 +268,13 @@ export const FormButtons = styled.div`
 `;
 
 export const StyledButton = styled.button`
-  display: flex; /* Делаем контейнер flex-контейнером */
+  display: flex; 
   align-items: center;
   position: relative;
   padding: 12px 40px;
-  /* background: var(--orange-color);2px solid transparent Back*/
+  
   color: #fff;
-  border: none; /* Прозрачный border */
+  border: none; 
   border-radius: 12px;
   cursor: pointer;
   background-color: transparent;
@@ -272,13 +286,13 @@ export const StyledButton = styled.button`
 
   &:hover {
     background-color: transparent;
-    border-color: var(--hover-color); /* Изменение цвета border при hover */
-    color: var(--hover-color); /* Изменение цвета текста при hover */
+    border-color: var(--hover-color); 
+    color: var(--hover-color); 
   }
 
   &:focus {
-    color: var(--orange-color); /* Оранжевый цвет текста при фокусе */
-    outline: none; /* Убираем стандартное контурное вокруг кнопки */
+    color: var(--orange-color); 
+    outline: none; 
   }
 
   &:disabled {
@@ -356,15 +370,14 @@ export const StyledButtonFirst = styled.button`
 
 export const WraperButtonPagin = styled.div`
   /* border-radius: 2px; */
-  display:flex;
+  display: flex;
   justify-content: space-around;
   /* box-sizing:border-box; */
   background: transparent;
-  width: 268px;
+  max-width: 268px;
   height: 6px;
-  margin-top:190px;
-  
-  
+  margin-bottom: 32px;
+
   /*margin-right: 10px; */
 `;
 export const StyledButtonSecond = styled.button`
@@ -395,96 +408,15 @@ export const StyledButtonThird = styled.button`
   color: white;
   font-weight: bold;
 `;
-export const Calories = styled.div`
+export const WraperCalories = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 8px;
-  margin-left: auto;
-  margin-right: 20px;
-
-  width: 119px;
-  height: 76px;
-
-  border-radius: 12px;
-  background: var(--orange-light-color);
+  
 
   @media screen and (min-width: 768px) {
-    width: 180px;
-    height: 110px;
-    gap: 12px;
-
-    margin-right: 32px;
+   
   }
 `;
-// Добавьте другие стили, если есть
+export const WraperCal = styled.div`
+  display: flex;
+`;
 
-// export const FormContainer = styled.div`
-//   width: 500px;
-//   margin-top: 20px;
-//   border: 2px solid #07dfee;
-
-// `;
-
-// export const SectionTitle = styled.p`
-//   color: var(--normal-color);
-//   margin-bottom: 4px;
-//   font-size: 12px;
-
-// `;
-
-// export const Input = styled.input`
-//   border: 2px solid rgba(134, 245, 8, 0.3);
-//   max-width: 155px;
-//   padding: 14px;
-//   margin-bottom: 14px;
-//   align-items: center;
-//   gap: 10px;
-//   border-radius: 12px;
-//   border: 1px solid rgba(239, 237, 232, 0.3);
-//   background-color: transparent;
-//   color: #efede8;
-//   font-size: 14;
-// `;
-
-// export const WrapperInputField = styled.div`
-//  width: 100%;
-//   /* display: flex; */
-//   /* display: inline-flex; */
-//   /* align-items: flex-end; */
-//   margin-top: 20px;
-//   gap: 14px;
-//   border: 1px solid rgba(137, 102, 233, 0.3);
-// `;
-
-// export const InputField = styled.input`
-//   max-width: 135px;
-//   padding: 14px;
-//   align-items: center;
-//   gap: 10px;
-//   border-radius: 12px;
-//   border: 1px solid rgba(239, 237, 232, 0.3);
-//   background-color: transparent;
-//   color: #efede8;
-// `;
-
-// export const Radio = styled.input`
-//   /*  */
-// `;
-
-// export const Label = styled.label`
-//   color: #efede8;
-//   font-family: Roboto;
-//   font-size: 14px;
-//   font-style: normal;
-//   font-weight: 400;
-// `;
-
-// export const Button = styled.button`
-//   margin: 40px 0px 80px 20px;
-//   padding: 12px 40px;
-//   border-radius: 12px;
-//   background: var(--orange-color);
-//   color: rgba(239, 237, 232, 0.6);
-// `;

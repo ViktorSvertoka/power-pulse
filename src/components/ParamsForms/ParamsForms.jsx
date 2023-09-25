@@ -161,8 +161,8 @@ const ParamsForm = () => {
   };
   // {/*  */}
   return (
-    <WrapperBodiPage>
-      <WrapperParamsPage step={step}>
+    <WrapperParamsPage step={step}>
+      <WrapperBodiPage>
         <FormContainer>
           {step === 0 && (
             <>
@@ -245,30 +245,30 @@ const ParamsForm = () => {
               </FormImput>
             )}
           </Formik>
-          {step === 0 && (
-            <WraperButtonPagin>
-              <StyledButtonFirst />
-              <StyledButtonSecond />
-              <StyledButtonSecond />
-            </WraperButtonPagin>
-          )}
-          {step === 1 && (
-            <WraperButtonPagin>
-              <StyledButtonThird />
-              <StyledButtonFirst />
-              <StyledButtonSecond />
-            </WraperButtonPagin>
-          )}
-          {step === 2 && (
-            <WraperButtonPagin>
-              <StyledButtonThird />
-              <StyledButtonThird />
-              <StyledButtonFirst />
-            </WraperButtonPagin>
-          )}
         </FormContainer>
-      </WrapperParamsPage>
-    </WrapperBodiPage>
+        {step === 0 && (
+          <WraperButtonPagin>
+            <StyledButtonFirst />
+            <StyledButtonSecond type="button" onClick={nextStep} />
+            <StyledButtonSecond type="button" onClick={nextStep} />
+          </WraperButtonPagin>
+        )}
+        {step === 1 && (
+          <WraperButtonPagin>
+            <StyledButtonThird type="button" onClick={prevStep} />
+            <StyledButtonFirst />
+            <StyledButtonSecond type="button" onClick={nextStep} />
+          </WraperButtonPagin>
+        )}
+        {step === 2 && (
+          <WraperButtonPagin>
+            <StyledButtonThird type="button" onClick={prevStep} />
+            <StyledButtonThird type="button" onClick={prevStep} />
+            <StyledButtonFirst />
+          </WraperButtonPagin>
+        )}
+      </WrapperBodiPage>
+    </WrapperParamsPage>
   );
 };
 
