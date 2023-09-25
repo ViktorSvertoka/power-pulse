@@ -84,7 +84,7 @@ function App() {
           />
           <Route
             path="profile"
-            element={isLoggedIn ? <Navigate to="/" /> : <UserPage />}
+            element={!isLoggedIn ? <Navigate to="/" /> : <UserPage />}
           />
 
           <Route path="*" element={<ErrorPage />} />

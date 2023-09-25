@@ -1,9 +1,18 @@
 import styled from 'styled-components';
 
+export const Wrappers = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 export const Wrappper = styled.div`
   display: flex;
   gap: 8px;
   margin-top: 40px;
+
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    width: 440px;
+  }
 `;
 
 export const WrapperMark = styled.div`

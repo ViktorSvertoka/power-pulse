@@ -1,16 +1,25 @@
 import { useState } from 'react';
 
 import sprite from '../../images/sprite.svg';
-import { Button, Avatar, Photo, Wrapper, IconBtn } from './UserProfile.styled';
+import {
+  Button,
+  Avatar,
+  Photo,
+  Wrapper,
+  IconBtn,
+  SvgLogoUser,
+  TitleName,
+  Subtitle,
+} from './UserProfile.styled';
 
 const UserProfile = () => {
   const [avatarUrl, setAvatarUrl] = useState('');
 
   const avatarUser = <Photo src={avatarUrl} width="100%" alt="Avatar" />;
   const avatarLogo = (
-    <svg fill="var(--normal-color)" width="62" height="62">
+    <SvgLogoUser fill="var(--normal-color)" width="62" height="62">
       <use href={`${sprite}#icon-user`}></use>
-    </svg>
+    </SvgLogoUser>
   );
 
   const handleAvatarChange = event => {
@@ -54,8 +63,8 @@ const UserProfile = () => {
           </Button>
         </label>
       </form>
-      <p style={{ color: '#EFEDE8' }}>Anna Rybachok</p>
-      <p style={{ color: 'var(--normal-color)' }}>User</p>
+      <TitleName>Anna Rybachok</TitleName>
+      <Subtitle>User</Subtitle>
     </Wrapper>
   );
 };

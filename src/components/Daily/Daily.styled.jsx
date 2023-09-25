@@ -3,9 +3,9 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 187px;
-  height: 116px;
-  padding: 16px;
+  width: 165px;
+  height: 96px;
+  padding: 14px;
   align-items: flex-start;
   gap: 8px;
   flex-shrink: 0;
@@ -13,10 +13,12 @@ export const Container = styled.div`
   border: 1px solid rgba(239, 237, 232, 0.2);
   background-color: ${({ color }) => color};
 
-  @media screen and (min-width: 375px) and (max-width: 767px) {
-    padding: 8px;
-    width: 157px;
-    height: 96px;
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    width: 209px;
+    height: 108px;
+    padding: 14px 18px;
+    align-items: flex-start;
+    gap: 32px;
   }
 `;
 
