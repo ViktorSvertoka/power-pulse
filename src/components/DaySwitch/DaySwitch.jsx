@@ -1,7 +1,5 @@
-// DaySwitch.js
 import { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-
 import StyledDatepicker from '../../components/StyledDatepicker/StyledDatepicker';
 import {
   Wrap,
@@ -14,7 +12,7 @@ import {
 } from './DaySwitch.styled';
 import sprite from '../../images/sprite.svg';
 
-const DaySwitch = () => {
+const DaySwitch = ({ selectedDate, setSelectedDate, onDateChange }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [isDatepickerOpen, setIsDatepickerOpen] = useState(false);
 
@@ -22,12 +20,18 @@ const DaySwitch = () => {
     const previousDay = new Date(currentDate);
     previousDay.setDate(previousDay.getDate() - 1);
     handleDateChange(previousDay);
+    if (onDateChange) {
+      onDateChange(previousDay);
+    }
   };
 
   const switchToNextDay = () => {
     const nextDay = new Date(currentDate);
     nextDay.setDate(nextDay.getDate() + 1);
     handleDateChange(nextDay);
+    if (onDateChange) {
+      onDateChange(nextDay);
+    }
   };
 
   const formattedDate = `${String(currentDate.getDate()).padStart(
@@ -40,7 +44,12 @@ const DaySwitch = () => {
 
   const handleDateChange = date => {
     setCurrentDate(date);
+    setSelectedDate(date);
     setIsDatepickerOpen(false);
+
+    if (typeof onDateChange === 'function') {
+      onDateChange(date);
+    }
   };
 
   const buttonRef = useRef(null);
@@ -96,8 +105,7 @@ const DaySwitch = () => {
 DaySwitch.propTypes = {
   selectedDate: PropTypes.instanceOf(Date),
   setSelectedDate: PropTypes.func,
-  isOpen: PropTypes.bool,
-  setIsOpen: PropTypes.func,
+  onDateChange: PropTypes.func,
 };
 
 export default DaySwitch;

@@ -4,9 +4,12 @@ import { toast } from 'react-toastify';
 
 export const getDiaryList = createAsyncThunk(
   'getDiaryList',
-  async (_, { rejectWithValue }) => {
+  async (date, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get(`/diary/getproduct`);
+      const { data } = await axios.get('/diary/getproduct', {
+        params: { date },
+      });
+      console.log('date', date);
       return data;
     } catch (error) {
       toast.error('Oops... Something went wrong! Try again!');
