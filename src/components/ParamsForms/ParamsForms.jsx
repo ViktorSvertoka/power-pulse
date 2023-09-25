@@ -40,6 +40,8 @@ import {
 import Step1 from './Step1';
 import Step2 from './Step2';
 import Step3 from './Step3';
+import { useDispatch } from 'react-redux';
+import { updateUserParams } from '../../redux/auth/operations';
 
 const initialValues = {
   height: '',
@@ -127,6 +129,13 @@ const ParamsForm = () => {
       setStep(step - 1);
     }
   };
+  // const dispatch = useDispatch();
+
+  // const onSubmit = values => {
+  //   console.log(values);
+  //   dispatch(updateUserParams(values));
+  //   // resetForm();
+  // };
 
   const handleSubmit = (values, { setSubmitting }) => {
     validationSchema
@@ -205,7 +214,7 @@ const ParamsForm = () => {
                     )}
                     {step === 2 && (
                       <Step3
-                        // onSubmit={handleSubmit}
+                        onSubmit={handleSubmit}
                         onPrevStep={prevStep}
                         formErrors={formErrors}
                       />
@@ -214,7 +223,11 @@ const ParamsForm = () => {
                 }
                 <FormButtons>
                   {step === steps.length - 1 && (
-                    <StyledButtonGo type="submit" disabled={isSubmitting}>
+                    <StyledButtonGo
+                      // onClick={onSubmit}
+                      type="submit"
+                      disabled={isSubmitting}
+                    >
                       Go
                     </StyledButtonGo>
                   )}
