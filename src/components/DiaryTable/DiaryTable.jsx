@@ -72,9 +72,7 @@ const TableForDiary = ({
                         {item.recommend ? 'Yes' : 'No'}
                       </Cell>
                       <Cell>
-                        <DeleteBtn
-                          onClick={() => onDelete({ date, id: item._id })}
-                        >
+                        <DeleteBtn onClick={() => onDelete({ id: item._id })}>
                           <DeleteIcon>
                             <use href={sprite + `#icon-trash`}></use>
                           </DeleteIcon>

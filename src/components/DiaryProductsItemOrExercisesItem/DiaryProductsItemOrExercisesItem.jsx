@@ -24,12 +24,12 @@ const DiaryProductsItemOrExercisesItem = ({
 }) => {
   const dispatch = useDispatch();
 
-  const handleDelete = ({ date, id }) => {
+  const handleDelete = ({ id }) => {
     if (productTable) {
-      dispatch(deleteProduct({ productId: id, date }));
+      dispatch(deleteProduct({ productId: id }));
     }
     if (exerciseTable) {
-      dispatch(deleteExercise({ exerciseId: id, date }));
+      dispatch(deleteExercise({ exerciseId: id }));
     }
   };
 
