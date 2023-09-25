@@ -27,7 +27,9 @@ export const WaistList = ({ exerciseName }) => {
   return (
     <WaistItemUl>
       {visibleExercises.length ? (
-        visibleExercises.map(el => <WaistItem key={el._id} data={el} />)
+        visibleExercises
+          .slice(0, 50)
+          .map(el => <WaistItem key={el._id} data={el} />)
       ) : (
         <NoExercisesTitle>
           There is not exercises downloaded else, plaese try choose this
