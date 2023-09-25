@@ -8,7 +8,11 @@ export const LogoutLink = styled(Link)`
   color: var(--white-color);
   margin-top: 40px;
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    margin-right: 150px;
+  }
+
+  @media screen and (min-width: 1439px) {
     display: none;
   }
 `;
