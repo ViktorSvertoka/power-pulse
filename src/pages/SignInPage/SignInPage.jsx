@@ -65,7 +65,7 @@ const SignInPage = () => {
               text="Sign In"
               background="var(--orange-color)"
               color="var(--white-color)"
-              hoverBackground="var(--orange-light-color)"
+              hoverbackground="var(--orange-light-color)"
             />
             <SecondTextSingInPage>
               Don’t have an account?
