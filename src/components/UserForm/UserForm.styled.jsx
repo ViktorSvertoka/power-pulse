@@ -50,6 +50,10 @@ export const Label = styled.label`
 `;
 
 export const WrapperRadio = styled.div`
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+
   .radio {
     position: relative;
   }
@@ -68,13 +72,14 @@ export const WrapperRadio = styled.div`
   }
 
   .radio-label {
-    padding-left: 28px;
+    padding-left: 25px;
     cursor: pointer;
+    font-family: 'RobotoRegular';
     font-size: 14px;
-    font-weight: 400;
     line-height: 1.71em;
     letter-spacing: -0.28px;
-    color: #fff;
+    color: #efede8;
+    margin-right: 9px;
   }
 
   .radio-label::before {
@@ -96,8 +101,8 @@ export const WrapperRadio = styled.div`
     display: block;
     width: 10px;
     height: 10px;
-    border: 2px solid var(--orange-color);
-    background-color: var(--orange-color);
+    border: 2px solid var(--orange-light-color);
+    background-color: var(--orange-light-color);
     border-radius: 50%;
     opacity: 0;
     position: absolute;
@@ -107,7 +112,7 @@ export const WrapperRadio = styled.div`
   }
 
   .radio-input:checked + .radio-label::before {
-    border-color: var(--orange-color);
+    border-color: var(--orange-light-color);
   }
 
   .radio-input:checked + .radio-label::after {

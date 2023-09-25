@@ -127,14 +127,8 @@ const UserForm = () => {
         <InputField />
       </WrapperInputField>
 
-      <div
-        style={{
-          display: 'flex',
-          marginTop: 30,
-          gap: 8,
-        }}
-      >
-        <WrapperRadio>
+      <WrapperRadio>
+        <div style={{ display: 'flex', marginRight: '20px' }}>
           {bloodOptions.map(option => (
             <RadioOption
               key={option.id}
@@ -146,7 +140,9 @@ const UserForm = () => {
               onChange={handleBloodChange}
             />
           ))}
+        </div>
 
+        <div style={{ display: 'flex' }}>
           {sexOptions.map(option => (
             <RadioOption
               key={option.id}
@@ -158,7 +154,9 @@ const UserForm = () => {
               onChange={handleSexChange}
             />
           ))}
+        </div>
 
+        <div style={{ marginTop: '40px' }}>
           {levelOptions.map(option => (
             <RadioOption
               key={option.id}
@@ -170,8 +168,8 @@ const UserForm = () => {
               onChange={handleLevelChange}
             />
           ))}
-        </WrapperRadio>
-      </div>
+        </div>
+      </WrapperRadio>
 
       <Button onClick={handleSupmit}>Save</Button>
     </>
