@@ -22,13 +22,18 @@ export const ExercisesWrap = () => {
     setActiveFilter(filter);
   };
 
+  const capitalizeFirstLeter = string => {
+    const newString = string.slice(0, 1).toUpperCase() + string.slice(1);
+    return newString;
+  };
+
   return (
     <ExercisesWrapper>
       <ExercisesBox>
         {activeFilter !== 'Waist' ? (
           <ExercisesTitle>Exercises</ExercisesTitle>
         ) : (
-          <ExercisesTitle>{exerciseName}</ExercisesTitle>
+          <ExercisesTitle>{capitalizeFirstLeter(exerciseName)}</ExercisesTitle>
         )}
         <ExercisesNavigation
           activeFilter={activeFilter}
