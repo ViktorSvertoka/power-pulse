@@ -24,8 +24,6 @@ const DiaryProductsItemOrExercisesItem = ({
 }) => {
   const dispatch = useDispatch();
 
-  console.log('list in Table', list);
-
   const handleDelete = ({ date, id }) => {
     if (productTable) {
       dispatch(deleteProduct({ productId: id, date }));
