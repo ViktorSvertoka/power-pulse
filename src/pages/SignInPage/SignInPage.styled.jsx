@@ -183,6 +183,36 @@ export const PassInputSignInPage = styled.input`
   }
 `;
 
+export const IconBtn = styled.button`
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 2px;
+  padding: 10px 0;
+  background-color: inherit;
+  border: none;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    width: 53px;
+    height: 53px;
+  }
+`;
+
+export const SvgEye = styled.svg`
+  width: 25px;
+  height: 25px;
+
+  margin-right: 5px;
+  stroke: #efede8;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 6px;
+  }
+`;
+
 export const SecondTextSingInPage = styled.p`
   color: var(--normal-color);
   font-family: 'RobotoRegular';
@@ -379,7 +409,6 @@ export const SpanRunMan = styled.span`
   line-height: 1.33;
   text-transform: lowercase;
   color: var(--white-color);
-
   @media screen and (min-width: 768px) {
     font-size: 16px;
     line-height: 1.5;
