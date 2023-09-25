@@ -20,13 +20,11 @@ export const getDiaryList = createAsyncThunk(
 
 export const deleteProduct = createAsyncThunk(
   'deleteProduct',
-  async (productDetails, { rejectWithValue }) => {
+  async (id, { rejectWithValue }) => {
+    console.log(id);
     try {
-      const { productId, date } = productDetails;
-      await axios.delete(
-        `/diary/delete-product?date=${date}&productId=${productId}`,
-      );
-      return productId;
+      await axios.delete(`/diary/deleteproduct/${id}`);
+      return;
     } catch (error) {
       toast.error('Oops... Something went wrong! Try again!');
       return rejectWithValue('Oops... Something went wrong!');
