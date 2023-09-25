@@ -6,21 +6,20 @@ export const WaistItemUl = styled.ul`
   flex-wrap: wrap;
   gap: 20px;
   width: 100%;
-  
 
   &::-webkit-scrollbar-thumb {
-  background-color: #ef8964;
-  border-radius: 12px;
-}
+    background-color: #ef8964;
+    border-radius: 12px;
+  }
 
-&::-webkit-scrollbar {
-  width: 8px;
-}
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
 
-&::-webkit-scrollbar-track {
-  background: rgba(239, 237, 232, 0.1);
-  border-radius: 12px;
-}
+  &::-webkit-scrollbar-track {
+    background: rgba(239, 237, 232, 0.1);
+    border-radius: 12px;
+  }
 
   @media screen and (min-width: 768px) {
     overflow-y: auto;
@@ -40,3 +39,10 @@ export const WaistItemUl = styled.ul`
   }
 `;
 
+export const NoExercisesTitle = styled.h2`
+  color: #efede8;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.16;
+  margin-bottom: 20px;
+`;
