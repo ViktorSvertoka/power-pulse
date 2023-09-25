@@ -27,7 +27,6 @@ import ExclamationCircle from '../../components/ExclamationCircle/ExclamationCir
 const Diary = () => {
   const productsList = useSelector(getDiaryProducts);
   // const exercisesList = useSelector(getDiaryExercises);
-  console.log(productsList);
   const dispatch = useDispatch();
 
   const date = '26/09/2023';

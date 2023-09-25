@@ -7,10 +7,8 @@ export const getDiaryList = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(`/diary/getproduct`);
-      console.log('data', data);
       return data;
     } catch (error) {
-      console.log(error);
       toast.error('Oops... Something went wrong! Try again!');
       return rejectWithValue('Oops... Something went wrong!');
     }
