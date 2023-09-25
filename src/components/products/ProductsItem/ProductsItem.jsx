@@ -1,49 +1,62 @@
+/* eslint-disable react/prop-types */
 // import sprite from '../../../../src/images/sprite.svg';
+import { useSelector } from 'react-redux';
 
-import { ProductsCard,
-   ProductsCardStatus, 
-   ProductsCardDiet, 
-   ProductsCardDietText,
-   ProductsCardStatusCount,
-   ProductsCardStatusCountTrue,
-   ProductsCardStatusAdd,
-   ProductsCardTitle,
-   ProductsCardInfoList,
-   ProductsCardInfoItem,
-   ProductsCardInfoValue} from "./ProductsItem.styles";
+import { selectUser } from '../../../redux/auth/selectors';
 
-export const ProductsItem = (el) => {
-  
+import {
+  ProductsCard,
+  ProductsCardStatus,
+  ProductsCardDiet,
+  ProductsCardDietText,
+  ProductsCardStatusCount,
+  ProductsCardStatusCountTrue,
+  ProductsCardStatusAdd,
+  ProductsCardTitle,
+  ProductsCardInfoList,
+  ProductsCardInfoItem,
+  ProductsCardInfoValue,
+} from './ProductsItem.styles';
+
+export const ProductsItem = ({ el, openModalToggle }) => {
+  const bloodType = useSelector(selectUser);
+  console.log(el);
 
   return (
-    <ProductsCard >
-      <ProductsCardStatus >
-        <ProductsCardDiet >
+    <ProductsCard>
+      <ProductsCardStatus>
+        <ProductsCardDiet>
           <ProductsCardDietText>diet</ProductsCardDietText>
         </ProductsCardDiet>
-        <ProductsCardStatusCount >
-          <ProductsCardStatusCountTrue>Reccomend</ProductsCardStatusCountTrue>
+        <ProductsCardStatusCount>
+          <ProductsCardStatusCountTrue>
+            {el ? 'Recommended' : 'Not recommended'}
+          </ProductsCardStatusCountTrue>
 
-          <ProductsCardStatusAdd  type="button">
+          <ProductsCardStatusAdd
+            onClick={() => {
+              openModalToggle(el);
+            }}
+            type="button"
+          >
             Add
           </ProductsCardStatusAdd>
-          
         </ProductsCardStatusCount>
       </ProductsCardStatus>
-      <ProductsCardTitle>{el.el.title}</ProductsCardTitle>
+      <ProductsCardTitle>{el.title}</ProductsCardTitle>
 
-      <ProductsCardInfoList >
-        <ProductsCardInfoItem >
-          Calories:{" "}
-          <ProductsCardInfoValue>{el.el.calories || "999"}</ProductsCardInfoValue>
+      <ProductsCardInfoList>
+        <ProductsCardInfoItem>
+          Calories:{' '}
+          <ProductsCardInfoValue>{el.calories || '999'}</ProductsCardInfoValue>
         </ProductsCardInfoItem>
         <ProductsCardInfoItem>
-          Category:{" "}
-          <ProductsCardInfoValue>{el.el.category || "999"}</ProductsCardInfoValue>
+          Category:{' '}
+          <ProductsCardInfoValue>{el.category || '999'}</ProductsCardInfoValue>
         </ProductsCardInfoItem>
-        <ProductsCardInfoItem >
-          Weight:{" "}
-          <ProductsCardInfoValue >{el.el.weight || "300"}</ProductsCardInfoValue>
+        <ProductsCardInfoItem>
+          Weight:{' '}
+          <ProductsCardInfoValue>{el.weight || '300'}</ProductsCardInfoValue>
         </ProductsCardInfoItem>
       </ProductsCardInfoList>
     </ProductsCard>

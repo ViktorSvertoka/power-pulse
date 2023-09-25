@@ -3,6 +3,9 @@ import sprite from '../../../../src/images/sprite.svg';
 import Select from 'react-select';
 import { useMediaQuery } from 'react-responsive';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { filterReducer } from '../../../redux/products/sliceProducts';
 
 import {
   ProductsFilterLabel,
@@ -44,7 +47,9 @@ const categories = [
 ];
 
 export const ProductsFilter = () => {
-  const [recommended, setRecommended] = useState(optionsRec[0]);
+  const dispatch = useDispatch();
+
+  // const [recommended, setRecommended] = useState(optionsRec[0]);
 
   const capitalizeFirstLeter = string => {
     const newString = string.slice(0, 1).toUpperCase() + string.slice(1);
@@ -55,6 +60,10 @@ export const ProductsFilter = () => {
     value: el,
     label: capitalizeFirstLeter(el),
   }));
+
+  // useEffect(() => {
+  //   dispatch(productCategoriesThunk());
+  // }, [dispatch]);
 
   const isMobile = useMediaQuery({ minWidth: 375 });
   const isTablet = useMediaQuery({ minWidth: 769 });
@@ -122,12 +131,70 @@ export const ProductsFilter = () => {
     }),
   };
 
+  const [hiddenBtnClose, setHiddenBtnClose] = useState(false);
+  const [search, setSearch] = useState('');
+  const [category, setCategory] = useState('');
+  const [recommended, setRecommended] = useState(optionsRec[0]);
+
+  const onChangeSearch = event => {
+    const text = event.target.value;
+    setHiddenBtnClose(text.length > 0);
+    setSearch(text);
+    dispatch(
+      filterReducer({
+        search: text,
+        category: category.value,
+        recommended: recommended.value,
+      }),
+    );
+  };
+
+  const onCategoriesChange = (event) => {
+    setCategory(event);
+    dispatch(
+      filterReducer({
+        category: event.value,
+        search,
+        recommended: recommended.value,
+      })
+    );
+  };
+
+  const onRecomendedChange = (event) => {
+    setRecommended(event);
+    dispatch(
+      filterReducer({
+        recommended: event.value,
+        search,
+        category: category.value,
+      })
+    );
+  };
+
+  const delTextInput = () => {
+    setSearch("");
+    dispatch(
+      filterReducer({
+        search: "",
+        category: category.value,
+        recommended: recommended.value,
+      })
+    );
+    setHiddenBtnClose(false);
+  };
+
   return (
     <ProductsFilterList>
       <li>
         <ProductsFilterLabel>
-          <ProductsFilterSearch type="text" placeholder="Search" />
-          <ProductsBtnClouse type="button">
+          <ProductsFilterSearch
+            value={search}
+            onChange={onChangeSearch}
+            name="productSearch"
+            type="text"
+            placeholder="Search"
+          />
+          <ProductsBtnClouse onClick={delTextInput} type="button">
             <ProductsSvgClouse>
               <use href={sprite + '#icon-x'}></use>
             </ProductsSvgClouse>
@@ -143,6 +210,8 @@ export const ProductsFilter = () => {
         <SelectWrapper>
           <Select
             styles={customStyles}
+            value={category}
+            onChange={onCategoriesChange}
             placeholder="Categories"
             options={categoriesList || []}
             theme={theme => ({
@@ -166,6 +235,7 @@ export const ProductsFilter = () => {
         <SelectWrapper>
           <Select
             styles={customStyles}
+            onChange={onRecomendedChange}
             value={recommended}
             theme={theme => ({
               ...theme,
