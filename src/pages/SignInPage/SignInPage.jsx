@@ -9,12 +9,14 @@ import {
   TextSignInPage,
   EmailInputSignInPage,
   PassInputSignInPage,
+  IconBtn,
   SecondTextSingInPage,
   LinkSingInPage,
   CuteSquaresContainer,
   Tutorial,
   IconPlayContainer,
   Svg,
+  SvgEye,
   TutorialTitle,
   TextTutorial,
   Calories,
@@ -26,9 +28,16 @@ import {
 } from './SignInPage.styled';
 import sprite from '../../images/sprite.svg';
 import { logIn } from '../../redux/auth/operations';
+import { useState } from 'react';
 
 const SignInPage = () => {
   const dispatch = useDispatch();
+
+  const [passwordVisible, setPasswordVisible] = useState(false);
+
+  const handleClickPasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
 
   const handleSubmit = evt => {
     evt.preventDefault();
@@ -56,10 +65,24 @@ const SignInPage = () => {
               placeholder="Email"
             />
             <PassInputSignInPage
-              type="password"
+              id="password"
+              type={passwordVisible ? 'text' : 'password'}
               name="password"
               placeholder="Password"
             />
+            {passwordVisible ? (
+              <IconBtn type="button" onClick={handleClickPasswordVisibility}>
+                <SvgEye>
+                  <use href={`${sprite}#icon-eye`} />
+                </SvgEye>
+              </IconBtn>
+            ) : (
+              <IconBtn type="button" onClick={handleClickPasswordVisibility}>
+                <SvgEye>
+                  <use href={`${sprite}#icon-eye-off`} />
+                </SvgEye>
+              </IconBtn>
+            )}
             <Button
               type="submit"
               text="Sign In"

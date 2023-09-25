@@ -97,13 +97,13 @@ const RegisterForm = () => {
       {({ isSubmitting, errors, touched, values, setFieldValue }) => (
         <FormBox autoComplete="off">
           <FormContainer>
-            <Title>Sign Up</Title>
-            <Text>
-              Thank you for your interest in our platform. To complete the
-              registration process, please provide us with the following
-              information.
-            </Text>
             <InputContainer>
+              <Title>Sign Up</Title>
+              <Text>
+                Thank you for your interest in our platform. To complete the
+                registration process, please provide us with the following
+                information.
+              </Text>
               <InputWrap>
                 <label htmlFor="name" hidden>
                   Name
