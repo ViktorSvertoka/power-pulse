@@ -1,3 +1,38 @@
+# Development team :
+
+- [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ViktorSvertoka)
+  Viktor Svertoka **Team Lead & Scrum Master**
+
+- [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/AM1007)
+  Yevhenii Lukashov **Full Stack Developer**
+
+- [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/LesiaUKR)
+  Oleksii Khomyakov **Full Stack Developer**
+
+- [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/AlinaRyabova)
+  Dmytro Boiko **Full Stack Developer**
+
+- [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/SvitlanaSavchenko)
+  Sergiy Yevchihen **Full Stack Developer**
+
+- [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/TiZorii)
+  Dimitriy Samus **Full Stack Developer**
+
+- [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Vademandr)
+  Eduard Bruhosh **Full Stack Developer**
+
+- [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/YNazymko12)
+  Serhii Kozchenko **Full Stack Developer**
+
+- [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yevheniidatsenko)
+  Oleksii Mynenko **Full Stack Developer**
+
+- [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yevheniidatsenko)
+  Valentyna Kirbaba **Full Stack Developer**
+
+- [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yevheniidatsenko)
+  Olha Herasymchuk **Full Stack Developer**
+
 # Examples of writing commits on a project
 
 ## We use the following types of commits:
