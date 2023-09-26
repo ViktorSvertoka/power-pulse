@@ -45,23 +45,23 @@ export const WrapperBodiPage = styled.div`
   height: 100%;
   justify-content: space-between;
   padding-top: 50px;
+ 
+ 
 
-  /* margin: 0px auto; */
-
-  
   position: relative;
 
   @media screen and (max-width: 375px) {
-    /* height: 95%; */
+    
     max-width: 335px;
-    /* margin-top:50px; */
-    padding: 0px 10px 10px 10px;
+   margin-left:auto;
+   margin-right:auto;
+    padding: 0px 15px 10px 15px;
   }
   @media screen and (min-width: 375px) {
-    /* margin-top: 90px; */
+    
     margin-left: auto;
     margin-right: auto;
-    /* height: 89%; */
+    
     width: 335px;
   }
 
@@ -69,7 +69,7 @@ export const WrapperBodiPage = styled.div`
     width: 523px;
     padding-top: 120px;
     margin-left: 32px;
-    /* height: 80%; */
+   
   }
 
   @media screen and (min-width: 1440px) {
@@ -81,9 +81,9 @@ export const WrapperBodiPage = styled.div`
 export const WrapperParamsPage = styled.div`
   display: flex;
   box-sizing: border-box;
-  
+
   margin: 0px auto;
-  height: 88vh;
+  height: 90vh;
   margin-left: auto;
   margin-right: auto;
   background-color: transparent;
@@ -93,6 +93,7 @@ export const WrapperParamsPage = styled.div`
 
   @media screen and (max-width: 374px) {
     max-width: 375px;
+    height: 90vh;
     ${({ step }) => css`
       background-image: url(${backgroundImages.mobile[step]});
     `}
@@ -103,7 +104,7 @@ export const WrapperParamsPage = styled.div`
 
   @media screen and (min-width: 375px) {
     width: 375px;
-    height: 89vh;
+    height: 90vh;
     margin-left: auto;
     margin-right: auto;
     background-color: transparent;
@@ -124,7 +125,7 @@ export const WrapperParamsPage = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 768px;
-    height: 87vh;
+    height: 90vh;
     margin-left: auto;
     margin-right: auto;
     background-color: var(--black-color);
@@ -145,7 +146,7 @@ export const WrapperParamsPage = styled.div`
 
   @media screen and (min-width: 1440px) {
     width: 1440px;
-    height: 87vh;
+    height: 90vh;
     margin-left: auto;
     margin-right: auto;
     background-color: transparent;
@@ -166,31 +167,28 @@ export const WrapperParamsPage = styled.div`
 `;
 
 export const FormContainer = styled.div`
-  
   display: flex;
   flex-direction: column;
-  
+
   max-width: 335px;
   margin-right: 0;
- margin-left: 0;
+  margin-left: 0;
   border-radius: 5px;
   background-color: transparent;
   @media screen and (max-width: 375px) {
-   
+    margin-right: 0;
+    margin-left: 0;
   }
   @media screen and (min-width: 375px) {
     width: 523px;
-    
   }
 
   @media screen and (min-width: 768px) {
     max-width: 523px;
-    
   }
 
   @media screen and (min-width: 1440px) {
     width: 523px;
-    
   }
 `;
 
@@ -226,15 +224,14 @@ export const FormParagraph = styled.p`
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 1.28; 
-margin-bottom:50px;
+  line-height: 1.28;
+  margin-bottom: 50px;
   color: var(--normal-color);
   @media screen and (min-width: 375px) {
-    
   }
 
   @media screen and (min-width: 768px) {
-    /* padding-bottom: 50px; */
+   
     line-height: 1.3;
     font-family: 'RobotoRegular';
     font-size: 16px;
@@ -242,8 +239,6 @@ margin-bottom:50px;
     font-weight: 400;
     max-width: 496px;
   }
-
- 
 `;
 
 export const FormField = styled.div`
@@ -252,7 +247,7 @@ export const FormField = styled.div`
   flex-wrap: wrap;
   width: 100%;
 
-  /* border: 1px solid #ccc; */
+  
   justify-content: space-between;
 `;
 
@@ -264,35 +259,36 @@ export const WrapForm = styled.div`
 
 export const FormButtons = styled.div`
   display: flex;
-  justify-content: space-between;
+  gap: 18px;
 `;
 
 export const StyledButton = styled.button`
-  display: flex; 
+  display: flex;
   align-items: center;
   position: relative;
   padding: 12px 40px;
-  
+
   color: #fff;
-  border: none; 
+  border: none;
   border-radius: 12px;
   cursor: pointer;
   background-color: transparent;
+  margin-left: 8px;
   &::after {
-    content: ' →';
-    margin-left: 8px;
+    
+    
     color: var(--orange-color);
-  }
-
+  } 
+ 
   &:hover {
     background-color: transparent;
-    border-color: var(--hover-color); 
-    color: var(--hover-color); 
+    border-color: var(--hover-color);
+    color: var(--hover-color);
   }
 
   &:focus {
-    color: var(--orange-color); 
-    outline: none; 
+    color: var(--orange-color);
+    outline: none;
   }
 
   &:disabled {
@@ -316,8 +312,8 @@ export const StyledButtonGo = styled.button`
   }
 
   &:focus {
-    color: #ccc; /* Оранжевый цвет текста при фокусе */
-    outline: none; /* Убираем стандартное контурное вокруг кнопки */
+    color: #ccc; 
+    outline: none; 
   }
 
   &:disabled {
@@ -328,28 +324,26 @@ export const StyledButtonGo = styled.button`
 
 export const StyledButtonBack = styled.button`
   position: relative;
-  padding: 12px 40px;
-  /* background: var(--orange-color); Back*/
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
   color: #ccc;
-  border: none; /*2px solid transparent Прозрачный border */
-  border-radius: 12px;
+  border: none; 
+  
   cursor: pointer;
   background-color: transparent;
-  &::before {
-    content: ' ←';
-    margin-right: 8px;
-    color: var(--orange-color);
-  }
+ 
 
   &:hover {
-    background-color: transparent;
-    border-color: var(--hover-color);
+    border-color: var(--orange-color);
     color: var(--hover-color);
   }
 
   &:focus {
-    color: var(--orange-color); /* Оранжевый цвет текста при фокусе */
-    outline: none; /* Убираем стандартное контурное вокруг кнопки */
+    color: var(--orange-color); 
+    outline: none; 
   }
 
   &:disabled {
@@ -357,28 +351,44 @@ export const StyledButtonBack = styled.button`
     cursor: not-allowed;
   }
 `;
+
+export const SvgArrow = styled.svg`
+  width: 20px;
+  height: 20px;
+margin-bottom: 3px;
+  
+  stroke: #efede8;
+`;
+
+export const SvgArrowR = styled.svg`
+  width: 20px;
+  height: 20px;
+  justify-content: center;
+  margin-left: 8px;
+  stroke: #efede8;
+`;
 export const StyledButtonFirst = styled.button`
   border-radius: 2px;
   background: #ef8964;
   box-shadow: 0px 1px 10px 0px rgba(230, 83, 60, 0.8);
   width: 80px;
-  height: 4px; /* Установите желаемую высоту */
-  color: white; /* Цвет текста */
-  font-weight: bold; /* Жирный текст */
-  /* margin-right: 10px; Расстояние между кнопками */
+  height: 4px; 
+  color: white; 
+  font-weight: bold; 
+ 
 `;
 
 export const WraperButtonPagin = styled.div`
-  /* border-radius: 2px; */
+  
   display: flex;
   justify-content: space-around;
-  /* box-sizing:border-box; */
+  
   background: transparent;
   max-width: 268px;
   height: 6px;
-  margin-bottom: 32px;
+  margin-bottom: 2px;
 
-  /*margin-right: 10px; */
+  
 `;
 export const StyledButtonSecond = styled.button`
   border-radius: 2px;
@@ -387,7 +397,7 @@ export const StyledButtonSecond = styled.button`
   height: 4px;
   color: white;
   font-weight: bold;
-  /* margin-right: 10px; */
+ 
 `;
 
 export const StyledButtonSecond2 = styled.button`
@@ -397,7 +407,7 @@ export const StyledButtonSecond2 = styled.button`
   height: 4px;
   color: white;
   font-weight: bold;
-  /* margin-right: 10px; */
+  
 `;
 export const StyledButtonThird = styled.button`
   border-radius: 2px;
@@ -410,13 +420,10 @@ export const StyledButtonThird = styled.button`
 `;
 export const WraperCalories = styled.div`
   display: flex;
-  
 
   @media screen and (min-width: 768px) {
-   
   }
 `;
 export const WraperCal = styled.div`
   display: flex;
 `;
-

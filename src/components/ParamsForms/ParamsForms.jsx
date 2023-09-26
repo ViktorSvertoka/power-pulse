@@ -4,18 +4,7 @@ import * as Yup from 'yup';
 import sprite from '../../images/sprite.svg';
 import DatePicker from 'react-datepicker';
 import axios from 'axios';
-import {
-  IconRunManContainer,
-  Tutorial,
-  Calories,
-  Svg,
-  IconPlayContainer,
-  TutorialTitle,
-  TextTutorial,
-  SvgRunMan,
-  TitleRunMan,
-  SpanRunMan,
-} from '../../pages/HomePage/HomePage.styled';
+
 import 'react-datepicker/dist/react-datepicker.css';
 
 import {
@@ -36,6 +25,8 @@ import {
   StyledButtonSecond2,
   StyledButtonThird,
   WraperButtonPagin,
+  SvgArrow,
+  SvgArrowR,
 } from './ParamsForm.styled';
 import Step1 from './Step1';
 import Step2 from './Step2';
@@ -57,14 +48,17 @@ const validationSchema = Yup.object().shape({
   height: Yup.number()
     .typeError('Height must be a number')
     .min(150, 'Height must be 150 cm')
+    .max(300, 'Max 300 cm')
     .required('Required'),
   currentWeight: Yup.number()
     .typeError('Current Weight must be a number')
     .min(35, 'Current Weight must be 35 kg')
+    .max(300, 'Max 300 kg')
     .required('Required'),
   desiredWeight: Yup.number()
     .typeError('Desired Weight must be a number')
     .min(35, 'Desired Weight must be at least 35 kg')
+    .max(300, 'Max 300 kg')
     .required('Required'),
   birthday: Yup.date()
     .typeError('Birthday must be a valid date')
@@ -74,6 +68,7 @@ const validationSchema = Yup.object().shape({
         currentDate.getFullYear() - 18,
         currentDate.getMonth(),
         currentDate.getDate(),
+
       );
       return value <= minAdultDate;
     })
@@ -91,7 +86,7 @@ const validationSchema = Yup.object().shape({
     .required('Required'),
 });
 
-//  export default validationSchema;
+
 
 const steps = ['Step 1', 'Step 2', 'Step 3'];
 const stepFields = [
@@ -111,8 +106,8 @@ const placeholders = {
 };
 
 const ParamsForm = () => {
-  const [selectedBlood, setSelectedBlood] = useState(''); // Для крови
-  const [selectedSex, setSelectedSex] = useState(''); // Для пола
+  const [selectedBlood, setSelectedBlood] = useState(''); 
+  const [selectedSex, setSelectedSex] = useState(''); 
   const [selectedLevelActivity, setSelectedLevelActivity] = useState('');
 
   const [formErrors, setFormErrors] = useState({});
@@ -195,13 +190,27 @@ const ParamsForm = () => {
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
           >
-            {({ isSubmitting, values, checked, setFieldValue }) => (
+            {({
+              isSubmitting,
+              values,
+              checked,
+              touched,
+              fieldName,
+              errors,
+              setFieldValue,
+            }) => (
               <FormImput>
-                {/* stepFields[step].map(fieldName => ())key={fieldName} */}
+               
                 {
                   <FormField>
                     {step === 0 && (
-                      <Step1 values={values} handleChange={setFieldValue} />
+                      <Step1
+                        values={values}
+                        handleChange={setFieldValue}
+                        touched={touched}
+                        errors={errors}
+                        fieldName={fieldName}
+                      />
                     )}
                     {step === 1 && (
                       <Step2
@@ -233,12 +242,18 @@ const ParamsForm = () => {
                   )}
                   {step > 0 && (
                     <StyledButtonBack type="button" onClick={prevStep}>
+                      <SvgArrow>
+                        <use href={`${sprite}#icon-arrow-left`} />
+                      </SvgArrow>
                       Back
                     </StyledButtonBack>
                   )}
                   {step < steps.length - 1 && (
                     <StyledButton type="button" onClick={nextStep}>
                       Next
+                      <SvgArrowR>
+                        <use href={`${sprite}#icon-arrow-right`} />
+                      </SvgArrowR>
                     </StyledButton>
                   )}
                 </FormButtons>

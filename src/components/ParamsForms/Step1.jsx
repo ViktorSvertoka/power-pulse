@@ -1,17 +1,17 @@
 import React from 'react';
 import { Field, ErrorMessage } from 'formik';
 import styled from 'styled-components';
- import DatePicker from 'react-datepicker';
+import DatePicker from 'react-datepicker';
 import sprite from '../../images/sprite.svg';
- 
-// import { Container } from '../../pages/SignUpBodyPage/SignUpBodyPage.styled';
+//  import 'react-datepicker/dist/react-datepicker.css';
+// import 'path/to/custom-datepicker-styles.css';
 import StyledDatepicker from '../../components/StyledDatepicker/StyledDatepicker';
 
 const InputCont = styled.div`
   width: 100%;
   position:relative;
   background-color: transparent;
-  border: 1px solid rgba(8, 230, 19, 0.3);
+ 
   @media screen and (min-width: 375px) {
     width: 335px;
 
@@ -39,7 +39,7 @@ const InputWrapper = styled.div`
   padding-bottom: 20px;
   width: 100%;
   flex-grow: 1;
-  /* border: 1px solid rgba(56, 180, 6, 0.3); */
+  
   @media screen and (min-width: 375px) {
     max-width: 155px;
     flex-grow: 1;
@@ -61,6 +61,8 @@ const InputWrapper = styled.div`
     max-width: 153px;
   }
 `;
+
+
 
 const Label = styled.label`
   
@@ -102,11 +104,11 @@ const Input = styled(Field)`
     }
   }
 
-  &:hover,
+  &:hover {
+    outline: 1px solid #e6533c;
+  }
   &:focus {
     outline: 1px solid #e6533c;
-
-    /* outline: 0; */
   }
   &.default {
     outline: 1px solid rgba(239, 237, 232, 0.3);
@@ -117,71 +119,94 @@ const Input = styled(Field)`
   &.error {
     outline: 1px solid rgba(248, 5, 5, 0.973);
   }
+
+  
 `;
 
-const Inpu = styled(Field)`
-  margin-bottom: 5px;
-  width: 100%;
-  padding: 14px;
-  /* margin-bottom: 14px; */
-  align-items: center;
-  gap: 10px;
-  border-radius: 12px;
-  border: 1px solid rgba(239, 237, 232, 0.3);
-  background-color: transparent;
-  color: #efede8;
-  font-size: 14;
-  &:hover {
-    border-color: var(--hover-color);
-  }
-  &:focus {
-    border-color: #e6533c;
-  }
-  &:disabled {
-    border-color: #3e3f3e;
-  }
-  /* &::placeholder {
-    color: #df720c;
-  } */
-`;
+
 
 const Error = styled(ErrorMessage)`
   color: red;
   font-size: 12px;
   position: absolute;
 `;
+
 const StyledDatePicker = styled(DatePicker)`
   max-width: 155px;
-  padding: 14px;
+  
+  outline: 1px solid rgba(239, 237, 232, 0.3);
+  border: none;
+  position: relative;
+  
+  box-sizing: border-box;
+  height: 46px;
+  color: var(--white-color);
+  font-family: 'RobotoRegular';
+  font-size: 16px;
+  line-height: 1.5;
   margin-bottom: 4px;
-  align-items: center;
-
-  border-radius: 12px;
-  border: 1px solid rgba(239, 237, 232, 0.3);
+  margin-top: 4px;
+  padding-left: 14px;
+  padding-top: 14px;
+  padding-bottom: 14px;
   background-color: transparent;
-  color: #efede8;
-  font-size: 14;
-  &:hover {
-    border-color: var(--hover-color);
+  border-radius: 12px;
+  &::placeholder {
+    color: var(--normal-color);
   }
+  &:hover,
   &:focus {
-    border-color: var(--hover-color);
+    border: 1px solid #e6533c;
+
+     outline: 0; 
   }
-  &:disabled {
-    border-color: #ccc;
+  &.default {
+    outline: 1px solid rgba(239, 237, 232, 0.3);
+  }
+  &.success {
+    outline: 1px solid #3cbf61;
+  }
+  &.error {
+    outline: 1px solid rgba(248, 5, 5, 0.973);
+  }
+
+  &.disabled {
+    outline: 1px solid #ccc;
     cursor: not-allowed;
   }
 `;
+export const SvgKalen = styled.svg`
+  width: 25px;
+  height: 25px;
+  position:absolute;
+  left: 125px;
+  top: 15px;
+  stroke: #efede8;
+`;
+const InputWrapperDataPiker = styled.div`
 
-const Step1 = ({ values, handleChange }) => {
+  position: relative;
+
+  max-width: 155px;
+`;
+const Step1 = ({ values, handleChange, touched, errors }) => {
+
+  const isFieldValid = fieldName => touched[fieldName] && !errors[fieldName];
   return (
-    
     <InputCont>
       <InputWrapper>
         <Label htmlFor="height" hidden>
           Height
         </Label>
-        <Input type="number" name="height" placeholder="Height" />
+        <Input
+          type="number"
+          name="height"
+          placeholder="Height"
+          
+          className={` ${isFieldValid('height') ? 'success' : ''} ${touched.height && errors.height ? 'error' : ''
+            }`}
+        />
+
         <Error name="height" component="div" className="error" />
       </InputWrapper>
 
@@ -189,7 +214,13 @@ const Step1 = ({ values, handleChange }) => {
         <Label htmlFor="currentWeight" hidden>
           Current Weight
         </Label>
-        <Input type="number" name="currentWeight" placeholder="Current" />
+        <Input
+          type="number"
+          name="currentWeight"
+          placeholder="Current"
+          className={` ${isFieldValid('currentWeight') ? 'success' : ''} ${touched.currentWeight && errors.currentWeight ? 'error' : ''
+            }`}
+        />
         <Error name="currentWeight" component="div" className="error" />
       </InputWrapper>
 
@@ -197,7 +228,13 @@ const Step1 = ({ values, handleChange }) => {
         <Label htmlFor="desiredWeight" hidden>
           Desired Weight
         </Label>
-        <Input type="number" name="desiredWeight" placeholder="Desired" />
+        <Input
+          type="number"
+          name="desiredWeight"
+          placeholder="Desired"
+          className={` ${isFieldValid('desiredWeight') ? 'success' : ''} ${touched.desiredWeight && errors.desiredWeight ? 'error' : ''
+            }`}
+        />
         <Error name="desiredWeight" component="div" className="error" />
       </InputWrapper>
 
@@ -205,18 +242,25 @@ const Step1 = ({ values, handleChange }) => {
         <Label htmlFor="birthday" hidden>
           Birthday
         </Label>
-        
-        <StyledDatePicker
-          name="birthday"
-          selected={values.birthday}
-          onChange={date => handleChange('birthday', date)}
-          placeholderText="Birthday"
-        />
+        <InputWrapperDataPiker>
+          <StyledDatePicker
+            name="birthday"
+            selected={values.birthday}
+            onChange={date => handleChange('birthday', date)}
+            placeholderText="Birthday"
+            className={` ${isFieldValid('birthday') ? 'success' : ''} ${touched.birthday && errors.birthday ? 'error' : ''
+              }`}
+          />
+          <StyledDatepicker />
+          <SvgKalen>
+            <use href={`${sprite}#icon-arrow-right`} />
+          </SvgKalen>
+        </InputWrapperDataPiker>
         <Error name="birthday" component="div" className="error" />
       </InputWrapper>
     </InputCont>
 
-    // <Container></Container>{/*<StyledDatepicker/>  */}
+    
   );
 };
 
