@@ -20,7 +20,7 @@ import {
 
 export const ProductsItem = ({ el, openModalToggle }) => {
   const bloodType = useSelector(selectUser);
-  console.log(el);
+  
 
   return (
     <ProductsCard>

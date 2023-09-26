@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import { Link } from "react-router-dom";
 import avocado from '../../../../src/images/avocado-2x.png'
 import sprite from '../../../../src/images/sprite.svg';
@@ -13,7 +15,7 @@ import { SuccessModalWindow,
          SuccessModalWindowBtn,
          ArrowIcon} from "./AddProductSuccess.styles";
 
-export const AddProductSuccess = () => {
+export const AddProductSuccess = ({ calories, closeModal }) => {
   return (
     <SuccessModalWindow >
       <SuccessModalWindowWrap >
@@ -25,13 +27,13 @@ export const AddProductSuccess = () => {
           <SuccessModalWindowTitle >Well done</SuccessModalWindowTitle>
           <SuccessModalWindowText>
             Calories:{" "}
-            <SuccessModalWindowSpan >Calories</SuccessModalWindowSpan>
+            <SuccessModalWindowSpan >{calories}</SuccessModalWindowSpan>
           </SuccessModalWindowText>
         </SuccessModalWindowWrapImg>
-        <Link to="/products" >
+        <Link to="/products" onClick={closeModal}>
           <SuccessModalWindowBtn >Next product</SuccessModalWindowBtn>
         </Link>
-        <Link to="/diary" >
+        <Link to="/diary" onClick={closeModal}>
           <SuccessModalWindowText>
             To the diary
             <ArrowIcon >
@@ -42,4 +44,9 @@ export const AddProductSuccess = () => {
       </SuccessModalWindowWrap>
     </SuccessModalWindow>
   );
+};
+
+AddProductSuccess.propTypes = {
+  calories: PropTypes.number.isRequired,
+  closeModal: PropTypes.func.isRequired,
 };
