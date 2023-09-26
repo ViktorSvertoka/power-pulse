@@ -37,6 +37,8 @@ const AddProductForm = ({ eldata, onClick, closeModal }) => {
       toast.error('Must be greater than 0');
       return;
     }
+
+    console.log(quantity);
     dispatch(
       addDiaryProduct({
         date,
@@ -45,7 +47,8 @@ const AddProductForm = ({ eldata, onClick, closeModal }) => {
         category,
         weight,
         amount: quantity,
-        recommended:true,
+        recommended: true,
+        calories,
       }),
     )
       .then(() => {
