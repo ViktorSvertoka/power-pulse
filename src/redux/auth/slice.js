@@ -5,6 +5,7 @@ import {
   logOut,
   refreshUser,
   updateUserParams,
+  getUserParams,
 } from './operations';
 
 const initialState = {
@@ -64,7 +65,15 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
         state.token = action.payload.token;
       })
-      .addCase(updateUserParams.rejected, (state, action) => state),
+      .addCase(updateUserParams.rejected, (state, action) => state)
+
+      .addCase(getUserParams.pending, (state, action) => state)
+      .addCase(getUserParams.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isLoggedIn = true;
+        state.token = action.payload.token;
+      })
+      .addCase(getUserParams.rejected, (state, action) => state),
   //   {
   //     [register.fulfilled](state, action) {
   //       state.user = action.payload.user;
