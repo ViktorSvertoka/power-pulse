@@ -10,14 +10,13 @@ import { NavLink } from 'react-router-dom';
 export const ContainerBodi = styled.div`
   
   max-width: 1440px;
-  /* height: 90vh; ///////////////////////////////змінити на 100.............. */
+  
   box-sizing: border-box;
   background-color: transparent;
   
   margin: 0px auto;
   position: relative;
-  /*top: 0;
-  right: 0; */
+  
   max-width: 375;
 
   height: 100%;

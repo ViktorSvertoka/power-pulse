@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const ErrorContainer = styled.div`
   display: flex;
   flex-direction: column;
-   align-items: left;
+  align-items: left;
   /*text-align: start; */
 `;
 
