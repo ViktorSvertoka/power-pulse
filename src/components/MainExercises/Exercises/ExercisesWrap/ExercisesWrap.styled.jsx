@@ -5,6 +5,7 @@ export const ExercisesWrapper = styled.div`
   padding-right: 20px;
 
   @media screen and (min-width: 1440px) {
+    padding-left: 96px;
     width: 1440px;
     margin-left: auto;
     margin-right: auto;

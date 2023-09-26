@@ -8,8 +8,10 @@ export const ImgWaist = styled.img`
   display: none;
   @media screen and (min-width: 1440px) {
     display: block;
-    width: 500px;
+    width: 530px;
     height: 902px;
+    /* margin-top: -100px; */
+    z-index: -2;
   }
 `;
 

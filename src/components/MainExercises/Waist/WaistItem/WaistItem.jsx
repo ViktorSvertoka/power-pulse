@@ -24,20 +24,35 @@ const capitalizeFirstLeter = string => {
   return newString;
 };
 
-export const WaistItem = data => {
+// {
+//   modalData && (
+//     <BasicModalWindow isOpenModalToggle={closeModal}>
+//
+//     </BasicModalWindow>
+//   );
+// }
+
+export const WaistItem = ({ data, openModalToggle }) => {
   return (
     <WaistItemLi>
       <BtnWrapper>
         <CardLabel>{texts.cardLabel}</CardLabel>
-        <BtnLabel type="button">{texts.btnLabel}</BtnLabel>
+        <BtnLabel
+          onClick={() => {
+            openModalToggle(data);
+          }}
+          type="button"
+        >
+          {texts.btnLabel}
+        </BtnLabel>
       </BtnWrapper>
-      <Title>{capitalizeFirstLeter(data.data.name)} </Title>
+      <Title>{capitalizeFirstLeter(data.name)} </Title>
       <List>
         {Object.keys(texts.list).map(e => (
           <ListItem key={e}>
             {texts.list[e]}
             <ListItemValue>
-              {capitalizeFirstLeter(String(data.data[e]))}
+              {capitalizeFirstLeter(String(data[e]))}
             </ListItemValue>
           </ListItem>
         ))}
