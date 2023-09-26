@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import RadioOption from '../RadioOption/RadioOption';
 import {
   FormContainer,
@@ -10,10 +12,20 @@ import {
   WrapperRadio,
 } from './UserForm.styled';
 
+import { selectUser } from '../../redux/auth/selectors';
+import { getUserParams } from '../../redux/auth/operations';
+
 const UserForm = () => {
-  const [selectedSex, setSelectedSex] = useState('Male');
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+
+  const [selectedSex, setSelectedSex] = useState('male');
   const [selectedBlood, setSelectedBlood] = useState('1');
   const [selectedLevel, setSelectedLevel] = useState('1');
+
+  useEffect(() => {
+    dispatch(getUserParams());
+  }, []);
 
   const handleSexChange = event => {
     setSelectedSex(event.target.value);
@@ -31,6 +43,7 @@ const UserForm = () => {
     console.log('Selected Blood:', selectedBlood);
     console.log('Selected Sex:', selectedSex);
     console.log('Selected Level:', selectedLevel);
+    console.log(user.sex);
   };
 
   const bloodOptions = [
@@ -41,8 +54,8 @@ const UserForm = () => {
   ];
 
   const sexOptions = [
-    { id: 'Male', value: 'Male', label: 'Male' },
-    { id: 'Female', value: 'Female', label: 'Female' },
+    { id: 'Male', value: 'male', label: 'Male' },
+    { id: 'Female', value: 'female', label: 'Female' },
   ];
 
   const levelOptions = [

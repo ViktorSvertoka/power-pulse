@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+
+import { selectUser } from '../../redux/auth/selectors';
 
 import sprite from '../../images/sprite.svg';
 import {
@@ -13,7 +16,8 @@ import {
 } from './UserProfile.styled';
 
 const UserProfile = () => {
-  const [avatarUrl, setAvatarUrl] = useState('');
+  const user = useSelector(selectUser);
+  const [avatarUrl, setAvatarUrl] = useState(user.avatarUrl);
 
   const avatarUser = <Photo src={avatarUrl} width="100%" alt="Avatar" />;
   const avatarLogo = (
@@ -63,7 +67,7 @@ const UserProfile = () => {
           </Button>
         </label>
       </form>
-      <TitleName>Anna Rybachok</TitleName>
+      <TitleName>{user.name}</TitleName>
       <Subtitle>User</Subtitle>
     </Wrapper>
   );
