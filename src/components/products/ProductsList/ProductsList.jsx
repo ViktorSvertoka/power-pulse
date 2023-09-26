@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import { getUserParams } from '../../../redux/auth/operations';
 import { selectFilter, selectProductsList } from "../../../redux/products/selectorsProducts.js";
 import { selectUser } from "../../../redux/auth/selectors";
 import { ProductsItem } from '../ProductsItem/ProductsItem';
@@ -36,12 +37,17 @@ export const ProductsList = () => {
 
   const dispatch = useDispatch();
   const filter = useSelector(selectFilter);
-  const bloodType = useSelector(selectUser);
+  const data = useSelector(selectUser);
+  const bloodType =data.blood
   const [modalData, setModalData] = useState(null);
+ 
+  useEffect(() => {
+    dispatch(getUserParams());
+  }, [dispatch]);
 
-  const productsList = useSelector(selectProductsList).map((el) => ({
+  const productsList = useSelector(selectProductsList).slice(0, 200).map((el) => ({
     ...el,
-    // recommended: el.groupBloodNotAllowed[bloodType],
+    recommended: el.groupBloodNotAllowed[bloodType],
   }));
   const filteredList = filterProducts(productsList, filter);
 
@@ -78,7 +84,7 @@ export const ProductsList = () => {
       {filteredList.length > 0 ? (
         <ProductsListUl>
           {filteredList.length > 0 &&
-            filteredList.slice(0, 100).map(el => <ProductsItem key={el.title} el={el} openModalToggle={openModalToggle} />)}
+            filteredList.map(el => <ProductsItem key={el.title} el={el} openModalToggle={openModalToggle} />)}
         </ProductsListUl>
       ) : (
         <SearchNotResult />

@@ -1,11 +1,13 @@
-import { useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
 
 import { addDiaryProduct } from '../../redux/addproduct/operations';
 
 import { toast } from 'react-toastify';
 
 import PropTypes from 'prop-types';
+import { getUserParams } from '../../redux/auth/operations';
+import { selectUser } from '../../redux/auth/selectors';
 
 import {
   BtnAdd,
@@ -24,6 +26,13 @@ const AddProductForm = ({ eldata, onClick, closeModal }) => {
   const dispatch = useDispatch();
   const { title, calories, category, weight, _id: productId } = eldata;
   const [quantity, setQuantity] = useState(0);
+
+  const data = useSelector(selectUser);
+  const bloodType =data.blood
+
+  useEffect(() => {
+    dispatch(getUserParams());
+  }, [dispatch]);
 
   const amount = Math.round((quantity * calories) / 100);
 
@@ -47,7 +56,7 @@ const AddProductForm = ({ eldata, onClick, closeModal }) => {
         category,
         weight,
         amount: quantity,
-        recommended: true,
+        recommended: eldata.groupBloodNotAllowed[bloodType],
         calories,
       }),
     )
