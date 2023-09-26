@@ -1,7 +1,9 @@
-/* eslint-disable react/prop-types */
+import PropTypes from "prop-types";
 // import sprite from '../../../../src/images/sprite.svg';
-import { useSelector } from 'react-redux';
+import {useDispatch, useSelector } from 'react-redux';
+import { useEffect } from "react";
 
+import { getUserParams } from '../../../redux/auth/operations';
 import { selectUser } from '../../../redux/auth/selectors';
 
 import {
@@ -19,8 +21,14 @@ import {
 } from './ProductsItem.styles';
 
 export const ProductsItem = ({ el, openModalToggle }) => {
-  const bloodType = useSelector(selectUser);
-  
+  const dispatch = useDispatch();
+  const data = useSelector(selectUser);
+  const bloodType =data.blood
+
+  useEffect(() => {
+    dispatch(getUserParams());
+  }, [dispatch]);
+
 
   return (
     <ProductsCard>
@@ -30,7 +38,7 @@ export const ProductsItem = ({ el, openModalToggle }) => {
         </ProductsCardDiet>
         <ProductsCardStatusCount>
           <ProductsCardStatusCountTrue>
-            {el ? 'Recommended' : 'Not recommended'}
+            {el.groupBloodNotAllowed[bloodType] ? 'Recommended' : 'Not recommended'}
           </ProductsCardStatusCountTrue>
 
           <ProductsCardStatusAdd
@@ -61,4 +69,10 @@ export const ProductsItem = ({ el, openModalToggle }) => {
       </ProductsCardInfoList>
     </ProductsCard>
   );
+};
+
+
+ProductsItem.propTypes = {
+  el: PropTypes.object.isRequired,
+  openModalToggle: PropTypes.func.isRequired,
 };
