@@ -6,18 +6,9 @@ export const addDiaryProduct = createAsyncThunk(
   'addDiaryProduct',
   async (productDetails, { rejectWithValue }) => {
     try {
-      const { productId, date, calories, category, recommended, title } =
-        productDetails;
-      await axios.post('/diary/addproduct', {
-        date,
-        productId,
-        calories,
-        category,
-        recommended,
-        title,
-      });
-
-      toast.success(`Product ${title} successfully added to diary!`);
+      await axios.post('/diary/addproduct', productDetails);
+      console.log('addDiaryProduct');
+      toast.success(`Product successfully added to diary!`);
       return;
     } catch (error) {
       toast.error('Oops... Something went wrong! Try again!');

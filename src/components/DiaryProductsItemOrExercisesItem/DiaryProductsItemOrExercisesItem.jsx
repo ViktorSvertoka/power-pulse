@@ -26,10 +26,10 @@ const DiaryProductsItemOrExercisesItem = ({
 
   const handleDelete = ({ id }) => {
     if (productTable) {
-      dispatch(deleteProduct({ productId: id }));
+      dispatch(deleteProduct({ productId: id, date }));
     }
     if (exerciseTable) {
-      dispatch(deleteExercise({ exerciseId: id }));
+      dispatch(deleteExercise({ exerciseId: id, date }));
     }
   };
 
