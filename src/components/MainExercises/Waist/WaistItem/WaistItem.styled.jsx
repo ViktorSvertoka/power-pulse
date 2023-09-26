@@ -11,7 +11,7 @@ export const WaistItemLi = styled.li`
   flex-direction: column;
   justify-content: space-between;
   @media screen and (max-width: 767px) {
-    margin:0 auto;
+    margin: 0 auto;
   }
   @media screen and (min-width: 375px) {
     width: 335px;
@@ -20,9 +20,9 @@ export const WaistItemLi = styled.li`
     width: calc((100% - 16px) / 2);
   }
 
-@media screen and (min-width: 1440px) {
-  width: 405px;
-}
+  @media screen and (min-width: 1440px) {
+    width: 370px;
+  }
 `;
 
 export const BtnWrapper = styled.div`
@@ -47,7 +47,7 @@ export const CardLabel = styled.p`
 export const BtnLabel = styled.button`
   background: transparent;
   border: none;
-  color: var( --orange-color);
+  color: var(--orange-color);
   font-size: 16px;
   line-height: 1.5;
   display: flex;
@@ -57,22 +57,22 @@ export const BtnLabel = styled.button`
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   &::after {
-  content: url(../../../../src/components/MainExercises/Waist/img/Icon.svg);
-  display: block;
-  width: 16px;
-  height: 16px;
+    content: url(../../../../src/components/MainExercises/Waist/img/Icon.svg);
+    display: block;
+    width: 16px;
+    height: 16px;
   }
 
-  &:hover{
+  &:hover {
     color: var(--white-color);
   }
-  &:focus{
+  &:focus {
     color: var(--white-color);
   }
 `;
 
 export const Title = styled.h3`
- position: relative;
+  position: relative;
   font-size: 24px;
   line-height: 1.333;
   color: var(--white-color);
@@ -86,11 +86,11 @@ export const Title = styled.h3`
 
   &::before {
     content: url(../../../../src/components/products/img/run.svg);
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  left: 0;
-  top: calc(50% - 12px);
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 0;
+    top: calc(50% - 12px);
   }
 `;
 
@@ -110,5 +110,5 @@ export const ListItem = styled.li`
 `;
 
 export const ListItemValue = styled.span`
-color: var(--white-color);
+  color: var(--white-color);
 `;

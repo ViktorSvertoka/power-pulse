@@ -1,35 +1,37 @@
-import ExersiceModalWindowList from './ExersiceModalWindowList/ExersiceModalWindowList'
+import ExersiceModalWindowList from './ExersiceModalWindowList/ExersiceModalWindowList';
 
-import { ExersiceModalWindowWrap, ExersiceModalContainer, ExersiceModalImgWrapper, ExersiceModalWindowBtn, BoxBtn, ExersiceModalImg, ExersiceModalTimer } from "./ExersiceModalWindow.styles";
+import {
+  ExersiceModalWindowWrap,
+  ExersiceModalContainer,
+  ExersiceModalImgWrapper,
+  ExersiceModalWindowBtn,
+  BoxBtn,
+  ExersiceModalImg,
+  ExersiceModalTimer,
+} from './ExersiceModalWindow.styles';
 import Timer from '../Timer/Timer';
 
-export const ExersiceModalWindow = () => {
-
- 
-
-  
+export const ExersiceModalWindow = ({ data }) => {
+  const { bodyPart, equipment, gifUrl, name, target, time } = data;
 
   return (
-    <ExersiceModalContainer >
-      <ExersiceModalWindowWrap >
-        <ExersiceModalImgWrapper >
-          <ExersiceModalImg
-          src="https://res.cloudinary.com/ditdqzoio/image/upload/v1687127066/exercises/0001.gif"
-            alt="exercise"
-          />
+    <ExersiceModalContainer>
+      <ExersiceModalWindowWrap>
+        <ExersiceModalImgWrapper>
+          <ExersiceModalImg src={gifUrl} alt={name} />
         </ExersiceModalImgWrapper>
-        <ExersiceModalTimer >
+        <ExersiceModalTimer>
           <ExersiceModalWindowList
-            name="air bike"
-            bodypart="waist"
-            target= "abc"
-            equipment="body weit"
-            time= "3 minutes"
+            name={name}
+            bodypart={bodyPart}
+            target={target}
+            equipment={equipment}
+            time={time}
           />
-          <Timer/>
+          <Timer data={data} />
         </ExersiceModalTimer>
-        <BoxBtn >
-          <ExersiceModalWindowBtn  type="button">
+        <BoxBtn>
+          <ExersiceModalWindowBtn type="button">
             Add to diary
           </ExersiceModalWindowBtn>
         </BoxBtn>
