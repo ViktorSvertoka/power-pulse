@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   DiaryWrapper,
@@ -34,6 +34,11 @@ const Diary = () => {
       dispatch(getDiaryList(formattedDate));
     }
   };
+
+  useEffect(() => {
+    const currentDate = new Date();
+    handleSelectedDateChange(currentDate);
+  }, []);
 
   return (
     <Container>

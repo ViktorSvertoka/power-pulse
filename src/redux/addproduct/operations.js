@@ -6,7 +6,27 @@ export const addDiaryProduct = createAsyncThunk(
   'addDiaryProduct',
   async (productDetails, { rejectWithValue }) => {
     try {
-      await axios.post('/diary/addproduct', productDetails);
+      const {
+        title,
+        productId,
+        category,
+        weight,
+        amount,
+        recommended,
+        calories,
+        date,
+      } = productDetails;
+      await axios.post('/diary/addproduct', {
+        title,
+        productId,
+        category,
+        weight,
+        amount,
+        recommended,
+        calories,
+        date,
+      });
+
       console.log('addDiaryProduct');
       toast.success(`Product successfully added to diary!`);
       return;
