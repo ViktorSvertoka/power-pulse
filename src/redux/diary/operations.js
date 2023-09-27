@@ -25,9 +25,7 @@ export const deleteProduct = createAsyncThunk(
     console.log('productId:', productId);
     console.log('date:', date);
     try {
-      await axios.delete(
-        `/diary/deleteproduct?productId=${productId}&date=${date}`,
-      );
+      await axios.delete(`/diary/deleteproduct`, { productId, date });
       return productId;
     } catch (error) {
       toast.error('Oops... Something went wrong! Try again!');
