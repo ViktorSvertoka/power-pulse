@@ -1,14 +1,18 @@
 import { List } from './DairyStatisticList.styled';
 import DailyStatsCards from '../DailyStatsCards/DailyStatsCards';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../redux/auth/selectors';
 
 const DairyStatisticList = () => {
+  const user = useSelector(selectUser);
+
   return (
     <List>
       <DailyStatsCards
         icon="icon-fork-knife"
         fill="true"
         label="Daily calorie intake"
-        keyValue={'2200'}
+        keyValue={user.bmr || '2200'}
       ></DailyStatsCards>
       <DailyStatsCards
         icon="icon-dumbbell"
