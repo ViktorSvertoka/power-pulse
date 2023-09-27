@@ -1,23 +1,60 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import RadioOption from '../RadioOption/RadioOption';
 import { WrapperRadio } from './Step2.styled';
 
-const Step2 = () => {
-  const [selectedSex, setSelectedSex] = useState('Male');
-  const [selectedBlood, setSelectedBlood] = useState('1');
-  const [selectedLevel, setSelectedLevel] = useState('1');
-
-  const handleSexChange = event => {
-    setSelectedSex(event.target.value);
+const Step2 = ({
+  selectedBlood,
+  touched,
+  errors,
+  values,
+  updateFormData,
+  handleChange,
+  blood,
+  sex,
+  levelActivity,
+  selectedLevel,
+  selectedSex,
+  // setSelectedBlood,
+  // setSelectedLevel,
+  // setSelectedSex,
+}) => {
+  // const [selectedSex, setSelectedSex] = useState('male');
+  // const [selectedBlood, setSelectedBlood] = useState('1');
+  // const [selectedLevel, setSelectedLevel] = useState('1');
+  const handleFieldChange = (fieldName, value) => {
+    handleChange(fieldName, value);
+    updateFormData(fieldName, value);
+    // Сохранение данных в состоянии ParamsForm
   };
 
-  const handleBloodChange = event => {
-    setSelectedBlood(event.target.value);
-  };
+  const isFieldValid = fieldName => touched[fieldName] && !errors[fieldName];
 
-  const handleLevelChange = event => {
-    setSelectedLevel(event.target.value);
-  };
+  useEffect(() => {
+    if (blood !== values.blood) {
+      handleChange('blood', blood);
+    }
+    if (sex !== values.sex) {
+      handleChange('sex', sex);
+    }
+    if (levelActivity !== values.levelActivity) {
+      handleChange('levelActivity', levelActivity);
+    }
+  }, [blood, sex, levelActivity]);
+
+  // const handleSexChange = event => {
+  //   setSelectedSex(event.target.value);
+  //   updateFormData(event.target.value);
+  // };
+
+  // const handleBloodChange = event => {
+  //   setSelectedBlood(event.target.value);
+  //   updateFormData(event.target.value);
+  // };
+
+  // const handleLevelChange = event => {
+  //   setSelectedLevel(event.target.value);
+  //   updateFormData(event.target.value);
+  // };
 
   const bloodOptions = [
     { id: '1', value: '1', label: '1' },
@@ -68,11 +105,11 @@ const Step2 = () => {
           <RadioOption
             key={option.id}
             id={option.id}
-            name="Blood"
+            name="blood"
             value={option.value}
             checked={selectedBlood === option.value}
             label={option.label}
-            onChange={handleBloodChange}
+            onChange={e => handleFieldChange('blood', e.target.value)}
           />
         ))}
       </div>
@@ -83,11 +120,11 @@ const Step2 = () => {
           <RadioOption
             key={option.id}
             id={option.id}
-            name="Sex"
+            name="sex"
             value={option.value}
             checked={selectedSex === option.value}
             label={option.label}
-            onChange={handleSexChange}
+            onChange={e => handleFieldChange('sex', e.target.value)}
           />
         ))}
       </div>
@@ -102,7 +139,7 @@ const Step2 = () => {
             value={option.value}
             checked={selectedLevel === option.value}
             label={option.label}
-            onChange={handleLevelChange}
+            onChange={e => handleFieldChange('levelActivity', e.target.value)}
           />
         ))}
       </div>
