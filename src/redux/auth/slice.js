@@ -61,7 +61,7 @@ const authSlice = createSlice({
       })
       .addCase(updateUserParams.pending, (state, action) => state)
       .addCase(updateUserParams.fulfilled, (state, action) => {
-        state.user = action.payload.user;
+        state.user = action.payload;
         state.isLoggedIn = true;
         state.token = action.payload.token;
       })

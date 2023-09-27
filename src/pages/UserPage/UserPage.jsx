@@ -4,12 +4,21 @@ import UserForm from '../../components/UserForm/UserForm';
 import Logout from '../../components/Logout/Logout';
 import UserProfile from '../../components/UserProfile/UserProfile';
 import Daily from '../../components/Daily/Daily';
+import { useState } from 'react';
 
 const UserPage = () => {
+  const [avatarUrl, setAvatarUrl] = useState('');
+  const handleChangeAvatar = url => {
+    setAvatarUrl(url);
+  };
+
   return (
     <Container>
       <Title>Profile Settings</Title>
-      <UserProfile />
+      <UserProfile
+        avatarUrl={avatarUrl}
+        handleChangeAvatar={handleChangeAvatar}
+      />
       <Wrapper>
         <Daily
           color="var(--orange-color)"
@@ -26,7 +35,7 @@ const UserPage = () => {
       </Wrapper>
       <ExclamationMark />
       <Logout />
-      <UserForm />
+      <UserForm avatarUrl={avatarUrl} />
     </Container>
   );
 };
