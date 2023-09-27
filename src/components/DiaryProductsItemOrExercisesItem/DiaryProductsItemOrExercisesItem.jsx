@@ -26,7 +26,7 @@ const DiaryProductsItemOrExercisesItem = ({
 
   const handleDelete = ({ id }) => {
     if (productTable) {
-      dispatch(deleteProduct({ productId: id, date }));
+      dispatch(deleteProduct({ id, date }));
     }
     if (exerciseTable) {
       dispatch(deleteExercise({ exerciseId: id, date }));

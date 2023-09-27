@@ -50,7 +50,6 @@ const diary = createSlice({
     builder.addCase(addDiaryProduct.fulfilled, (state, action) => {
       handleFullfield(state);
       state.products = action.payload;
-      console.log(action.payload);
     });
     builder.addCase(addDiaryProduct.rejected, handleRejected);
 
