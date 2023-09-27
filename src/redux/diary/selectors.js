@@ -8,3 +8,7 @@ export const getError = state => state.diary.error;
 
 export const getErrorProductsAndExercisesError = state =>
   state.diary.productsAndExercisesError;
+
+export const getAddProductIsLoading = state => state.products.isLoading;
+
+export const getAddProductError = state => state.products.error;

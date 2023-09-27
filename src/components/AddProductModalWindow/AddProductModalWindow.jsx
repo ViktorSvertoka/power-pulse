@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 
-import { addDiaryProduct } from '../../redux/addproduct/operations';
+import { addDiaryProduct } from '../../redux/diary/operations';
 
 import { toast } from 'react-toastify';
 
@@ -28,7 +28,7 @@ const AddProductForm = ({ eldata, onClick, closeModal }) => {
   const [quantity, setQuantity] = useState(0);
 
   const data = useSelector(selectUser);
-  const bloodType =data.blood
+  const bloodType = data.blood;
 
   useEffect(() => {
     dispatch(getUserParams());
