@@ -104,7 +104,7 @@ export const WrapperParamsPage = styled.div`
 
   @media screen and (min-width: 375px) {
     width: 375px;
-    height: 90vh;
+    height: 87vh;
     margin-left: auto;
     margin-right: auto;
     background-color: transparent;
@@ -125,7 +125,7 @@ export const WrapperParamsPage = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 768px;
-    height: 90vh;
+    height: 85vh;
     margin-left: auto;
     margin-right: auto;
     background-color: var(--black-color);
@@ -146,7 +146,7 @@ export const WrapperParamsPage = styled.div`
 
   @media screen and (min-width: 1440px) {
     width: 1440px;
-    height: 90vh;
+    height: vh;
     margin-left: auto;
     margin-right: auto;
     background-color: transparent;
@@ -304,6 +304,7 @@ export const StyledButtonGo = styled.button`
   border: 2px solid var(--orange-light-color);
   border-radius: 12px;
   cursor: pointer;
+  
 
   &:hover {
     background-color: var(--hover-color);

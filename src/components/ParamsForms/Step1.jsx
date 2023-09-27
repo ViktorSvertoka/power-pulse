@@ -1,197 +1,57 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Field, ErrorMessage } from 'formik';
-import styled from 'styled-components';
-import DatePicker from 'react-datepicker';
+
+import {
+  InputCont,
+  InputWrapper,
+  Label,
+  Input,
+  Error,
+  StyledDatePicker,
+  SvgKalen,
+  InputWrapperDataPiker,
+  IconContainer,
+} from './Step1.styled'; // Импортируйте стили из файла styles.js
 import sprite from '../../images/sprite.svg';
-//  import 'react-datepicker/dist/react-datepicker.css';
-// import 'path/to/custom-datepicker-styles.css';
 import StyledDatepicker from '../../components/StyledDatepicker/StyledDatepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
-const InputCont = styled.div`
-  width: 100%;
-  position:relative;
-  background-color: transparent;
- 
-  @media screen and (min-width: 375px) {
-    width: 335px;
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 527px;
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 46px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    width: 527px;
-  }
-`;
-const InputWrapper = styled.div`
-
-  position: relative;
+const Step1 = ({
+  values,
+  handleChange,
+  touched,
+  errors,
+  updateFormData,
+  height,
+  currentWeight,
+  desiredWeight,
+  birthday,
+}) => {
+  const handleFieldChange = (fieldName, value) => {
+    handleChange(fieldName, value);
+    updateFormData(fieldName, value);
+    // Сохранение данных в состоянии ParamsForm
+  };
+  //updateFormData({ ...formData, [fieldName]: value });
   
-  margin-bottom: 5px;
-  padding-bottom: 20px;
-  width: 100%;
-  flex-grow: 1;
-  
-  @media screen and (min-width: 375px) {
-    max-width: 155px;
-    flex-grow: 1;
-    flex-basis: calc(50% - 7px);
-  }
-
-  @media screen and (min-width: 768px) {
-    max-width: 174px;
-    max-width: calc(33.333% - 14px);
-    flex-basis: calc(33.333% - 14px);
-
-    &:nth-child(4n + 1) {
-      flex-basis: 100%;
-      margin-right: 0;
-    }
-  }
-
-  @media screen and (min-width: 1440px) {
-    max-width: 153px;
-  }
-`;
-
-
-
-const Label = styled.label`
-  
-  color: #efede8;
-  font-family: Roboto;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-`;
-
-const Input = styled(Field)`
-  width: 100%;
-  outline: 1px solid rgba(239, 237, 232, 0.3);
-  border: none;
-  position: relative;
-  box-sizing: border-box;
-  height: 46px;
-  color: var(--white-color);
-  font-family: 'RobotoRegular';
-  font-size: 16px;
-  line-height: 1.5;
-  margin-bottom: 4px;
-  margin-top: 4px;
-  padding-left: 14px;
-  padding-top: 14px;
-  padding-bottom: 14px;
-  background-color: transparent;
-  border-radius: 12px;
-
-  &::placeholder {
-    color: var(--normal-color);
-    font-family: 'RobotoRegular';
-    font-size: 14px;
-    line-height: 1.28;
-
-    @media screen and (min-width: 768px) {
-      font-size: 16px;
-      line-height: 1.5;
-    }
-  }
-
-  &:hover {
-    outline: 1px solid #e6533c;
-  }
-  &:focus {
-    outline: 1px solid #e6533c;
-  }
-  &.default {
-    outline: 1px solid rgba(239, 237, 232, 0.3);
-  }
-  &.success {
-    outline: 1px solid #3cbf61;
-  }
-  &.error {
-    outline: 1px solid rgba(248, 5, 5, 0.973);
-  }
-
-  
-`;
-
-
-
-const Error = styled(ErrorMessage)`
-  color: red;
-  font-size: 12px;
-  position: absolute;
-`;
-
-const StyledDatePicker = styled(DatePicker)`
-  max-width: 155px;
-  
-  outline: 1px solid rgba(239, 237, 232, 0.3);
-  border: none;
-  position: relative;
-  
-  box-sizing: border-box;
-  height: 46px;
-  color: var(--white-color);
-  font-family: 'RobotoRegular';
-  font-size: 16px;
-  line-height: 1.5;
-  margin-bottom: 4px;
-  margin-top: 4px;
-  padding-left: 14px;
-  padding-top: 14px;
-  padding-bottom: 14px;
-  background-color: transparent;
-  border-radius: 12px;
-  &::placeholder {
-    color: var(--normal-color);
-  }
-  &:hover,
-  &:focus {
-    border: 1px solid #e6533c;
-
-     outline: 0; 
-  }
-  &.default {
-    outline: 1px solid rgba(239, 237, 232, 0.3);
-  }
-  &.success {
-    outline: 1px solid #3cbf61;
-  }
-  &.error {
-    outline: 1px solid rgba(248, 5, 5, 0.973);
-  }
-
-  &.disabled {
-    outline: 1px solid #ccc;
-    cursor: not-allowed;
-  }
-`;
-export const SvgKalen = styled.svg`
-  width: 25px;
-  height: 25px;
-  position:absolute;
-  left: 125px;
-  top: 15px;
-  stroke: #efede8;
-`;
-const InputWrapperDataPiker = styled.div`
-
-  position: relative;
-
-  max-width: 155px;
-`;
-const Step1 = ({ values, handleChange, touched, errors }) => {
-
   const isFieldValid = fieldName => touched[fieldName] && !errors[fieldName];
+
+
+  useEffect(() => {
+    if (height !== values.height) {
+      handleChange('height', height);
+    }
+    if (currentWeight !== values.currentWeight) {
+      handleChange('currentWeight', currentWeight);
+    }
+    if (desiredWeight !== values.desiredWeight) {
+      handleChange('desiredWeight', desiredWeight);
+    }
+    if (birthday !== values.birthday) {
+      handleChange('birthday', birthday);
+    }
+  }, [height, currentWeight, desiredWeight, birthday]);
+
   return (
     <InputCont>
       <InputWrapper>
@@ -202,11 +62,12 @@ const Step1 = ({ values, handleChange, touched, errors }) => {
           type="number"
           name="height"
           placeholder="Height"
-          
-          className={` ${isFieldValid('height') ? 'success' : ''} ${touched.height && errors.height ? 'error' : ''
-            }`}
+          value={values.height}
+          onChange={e => handleFieldChange('height', e.target.value)}
+          className={` ${isFieldValid('height') ? 'success' : ''} ${
+            touched.height && errors.height ? 'error' : ''
+          }`}
         />
-
         <Error name="height" component="div" className="error" />
       </InputWrapper>
 
@@ -218,8 +79,11 @@ const Step1 = ({ values, handleChange, touched, errors }) => {
           type="number"
           name="currentWeight"
           placeholder="Current"
-          className={` ${isFieldValid('currentWeight') ? 'success' : ''} ${touched.currentWeight && errors.currentWeight ? 'error' : ''
-            }`}
+          value={values.currentWeight}
+          onChange={e => handleFieldChange('currentWeight', e.target.value)}
+          className={` ${isFieldValid('currentWeight') ? 'success' : ''} ${
+            touched.currentWeight && errors.currentWeight ? 'error' : ''
+          }`}
         />
         <Error name="currentWeight" component="div" className="error" />
       </InputWrapper>
@@ -232,8 +96,11 @@ const Step1 = ({ values, handleChange, touched, errors }) => {
           type="number"
           name="desiredWeight"
           placeholder="Desired"
-          className={` ${isFieldValid('desiredWeight') ? 'success' : ''} ${touched.desiredWeight && errors.desiredWeight ? 'error' : ''
-            }`}
+          value={values.desiredWeight}
+          onChange={e => handleFieldChange('desiredWeight', e.target.value)}
+          className={` ${isFieldValid('desiredWeight') ? 'success' : ''} ${
+            touched.desiredWeight && errors.desiredWeight ? 'error' : ''
+          }`}
         />
         <Error name="desiredWeight" component="div" className="error" />
       </InputWrapper>
@@ -245,22 +112,22 @@ const Step1 = ({ values, handleChange, touched, errors }) => {
         <InputWrapperDataPiker>
           <StyledDatePicker
             name="birthday"
-            selected={values.birthday}
-            onChange={date => handleChange('birthday', date)}
+            selected={values.birthday || null}
+            value={values.birthday}
+            onChange={date => handleFieldChange('birthday', date)}
             placeholderText="Birthday"
-            className={` ${isFieldValid('birthday') ? 'success' : ''} ${touched.birthday && errors.birthday ? 'error' : ''
-              }`}
+            className={` ${isFieldValid('birthday') ? 'success' : ''} ${
+              touched.birthday && errors.birthday ? 'error' : ''
+            }`}
           />
           <StyledDatepicker />
           <SvgKalen>
-            <use href={`${sprite}#icon-arrow-right`} />
+            <use href={`${sprite}#icon-calendar-white`} />
           </SvgKalen>
         </InputWrapperDataPiker>
         <Error name="birthday" component="div" className="error" />
       </InputWrapper>
     </InputCont>
-
-    
   );
 };
 

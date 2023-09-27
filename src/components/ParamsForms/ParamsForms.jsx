@@ -31,17 +31,19 @@ import {
 import Step1 from './Step1';
 import Step2 from './Step2';
 import Step3 from './Step3';
+
 import { useDispatch } from 'react-redux';
 import { updateUserParams } from '../../redux/auth/operations';
+import { Link } from 'react-router-dom';
 
 const initialValues = {
-  height: '',
-  currentWeight: '',
-  desiredWeight: '',
+  height: '150',
+  currentWeight: '35',
+  desiredWeight: '35',
   birthday: null,
-  blood: [],
-  sex: '',
-  levelActivity: '',
+  blood: '1',
+  sex: 'male',
+  levelActivity: '1',
 };
 
 const validationSchema = Yup.object().shape({
@@ -68,7 +70,6 @@ const validationSchema = Yup.object().shape({
         currentDate.getFullYear() - 18,
         currentDate.getMonth(),
         currentDate.getDate(),
-
       );
       return value <= minAdultDate;
     })
@@ -86,14 +87,7 @@ const validationSchema = Yup.object().shape({
     .required('Required'),
 });
 
-
-
 const steps = ['Step 1', 'Step 2', 'Step 3'];
-const stepFields = [
-  ['height', 'currentWeight', 'desiredWeight', 'birthday'],
-  ['blood'],
-  ['Go'],
-];
 
 const placeholders = {
   height: 'Height in cm',
@@ -106,12 +100,22 @@ const placeholders = {
 };
 
 const ParamsForm = () => {
-  const [selectedBlood, setSelectedBlood] = useState(''); 
-  const [selectedSex, setSelectedSex] = useState(''); 
-  const [selectedLevelActivity, setSelectedLevelActivity] = useState('');
+  const [formData, setFormData] = useState(initialValues);
 
   const [formErrors, setFormErrors] = useState({});
+
   const [step, setStep] = useState(0);
+
+  const [selectedSex, setSelectedSex] = useState(initialValues);
+  const [selectedBlood, setSelectedBlood] = useState(initialValues);
+  const [selectedLevel, setSelectedLevel] = useState(initialValues);
+
+  const updateFormData = (fieldName, value) => {
+    setFormData(prevData => ({
+      ...prevData,
+      [fieldName]: value,
+    }));
+  };
 
   const nextStep = () => {
     if (step < steps.length - 1) {
@@ -124,13 +128,18 @@ const ParamsForm = () => {
       setStep(step - 1);
     }
   };
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // const onSubmit = values => {
-  //   console.log(values);
-  //   dispatch(updateUserParams(values));
-  //   // resetForm();
-  // };
+  const onSubmit = e => {
+    try {
+      validationSchema.validate(values, { abortEarly: false });
+    } catch (error) {
+      console.log('ERROR:',error);
+    }
+
+    console.log('DATA:', formData);
+     dispatch(updateUserParams(formData));
+  }; // resetForm();//
 
   const handleSubmit = (values, { setSubmitting }) => {
     validationSchema
@@ -139,8 +148,9 @@ const ParamsForm = () => {
         // Успешная валидация, сбрасываем ошибки
         setFormErrors({});
         console.log('Form data:', values);
+        console.log('Step 1 data:', formData);
         setSubmitting(false);
-        // console.log('Initial Values:', initialValues);
+
         // Тут реалізувати логіку для відправки даних на сервер і обробки відповіді.
         // Перевірте, чи є помилки від сервера, і покажіть їх користувачеві, або перенаправте його на іншу сторінку.
       })
@@ -193,14 +203,13 @@ const ParamsForm = () => {
             {({
               isSubmitting,
               values,
-              checked,
+
               touched,
-              fieldName,
+
               errors,
               setFieldValue,
             }) => (
               <FormImput>
-               
                 {
                   <FormField>
                     {step === 0 && (
@@ -209,16 +218,29 @@ const ParamsForm = () => {
                         handleChange={setFieldValue}
                         touched={touched}
                         errors={errors}
-                        fieldName={fieldName}
+                        updateFormData={updateFormData}
+                        height={formData.height}
+                        currentWeight={formData.currentWeight}
+                        desiredWeight={formData.desiredWeight}
+                        birthday={formData.birthday}
                       />
                     )}
                     {step === 1 && (
                       <Step2
+                        errors={errors}
+                        touched={touched}
+                        selectedSex={selectedSex}
+                        selectedBlood={selectedBlood}
+                        selectedLevel={selectedLevel}
                         values={values}
                         handleChange={setFieldValue}
-                        selectedBlood={selectedBlood}
-                        selectedSex={selectedSex}
-                        selectedLevelActivity={selectedLevelActivity}
+                        updateFormData={updateFormData}
+                        // setSelectedSex={setSelectedSex}
+                        // setSelectedBlood={setSelectedBlood}
+                        // setSelectedLevel={setSelectedLevel}
+                        blood={formData.blood}
+                        sex={formData.sex}
+                        levelActivity={formData.levelActivity}
                       />
                     )}
                     {step === 2 && (
@@ -233,11 +255,12 @@ const ParamsForm = () => {
                 <FormButtons>
                   {step === steps.length - 1 && (
                     <StyledButtonGo
-                      // onClick={onSubmit}
+                      onClick={onSubmit}
                       type="submit"
                       disabled={isSubmitting}
                     >
                       Go
+                      {/* <Link to="/diary" /> */}
                     </StyledButtonGo>
                   )}
                   {step > 0 && (
