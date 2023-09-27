@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Overlay = styled.div`
@@ -68,12 +68,13 @@ export const Svg = styled.svg`
   }
 `;
 
-export const Logout = styled(Link)`
+export const Logout = styled.button`
   position: absolute;
   bottom: 26px;
   left: 32px;
   display: inline-flex;
   align-items: center;
+  background-color: transparent;
   gap: 8px;
   font-size: 14px;
   font-weight: 400;

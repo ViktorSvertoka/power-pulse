@@ -50,17 +50,9 @@ function App() {
             <Route
               index
               element={
-                 shouldRedirect ? <Navigate to="/signup" /> : <SignUpBodyPage />
-                
+                shouldRedirect ? <Navigate to="/" /> : <SignUpBodyPage />
               }
             />
-            <Route
-              path="blood"
-              element={
-                shouldRedirect ? <Navigate to="/" /> : <SignUpBloodPage />
-              }
-            />
-            <Route path="access" element={<SignUpAccessPage />} />
           </Route>
           <Route
             path="signin"
