@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { selectUser } from '../../redux/auth/selectors';
 
@@ -14,10 +14,16 @@ import {
   TitleName,
   Subtitle,
 } from './UserProfile.styled';
+import { getUserParams } from '../../redux/auth/operations';
 
 const UserProfile = () => {
+  const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const [avatarUrl, setAvatarUrl] = useState(user.avatarUrl);
+
+  useEffect(() => {
+    dispatch(getUserParams());
+  }, [dispatch]);
 
   const avatarUser = <Photo src={avatarUrl} width="100%" alt="Avatar" />;
   const avatarLogo = (

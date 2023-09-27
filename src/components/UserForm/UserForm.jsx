@@ -13,19 +13,27 @@ import {
 } from './UserForm.styled';
 
 import { selectUser } from '../../redux/auth/selectors';
-import { getUserParams } from '../../redux/auth/operations';
+import { getUserParams, updateUserParams } from '../../redux/auth/operations';
 
 const UserForm = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
-
-  const [selectedSex, setSelectedSex] = useState('male');
   const [selectedBlood, setSelectedBlood] = useState('1');
+  const [selectedSex, setSelectedSex] = useState('male');
   const [selectedLevel, setSelectedLevel] = useState('1');
+  const [formData, setFormData] = useState({
+    name: user.name,
+    email: user.email,
+    height: user.height,
+    currentWeight: user.currentWeight,
+    desiredWeight: user.desiredWeight,
+    birthday: user.birthday,
+    avatarUrl: user.avatarUrl,
+  });
 
   useEffect(() => {
     dispatch(getUserParams());
-  }, []);
+  }, [dispatch]);
 
   const handleSexChange = event => {
     setSelectedSex(event.target.value);
@@ -39,11 +47,24 @@ const UserForm = () => {
     setSelectedLevel(event.target.value);
   };
 
-  const handleSupmit = () => {
-    console.log('Selected Blood:', selectedBlood);
-    console.log('Selected Sex:', selectedSex);
-    console.log('Selected Level:', selectedLevel);
-    console.log(user.sex);
+  const handleInputChange = event => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = () => {
+    const sendData = {
+      ...formData,
+      blood: selectedBlood,
+      sex: selectedSex,
+      levelActivity: selectedLevel,
+    };
+    dispatch(updateUserParams(sendData));
+    dispatch(getUserParams());
+    console.log(user);
   };
 
   const bloodOptions = [
@@ -90,28 +111,56 @@ const UserForm = () => {
   return (
     <>
       <FormContainer>
-        <SectionTitle>Basic info</SectionTitle>
-        <Input />
-        <Input />
+        <div>
+          <SectionTitle>Basic info</SectionTitle>
+          <Input
+            name="name"
+            value={formData.name}
+            onChange={handleInputChange}
+            type="string"
+          />
+        </div>
+        <div>
+          <Input
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
+          />
+        </div>
       </FormContainer>
 
       <WrapperInputField>
-        <form action="#">
+        <div>
           <SectionTitle>Height</SectionTitle>
-          <InputField />
-        </form>
-        <form action="#">
+          <InputField
+            name="height"
+            value={formData.height}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div>
           <SectionTitle>Current Weight</SectionTitle>
-          <InputField />
-        </form>
+          <InputField
+            name="currentWeight"
+            value={formData.currentWeight}
+            onChange={handleInputChange}
+          />
+        </div>
       </WrapperInputField>
-
       <WrapperInputField>
-        <form action="#">
+        <div>
           <SectionTitle>Desired Weight</SectionTitle>
-          <InputField />
-        </form>
-        <InputField />
+          <InputField
+            name="desiredWeight"
+            value={formData.desiredWeight}
+            onChange={handleInputChange}
+          />
+        </div>
+        <InputField
+          name="birthday"
+          value={formData.birthday}
+          onChange={handleInputChange}
+        />
       </WrapperInputField>
 
       <WrapperRadio>
@@ -158,7 +207,7 @@ const UserForm = () => {
         </div>
       </WrapperRadio>
 
-      <Button onClick={handleSupmit}>Save</Button>
+      <Button onClick={handleSubmit}>Save</Button>
     </>
   );
 };
