@@ -1,8 +1,6 @@
-import { Navigate, Route, Routes, useParams } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import SharedLayout from './components/SharedLayout/SharedLayout';
-// import FirstPage from './pages/FirstPage/FirstPage';
-// import SecondPage from './pages/SecondPage/SecondPage';
-// import HalfPage from './pages/HalfPage/HalfPage';
+
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
 import SignUpBodyPage from './pages/SignUpBodyPage/SignUpBodyPage';
@@ -23,7 +21,6 @@ import { useAuth } from './hooks/useAuth';
 //   RestrictedRoute,
 // } from './components/RestrictedRoute/RestrictedRoute';
 
-const test = import.meta.env.VITE_API_TEST;
 function App() {
   const dispatch = useDispatch();
   const { isRefreshing, isLoggedIn } = useAuth();
