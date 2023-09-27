@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { deleteExercise, deleteProduct, getDiaryList } from './operations';
+import {
+  deleteExercise,
+  deleteProduct,
+  getDiaryList,
+  addDiaryProduct,
+} from './operations';
 
 const contactsInitialValue = {
   isLoading: false,
@@ -40,6 +45,14 @@ const diary = createSlice({
       state.products = [];
       state.exercises = [];
     });
+
+    builder.addCase(addDiaryProduct.pending, handlePending);
+    builder.addCase(addDiaryProduct.fulfilled, (state, action) => {
+      handleFullfield(state);
+      state.products = action.payload;
+      console.log(action.payload);
+    });
+    builder.addCase(addDiaryProduct.rejected, handleRejected);
 
     builder.addCase(deleteProduct.pending, handlePending);
     builder.addCase(deleteProduct.fulfilled, (state, { payload }) => {
