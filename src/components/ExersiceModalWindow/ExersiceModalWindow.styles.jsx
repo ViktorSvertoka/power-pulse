@@ -13,40 +13,44 @@ export const ExersiceModalContainer = styled.div`
 `;
 
 export const ExersiceModalWindowWrap = styled.div`
-   width: 335px;
+  width: 335px;
   padding: 48px 16px;
   display: flex;
   flex-direction: column;
 
   @media screen and (min-width: 768px) {
-    width: 800px;
-    padding: 48px 32px;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
-    grid-template-areas:
-      "image list"
-      "timer button";
+    width: 694px;
+    height: 550px;
+    padding: 0;
+    flex-wrap: wrap;
   }
 `;
 
 export const ExersiceModalImgWrapper = styled.div`
-width: 270px;
+  width: 270px;
   height: 226px;
+  margin-left: auto;
+  margin-right: auto;
 
   @media screen and (min-width: 768px) {
-    grid-area: list;
-   
+    margin-left: 32px;
+    margin-right: 0;
+    margin-top: 40px;
   }
 `;
 export const ExersiceModalTimer = styled.div`
-
-display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  /* grid-area: timer; */
 
+  @media screen and (min-width: 768px) {
+    align-items: start;
+    width: 125px;
+    height: 125px;
+    margin-left: 105px;
+    margin-right: none;
+  }
 `;
 
 export const ExersiceModalImg = styled.img`
@@ -62,20 +66,19 @@ export const ExersiceModalImg = styled.img`
 `;
 
 export const BoxBtn = styled.div`
-   
   @media screen and (min-width: 768px) {
     grid-area: button;
     display: flex;
     justify-content: flex-end;
+    @media screen and (min-width: 768px) {
+      margin-right: 32px;
+      margin-top: 176px;
+    }
   }
 `;
 
-
-
-
-
 export const ExersiceModalWindowBtn = styled.button`
-   color: var(--white);
+  color: var(--white-color);
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
@@ -84,9 +87,9 @@ export const ExersiceModalWindowBtn = styled.button`
   background: var(--orange-color);
   align-self: flex-start;
   &:hover {
-  background: var(--orange-light-color);
-  color: var(--white-color);
-}
+    background: var(--orange-light-color);
+    color: var(--white-color);
+  }
   @media screen and (min-width: 768px) {
     align-self: flex-end;
   }
