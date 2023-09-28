@@ -13,7 +13,13 @@ export const Header = () => {
     setIsOpen({ isOpen: !isOpen });
   };
   return (
-    <HeaderContainer>
+    <HeaderContainer
+      style={
+        isLoggedIn
+          ? { borderBottom: '1px solid rgba(239, 237, 232, 0.20)' }
+          : { borderBottom: 'none' }
+      }
+    >
       <LogoLink to="/">
         <Svg>
           <use href={`${sprite}#icon-logo`}></use>
