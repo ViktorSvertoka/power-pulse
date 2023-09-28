@@ -244,6 +244,7 @@ const RegisterForm = () => {
             </InputContainer>
 
             <Button type="submit">Sign Up</Button>
+
             <TextIn>
               Already have account?
               <StyledLink to="/signin">Sign In</StyledLink>

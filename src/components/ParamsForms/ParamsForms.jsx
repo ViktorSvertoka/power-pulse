@@ -106,9 +106,9 @@ const ParamsForm = () => {
 
   const [step, setStep] = useState(0);
 
-  const [selectedSex, setSelectedSex] = useState(initialValues);
-  const [selectedBlood, setSelectedBlood] = useState(initialValues);
-  const [selectedLevel, setSelectedLevel] = useState(initialValues);
+  const [selectedSex, setSelectedSex] = useState(formData.sex);
+  const [selectedBlood, setSelectedBlood] = useState(formData.blood);
+  const [selectedLevel, setSelectedLevel] = useState(formData.levelActivity);
 
   const updateFormData = (fieldName, value) => {
     setFormData(prevData => ({
@@ -130,15 +130,21 @@ const ParamsForm = () => {
   };
   const dispatch = useDispatch();
 
-  const onSubmit = e => {
-    try {
-      validationSchema.validate(values, { abortEarly: false });
-    } catch (error) {
-      console.log('ERROR:',error);
-    }
+  const onSubmit = () => {
+    // try {
+    //   validationSchema.validate(values, { abortEarly: false });
+    // } catch (error) {
+    //   console.log('ERROR:', error);
+    // }
+    const sendData = {
+      ...formData,
+      blood: selectedBlood,
+      sex: selectedSex,
+      levelActivity: selectedLevel,
+    };
 
-    console.log('DATA:', formData);
-     dispatch(updateUserParams(formData));
+    console.log('DATA:', sendData);
+    dispatch(updateUserParams(sendData));
   }; // resetForm();//
 
   const handleSubmit = (values, { setSubmitting }) => {
@@ -235,9 +241,9 @@ const ParamsForm = () => {
                         values={values}
                         handleChange={setFieldValue}
                         updateFormData={updateFormData}
-                        // setSelectedSex={setSelectedSex}
-                        // setSelectedBlood={setSelectedBlood}
-                        // setSelectedLevel={setSelectedLevel}
+                        setSelectedSex={setSelectedSex}
+                        setSelectedBlood={setSelectedBlood}
+                        setSelectedLevel={setSelectedLevel}
                         blood={formData.blood}
                         sex={formData.sex}
                         levelActivity={formData.levelActivity}
@@ -260,7 +266,7 @@ const ParamsForm = () => {
                       disabled={isSubmitting}
                     >
                       Go
-                      {/* <Link to="/diary" /> */}
+                      <Link to="/diary" />
                     </StyledButtonGo>
                   )}
                   {step > 0 && (

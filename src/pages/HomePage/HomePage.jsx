@@ -20,6 +20,7 @@ import {
   SpanRunMan,
   SvgLine,
   BtnHomeTablet,
+  HomePageLinkOrange,
 } from './HomePage.styled';
 import sprite from '../../images/sprite.svg';
 
@@ -33,7 +34,7 @@ const HomePage = () => {
           </SvgLine>
           <HomeTitle>Transforming your body shape with Power Pulse</HomeTitle>
           <BtnHomeContainer>
-            <HomePageLink to="/signup">Sign Up</HomePageLink>
+            <HomePageLinkOrange to="/signup">Sign Up</HomePageLinkOrange>
             <HomePageLink to="/signin">Sign In</HomePageLink>
           </BtnHomeContainer>
         </TitleContainer>
@@ -43,7 +44,7 @@ const HomePage = () => {
             <use href={`${sprite}#icon-line`}></use>
           </SvgLine>
           <BtnHomeTablet>
-            <HomePageLink to="/signup">Sign Up</HomePageLink>
+            <HomePageLinkOrange to="/signup">Sign Up</HomePageLinkOrange>
             <HomePageLink to="/signin">Sign In</HomePageLink>
           </BtnHomeTablet>
         </TitleContainerTablet>
