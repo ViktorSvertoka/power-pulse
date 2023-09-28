@@ -47,7 +47,7 @@ export const SuccessModalWindowText = styled.p`
 `;
 
 export const SuccessModalWindowSpan = styled.span`
-   color: rgba(239, 237, 232, 0.3);
+   color: #e6533c;
     font-size: 14px;
     font-weight: 400;
     line-height: 18px;
