@@ -3,6 +3,16 @@ import styled from 'styled-components';
 export const Container = styled.div`
   margin-left: 20px;
   margin-right: 20px;
+
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    margin-left: 32px;
+    margin-right: 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-left: 96px;
+    margin-right: 96px;
+  }
 `;
 
 export const Title = styled.h2`
@@ -12,7 +22,7 @@ export const Title = styled.h2`
   line-height: 28px;
   margin-top: 40px;
 
-  @media screen and (min-width: 768px) and (max-width: 1439px) {
+  @media screen and (min-width: 768px) {
     font-size: 32px;
     line-height: 44px;
     margin-top: 72px;

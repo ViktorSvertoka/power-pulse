@@ -20,6 +20,14 @@ export const Container = styled.div`
     align-items: flex-start;
     gap: 32px;
   }
+
+  @media screen and (min-width: 1440px) {
+    width: 214px;
+    height: 108px;
+    padding: 14px 18px;
+    align-items: flex-start;
+    gap: 32px;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -40,6 +48,13 @@ export const Text = styled.p`
   font-family: 'RobotoRegular';
   font-size: 12px;
   line-height: 16px;
+
+  @media screen and (min-width: 1440px) {
+    font-feature-settings:
+      'clig' off,
+      'liga' off;
+    line-height: 18px;
+  }
 `;
 
 export const Value = styled.p`
