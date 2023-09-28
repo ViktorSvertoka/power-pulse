@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import StyledDatepicker from '../../components/StyledDatepicker/StyledDatepicker';
 import {
@@ -12,9 +12,15 @@ import {
 } from './DaySwitch.styled';
 import sprite from '../../images/sprite.svg';
 
+const formatDate = date => {
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+  return `${day}/${month}/${year}`;
+};
+
 const DaySwitch = ({ onDateChange }) => {
   const [currentDate, setCurrentDate] = useState(() => {
-    // Попробуем получить дату из localStorage
     const savedDate = localStorage.getItem('selectedDate');
     if (savedDate) {
       const parsedDate = new Date(savedDate);
@@ -22,13 +28,12 @@ const DaySwitch = ({ onDateChange }) => {
         return parsedDate;
       }
     }
-    // Если в localStorage нет даты или она некорректная, используем текущую дату
     return new Date();
   });
+
   const [isDatepickerOpen, setIsDatepickerOpen] = useState(false);
 
   useEffect(() => {
-    // При изменении даты обновляем значение в localStorage
     localStorage.setItem('selectedDate', currentDate.toISOString());
   }, [currentDate]);
 
@@ -50,23 +55,39 @@ const DaySwitch = ({ onDateChange }) => {
     }
   };
 
-  const formattedDate = `${String(currentDate.getDate()).padStart(
-    2,
-    '0',
-  )}/${String(currentDate.getMonth() + 1).padStart(
-    2,
-    '0',
-  )}/${currentDate.getFullYear()}`;
-
-  const buttonRef = useRef(null);
+  const formattedDate = formatDate(currentDate);
 
   const handleCalenderBtnClick = () => {
     setIsDatepickerOpen(prev => !prev);
   };
 
+  const handleOutsideClick = event => {
+    const calenderBtn = document.getElementById('calenderBtn');
+
+    if (calenderBtn && !calenderBtn.contains(event.target)) {
+      setIsDatepickerOpen(false);
+    }
+  };
+
+  const handleKeyDown = event => {
+    if (event.key === 'Enter' || event.key === 'Escape') {
+      setIsDatepickerOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('click', handleOutsideClick);
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('click', handleOutsideClick);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   return (
     <Wrap>
-      <CalenderBtn onClick={handleCalenderBtnClick} ref={buttonRef}>
+      <CalenderBtn onClick={handleCalenderBtnClick} id="calenderBtn">
         <DateLabel>{formattedDate}</DateLabel>
         <CalenderIconWrap>
           <Svg>
@@ -101,7 +122,6 @@ const DaySwitch = ({ onDateChange }) => {
           setSelectedDate={setCurrentDate}
           isOpen={isDatepickerOpen}
           setIsOpen={setIsDatepickerOpen}
-          anchorEl={buttonRef.current}
         />
       )}
     </Wrap>

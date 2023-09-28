@@ -35,7 +35,17 @@ const Diary = () => {
   };
 
   useEffect(() => {
+    const savedDate = localStorage.getItem('selectedDate');
+    console.log('savedDate', savedDate);
+    if (savedDate) {
+      const parsedDate = new Date(savedDate);
+      if (!isNaN(parsedDate.getTime())) {
+        handleSelectedDateChange(parsedDate);
+        return;
+      }
+    }
     const currentDate = new Date();
+
     handleSelectedDateChange(currentDate);
   }, []);
 

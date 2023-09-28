@@ -55,11 +55,11 @@ export const addDiaryProduct = createAsyncThunk(
 export const deleteProduct = createAsyncThunk(
   'deleteProduct',
   async (productDetails, { rejectWithValue }) => {
-    const { id, date } = productDetails;
+    const { id } = productDetails;
     console.log('productDetailsDELETE', productDetails);
 
     try {
-      await axios.delete('/diary/deleteproduct', { data: { id, date } });
+      await axios.delete('/diary/deleteproduct', { data: { id } });
 
       return id;
     } catch (error) {
