@@ -24,7 +24,6 @@ const Diary = () => {
   const dispatch = useDispatch();
 
   const handleSelectedDateChange = date => {
-    console.log('dateHandle', date);
     if (date) {
       const formattedDate = `${String(date.getDate()).padStart(
         2,

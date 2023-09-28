@@ -36,6 +36,8 @@ const AddProductForm = ({ eldata, onClick, closeModal }) => {
 
   const amount = Math.round((quantity * calories) / 100);
 
+  const savedDate = localStorage.getItem('selectedDate');
+
   const handleAddToDiary = () => {
     const currentDate = new Date();
     const date = `${String(currentDate.getDate()).padStart(2, '0')}/${String(
@@ -50,7 +52,7 @@ const AddProductForm = ({ eldata, onClick, closeModal }) => {
     console.log(quantity);
     dispatch(
       addDiaryProduct({
-        date,
+        date: savedDate || date,
         title,
         productId,
         category,

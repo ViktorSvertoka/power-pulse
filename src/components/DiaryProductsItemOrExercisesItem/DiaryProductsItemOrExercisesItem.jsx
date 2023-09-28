@@ -24,6 +24,10 @@ const DiaryProductsItemOrExercisesItem = ({
 }) => {
   const dispatch = useDispatch();
 
+  const handleAddLinkClick = () => {
+    localStorage.setItem('selectedDate', date);
+  };
+
   const handleDelete = ({ id }) => {
     if (productTable) {
       dispatch(deleteProduct({ id, date }));
@@ -39,7 +43,7 @@ const DiaryProductsItemOrExercisesItem = ({
         <DayDiarySubTitle>
           {productTable ? 'Products' : 'Exercises'}
         </DayDiarySubTitle>
-        <AddLink to={to}>
+        <AddLink to={to} onClick={handleAddLinkClick}>
           Add {productTable ? 'product' : 'exercise'}
           <ArrowRight>
             <use href={sprite + `#icon-arrow-right`}></use>
