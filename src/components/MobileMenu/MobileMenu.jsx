@@ -11,6 +11,8 @@ import {
   LogoutSvg,
 } from './MobileMenu.styled';
 import sprite from '../../images/sprite.svg';
+import { useDispatch } from 'react-redux';
+import { logOut } from '../../redux/auth/operations';
 
 const MobileMenu = ({ isOpen }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(isOpen);
@@ -44,7 +46,12 @@ const MobileMenu = ({ isOpen }) => {
   useEffect(() => {
     setMenuIsOpen(isOpen);
   }, [isOpen]);
+  const dispatch = useDispatch();
 
+  const handleLogOut = () => {
+    closeMenu();
+    dispatch(logOut());
+  };
   return (
     <>
       {menuIsOpen && <Overlay onClick={closeMenu}></Overlay>}
@@ -68,7 +75,7 @@ const MobileMenu = ({ isOpen }) => {
             Exercises
           </NavMenuLink>
         </NavMenu>
-        <Logout to="/" onClick={closeMenu}>
+        <Logout type="button" onClick={handleLogOut}>
           <span>Logout</span>
           <LogoutSvg>
             <use href={`${sprite}#icon-log-out-white`} />
