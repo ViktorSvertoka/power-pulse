@@ -3196,7 +3196,7 @@ Valid keys: `+JSON.stringify(Object.keys(N),null,"  "));var M=Z(Se,we,le,be,xe+"
     width: 14px;
     height: 14px;
     border-radius: 10px;
-    background: #419b09;
+    background: ${e=>e.isRecommended?"#419b09":"#e6533c"};
     margin-right: 8px;
   }
 `,gq=O.button`
@@ -3266,7 +3266,7 @@ overflow: hidden;
   color: var(--white);
   font-size: 12px;
   line-height: 18px;
-`,EP=({el:e,openModalToggle:t})=>{const n=Ct(),i=Ft(Io).blood;return S.useEffect(()=>{n(Hr())},[n]),f.jsxs(cq,{children:[f.jsxs(dq,{children:[f.jsx(pq,{children:f.jsx(fq,{children:"diet"})}),f.jsxs(hq,{children:[f.jsx(mq,{children:e.groupBloodNotAllowed[i]?"Recommended":"Not recommended"}),f.jsx(gq,{onClick:()=>{t(e)},type:"button",children:"Add"})]})]}),f.jsx(vq,{children:e.title}),f.jsxs(yq,{children:[f.jsxs(Xh,{children:["Calories:"," ",f.jsx(Jh,{children:e.calories||"999"})]}),f.jsxs(Xh,{children:["Category:"," ",f.jsx(Jh,{children:e.category||"999"})]}),f.jsxs(Xh,{children:["Weight:"," ",f.jsx(Jh,{children:e.weight||"300"})]})]})]})};EP.propTypes={el:ie.object.isRequired,openModalToggle:ie.func.isRequired};const xq=O.ul`
+`,EP=({el:e,openModalToggle:t})=>{const n=Ct(),i=Ft(Io).blood;return S.useEffect(()=>{n(Hr())},[n]),f.jsxs(cq,{children:[f.jsxs(dq,{children:[f.jsx(pq,{children:f.jsx(fq,{children:"diet"})}),f.jsxs(hq,{children:[f.jsx(mq,{isRecommended:e.groupBloodNotAllowed[i],children:e.groupBloodNotAllowed[i]?"Recommended":"Not recommended"}),f.jsx(gq,{onClick:()=>{t(e)},type:"button",children:"Add"})]})]}),f.jsx(vq,{children:e.title}),f.jsxs(yq,{children:[f.jsxs(Xh,{children:["Calories:"," ",f.jsx(Jh,{children:e.calories||"999"})]}),f.jsxs(Xh,{children:["Category:"," ",f.jsx(Jh,{children:e.category||"999"})]}),f.jsxs(Xh,{children:["Weight:"," ",f.jsx(Jh,{children:e.weight||"300"})]})]})]})};EP.propTypes={el:ie.object.isRequired,openModalToggle:ie.func.isRequired};const xq=O.ul`
   @media screen and (min-width: 375px) {
     display: flex;
     gap: 20px;
@@ -3511,7 +3511,7 @@ overflow: hidden;
     gap: 8px;
     align-items: center;
 `,Bq=O.span`
-   color: rgba(239, 237, 232, 0.3);
+   color: #e6533c;
     font-size: 14px;
     font-weight: 400;
     line-height: 18px;
