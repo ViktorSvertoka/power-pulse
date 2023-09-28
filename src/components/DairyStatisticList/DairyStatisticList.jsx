@@ -12,7 +12,7 @@ const DairyStatisticList = () => {
         icon="icon-fork-knife"
         fill="true"
         label="Daily calorie intake"
-        keyValue={user.bmr || '2200'}
+        keyValue={user.bmr !== undefined ? String(user.bmr) : '2200'}
       ></DailyStatsCards>
       <DailyStatsCards
         icon="icon-dumbbell"

@@ -1,23 +1,17 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 export const CardWrap = styled.div`
   box-sizing: border-box;
   border: 1px solid;
 
-  border-color: ${props => {
-    if (props.border === 'green') {
-      return '#3CBF61';
-    }
-    if (props.border === 'red') {
-      return '#E9101D';
-    }
-    return 'rgba(239, 237, 232, 0.30)';
+  border: ${props => {
+    if (props.border === 'green') return '1px solid #3CBF61';
+    if (props.border === 'red') return '1px solid #E9101D';
+    return '1px solid rgba(239, 237, 232, 0.30)';
   }};
 
-  background-color: ${props => {
-    return props.fill === 'true' ? '#E6533C' : 'rgba(239, 237, 232, 0.05)';
-  }};
-
+  background-color: ${props =>
+    props.fill === 'true' ? '#E6533C' : 'rgba(239, 237, 232, 0.05)'};
   height: 96px;
   border-radius: 12px;
   display: flex;

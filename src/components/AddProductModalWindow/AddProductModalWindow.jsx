@@ -1,14 +1,10 @@
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useState, useEffect } from 'react';
-
 import { addDiaryProduct } from '../../redux/diary/operations';
-
 import { toast } from 'react-toastify';
-
 import PropTypes from 'prop-types';
 import { getUserParams } from '../../redux/auth/operations';
 import { selectUser } from '../../redux/auth/selectors';
-
 import {
   BtnAdd,
   BtnCancel,
@@ -22,6 +18,13 @@ import {
   ModalWrapper,
   WeightLabel,
 } from './AddProductModalWindow.styles';
+
+const formatDate = date => {
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+  return `${day}/${month}/${year}`;
+};
 
 const AddProductForm = ({ eldata, onClick, closeModal }) => {
   const dispatch = useDispatch();
@@ -38,22 +41,26 @@ const AddProductForm = ({ eldata, onClick, closeModal }) => {
   const amount = Math.round((quantity * calories) / 100);
 
   const savedDate = localStorage.getItem('selectedDate');
+  let date = new Date(); // Default to current date
+
+  if (savedDate) {
+    const parsedDate = new Date(savedDate);
+    if (!isNaN(parsedDate.getTime())) {
+      date = parsedDate; // Use parsed date if valid
+    }
+  }
+
+  const formattedDate = formatDate(date);
 
   const handleAddToDiary = () => {
-    const currentDate = new Date();
-    const date = `${String(currentDate.getDate()).padStart(2, '0')}/${String(
-      currentDate.getMonth() + 1,
-    ).padStart(2, '0')}/${currentDate.getFullYear()}`;
-
     if (!amount) {
       toast.error('Must be greater than 0');
       return;
     }
 
-    console.log(quantity);
     dispatch(
       addDiaryProduct({
-        date: savedDate || date,
+        date: formattedDate, // Use the formatted date
         title,
         productId,
         category,
