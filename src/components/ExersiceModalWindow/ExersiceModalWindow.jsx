@@ -1,5 +1,4 @@
 import ExersiceModalWindowList from './ExersiceModalWindowList/ExersiceModalWindowList';
-import { PropTypes } from 'prop-types';
 
 import {
   ExersiceModalWindowWrap,
@@ -15,8 +14,8 @@ import { getUserParams } from '../../redux/auth/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import { addDiaryProduct } from '../../redux/diary/operations';
 import { selectUser } from '../../redux/auth/selectors';
+import { addExercise } from '../../redux/exercises/operationsExercises';
 // const AddProductForm = ({ eldata, onClick, closeModal }) => {
 
 const formatDate = date => {
@@ -27,20 +26,26 @@ const formatDate = date => {
 };
 
 export const ExersiceModalWindow = ({ data, onClick, closeModal }) => {
-  const { bodyPart, equipment, burnedCalories, gifUrl, name, target, time } =
-    data;
+  const {
+    bodyPart,
+    equipment,
+    burnedCalories,
+    gifUrl,
+    name,
+    target,
+    _id,
+    time,
+  } = data;
 
   const dispatch = useDispatch();
   // const [quantity, setQuantity] = useState(1);
-
-  const user = useSelector(selectUser);
 
   useEffect(() => {
     dispatch(getUserParams());
   }, [dispatch]);
 
-  const amount = burnedCalories;
-  // Math.round((quantity * calories) / 100);
+  const amount = Math.round((burnedCalories / (time * 60)) * 180);
+  // ;
 
   const savedDate = localStorage.getItem('selectedDate');
   let date = new Date(); // Default to current date
@@ -61,24 +66,18 @@ export const ExersiceModalWindow = ({ data, onClick, closeModal }) => {
     }
 
     dispatch(
-      addDiaryProduct({
+      addExercise({
         date: formattedDate, // Use the formatted date
         bodyPart,
         target,
         time,
-        // productId,
+        exerciseId: _id,
         equipment,
         name,
         amount: burnedCalories,
         burnedCalories,
       }),
-    )
-      .then(() => {
-        onClick(amount);
-      })
-      .catch(error => {
-        toast(error.message);
-      });
+    );
   };
 
   return (
