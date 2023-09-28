@@ -10,6 +10,8 @@ import {
   InputField,
   Button,
   WrapperRadio,
+  Wrapper,
+  WrapperLevel,
 } from './UserForm.styled';
 
 import { selectUser } from '../../redux/auth/selectors';
@@ -138,14 +140,14 @@ const UserForm = () => {
             onChange={handleInputChange}
           />
         </div>
-        <div>
+        <Wrapper>
           <SectionTitle>Current Weight</SectionTitle>
           <InputField
             name="currentWeight"
             value={formData.currentWeight}
             onChange={handleInputChange}
           />
-        </div>
+        </Wrapper>
       </WrapperInputField>
       <WrapperInputField>
         <div>
@@ -165,34 +167,36 @@ const UserForm = () => {
 
       <WrapperRadio>
         <div style={{ display: 'flex', marginRight: '20px' }}>
-          {bloodOptions.map(option => (
-            <RadioOption
-              key={option.id}
-              id={option.id}
-              name="Blood"
-              value={option.value}
-              checked={selectedBlood === option.value}
-              label={option.label}
-              onChange={handleBloodChange}
-            />
-          ))}
+          <div style={{ display: 'flex', marginRight: '20px' }}>
+            {bloodOptions.map(option => (
+              <RadioOption
+                key={option.id}
+                id={option.id}
+                name="Blood"
+                value={option.value}
+                checked={selectedBlood === option.value}
+                label={option.label}
+                onChange={handleBloodChange}
+              />
+            ))}
+          </div>
+
+          <div style={{ display: 'flex' }}>
+            {sexOptions.map(option => (
+              <RadioOption
+                key={option.id}
+                id={option.id}
+                name="Sex"
+                value={option.value}
+                checked={selectedSex === option.value}
+                label={option.label}
+                onChange={handleSexChange}
+              />
+            ))}
+          </div>
         </div>
 
-        <div style={{ display: 'flex' }}>
-          {sexOptions.map(option => (
-            <RadioOption
-              key={option.id}
-              id={option.id}
-              name="Sex"
-              value={option.value}
-              checked={selectedSex === option.value}
-              label={option.label}
-              onChange={handleSexChange}
-            />
-          ))}
-        </div>
-
-        <div style={{ marginTop: '40px' }}>
+        <WrapperLevel>
           {levelOptions.map(option => (
             <RadioOption
               key={option.id}
@@ -204,7 +208,7 @@ const UserForm = () => {
               onChange={handleLevelChange}
             />
           ))}
-        </div>
+        </WrapperLevel>
       </WrapperRadio>
 
       <Button onClick={handleSubmit}>Save</Button>

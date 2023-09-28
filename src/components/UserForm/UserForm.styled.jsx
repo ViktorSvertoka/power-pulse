@@ -2,6 +2,14 @@ import styled from 'styled-components';
 
 export const FormContainer = styled.div`
   margin-top: 20px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 40px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 700px;
+  }
 `;
 
 export const SectionTitle = styled.p`
@@ -21,6 +29,10 @@ export const Input = styled.input`
   background-color: transparent;
   color: #efede8;
   font-size: 14;
+
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    width: 341px;
+  }
 `;
 
 export const WrapperInputField = styled.div`
@@ -28,6 +40,16 @@ export const WrapperInputField = styled.div`
   align-items: flex-end;
   margin-top: 20px;
   gap: 14px;
+
+  /* @media screen and (min-width: 768px) and (max-width: 1439px) {
+    margin-right: 14px;
+  } */
+`;
+
+export const Wrapper = styled.div`
+  @media screen and (min-width: 768px) {
+    margin-right: 14px;
+  }
 `;
 
 export const InputField = styled.input`
@@ -39,6 +61,10 @@ export const InputField = styled.input`
   border: 1px solid rgba(239, 237, 232, 0.3);
   background-color: transparent;
   color: #efede8;
+
+  /* @media screen and (min-width: 768px) and (max-width: 1439px) {
+    width: 162px;
+  } */
 `;
 
 export const Label = styled.label`
@@ -53,6 +79,10 @@ export const WrapperRadio = styled.div`
   margin-top: 30px;
   display: flex;
   flex-wrap: wrap;
+
+  @media screen and (min-width: 1440px) {
+    display: block;
+  }
 
   .radio {
     position: relative;
@@ -80,6 +110,11 @@ export const WrapperRadio = styled.div`
     letter-spacing: -0.28px;
     color: #efede8;
     margin-right: 9px;
+
+    @media screen and (min-width: 768px) and (max-width: 1439px) {
+      font-size: 16px;
+      line-height: 24px;
+    }
   }
 
   .radio-label::before {
@@ -94,6 +129,11 @@ export const WrapperRadio = styled.div`
     top: 3px;
     left: 0;
     z-index: 1;
+
+    /* @media screen and (min-width: 768px) and (max-width: 1439px) {
+      width: 28px;
+      height: 28px;
+    } */
   }
 
   .radio-label::after {
@@ -109,6 +149,11 @@ export const WrapperRadio = styled.div`
     top: 7px;
     left: 4px;
     z-index: 2;
+
+    /* @media screen and (min-width: 768px) and (max-width: 1439px) {
+      width: 20px;
+      height: 20px;
+    } */
   }
 
   .radio-input:checked + .radio-label::before {
@@ -126,4 +171,19 @@ export const Button = styled.button`
   border-radius: 12px;
   background: var(--orange-color);
   color: rgba(239, 237, 232, 0.6);
+
+  @media screen and (min-width: 768px) {
+    margin: 40px 0px 64px 0;
+    padding: 16px 50px;
+  }
+`;
+
+export const WrapperLevel = styled.div`
+  margin-top: 40px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
 `;

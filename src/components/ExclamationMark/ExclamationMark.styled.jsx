@@ -10,7 +10,7 @@ export const Wrappper = styled.div`
   gap: 8px;
   margin-top: 40px;
 
-  @media screen and (min-width: 768px) and (max-width: 1439px) {
+  @media screen and (min-width: 768px) {
     width: 440px;
   }
 `;

@@ -21,7 +21,7 @@ export const Avatar = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media screen and (min-width: 768px) and (max-width: 1439px) {
+  @media screen and (min-width: 768px) {
     width: 150px;
     height: 150px;
   }
@@ -36,7 +36,7 @@ export const Button = styled.div`
 `;
 
 export const SvgLogoUser = styled.svg`
-  @media screen and (min-width: 768px) and (max-width: 1439px) {
+  @media screen and (min-width: 768px) {
     width: 102px;
     height: 102px;
   }
@@ -49,7 +49,7 @@ export const IconBtn = styled.svg`
   top: -13px;
   left: 0px;
 
-  @media screen and (min-width: 768px) and (max-width: 1439px) {
+  @media screen and (min-width: 768px) {
     width: 32px;
     height: 32px;
     top: -17.5px;
@@ -59,7 +59,7 @@ export const IconBtn = styled.svg`
 export const TitleName = styled.p`
   color: #efede8;
 
-  @media screen and (min-width: 768px) and (max-width: 1439px) {
+  @media screen and (min-width: 768px) {
     font-family: 'RobotoRegular';
     font-size: 24px;
     line-height: 28px;
@@ -73,7 +73,7 @@ export const Subtitle = styled.p`
   color: var(--normal-color);
   margin-top: 4px;
 
-  @media screen and (min-width: 768px) and (max-width: 1439px) {
+  @media screen and (min-width: 768px) {
     margin-top: 8px;
   }
 `;
