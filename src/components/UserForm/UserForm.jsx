@@ -1,5 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Formik, Field, Form } from 'formik';
+import * as Yup from 'yup';
 
 import RadioOption from '../RadioOption/RadioOption';
 import {
@@ -20,54 +22,10 @@ import { getUserParams, updateUserParams } from '../../redux/auth/operations';
 const UserForm = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
-  const [selectedBlood, setSelectedBlood] = useState('1');
-  const [selectedSex, setSelectedSex] = useState('male');
-  const [selectedLevel, setSelectedLevel] = useState('1');
-  const [formData, setFormData] = useState({
-    name: user.name,
-    email: user.email,
-    height: user.height,
-    currentWeight: user.currentWeight,
-    desiredWeight: user.desiredWeight,
-    birthday: user.birthday,
-    avatarUrl: user.avatarUrl,
-  });
 
   useEffect(() => {
     dispatch(getUserParams());
   }, [dispatch]);
-
-  const handleSexChange = event => {
-    setSelectedSex(event.target.value);
-  };
-
-  const handleBloodChange = event => {
-    setSelectedBlood(event.target.value);
-  };
-
-  const handleLevelChange = event => {
-    setSelectedLevel(event.target.value);
-  };
-
-  const handleInputChange = event => {
-    const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = () => {
-    const sendData = {
-      ...formData,
-      blood: selectedBlood,
-      sex: selectedSex,
-      levelActivity: selectedLevel,
-    };
-    dispatch(updateUserParams(sendData));
-    dispatch(getUserParams());
-    console.log(user);
-  };
 
   const bloodOptions = [
     { id: '1', value: '1', label: '1' },
@@ -110,109 +68,133 @@ const UserForm = () => {
     },
   ];
 
+  const initialValues = {
+    name: user.name || '',
+    email: user.email || '',
+    height: user.height || '',
+    currentWeight: user.currentWeight || '',
+    desiredWeight: user.desiredWeight || '',
+    birthday: user.birthday || '',
+    blood: '2',
+    sex: 'male',
+    levelActivity: '2',
+    avatarUrl: user.avatarUrl || '',
+  };
+
+  const validationSchema = Yup.object({
+    name: Yup.string().required('Name is required'),
+    email: Yup.string()
+      .email('Invalid email address')
+      .required('Email is required'),
+    height: Yup.number()
+      .positive('Height must be positive')
+      .required('Height is required'),
+    currentWeight: Yup.number()
+      .positive('Weight must be positive')
+      .required('Current weight is required'),
+    desiredWeight: Yup.number()
+      .positive('Weight must be positive')
+      .required('Desired weight is required'),
+    birthday: Yup.date().required('Birthday is required'),
+    avatarUrl: Yup.string(),
+  });
+
+  const handleSubmit = values => {
+    const sendData = {
+      ...values,
+    };
+    dispatch(updateUserParams(sendData));
+    console.log(sendData);
+  };
+
   return (
-    <>
-      <FormContainer>
-        <div>
-          <SectionTitle>Basic info</SectionTitle>
-          <Input
-            name="name"
-            value={formData.name}
-            onChange={handleInputChange}
-            type="string"
-          />
-        </div>
-        <div>
-          <Input
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-          />
-        </div>
-      </FormContainer>
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={handleSubmit}
+    >
+      {formik => (
+        <Form>
+          <FormContainer>
+            <div>
+              <SectionTitle>Basic info</SectionTitle>
+              <Field name="name" type="text" as={Input} />
+            </div>
+            <div>
+              <Field type="text" name="email" as={Input} />
+            </div>
+          </FormContainer>
 
-      <WrapperInputField>
-        <div>
-          <SectionTitle>Height</SectionTitle>
-          <InputField
-            name="height"
-            value={formData.height}
-            onChange={handleInputChange}
-          />
-        </div>
-        <Wrapper>
-          <SectionTitle>Current Weight</SectionTitle>
-          <InputField
-            name="currentWeight"
-            value={formData.currentWeight}
-            onChange={handleInputChange}
-          />
-        </Wrapper>
-      </WrapperInputField>
-      <WrapperInputField>
-        <div>
-          <SectionTitle>Desired Weight</SectionTitle>
-          <InputField
-            name="desiredWeight"
-            value={formData.desiredWeight}
-            onChange={handleInputChange}
-          />
-        </div>
-        <InputField
-          name="birthday"
-          value={formData.birthday}
-          onChange={handleInputChange}
-        />
-      </WrapperInputField>
+          <WrapperInputField>
+            <div>
+              <SectionTitle>Height</SectionTitle>
+              <Field type="number" name="height" as={InputField} />
+            </div>
+            <Wrapper>
+              <SectionTitle>Current Weight</SectionTitle>
+              <Field type="number" name="currentWeight" as={InputField} />
+            </Wrapper>
+          </WrapperInputField>
+          <WrapperInputField>
+            <div>
+              <SectionTitle>Desired Weight</SectionTitle>
+              <Field type="number" name="desiredWeight" as={InputField} />
+            </div>
+            <Field type="date" name="birthday" as={InputField} />
+          </WrapperInputField>
 
-      <WrapperRadio>
-        <div style={{ display: 'flex', marginRight: '20px' }}>
-          <div style={{ display: 'flex', marginRight: '20px' }}>
-            {bloodOptions.map(option => (
-              <RadioOption
-                key={option.id}
-                id={option.id}
-                name="Blood"
-                value={option.value}
-                checked={selectedBlood === option.value}
-                label={option.label}
-                onChange={handleBloodChange}
-              />
-            ))}
-          </div>
+          <WrapperRadio>
+            <div style={{ display: 'flex', marginRight: '20px' }}>
+              <div style={{ display: 'flex', marginRight: '20px' }}>
+                {bloodOptions.map(option => (
+                  <RadioOption
+                    key={option.id}
+                    id={option.id}
+                    name="blood"
+                    value={option.value}
+                    checked={formik.values.blood === option.value}
+                    label={option.label}
+                    onChange={() => formik.setFieldValue('blood', option.value)}
+                  />
+                ))}
+              </div>
 
-          <div style={{ display: 'flex' }}>
-            {sexOptions.map(option => (
-              <RadioOption
-                key={option.id}
-                id={option.id}
-                name="Sex"
-                value={option.value}
-                checked={selectedSex === option.value}
-                label={option.label}
-                onChange={handleSexChange}
-              />
-            ))}
-          </div>
-        </div>
+              <div style={{ display: 'flex' }}>
+                {sexOptions.map(option => (
+                  <RadioOption
+                    key={option.id}
+                    id={option.id}
+                    name="sex"
+                    value={option.value}
+                    checked={formik.values.sex === option.value}
+                    label={option.label}
+                    onChange={() => formik.setFieldValue('sex', option.value)}
+                  />
+                ))}
+              </div>
+            </div>
 
-        <WrapperLevel>
-          {levelOptions.map(option => (
-            <RadioOption
-              key={option.id}
-              id={option.id}
-              name="levelActivity"
-              value={option.value}
-              checked={selectedLevel === option.value}
-              label={option.label}
-              onChange={handleLevelChange}
-            />
-          ))}
-        </WrapperLevel>
-      </WrapperRadio>
+            <WrapperLevel>
+              {levelOptions.map(option => (
+                <RadioOption
+                  key={option.id}
+                  id={option.id}
+                  name="levelActivity"
+                  value={option.value}
+                  checked={formik.values.levelActivity === option.value}
+                  label={option.label}
+                  onChange={() =>
+                    formik.setFieldValue('levelActivity', option.value)
+                  }
+                />
+              ))}
+            </WrapperLevel>
+          </WrapperRadio>
 
-      <Button onClick={handleSubmit}>Save</Button>
-    </>
+          <Button type="submit">Save</Button>
+        </Form>
+      )}
+    </Formik>
   );
 };
 
