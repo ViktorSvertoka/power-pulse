@@ -6,36 +6,13 @@ import {
   WaistListContainer,
   ImgWaist,
 } from './WaistList.styled';
-import {
-  selectBodyParts,
-  selectExercises,
-} from '../../../../redux/exercises/selectorsExercises';
+import { selectExercises } from '../../../../redux/exercises/selectorsExercises';
 import { useEffect } from 'react';
 import { fetchExercises } from '../../../../redux/exercises/operationsExercises';
 import images from '../../../../images/waist-1x.jpg';
 import { useState } from 'react';
 import BasicModalWindow from '../../../BasicModalWindow/BasicModalWindow';
 import { ExersiceModalWindow } from '../../../ExersiceModalWindow/ExersiceModalWindow';
-
-const filterProducts = (listProducts, filter) => {
-  const { category, recommended } = filter;
-  const search = filter.search ? filter.search.toLowerCase() : undefined;
-
-  const stepOne = category
-    ? listProducts.filter(el => el.category === category)
-    : listProducts;
-  const stepTwo =
-    recommended === 'recommended'
-      ? stepOne.filter(el => el.recommended)
-      : recommended === 'notRecommended'
-      ? stepOne.filter(el => !el.recommended)
-      : stepOne;
-  const stepThree = search
-    ? stepTwo.filter(el => el.title.toLowerCase().includes(search))
-    : stepTwo;
-
-  return stepThree;
-};
 
 export const WaistList = ({ exerciseName }) => {
   const [modalData, setModalData] = useState(null);

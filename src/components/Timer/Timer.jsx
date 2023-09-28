@@ -15,7 +15,7 @@ const Timer = ({ data }) => {
     <TimerWrapper>
       <TimerTitle>Time</TimerTitle>
       <Circle />
-      <FormattedTitle>{data.time}</FormattedTitle>
+      <FormattedTitle>{data.time} minutes</FormattedTitle>
       <TimerBtn>
         <PlayIcon>
           <use href={symbolDefs + '#icon-play'}> </use>

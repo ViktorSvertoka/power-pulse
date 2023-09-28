@@ -1,4 +1,5 @@
 import ExersiceModalWindowList from './ExersiceModalWindowList/ExersiceModalWindowList';
+import { PropTypes } from 'prop-types';
 
 import {
   ExersiceModalWindowWrap,
@@ -21,15 +22,15 @@ export const ExersiceModalWindow = ({ data }) => {
           <ExersiceModalImg src={gifUrl} alt={name} />
         </ExersiceModalImgWrapper>
         <ExersiceModalTimer>
-          <ExersiceModalWindowList
-            name={name}
-            bodypart={bodyPart}
-            target={target}
-            equipment={equipment}
-            time={time}
-          />
           <Timer data={data} />
         </ExersiceModalTimer>
+        <ExersiceModalWindowList
+          name={name}
+          bodypart={bodyPart}
+          target={target}
+          equipment={equipment}
+          time={time}
+        />
         <BoxBtn>
           <ExersiceModalWindowBtn type="button">
             Add to diary
