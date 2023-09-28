@@ -15,6 +15,14 @@ export const Container = styled.div`
   }
 `;
 
+export const WrapperContent = styled.div`
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+`;
+
 export const Title = styled.h2`
   color: #efede8;
   font-family: 'RobotoBold';
