@@ -10,8 +10,8 @@ import ProductsPage from './pages/ProductsPage/ProductsPage';
 import ExercisesPage from './pages/ExercisesPage/ExercisesPage';
 import UserPage from './pages/UserPage/UserPage';
 import HomePage from './pages/HomePage/HomePage';
-import SignUpAccessPage from './pages/SignUpAccessPage/SignUpAccessPage';
-import SignUpBloodPage from './pages/SignUpBloodPage/SignUpBloodPage';
+// import SignUpAccessPage from './pages/SignUpAccessPage/SignUpAccessPage';
+// import SignUpBloodPage from './pages/SignUpBloodPage/SignUpBloodPage';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { refreshUser } from './redux/auth/operations';
@@ -23,12 +23,12 @@ import { useAuth } from './hooks/useAuth';
 
 function App() {
   const dispatch = useDispatch();
-  const { isRefreshing, isLoggedIn } = useAuth();
-  const shouldRedirect = !isRefreshing && !isLoggedIn;
+  const { goToParams, isRefreshing, isLoggedIn } = useAuth();
+  // const shouldRedirect = !isRefreshing && !isLoggedIn;
 
   useEffect(() => {
     dispatch(refreshUser());
-  }, []);
+  }, [dispatch]);
 
   return (
     !isRefreshing && (
@@ -43,17 +43,16 @@ function App() {
           <Route
             path="signup"
             element={
-              isLoggedIn ? <Navigate to="/params" replace /> : <SignUpPage />
+              goToParams ? <Navigate to="/params" replace /> : <SignUpPage />
             }
           />
-          <Route path="params">
-            <Route
-              index
-              element={
-                shouldRedirect ? <Navigate to="/" /> : <SignUpBodyPage />
-              }
-            />
-          </Route>
+          <Route
+            path="params"
+            element={
+              goToParams ? <SignUpBodyPage /> : <Navigate to="/diary" replace />
+            }
+          />
+
           <Route
             path="signin"
             element={

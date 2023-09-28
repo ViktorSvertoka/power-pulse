@@ -22,6 +22,7 @@ const initialState = {
   },
   token: null,
   isLoggedIn: false,
+  goToParams: false,
   isRefreshing: false,
 };
 
@@ -34,8 +35,8 @@ const authSlice = createSlice({
       .addCase(register.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
-        state.isLoggedIn = true;
-        state.isRefreshing = false;
+        state.isLoggedIn = false;
+        state.goToParams = true;
       })
       .addCase(register.rejected, (state, action) => state)
       .addCase(logIn.fulfilled, (state, action) => {
@@ -63,9 +64,13 @@ const authSlice = createSlice({
       .addCase(updateUserParams.fulfilled, (state, action) => {
         state.user = action.payload;
         state.isLoggedIn = true;
+        state.goToParams = false;
         state.token = action.payload.token;
       })
-      .addCase(updateUserParams.rejected, (state, action) => state)
+      .addCase(updateUserParams.rejected, (state, action) => {
+        state.isLoggedIn = true;
+        state.goToParams = false;
+      })
       .addCase(getUserParams.pending, (state, action) => state)
       .addCase(getUserParams.fulfilled, (state, action) => {
         state.user = action.payload;

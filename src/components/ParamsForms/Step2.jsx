@@ -14,9 +14,9 @@ const Step2 = ({
   levelActivity,
   selectedLevel,
   selectedSex,
-  // setSelectedBlood,
-  // setSelectedLevel,
-  // setSelectedSex,
+  setSelectedBlood,
+  setSelectedLevel,
+  setSelectedSex,
 }) => {
   // const [selectedSex, setSelectedSex] = useState('male');
   // const [selectedBlood, setSelectedBlood] = useState('1');
@@ -41,20 +41,17 @@ const Step2 = ({
     }
   }, [blood, sex, levelActivity]);
 
-  // const handleSexChange = event => {
-  //   setSelectedSex(event.target.value);
-  //   updateFormData(event.target.value);
-  // };
+  const handleSexChange = event => {
+    setSelectedSex(event.target.value);
+  };
 
-  // const handleBloodChange = event => {
-  //   setSelectedBlood(event.target.value);
-  //   updateFormData(event.target.value);
-  // };
+  const handleBloodChange = event => {
+    setSelectedBlood(event.target.value);
+  };
 
-  // const handleLevelChange = event => {
-  //   setSelectedLevel(event.target.value);
-  //   updateFormData(event.target.value);
-  // };
+  const handleLevelChange = event => {
+    setSelectedLevel(event.target.value);
+  };
 
   const bloodOptions = [
     { id: '1', value: '1', label: '1' },
@@ -64,8 +61,8 @@ const Step2 = ({
   ];
 
   const sexOptions = [
-    { id: 'Male', value: 'Male', label: 'Male' },
-    { id: 'Female', value: 'Female', label: 'Female' },
+    { id: 'male', value: 'male', label: 'Male' },
+    { id: 'female', value: 'female', label: 'Female' },
   ];
 
   const levelOptions = [
@@ -109,7 +106,7 @@ const Step2 = ({
             value={option.value}
             checked={selectedBlood === option.value}
             label={option.label}
-            onChange={e => handleFieldChange('blood', e.target.value)}
+            onChange={handleBloodChange}
           />
         ))}
       </div>
@@ -124,7 +121,7 @@ const Step2 = ({
             value={option.value}
             checked={selectedSex === option.value}
             label={option.label}
-            onChange={e => handleFieldChange('sex', e.target.value)}
+            onChange={handleSexChange}
           />
         ))}
       </div>
@@ -139,7 +136,7 @@ const Step2 = ({
             value={option.value}
             checked={selectedLevel === option.value}
             label={option.label}
-            onChange={e => handleFieldChange('levelActivity', e.target.value)}
+            onChange={handleLevelChange}
           />
         ))}
       </div>

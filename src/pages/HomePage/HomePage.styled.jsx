@@ -147,6 +147,42 @@ export const HomePageLink = styled(NavLink)`
   }
 `;
 
+export const HomePageLinkOrange = styled(NavLink)`
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.33;
+
+  padding: 10px 27px;
+  color: var(--white-color);
+
+  border: 1px solid var(--normal-color);
+  border-radius: 12px;
+  background-color: var(--orange-color);
+
+  @media screen and (min-width: 375px) {
+    width: 136px;
+    heigth: 42px;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+
+    width: 190px;
+    height: 56px;
+
+    margin-right: 20px;
+    white-space: nowrap;
+
+    padding: 16px 60px;
+  }
+  &:hover,
+  :focus {
+    background-color: transparent;
+  }
+`;
+
 export const CuteSquaresContainer = styled.div`
   display: flex;
   flex-direction: column;

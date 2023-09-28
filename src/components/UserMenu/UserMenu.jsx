@@ -12,17 +12,54 @@ import {
 } from './UserMenu.styled';
 import { useDispatch } from 'react-redux';
 import { logOut } from '../../redux/auth/operations';
+import { useState } from 'react';
 
 export const UserMenu = () => {
+  const [isActivePage, setIsActivePage] = useState('diary');
+  const handleActivePage = name => {
+    setIsActivePage(name);
+  };
   const dispatch = useDispatch();
 
   const handleLogOut = () => dispatch(logOut());
   return (
     <UserContainer>
       <Navigation>
-        <StyledLink to="/diary">Diary</StyledLink>
-        <StyledLink to="/products">Products</StyledLink>
-        <StyledLink to="/exercises">Exercises</StyledLink>
+        {/* {isActivePage === "diary" ? style={{backgroundColor: 'var(--orange-color)'} }: style={{backgroundColor: 'transparent'} }} */}
+
+        <StyledLink
+          style={
+            isActivePage === 'diary'
+              ? { backgroundColor: 'var(--orange-color)' }
+              : { backgroundColor: 'transparent' }
+          }
+          onClick={() => handleActivePage('diary')}
+          to="/diary"
+        >
+          Diary
+        </StyledLink>
+        <StyledLink
+          style={
+            isActivePage === 'products'
+              ? { backgroundColor: 'var(--orange-color)' }
+              : { backgroundColor: 'transparent' }
+          }
+          onClick={() => handleActivePage('products')}
+          to="/products"
+        >
+          Products
+        </StyledLink>
+        <StyledLink
+          style={
+            isActivePage === 'exercises'
+              ? { backgroundColor: 'var(--orange-color)' }
+              : { backgroundColor: 'transparent' }
+          }
+          onClick={() => handleActivePage('exercises')}
+          to="/exercises"
+        >
+          Exercises
+        </StyledLink>
       </Navigation>
       <UserData>
         <NavLink to="/profile">
