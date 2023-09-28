@@ -8,7 +8,7 @@ export const LogoutLink = styled(Link)`
   color: var(--white-color);
   margin-top: 40px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) and (max-width: 1440px;) {
     margin-right: 150px;
   }
 `;
