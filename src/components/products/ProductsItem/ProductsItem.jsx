@@ -37,7 +37,7 @@ export const ProductsItem = ({ el, openModalToggle }) => {
           <ProductsCardDietText>diet</ProductsCardDietText>
         </ProductsCardDiet>
         <ProductsCardStatusCount>
-          <ProductsCardStatusCountTrue>
+          <ProductsCardStatusCountTrue isRecommended={el.groupBloodNotAllowed[bloodType]}>
             {el.groupBloodNotAllowed[bloodType] ? 'Recommended' : 'Not recommended'}
           </ProductsCardStatusCountTrue>
 
