@@ -20,12 +20,13 @@ import {
   InputTitle,
   InputWrapper,
   ModalWrapper,
+  WeightLabel,
 } from './AddProductModalWindow.styles';
 
 const AddProductForm = ({ eldata, onClick, closeModal }) => {
   const dispatch = useDispatch();
   const { title, calories, category, weight, _id: productId } = eldata;
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   const data = useSelector(selectUser);
   const bloodType = data.blood;
@@ -77,22 +78,22 @@ const AddProductForm = ({ eldata, onClick, closeModal }) => {
           <label>
             <InputTitle type="text" value={title} disabled />
           </label>
-          <label>
+          <label style={{ position: 'relative' }}>
             <InputQuontity
-              placeholder="grams"
               value={quantity}
               type="number"
+              min={1}
               onChange={e => setQuantity(e.target.value)}
             />
+            <WeightLabel>weight</WeightLabel>
           </label>
         </InputWrapper>
         <br />
-        <p>
-          <CaloriesSpan>
-            <CaloriesTitle>Calories:</CaloriesTitle>
-            {amount}
-          </CaloriesSpan>
-        </p>
+        <CaloriesTitle>
+          <CaloriesTitle>
+            Calories: <CaloriesSpan>{amount}</CaloriesSpan>
+          </CaloriesTitle>
+        </CaloriesTitle>
         <br />
         <BtnWrapper>
           <BtnAdd type="button" onClick={handleAddToDiary}>
@@ -114,3 +115,4 @@ AddProductForm.propTypes = {
 };
 
 export default AddProductForm;
+
