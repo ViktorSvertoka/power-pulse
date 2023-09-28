@@ -21,10 +21,7 @@ import { useAuth } from './hooks/useAuth';
 //   RestrictedRoute,
 // } from './components/RestrictedRoute/RestrictedRoute';
 
-const test = import.meta.env.VITE_API_TEST;
-
 function App() {
-  console.log(test);
   const dispatch = useDispatch();
   const { goToParams, isRefreshing, isLoggedIn } = useAuth();
   // const shouldRedirect = !isRefreshing && !isLoggedIn;
