@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import StyledDatepicker from '../../components/StyledDatepicker/StyledDatepicker';
 import {
@@ -12,14 +12,30 @@ import {
 } from './DaySwitch.styled';
 import sprite from '../../images/sprite.svg';
 
-const DaySwitch = ({ selectedDate, setSelectedDate, onDateChange }) => {
-  const [currentDate, setCurrentDate] = useState(new Date());
+const DaySwitch = ({ onDateChange }) => {
+  const [currentDate, setCurrentDate] = useState(() => {
+    // Попробуем получить дату из localStorage
+    const savedDate = localStorage.getItem('selectedDate');
+    if (savedDate) {
+      const parsedDate = new Date(savedDate);
+      if (!isNaN(parsedDate.getTime())) {
+        return parsedDate;
+      }
+    }
+    // Если в localStorage нет даты или она некорректная, используем текущую дату
+    return new Date();
+  });
   const [isDatepickerOpen, setIsDatepickerOpen] = useState(false);
+
+  useEffect(() => {
+    // При изменении даты обновляем значение в localStorage
+    localStorage.setItem('selectedDate', currentDate.toISOString());
+  }, [currentDate]);
 
   const switchToPreviousDay = () => {
     const previousDay = new Date(currentDate);
     previousDay.setDate(previousDay.getDate() - 1);
-    handleDateChange(previousDay);
+    setCurrentDate(previousDay);
     if (onDateChange) {
       onDateChange(previousDay);
     }
@@ -28,7 +44,7 @@ const DaySwitch = ({ selectedDate, setSelectedDate, onDateChange }) => {
   const switchToNextDay = () => {
     const nextDay = new Date(currentDate);
     nextDay.setDate(nextDay.getDate() + 1);
-    handleDateChange(nextDay);
+    setCurrentDate(nextDay);
     if (onDateChange) {
       onDateChange(nextDay);
     }
@@ -41,16 +57,6 @@ const DaySwitch = ({ selectedDate, setSelectedDate, onDateChange }) => {
     2,
     '0',
   )}/${currentDate.getFullYear()}`;
-
-  const handleDateChange = date => {
-    setCurrentDate(date);
-    setSelectedDate(date);
-    setIsDatepickerOpen(false);
-
-    if (typeof onDateChange === 'function') {
-      onDateChange(date);
-    }
-  };
 
   const buttonRef = useRef(null);
 
@@ -92,7 +98,7 @@ const DaySwitch = ({ selectedDate, setSelectedDate, onDateChange }) => {
       {isDatepickerOpen && (
         <StyledDatepicker
           selectedDate={currentDate}
-          setSelectedDate={handleDateChange}
+          setSelectedDate={setCurrentDate}
           isOpen={isDatepickerOpen}
           setIsOpen={setIsDatepickerOpen}
           anchorEl={buttonRef.current}
@@ -103,8 +109,6 @@ const DaySwitch = ({ selectedDate, setSelectedDate, onDateChange }) => {
 };
 
 DaySwitch.propTypes = {
-  selectedDate: PropTypes.instanceOf(Date),
-  setSelectedDate: PropTypes.func,
   onDateChange: PropTypes.func,
 };
 
