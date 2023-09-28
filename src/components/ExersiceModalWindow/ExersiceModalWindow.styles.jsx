@@ -72,7 +72,8 @@ export const BoxBtn = styled.div`
     justify-content: flex-end;
     @media screen and (min-width: 768px) {
       margin-right: 32px;
-      margin-top: 176px;
+      margin-top: auto;
+      margin-bottom: 48px;
     }
   }
 `;

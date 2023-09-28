@@ -13,6 +13,7 @@ import images from '../../../../images/waist-1x.jpg';
 import { useState } from 'react';
 import BasicModalWindow from '../../../BasicModalWindow/BasicModalWindow';
 import { ExersiceModalWindow } from '../../../ExersiceModalWindow/ExersiceModalWindow';
+import { SuccessExerciseModalWindow } from '../../../ExersiceModalWindow/SuccessExerciseModalWindow/SuccessExerciseModalWindow';
 
 export const WaistList = ({ exerciseName }) => {
   const [modalData, setModalData] = useState(null);
@@ -42,7 +43,11 @@ export const WaistList = ({ exerciseName }) => {
       {modalData && (
         <BasicModalWindow isOpenModalToggle={closeModal}>
           {modalData.gifUrl ? (
-            <ExersiceModalWindow data={modalData} onClick={openModalToggle} />
+            <ExersiceModalWindow
+              data={modalData}
+              closeModal={closeModal}
+              onClick={openModalToggle}
+            />
           ) : (
             <SuccessExerciseModalWindow
               closeModal={closeModal}
