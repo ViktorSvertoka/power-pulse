@@ -3973,15 +3973,40 @@ color: var(--orange-color);
   line-height: 1.16;
   margin-bottom: 20px;
 `,OQ="/power-pulse/assets/waist-1x-7e099386.jpg",DQ=O.ul`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
   gap: 8px;
+
   margin-bottom: 24px;
+  margin-top: 40px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 40px;
+    width: 345px;
+
+    align-items: flex-start;
+  }
 `,Ds=O.li`
+  display: flex;
+  flex-direction: column;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 18px;
+  width: 147px;
+  justify-content: center;
+
+  gap: 4px;
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.2);
   background: rgba(239, 237, 232, 0.05);
-  padding: 12px 12px 12px 18px;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 0;
+    margin-top: 0px;
+    width: 168px;
+
+    align-items: flex-start;
+  }
 `,Ps=O.p`
   color: rgba(239, 237, 232, 0.4);
   font-size: 12px;
@@ -4003,37 +4028,41 @@ color: var(--orange-color);
     justify-content: flex-start;
   }
 `,_Q=O.div`
-   width: 335px;
+  width: 335px;
   padding: 48px 16px;
   display: flex;
   flex-direction: column;
 
   @media screen and (min-width: 768px) {
-    width: 800px;
-    padding: 48px 32px;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
-    grid-template-areas:
-      "image list"
-      "timer button";
+    width: 694px;
+    height: 550px;
+    padding: 0;
+    flex-wrap: wrap;
   }
 `,jQ=O.div`
-width: 270px;
+  width: 270px;
   height: 226px;
+  margin-left: auto;
+  margin-right: auto;
 
   @media screen and (min-width: 768px) {
-    grid-area: list;
-   
+    margin-left: 32px;
+    margin-right: 0;
+    margin-top: 40px;
   }
 `,RQ=O.div`
-
-display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  /* grid-area: timer; */
 
+  @media screen and (min-width: 768px) {
+    align-items: start;
+    width: 125px;
+    height: 125px;
+    margin-left: 105px;
+    margin-right: none;
+  }
 `,MQ=O.img`
   width: 270px;
   height: 226px;
@@ -4045,14 +4074,17 @@ display: flex;
     margin-right: 16px;
   }
 `,$Q=O.div`
-   
   @media screen and (min-width: 768px) {
     grid-area: button;
     display: flex;
     justify-content: flex-end;
+    @media screen and (min-width: 768px) {
+      margin-right: 32px;
+      margin-top: 176px;
+    }
   }
 `,AQ=O.button`
-   color: var(--white);
+  color: var(--white-color);
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
@@ -4061,36 +4093,35 @@ display: flex;
   background: var(--orange-color);
   align-self: flex-start;
   &:hover {
-  background: var(--orange-light-color);
-  color: var(--white-color);
-}
+    background: var(--orange-light-color);
+    color: var(--white-color);
+  }
   @media screen and (min-width: 768px) {
     align-self: flex-end;
   }
 `,IQ=O.svg`
   rotate: 90deg;
-    max-width: 220px;
-    margin-bottom: 14px;
+  max-width: 220px;
+  margin-top: 4px;
 `,FQ=O.circle`
-fill: transparent;
-stroke-width: 4;
-stroke: rgba(239, 237, 232, 0.1);
+  fill: transparent;
+  stroke-width: 4;
+  stroke: rgba(239, 237, 232, 0.1);
 `;O.circle`
- fill: transparent;
-    stroke-width: 4;
-    stroke: var(--orange-color);
-    transition: stroke-dashoffset .25s linear;
+  fill: transparent;
+  stroke-width: 4;
+  stroke: var(--orange-color);
+  transition: stroke-dashoffset 0.25s linear;
 `;const NQ=()=>f.jsxs(IQ,{viewBox:"0 0 220 220",children:[f.jsx(FQ,{cx:"110",cy:"110",r:"105"}),f.jsx("circle",{cx:"110",cy:"110",r:"105"})]}),LQ=O.div`
- display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
 `,zQ=O.h1`
   color: rgba(239, 237, 232, 0.4);
   font-size: 10px;
-  font-weight: 400;
-  line-height: 14px;
-  margin-bottom: 4px;
+  line-height: 1.4;
+  margin-top: 14px;
 `,BQ=O.p`
   color: rgba(239, 237, 232, 0.4);
   font-size: 10px;
@@ -4098,8 +4129,8 @@ stroke: rgba(239, 237, 232, 0.1);
   line-height: 14px;
   margin-bottom: 4px;
 `,UQ=O.button`
-    background-color: var(--orange-color);
-  margin-bottom: 8px;
+  background-color: var(--orange-color);
+  margin-top: 14px;
   padding: 10px;
   border-radius: 5px;
   display: flex;
@@ -4107,19 +4138,18 @@ stroke: rgba(239, 237, 232, 0.1);
   width: 10px;
   height: 10px;
 `,WQ=O.p`
- color: rgba(239, 237, 232, 0.3);
-  font-family: Roboto;
+  color: rgba(239, 237, 232, 0.3);
   font-size: 14px;
-  font-weight: 400;
-  line-height: 18px;
-  margin-bottom: 40px;
+  line-height: 1.28;
+
+  margin-top: 8px;
 `,HQ=O.span`
-color: var(--orange-color);
+  color: var(--orange-color);
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
   display: inline-flex;
-`,YQ=({data:e})=>f.jsxs(LQ,{children:[f.jsx(zQ,{children:"Time"}),f.jsx(NQ,{}),f.jsx(BQ,{children:e.time}),f.jsx(UQ,{children:f.jsx(VQ,{children:f.jsx("use",{href:ce+"#icon-play",children:" "})})}),f.jsxs(WQ,{children:["Burned calories:",f.jsx(HQ,{children:e.burnedCalories})]})]}),qQ=({data:e})=>{const{bodyPart:t,equipment:n,gifUrl:r,name:i,target:o,time:a}=e;return f.jsx(TQ,{children:f.jsxs(_Q,{children:[f.jsx(jQ,{children:f.jsx(MQ,{src:r,alt:i})}),f.jsxs(RQ,{children:[f.jsx(PQ,{name:i,bodypart:t,target:o,equipment:n,time:a}),f.jsx(YQ,{data:e})]}),f.jsx($Q,{children:f.jsx(AQ,{type:"button",children:"Add to diary"})})]})})},QQ=({exerciseName:e})=>{const[t,n]=S.useState(null),r=Ct();S.useEffect(()=>{r(iv())},[r]);const i=l=>{n(l)},o=()=>{n(null)},s=Ft(eQ).filter(l=>l.bodyPart||l.target||l.equipment===e);return f.jsxs(f.Fragment,{children:[t&&f.jsx(j0,{isOpenModalToggle:o,children:t.gifUrl?f.jsx(qQ,{data:t,onClick:i}):f.jsx(SuccessExerciseModalWindow,{closeModal:o,data:t,onClick:o})}),f.jsxs(SQ,{children:[f.jsx(CQ,{children:s.length?s.slice(0,50).map(l=>f.jsx(bQ,{data:l,openModalToggle:i},l._id)):f.jsx(kQ,{children:"There is not exercises downloaded else, plaese try choose this categorie later!!!"})}),f.jsx(EQ,{src:OQ,alt:"image"})]})]})},KQ=()=>{const[e,t]=S.useState("Body parts"),[n,r]=S.useState(""),i=s=>{r(s)},o=s=>{t(s)},a=s=>s.slice(0,1).toUpperCase()+s.slice(1);return f.jsxs(cQ,{children:[f.jsxs(dQ,{children:[e!=="Waist"?f.jsx(T2,{children:"Exercises"}):f.jsx(T2,{children:a(n)}),f.jsx(TP,{activeFilter:e,handleFilterClick:o})]}),e==="Body parts"&&f.jsx(OP,{handleFilterClick:o,handleSetExName:i}),e==="Muscules"&&f.jsx(DP,{handleFilterClick:o,handleSetExName:i}),e==="Equipment"&&f.jsx(PP,{handleFilterClick:o,handleSetExName:i}),e==="Waist"&&f.jsx(QQ,{exerciseName:n})]})},GQ=()=>f.jsx(as,{children:f.jsx(KQ,{})}),XQ=O.div`
+`,YQ=({data:e})=>f.jsxs(LQ,{children:[f.jsx(zQ,{children:"Time"}),f.jsx(NQ,{}),f.jsxs(BQ,{children:[e.time," minutes"]}),f.jsx(UQ,{children:f.jsx(VQ,{children:f.jsx("use",{href:ce+"#icon-play",children:" "})})}),f.jsxs(WQ,{children:["Burned calories:",f.jsx(HQ,{children:e.burnedCalories})]})]}),qQ=({data:e})=>{const{bodyPart:t,equipment:n,gifUrl:r,name:i,target:o,time:a}=e;return f.jsx(TQ,{children:f.jsxs(_Q,{children:[f.jsx(jQ,{children:f.jsx(MQ,{src:r,alt:i})}),f.jsx(RQ,{children:f.jsx(YQ,{data:e})}),f.jsx(PQ,{name:i,bodypart:t,target:o,equipment:n,time:a}),f.jsx($Q,{children:f.jsx(AQ,{type:"button",children:"Add to diary"})})]})})},QQ=({exerciseName:e})=>{const[t,n]=S.useState(null),r=Ct();S.useEffect(()=>{r(iv())},[r]);const i=l=>{n(l)},o=()=>{n(null)},s=Ft(eQ).filter(l=>l.bodyPart||l.target||l.equipment===e);return f.jsxs(f.Fragment,{children:[t&&f.jsx(j0,{isOpenModalToggle:o,children:t.gifUrl?f.jsx(qQ,{data:t,onClick:i}):f.jsx(SuccessExerciseModalWindow,{closeModal:o,data:t,onClick:o})}),f.jsxs(SQ,{children:[f.jsx(CQ,{children:s.length?s.slice(0,50).map(l=>f.jsx(bQ,{data:l,openModalToggle:i},l._id)):f.jsx(kQ,{children:"There is not exercises downloaded else, plaese try choose this categorie later!!!"})}),f.jsx(EQ,{src:OQ,alt:"image"})]})]})},KQ=()=>{const[e,t]=S.useState("Body parts"),[n,r]=S.useState(""),i=s=>{r(s)},o=s=>{t(s)},a=s=>s.slice(0,1).toUpperCase()+s.slice(1);return f.jsxs(cQ,{children:[f.jsxs(dQ,{children:[e!=="Waist"?f.jsx(T2,{children:"Exercises"}):f.jsx(T2,{children:a(n)}),f.jsx(TP,{activeFilter:e,handleFilterClick:o})]}),e==="Body parts"&&f.jsx(OP,{handleFilterClick:o,handleSetExName:i}),e==="Muscules"&&f.jsx(DP,{handleFilterClick:o,handleSetExName:i}),e==="Equipment"&&f.jsx(PP,{handleFilterClick:o,handleSetExName:i}),e==="Waist"&&f.jsx(QQ,{exerciseName:n})]})},GQ=()=>f.jsx(as,{children:f.jsx(KQ,{})}),XQ=O.div`
   margin-left: 20px;
   margin-right: 20px;
 
