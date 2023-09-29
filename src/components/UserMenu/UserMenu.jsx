@@ -1,32 +1,49 @@
 import { NavLink } from 'react-router-dom';
 import sprite from '../../images/sprite.svg';
-import images from '../../images/0-default.jpg';
 import {
-  ImgAvatar,
+  AvatarHeader,
   LogoutBtn,
   Navigation,
   ProfileIcon,
   StyledLink,
+  SvgLogoUserHeader,
   UserContainer,
   UserData,
 } from './UserMenu.styled';
-import { useDispatch } from 'react-redux';
-import { logOut } from '../../redux/auth/operations';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserParams, logOut } from '../../redux/auth/operations';
 import { useState } from 'react';
+import { Photo } from '../UserProfile/UserProfile.styled';
+import { selectUser } from '../../redux/auth/selectors';
+import { useEffect } from 'react';
 
 export const UserMenu = () => {
+  const dispatch = useDispatch();
   const [isActivePage, setIsActivePage] = useState('diary');
+
+  const user = useSelector(selectUser);
+
+  useEffect(() => {
+    dispatch(getUserParams());
+  }, [dispatch]);
+
+  const avatarUser = (
+    <Photo src={user.avatarUrl} width={46} height={46} alt="Avatar" />
+  );
+  const avatarLogo = (
+    <SvgLogoUserHeader fill="var(--normal-color)">
+      <use href={`${sprite}#icon-user`}></use>
+    </SvgLogoUserHeader>
+  );
+
   const handleActivePage = name => {
     setIsActivePage(name);
   };
-  const dispatch = useDispatch();
 
   const handleLogOut = () => dispatch(logOut());
   return (
     <UserContainer>
       <Navigation>
-        {/* {isActivePage === "diary" ? style={{backgroundColor: 'var(--orange-color)'} }: style={{backgroundColor: 'transparent'} }} */}
-
         <StyledLink
           style={
             isActivePage === 'diary'
@@ -67,7 +84,8 @@ export const UserMenu = () => {
             <use href={`${sprite}#icon-settings`}></use>
           </ProfileIcon>
         </NavLink>
-        <ImgAvatar src={images} />
+        <AvatarHeader>{user.avatarUrl ? avatarUser : avatarLogo}</AvatarHeader>
+
         <LogoutBtn type="button" onClick={handleLogOut}>
           <span>Logout</span>
           <svg width="20" height="20">
