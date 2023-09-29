@@ -1,4 +1,10 @@
-import { Container, Title, Wrapper, WrapperContent } from './UserPage.styled';
+import {
+  Container,
+  Title,
+  Wrapper,
+  WrapperContent,
+  WrapperForm,
+} from './UserPage.styled';
 import ExclamationMark from '../../components/ExclamationMark/ExclamationMark';
 import UserForm from '../../components/UserForm/UserForm';
 import Logout from '../../components/Logout/Logout';
@@ -38,9 +44,9 @@ const UserPage = () => {
           <ExclamationMark />
           <Logout />
         </div>
-        <div>
+        <WrapperForm>
           <UserForm avatarUrl={avatarUrl} />
-        </div>
+        </WrapperForm>
       </WrapperContent>
     </Container>
   );

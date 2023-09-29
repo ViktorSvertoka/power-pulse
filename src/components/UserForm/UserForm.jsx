@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
@@ -17,15 +17,17 @@ import {
 } from './UserForm.styled';
 
 import { selectUser } from '../../redux/auth/selectors';
-import { getUserParams, updateUserParams } from '../../redux/auth/operations';
+import { updateUserParams } from '../../redux/auth/operations';
 
 const UserForm = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
 
-  useEffect(() => {
-    dispatch(getUserParams());
-  }, [dispatch]);
+  console.log(user);
+
+  // useEffect(() => {
+  //   dispatch(getUserParams());
+  // }, [dispatch]);
 
   const bloodOptions = [
     { id: '1', value: '1', label: '1' },
@@ -69,15 +71,15 @@ const UserForm = () => {
   ];
 
   const initialValues = {
-    name: user.name || '',
-    email: user.email || '',
-    height: user.height || '',
-    currentWeight: user.currentWeight || '',
-    desiredWeight: user.desiredWeight || '',
-    birthday: user.birthday || '',
-    blood: '2',
-    sex: 'male',
-    levelActivity: '2',
+    name: user.name || 'Name',
+    email: user.email || 'user@mail.com',
+    height: user.height || '150',
+    currentWeight: user.currentWeight || '35',
+    desiredWeight: user.desiredWeight || '35',
+    birthday: user.birthday || '2005-01-01',
+    blood: (user.blood ?? '1').toString() || '1',
+    sex: user.sex || 'male',
+    levelActivity: (user.levelActivity ?? '1').toString() || '1',
     avatarUrl: user.avatarUrl || '',
   };
 
