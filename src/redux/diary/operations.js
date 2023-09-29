@@ -6,9 +6,7 @@ export const getDiaryList = createAsyncThunk(
   'getDiaryList',
   async (date, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get('/diary/getproduct', {
-        params: { date },
-      });
+      const { data } = await axios.get(`/diary?date=${date}`);
       return data;
     } catch (error) {
       toast.error('Oops... Something went wrong! Try again!');
@@ -41,7 +39,7 @@ export const addDiaryProduct = createAsyncThunk(
         calories,
         date,
       });
-      console.log('productDetailsAdd', recommended, date);
+      console.log('productDetailsAdd', productDetails);
 
       toast.success(`Product successfully added to diary!`);
       return;
@@ -55,16 +53,48 @@ export const addDiaryProduct = createAsyncThunk(
 export const deleteProduct = createAsyncThunk(
   'deleteProduct',
   async (productDetails, { rejectWithValue }) => {
-    const { id } = productDetails;
+    const { id, date } = productDetails;
     console.log('productDetailsDELETE', productDetails);
 
     try {
-      await axios.delete('/diary/deleteproduct', { data: { id } });
+      await axios.delete(`/diary/deleteproduct?id=${id}&date=${date}`);
 
       return id;
     } catch (error) {
       toast.error('Oops... Something went wrong! Try again!');
       return rejectWithValue('Oops... Something went wrong!');
+    }
+  },
+);
+
+export const addExercise = createAsyncThunk(
+  'addExercise',
+  async (exercise, thunkAPI) => {
+    console.log('exercise', exercise);
+    const {
+      date,
+      bodyPart,
+      target,
+      time,
+      exerciseId,
+      equipment,
+      name,
+      burnedCalories,
+    } = exercise;
+    try {
+      const response = await axios.post('/diary/addexercise', {
+        date,
+        bodyPart,
+        target,
+        time,
+        exerciseId,
+        equipment,
+        name,
+        burnedCalories,
+      });
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
     }
   },
 );

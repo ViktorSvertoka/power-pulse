@@ -49,17 +49,7 @@ export const fetchEquipment = createAsyncThunk(
   },
 );
 
-export const addExercise = createAsyncThunk(
-  'exercises/addExercise',
-  async (exercise, thunkAPI) => {
-    try {
-      const response = await axios.post('/addexercise', exercise);
-      return response.data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
-    }
-  },
-);
+
 
 // export const deleteExercise = createAsyncThunk(
 //   'exercises/deleteExercise',
