@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
@@ -17,15 +17,11 @@ import {
 } from './UserForm.styled';
 
 import { selectUser } from '../../redux/auth/selectors';
-import { getUserParams, updateUserParams } from '../../redux/auth/operations';
+import { updateUserParams } from '../../redux/auth/operations';
 
 const UserForm = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
-
-  useEffect(() => {
-    dispatch(getUserParams());
-  }, [dispatch]);
 
   const bloodOptions = [
     { id: '1', value: '1', label: '1' },
@@ -68,24 +64,21 @@ const UserForm = () => {
     },
   ];
 
+  const formattedDate = new Date(user.birthday).toISOString().split('T')[0];
+
   const initialValues = {
-    name: user.name || '',
-    email: user.email || '',
-    height: user.height || '',
-    currentWeight: user.currentWeight || '',
-    desiredWeight: user.desiredWeight || '',
-    birthday: user.birthday || '',
-    blood: '2',
-    sex: 'male',
-    levelActivity: '2',
-    avatarUrl: user.avatarUrl || '',
+    name: user.name || 'Name',
+    height: user.height || '150',
+    currentWeight: user.currentWeight || '35',
+    desiredWeight: user.desiredWeight || '35',
+    birthday: formattedDate || '2005-01-01',
+    blood: (user.blood ?? '1').toString() || '1',
+    sex: user.sex || 'male',
+    levelActivity: (user.levelActivity ?? '1').toString() || '1',
   };
 
   const validationSchema = Yup.object({
     name: Yup.string().required('Name is required'),
-    email: Yup.string()
-      .email('Invalid email address')
-      .required('Email is required'),
     height: Yup.number()
       .positive('Height must be positive')
       .required('Height is required'),
@@ -96,7 +89,6 @@ const UserForm = () => {
       .positive('Weight must be positive')
       .required('Desired weight is required'),
     birthday: Yup.date().required('Birthday is required'),
-    avatarUrl: Yup.string(),
   });
 
   const handleSubmit = values => {
@@ -121,7 +113,12 @@ const UserForm = () => {
               <Field name="name" type="text" as={Input} />
             </div>
             <div>
-              <Field type="text" name="email" as={Input} />
+              <Input
+                type="text"
+                name="email"
+                defaultValue={user.email}
+                readOnly
+              />
             </div>
           </FormContainer>
 

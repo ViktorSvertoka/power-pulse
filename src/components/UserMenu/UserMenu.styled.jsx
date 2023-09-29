@@ -53,6 +53,25 @@ export const ImgAvatar = styled.img`
   }
 `;
 
+export const SvgLogoUserHeader = styled.svg`
+  @media screen and (min-width: 768px) {
+    width: 46px;
+    height: 46px;
+  }
+`;
+export const AvatarHeader = styled.div`
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--orange-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (min-width: 768px) {
+  }
+`;
+
 export const UserData = styled.div`
   display: flex;
   justify-content: center;

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const ExercisesWrapper = styled.div`
   padding-left: 20px;
   padding-right: 20px;
+  margin-top: 10px;
 
   @media screen and (min-width: 1440px) {
     padding-left: 96px;
