@@ -33,7 +33,7 @@ import Step2 from './Step2';
 import Step3 from './Step3';
 
 import { useDispatch } from 'react-redux';
-import { updateUserParams } from '../../redux/auth/operations';
+import { addUserData } from '../../redux/auth/operations';
 import { Link } from 'react-router-dom';
 
 const initialValues = {
@@ -101,14 +101,13 @@ const placeholders = {
 
 const ParamsForm = () => {
   const [formData, setFormData] = useState(initialValues);
-
   const [formErrors, setFormErrors] = useState({});
-
   const [step, setStep] = useState(0);
-
+  const [hasValidationErrors, setHasValidationErrors] = useState(false);
   const [selectedSex, setSelectedSex] = useState(formData.sex);
   const [selectedBlood, setSelectedBlood] = useState(formData.blood);
   const [selectedLevel, setSelectedLevel] = useState(formData.levelActivity);
+  const dispatch = useDispatch();
 
   const updateFormData = (fieldName, value) => {
     setFormData(prevData => ({
@@ -128,49 +127,33 @@ const ParamsForm = () => {
       setStep(step - 1);
     }
   };
-  const dispatch = useDispatch();
 
-  const onSubmit = () => {
-    // try {
-    //   validationSchema.validate(values, { abortEarly: false });
-    // } catch (error) {
-    //   console.log('ERROR:', error);
-    // }
-    const sendData = {
-      ...formData,
-      blood: selectedBlood,
-      sex: selectedSex,
-      levelActivity: selectedLevel,
-    };
-
-    console.log('DATA:', sendData);
-    dispatch(updateUserParams(sendData));
-  }; // resetForm();//
-
-  const handleSubmit = (values, { setSubmitting }) => {
-    validationSchema
-      .validate(values, { abortEarly: false })
-      .then(() => {
-        // Успешная валидация, сбрасываем ошибки
-        setFormErrors({});
-        console.log('Form data:', values);
-        console.log('Step 1 data:', formData);
-        setSubmitting(false);
-
-        // Тут реалізувати логіку для відправки даних на сервер і обробки відповіді.
-        // Перевірте, чи є помилки від сервера, і покажіть їх користувачеві, або перенаправте його на іншу сторінку.
-      })
-      .catch(errors => {
-        // Обработка ошибок валидации
-        const formattedErrors = {};
-        errors.inner.forEach(error => {
-          formattedErrors[error.path] = error.message;
-        });
-        setFormErrors(formattedErrors);
-        setSubmitting(false);
+  const handleSubmit = async (values, { setSubmitting }) => {
+    try {
+      await validationSchema.validate(values, { abortEarly: false });
+      setFormErrors({});
+      setHasValidationErrors(false);
+      console.log('Step 1 data:', formData);
+      const sendData = {
+        ...formData,
+        blood: selectedBlood,
+        sex: selectedSex,
+        levelActivity: selectedLevel,
+      };
+      console.log('DATA:', sendData);
+      await dispatch(addUserData(sendData));
+      setSubmitting(false);
+    } catch (errors) {
+      const formattedErrors = {};
+      errors.inner.forEach(error => {
+        formattedErrors[error.path] = error.message;
       });
+      setFormErrors(formattedErrors);
+      setHasValidationErrors(true);
+      setSubmitting(false);
+    }
   };
-  // {/*  */}
+
   return (
     <WrapperParamsPage step={step}>
       <WrapperBodiPage>
@@ -215,78 +198,81 @@ const ParamsForm = () => {
               errors,
               setFieldValue,
             }) => (
-              <FormImput>
-                {
-                  <FormField>
-                    {step === 0 && (
-                      <Step1
-                        values={values}
-                        handleChange={setFieldValue}
-                        touched={touched}
-                        errors={errors}
-                        updateFormData={updateFormData}
-                        height={formData.height}
-                        currentWeight={formData.currentWeight}
-                        desiredWeight={formData.desiredWeight}
-                        birthday={formData.birthday}
-                      />
+              <Form>
+                <FormImput>
+                  {
+                    <FormField>
+                      {step === 0 && (
+                        <Step1
+                          values={values}
+                          handleChange={setFieldValue}
+                          touched={touched}
+                          errors={errors}
+                          updateFormData={updateFormData}
+                          height={formData.height}
+                          currentWeight={formData.currentWeight}
+                          desiredWeight={formData.desiredWeight}
+                          birthday={formData.birthday}
+                        />
+                      )}
+                      {step === 1 && (
+                        <Step2
+                          errors={errors}
+                          touched={touched}
+                          selectedSex={selectedSex}
+                          selectedBlood={selectedBlood}
+                          selectedLevel={selectedLevel}
+                          values={values}
+                          handleChange={setFieldValue}
+                          updateFormData={updateFormData}
+                          setSelectedSex={setSelectedSex}
+                          setSelectedBlood={setSelectedBlood}
+                          setSelectedLevel={setSelectedLevel}
+                          blood={formData.blood}
+                          sex={formData.sex}
+                          levelActivity={formData.levelActivity}
+                        />
+                      )}
+                      {step === 2 && (
+                        <Step3
+                          values={values}
+                          onSubmit={handleSubmit}
+                          onPrevStep={prevStep}
+                          formErrors={formErrors}
+                        />
+                      )}
+                    </FormField>
+                  }
+                  <FormButtons>
+                    {step === steps.length - 1 && (
+                      <StyledButtonGo
+                        // onClick={onSubmit}
+                        type="submit"
+                        disabled={isSubmitting}
+                      >
+                        Go
+                        <Link to="/diary" />
+                      </StyledButtonGo>
                     )}
-                    {step === 1 && (
-                      <Step2
-                        errors={errors}
-                        touched={touched}
-                        selectedSex={selectedSex}
-                        selectedBlood={selectedBlood}
-                        selectedLevel={selectedLevel}
-                        values={values}
-                        handleChange={setFieldValue}
-                        updateFormData={updateFormData}
-                        setSelectedSex={setSelectedSex}
-                        setSelectedBlood={setSelectedBlood}
-                        setSelectedLevel={setSelectedLevel}
-                        blood={formData.blood}
-                        sex={formData.sex}
-                        levelActivity={formData.levelActivity}
-                      />
+                    {step > 0 && (
+                      <StyledButtonBack type="button" onClick={prevStep}>
+                        <SvgArrow>
+                          <use href={`${sprite}#icon-arrow-left`} />
+                        </SvgArrow>
+                        Back
+                      </StyledButtonBack>
                     )}
-                    {step === 2 && (
-                      <Step3
-                        onSubmit={handleSubmit}
-                        onPrevStep={prevStep}
-                        formErrors={formErrors}
-                      />
+                    {step < steps.length - 1 && (
+                      <StyledButton type="button" onClick={nextStep}>
+                        Next
+                        <SvgArrowR>
+                          <use href={`${sprite}#icon-arrow-right`} />
+                        </SvgArrowR>
+                      </StyledButton>
                     )}
-                  </FormField>
-                }
-                <FormButtons>
-                  {step === steps.length - 1 && (
-                    <StyledButtonGo
-                      onClick={onSubmit}
-                      type="submit"
-                      disabled={isSubmitting}
-                    >
-                      Go
-                      <Link to="/diary" />
-                    </StyledButtonGo>
-                  )}
-                  {step > 0 && (
-                    <StyledButtonBack type="button" onClick={prevStep}>
-                      <SvgArrow>
-                        <use href={`${sprite}#icon-arrow-left`} />
-                      </SvgArrow>
-                      Back
-                    </StyledButtonBack>
-                  )}
-                  {step < steps.length - 1 && (
-                    <StyledButton type="button" onClick={nextStep}>
-                      Next
-                      <SvgArrowR>
-                        <use href={`${sprite}#icon-arrow-right`} />
-                      </SvgArrowR>
-                    </StyledButton>
-                  )}
-                </FormButtons>
-              </FormImput>
+                  </FormButtons>
+                </FormImput>
+              </Form>
             )}
           </Formik>
         </FormContainer>

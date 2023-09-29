@@ -115,6 +115,7 @@ const Step1 = ({
             selected={values.birthday || null}
             value={values.birthday}
             onChange={date => handleFieldChange('birthday', date)}
+            dateFormat="dd/MM/yyyy"
             placeholderText="Birthday"
             className={` ${isFieldValid('birthday') ? 'success' : ''} ${
               touched.birthday && errors.birthday ? 'error' : ''
