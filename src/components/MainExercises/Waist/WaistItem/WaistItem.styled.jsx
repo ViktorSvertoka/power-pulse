@@ -56,12 +56,12 @@ export const BtnLabel = styled.button`
   padding: 0;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  &::after {
+  /* &::after {
     content: url(../../../../src/components/MainExercises/Waist/img/Icon.svg);
     display: block;
     width: 16px;
     height: 16px;
-  }
+  } */
 
   &:hover {
     color: var(--white-color);
@@ -71,27 +71,51 @@ export const BtnLabel = styled.button`
   }
 `;
 
+export const SvgExercise = styled.svg`
+  width: 13px;
+  height: 13px;
+
+  @media screen and (min-width: 768px) {
+    width: 16px;
+    height: 16px;
+  }
+`;
+export const ExercisesTitleBox = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+`;
 export const Title = styled.h3`
   position: relative;
   font-size: 24px;
   line-height: 1.333;
   color: var(--white-color);
 
-  margin-bottom: 8px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  padding-left: 30px;
-  max-width: 100%;
+  padding-left: 8px;
+  width: 263px;
 
-  &::before {
-    content: url(../../../../src/components/products/img/run.svg);
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    left: 0;
-    top: calc(50% - 12px);
+  @media screen and (min-width: 768px) {
+    width: 285px;
   }
+`;
+
+export const SvgExerciseRun = styled.svg`
+  width: 16px;
+  height: 16px;
+`;
+export const SpanExerciseRun = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--beige-color);
+
+  border-radius: 50%;
+
+  width: 24px;
+  height: 24px;
 `;
 
 export const List = styled.ul`

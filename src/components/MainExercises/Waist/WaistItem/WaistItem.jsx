@@ -2,13 +2,17 @@ import {
   BtnLabel,
   BtnWrapper,
   CardLabel,
+  ExercisesTitleBox,
   List,
   ListItem,
   ListItemValue,
+  SpanExerciseRun,
+  SvgExercise,
+  SvgExerciseRun,
   Title,
   WaistItemLi,
 } from './WaistItem.styled';
-
+import sprite from '../../../../images/sprite.svg';
 const texts = {
   cardLabel: 'Workout',
   btnLabel: 'Start',
@@ -44,9 +48,23 @@ export const WaistItem = ({ data, openModalToggle }) => {
           type="button"
         >
           {texts.btnLabel}
+          <span>
+            <SvgExercise>
+              <use href={`${sprite}#icon-arrow-right`}></use>
+            </SvgExercise>
+          </span>
         </BtnLabel>
       </BtnWrapper>
-      <Title>{capitalizeFirstLeter(data.name)} </Title>
+      <ExercisesTitleBox>
+        <SpanExerciseRun>
+          <SvgExerciseRun width={24} height={24}>
+            <use href={`${sprite}#icon-run-exercises`}></use>
+            <use href={`${sprite}#icon-running-stick-figure`}></use>
+          </SvgExerciseRun>
+        </SpanExerciseRun>
+        <Title>{capitalizeFirstLeter(data.name)} </Title>
+      </ExercisesTitleBox>
+
       <List>
         {Object.keys(texts.list).map(e => (
           <ListItem key={e}>
