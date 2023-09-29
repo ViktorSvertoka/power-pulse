@@ -53,7 +53,7 @@ export const addExercise = createAsyncThunk(
   'exercises/addExercise',
   async (exercise, thunkAPI) => {
     try {
-      const response = await axios.post('/addexercise', exercise);
+      const response = await axios.post('/diary/addexercise', exercise);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
