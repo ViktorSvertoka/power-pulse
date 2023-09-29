@@ -14,7 +14,7 @@ import {
   TitleName,
   Subtitle,
 } from './UserProfile.styled';
-import { getUserParams } from '../../redux/auth/operations';
+import { getUserParams, updateAvatar } from '../../redux/auth/operations';
 
 const UserProfile = () => {
   const dispatch = useDispatch();
@@ -39,20 +39,16 @@ const UserProfile = () => {
       const objectURL = URL.createObjectURL(blob);
       setAvatarUrl(objectURL);
     }
-  };
 
-  // const uploadAvatarToServer = async event => {
-  //   const file = event.target.files[0];
-  //   if (file) {
-  //     try {
-  //       const formData = new FormData();
-  //       formData.append('avatar', file);
-  //       console.log(formData);
-  //     } catch (error) {
-  //       console.error('Помилка при відправленні файлу на сервер', error);
-  //     }
-  //   }
-  // };
+    try {
+      const formData = new FormData();
+      formData.append('avatar', file);
+      dispatch(updateAvatar(formData)); // Assuming this dispatch works correctly
+      console.log(file);
+    } catch (error) {
+      console.error('Помилка при відправленні файлу на сервер', error);
+    }
+  };
 
   return (
     <Wrapper>
