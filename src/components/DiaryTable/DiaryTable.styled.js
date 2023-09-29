@@ -140,7 +140,7 @@ export const BASELINE_THEME_EXERCISES = {
       height: 90px;
     }; 
     ::-webkit-scrollbar-thumb {
-      background-color: 'rgba(239, 237, 232, 0.10)';
+      background-color: rgba(239, 237, 232, 0.10);
       border-radius: 12px;
     };
 
@@ -158,7 +158,7 @@ export const BASELINE_THEME_EXERCISES = {
     padding: 8px 10px 8px 14px;
     margin: 0 8px 8px 0;
     border-radius: 12px;
-    border: 1px solid 'rgba(239, 237, 232, 0.30)';
+    border: 1px solid rgba(239, 237, 232, 0.30);
 
     :nth-of-type(6) {
       margin-right: 12px;
@@ -182,7 +182,7 @@ export const BASELINE_THEME = {
       height: 90px;
     }; 
     ::-webkit-scrollbar-thumb {
-      background-color: 'rgba(239, 237, 232, 0.10)';
+      background-color: rgba(239, 237, 232, 0.10);
       border-radius: 12px;
     };
 
