@@ -4,12 +4,16 @@ import {
   deleteProduct,
   getDiaryList,
   addDiaryProduct,
+  addExercise,
 } from './operations';
 
 const contactsInitialValue = {
   isLoading: false,
   error: null,
   productsAndExercisesError: null,
+  burnedCalories: 0,
+  consumedCalories: 0,
+  doneExercisesTime: 0,
   products: [],
   exercises: [],
 };
@@ -34,9 +38,13 @@ const diary = createSlice({
   initialState: contactsInitialValue,
   extraReducers: builder => {
     builder.addCase(getDiaryList.pending, handlePending);
-    builder.addCase(getDiaryList.fulfilled, (state, action) => {
+    builder.addCase(getDiaryList.fulfilled, (state, { payload }) => {
       state.isLoading = false;
-      state.products = action.payload;
+      state.products = payload.products || [];
+      state.exercises = payload.exercises || [];
+      state.burnedCalories = payload.burnedCalories || 0;
+      state.consumedCalories = payload.consumedCalories || 0;
+      state.doneExercisesTime = payload.doneExercisesTime || 0;
     });
     builder.addCase(getDiaryList.rejected, (state, { payload }) => {
       state.productsAndExercisesError = payload;
@@ -51,6 +59,13 @@ const diary = createSlice({
       state.products = action.payload;
     });
     builder.addCase(addDiaryProduct.rejected, handleRejected);
+
+    builder.addCase(addExercise.pending, handlePending);
+    builder.addCase(addExercise.fulfilled, (state, action) => {
+      handleFullfield(state);
+      state.exercises = action.payload;
+    });
+    builder.addCase(addExercise.rejected, handleRejected);
 
     builder.addCase(deleteProduct.pending, handlePending);
     builder.addCase(deleteProduct.fulfilled, (state, { payload }) => {

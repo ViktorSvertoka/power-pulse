@@ -11,7 +11,11 @@ import {
   DescriptionWrapper,
 } from './DiaryPage.styled';
 import { getDiaryList } from '../../redux/diary/operations';
-import { getDiaryProducts } from '../../redux/diary/selectors';
+import {
+  getDiaryExercises,
+  getDiaryProducts,
+  getIsLoadingDiary,
+} from '../../redux/diary/selectors';
 import DaySwitch from '../../components/DaySwitch/DaySwitch';
 import { Container } from '../../styles/container';
 import ExclamationCircle from '../../components/ExclamationCircle/ExclamationCircle';
@@ -21,6 +25,9 @@ import DiaryProductsItemOrExercisesItem from '../../components/DiaryProductsItem
 const Diary = () => {
   const [formatDate, setFormatDate] = useState('');
   const productsList = useSelector(getDiaryProducts);
+  const exercisesList = useSelector(getDiaryExercises);
+  // const isLoadingDairy = useSelector(getIsLoadingDiary);
+
   const dispatch = useDispatch();
 
   const handleSelectedDateChange = date => {
@@ -36,7 +43,6 @@ const Diary = () => {
 
   useEffect(() => {
     const savedDate = localStorage.getItem('selectedDate');
-    console.log('savedDate', savedDate);
     if (savedDate) {
       const parsedDate = new Date(savedDate);
       if (!isNaN(parsedDate.getTime())) {
@@ -82,6 +88,7 @@ const Diary = () => {
               to={'/products'}
             />
             <DiaryProductsItemOrExercisesItem
+              list={exercisesList}
               exerciseTable
               date={formatDate}
               to={'/exercises'}

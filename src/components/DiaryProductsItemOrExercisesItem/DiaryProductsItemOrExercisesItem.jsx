@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import {
   DayDiaryContainer,
@@ -48,10 +47,10 @@ const DiaryProductsItemOrExercisesItem = ({
 
   const handleDelete = ({ id }) => {
     if (productTable) {
-      dispatch(deleteProduct({ id }));
+      dispatch(deleteProduct({ id, date: formattedDate }));
     }
     if (exerciseTable) {
-      dispatch(deleteExercise({ exerciseId: id, date: formattedDate }));
+      dispatch(deleteExercise({ id, formattedDate }));
     }
   };
 

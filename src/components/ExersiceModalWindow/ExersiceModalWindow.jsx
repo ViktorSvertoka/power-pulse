@@ -15,7 +15,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { selectUser } from '../../redux/auth/selectors';
-import { addExercise } from '../../redux/exercises/operationsExercises';
+import { addExercise } from '../../redux/diary/operations';
 // const AddProductForm = ({ eldata, onClick, closeModal }) => {
 
 const formatDate = date => {
@@ -74,7 +74,6 @@ export const ExersiceModalWindow = ({ data, onClick, closeModal }) => {
         exerciseId: _id,
         equipment,
         name,
-        amount: burnedCalories,
         burnedCalories,
       }),
     );

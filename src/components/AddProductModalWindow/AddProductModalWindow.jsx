@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addDiaryProduct } from '../../redux/diary/operations';
 import { toast } from 'react-toastify';
@@ -122,4 +122,3 @@ AddProductForm.propTypes = {
 };
 
 export default AddProductForm;
-

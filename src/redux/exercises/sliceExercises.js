@@ -13,6 +13,7 @@ const handlePending = state => {
 const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
+  console.log('state.items', state.items);
 };
 
 const exercisesSlice = createSlice({
@@ -55,12 +56,11 @@ const exercisesSlice = createSlice({
       })
       .addCase(fetchEquipment.rejected, handleRejected),
   // .addCase(addExercise.pending, handlePending)
-  // .addCase(addExercise.fulfilled, (state, action) => {
+  // .addCase(addExercise.fulfilled, state => {
   //   state.isLoading = false;
   //   state.error = null;
-  //   state.items = [...items, action.payload];
   // })
-  // .addCase(addExercise.rejected, handleRejected)
+  // .addCase(addExercise.rejected, handleRejected),
   // .addCase(deleteExercise.pending, handlePending)
   // .addCase(deleteExercise.fulfilled, (state, action) => {
   //   state.isLoading = false;
