@@ -11,8 +11,11 @@ import Logout from '../../components/Logout/Logout';
 import UserProfile from '../../components/UserProfile/UserProfile';
 import Daily from '../../components/Daily/Daily';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../redux/auth/selectors';
 
 const UserPage = () => {
+  const user = useSelector(selectUser);
   const [avatarUrl, setAvatarUrl] = useState('');
   const handleChangeAvatar = url => {
     setAvatarUrl(url);
@@ -32,7 +35,7 @@ const UserPage = () => {
               color="var(--orange-color)"
               iconId="icon-fork-knife"
               text="Daily calorie intake"
-              value="2200"
+              value={user.bmr.toString()}
             />
             <Daily
               color="var(--orange-color)"

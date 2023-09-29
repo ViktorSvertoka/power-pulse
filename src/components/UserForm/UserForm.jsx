@@ -23,12 +23,6 @@ const UserForm = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
 
-  console.log(user);
-
-  // useEffect(() => {
-  //   dispatch(getUserParams());
-  // }, [dispatch]);
-
   const bloodOptions = [
     { id: '1', value: '1', label: '1' },
     { id: '2', value: '2', label: '2' },
@@ -70,24 +64,21 @@ const UserForm = () => {
     },
   ];
 
+  const formattedDate = new Date(user.birthday).toISOString().split('T')[0];
+
   const initialValues = {
     name: user.name || 'Name',
-    email: user.email || 'user@mail.com',
     height: user.height || '150',
     currentWeight: user.currentWeight || '35',
     desiredWeight: user.desiredWeight || '35',
-    birthday: user.birthday || '2005-01-01',
+    birthday: formattedDate || '2005-01-01',
     blood: (user.blood ?? '1').toString() || '1',
     sex: user.sex || 'male',
     levelActivity: (user.levelActivity ?? '1').toString() || '1',
-    avatarUrl: user.avatarUrl || '',
   };
 
   const validationSchema = Yup.object({
     name: Yup.string().required('Name is required'),
-    email: Yup.string()
-      .email('Invalid email address')
-      .required('Email is required'),
     height: Yup.number()
       .positive('Height must be positive')
       .required('Height is required'),
@@ -98,7 +89,6 @@ const UserForm = () => {
       .positive('Weight must be positive')
       .required('Desired weight is required'),
     birthday: Yup.date().required('Birthday is required'),
-    avatarUrl: Yup.string(),
   });
 
   const handleSubmit = values => {
@@ -123,7 +113,12 @@ const UserForm = () => {
               <Field name="name" type="text" as={Input} />
             </div>
             <div>
-              <Field type="text" name="email" as={Input} />
+              <Input
+                type="text"
+                name="email"
+                defaultValue={user.email}
+                readOnly
+              />
             </div>
           </FormContainer>
 
