@@ -98,7 +98,7 @@ export const updateUserParams = createAsyncThunk(
     // }
     try {
       // setAuthHeader(persistedToken);
-      const res = await axios.patch('/api/auth', params);
+      const res = await axios.patch('/api/auth/params', params);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

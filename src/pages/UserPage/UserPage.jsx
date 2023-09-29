@@ -17,7 +17,7 @@ import { selectUser } from '../../redux/auth/selectors';
 const UserPage = () => {
   const user = useSelector(selectUser);
   const [avatarUrl, setAvatarUrl] = useState('');
-  const handleChangeAvatar = url => {
+  const uploadAvatarToServer = url => {
     setAvatarUrl(url);
   };
 
@@ -28,7 +28,7 @@ const UserPage = () => {
         <div>
           <UserProfile
             avatarUrl={avatarUrl}
-            handleChangeAvatar={handleChangeAvatar}
+            handleChangeAvatar={uploadAvatarToServer}
           />
           <Wrapper>
             <Daily
