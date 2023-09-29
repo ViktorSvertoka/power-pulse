@@ -40,10 +40,6 @@ export const WrapperInputField = styled.div`
   align-items: flex-end;
   margin-top: 20px;
   gap: 14px;
-
-  /* @media screen and (min-width: 768px) and (max-width: 1439px) {
-    margin-right: 14px;
-  } */
 `;
 
 export const Wrapper = styled.div`
@@ -61,10 +57,6 @@ export const InputField = styled.input`
   border: 1px solid rgba(239, 237, 232, 0.3);
   background-color: transparent;
   color: #efede8;
-
-  /* @media screen and (min-width: 768px) and (max-width: 1439px) {
-    width: 162px;
-  } */
 `;
 
 export const Label = styled.label`
@@ -129,11 +121,6 @@ export const WrapperRadio = styled.div`
     top: 3px;
     left: 0;
     z-index: 1;
-
-    /* @media screen and (min-width: 768px) and (max-width: 1439px) {
-      width: 28px;
-      height: 28px;
-    } */
   }
 
   .radio-label::after {
@@ -149,11 +136,6 @@ export const WrapperRadio = styled.div`
     top: 7px;
     left: 4px;
     z-index: 2;
-
-    /* @media screen and (min-width: 768px) and (max-width: 1439px) {
-      width: 20px;
-      height: 20px;
-    } */
   }
 
   .radio-input:checked + .radio-label::before {

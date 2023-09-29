@@ -44,3 +44,10 @@ export const Wrapper = styled.div`
   gap: 14px;
   margin-top: 40px;
 `;
+
+export const WrapperForm = styled.div`
+  @media screen and (min-width: 1440px) {
+    border-right: 1px solid rgba(239, 237, 232, 0.2);
+    padding-right: 100px;
+  }
+`;
