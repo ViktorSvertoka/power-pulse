@@ -1,9 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import sprite from '../../images/sprite.svg';
-import images from '../../images/0-default.jpg';
 import {
   AvatarHeader,
-  ImgAvatar,
   LogoutBtn,
   Navigation,
   ProfileIcon,
@@ -15,8 +13,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserParams, logOut } from '../../redux/auth/operations';
 import { useState } from 'react';
-import { Photo, SvgLogoUser } from '../UserProfile/UserProfile.styled';
-import { Avatar } from '@mui/material';
+import { Photo } from '../UserProfile/UserProfile.styled';
 import { selectUser } from '../../redux/auth/selectors';
 import { useEffect } from 'react';
 
@@ -47,8 +44,6 @@ export const UserMenu = () => {
   return (
     <UserContainer>
       <Navigation>
-        {/* {isActivePage === "diary" ? style={{backgroundColor: 'var(--orange-color)'} }: style={{backgroundColor: 'transparent'} }} */}
-
         <StyledLink
           style={
             isActivePage === 'diary'
@@ -91,7 +86,6 @@ export const UserMenu = () => {
         </NavLink>
         <AvatarHeader>{user.avatarUrl ? avatarUser : avatarLogo}</AvatarHeader>
 
-        {/* <ImgAvatar src={images} /> */}
         <LogoutBtn type="button" onClick={handleLogOut}>
           <span>Logout</span>
           <svg width="20" height="20">
