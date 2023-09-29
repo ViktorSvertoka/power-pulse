@@ -102,12 +102,11 @@ export const addExercise = createAsyncThunk(
 export const deleteExercise = createAsyncThunk(
   'deleteExercise',
   async (exerciseDetails, { rejectWithValue }) => {
+    console.log('exerciseDetailsDELETE', exerciseDetails);
     try {
-      const { exerciseId, date } = exerciseDetails;
-      await axios.delete(
-        `/api/diary/delete-exercise?date=${date}&exerciseId=${exerciseId}`,
-      );
-      return exerciseId;
+      const { id, date } = exerciseDetails;
+      await axios.delete(`/api/diary/delete-exercise?date=${date}&id=${id}`);
+      return id;
     } catch (error) {
       toast.error('Oops... Something went wrong! Try again!');
       return rejectWithValue('Oops... Something went wrong!');

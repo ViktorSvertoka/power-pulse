@@ -50,7 +50,7 @@ const DiaryProductsItemOrExercisesItem = ({
       dispatch(deleteProduct({ id, date: formattedDate }));
     }
     if (exerciseTable) {
-      dispatch(deleteExercise({ id, formattedDate }));
+      dispatch(deleteExercise({ id, date: formattedDate }));
     }
   };
 
