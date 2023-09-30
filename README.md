@@ -33,6 +33,8 @@
 - [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Okayolha)
   Olha Herasymchuk **Full Stack Developer**
 
+![Presentation](./public/presentation.gif)
+
 # Examples of writing commits on a project
 
 ## We use the following types of commits:
