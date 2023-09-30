@@ -19,7 +19,7 @@ import { updateAvatar } from '../../redux/auth/operations';
 const UserProfile = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
-  const [avatar, setAvatar] = useState('');
+  const [avatar, setAvatar] = useState(user.avatarURL);
 
   const avatarUser = <Photo src={avatar} width="100%" alt="Avatar" />;
   const avatarLogo = (
