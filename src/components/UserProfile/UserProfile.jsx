@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { selectUser } from '../../redux/auth/selectors';
@@ -14,18 +14,14 @@ import {
   TitleName,
   Subtitle,
 } from './UserProfile.styled';
-import { getUserParams, updateAvatar } from '../../redux/auth/operations';
+import { updateAvatar } from '../../redux/auth/operations';
 
 const UserProfile = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
-  const [avatarUrl, setAvatarUrl] = useState(user.avatarUrl);
+  const [avatar, setAvatar] = useState('');
 
-  useEffect(() => {
-    dispatch(getUserParams());
-  }, [dispatch]);
-
-  const avatarUser = <Photo src={avatarUrl} width="100%" alt="Avatar" />;
+  const avatarUser = <Photo src={avatar} width="100%" alt="Avatar" />;
   const avatarLogo = (
     <SvgLogoUser fill="var(--normal-color)" width="62" height="62">
       <use href={`${sprite}#icon-user`}></use>
@@ -37,13 +33,11 @@ const UserProfile = () => {
     if (file) {
       const blob = new Blob([file]);
       const objectURL = URL.createObjectURL(blob);
-      setAvatarUrl(objectURL);
+      setAvatar(objectURL);
     }
 
     try {
-      const formData = new FormData();
-      formData.append('avatar', file);
-      dispatch(updateAvatar(formData)); // Assuming this dispatch works correctly
+      dispatch(updateAvatar(file)); // Assuming this dispatch works correctly
       console.log(file);
     } catch (error) {
       console.error('Помилка при відправленні файлу на сервер', error);
@@ -52,7 +46,7 @@ const UserProfile = () => {
 
   return (
     <Wrapper>
-      <Avatar>{avatarUrl ? avatarUser : avatarLogo}</Avatar>
+      <Avatar>{avatar ? avatarUser : avatarLogo}</Avatar>
       <form id="upload-form">
         <input
           type="file"

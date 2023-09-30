@@ -126,7 +126,6 @@ export const addUserData = createAsyncThunk(
   },
 );
 
-
 export const getUserParams = createAsyncThunk(
   'auth/getparams',
   async (_, thunkAPI) => {
@@ -151,7 +150,7 @@ export const updateAvatar = createAsyncThunk(
   async (file, thunkAPI) => {
     try {
       const formData = new FormData();
-      formData.append('avatar', formData);
+      formData.append('avatar', file);
 
       const res = await axios.patch('/api/auth/avatars', formData, {
         headers: { 'content-type': 'multipart/form-data' },
