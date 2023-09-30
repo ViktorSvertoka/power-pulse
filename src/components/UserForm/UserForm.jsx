@@ -17,7 +17,7 @@ import {
 } from './UserForm.styled';
 
 import { selectUser } from '../../redux/auth/selectors';
-import { updateUserParams } from '../../redux/auth/operations';
+import { getUserParams, updateUserParams } from '../../redux/auth/operations';
 
 const UserForm = () => {
   const dispatch = useDispatch();
@@ -96,7 +96,7 @@ const UserForm = () => {
       ...values,
     };
     dispatch(updateUserParams(sendData));
-    console.log(sendData);
+    dispatch(getUserParams());
   };
 
   return (

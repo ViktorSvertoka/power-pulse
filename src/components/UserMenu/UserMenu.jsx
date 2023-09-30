@@ -11,11 +11,10 @@ import {
   UserData,
 } from './UserMenu.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserParams, logOut } from '../../redux/auth/operations';
+import { logOut } from '../../redux/auth/operations';
 import { useState } from 'react';
 import { Photo } from '../UserProfile/UserProfile.styled';
 import { selectUser } from '../../redux/auth/selectors';
-import { useEffect } from 'react';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
@@ -23,12 +22,8 @@ export const UserMenu = () => {
 
   const user = useSelector(selectUser);
 
-  useEffect(() => {
-    dispatch(getUserParams());
-  }, [dispatch]);
-
   const avatarUser = (
-    <Photo src={user.avatarUrl} width={46} height={46} alt="Avatar" />
+    <Photo src={user.avatarURL} width={46} height={46} alt="Avatar" />
   );
   const avatarLogo = (
     <SvgLogoUserHeader fill="var(--normal-color)">
@@ -84,7 +79,7 @@ export const UserMenu = () => {
             <use href={`${sprite}#icon-settings`}></use>
           </ProfileIcon>
         </NavLink>
-        <AvatarHeader>{user.avatarUrl ? avatarUser : avatarLogo}</AvatarHeader>
+        <AvatarHeader>{user.avatarURL ? avatarUser : avatarLogo}</AvatarHeader>
 
         <LogoutBtn type="button" onClick={handleLogOut}>
           <span>Logout</span>
