@@ -1,3 +1,5 @@
+# React & Node.js app
+
 ![Presentation](./public/page-1.jpg)
 
 ![Presentation](./public/presentation.gif)
@@ -59,9 +61,7 @@ Choose from the list the description of the commit that fits your task, in
 brackets we write the file in which we worked, and in the body of the commit we
 write what we did (changed) etc.
 
----
-
-- `Look at Figma layout`
+- `Look at`
   [**Layout Figma**](https://www.figma.com/file/FHAaMcWwZCDbzWPlowFhEf/Power-Pulse?type=design&node-id=0-1&mode=design)
 
 1. Set the project's basic dependencies as a command `npm install`.
