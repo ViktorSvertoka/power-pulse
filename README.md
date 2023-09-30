@@ -1,3 +1,7 @@
+![Presentation](./public/page-1.jpg)
+
+![Presentation](./public/presentation.gif)
+
 # Development team :
 
 - [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ViktorSvertoka)
@@ -33,15 +37,13 @@
 - [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Okayolha)
   Olha Herasymchuk **Full Stack Developer**
 
-![Presentation](./public/presentation.gif)
-
 # Examples of writing commits on a project
 
 ## We use the following types of commits:
 
 - Feat(HTML) Added new functionality
 
-- Fix(JS) Error correction
+- Fix(JSX) Error correction
 
 - Perf(JPEG) Changes to improve performance
 
@@ -62,51 +64,5 @@ write what we did (changed) etc.
 - `Look at Figma layout`
   [**Layout Figma**](https://www.figma.com/file/FHAaMcWwZCDbzWPlowFhEf/Power-Pulse?type=design&node-id=0-1&mode=design)
 
----
-
-# Авторизація бек
-
-API Base URL https://power-pulse-back-end.onrender.com
-
-Create a New User POST /api/auth/register Створення нового користувача.
-
-Запит: { "name": "Ім'я користувача", "email": "example@example.com", "password":
-"пароль" }
-
-Відповідь: Успішний запит повертає статус 201 Created та інформацію про
-створеного користувача.
-
-Login User POST /api/auth/login Аутентифікація користувача.
-
-Запит: { "email": "example@example.com", "password": "пароль" }
-
-Відповідь: Успішний запит повертає статус 200 OK та інформацію про
-аутентифікованого користувача.
-
-Log Out User POST /api/auth/logout Вихід користувача.
-
-Авторизація: Токен, виданий поточному користувачу, передається у заголовку
-запиту.
-
-Get Information About the Current User GET /api/auth/current Отримання
-інформації про поточного користувача.
-
-Авторизація: Токен, виданий поточному користувачу, передається у заголовку
-запиту.
-
-Verify the User's Email POST /api/auth/verify Підтвердження електронної пошти
-користувача.
-
-Запит: { "email": "example@example.com" }
-
-Update User Avatars PATCH /api/auth/avatars Оновлення аватара користувача.
-
-Авторизація: Токен, виданий поточному користувачу, передається у заголовку
-запиту.
-
-Запит: Тіло запиту має містити зображення аватара користувача у вигляді файлу
-
----
-
-1. Встановіть базові залежності проекту командою `npm install`.
-2. Запустіть режим розробки, виконавши команду `npm run dev`.
+1. Set the project's basic dependencies as a command `npm install`.
+2. Enter development mode by running the command `npm run dev`.
