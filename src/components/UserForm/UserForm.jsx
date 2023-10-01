@@ -2,8 +2,6 @@ import { parseISO } from 'date-fns';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 
 import StyledDatepicker from '../Datepicker/StyledDatepicker';
 import RadioOption from '../RadioOption/RadioOption';
@@ -145,7 +143,7 @@ const UserForm = () => {
               <Field type="number" name="desiredWeight" as={InputField} />
             </div>
 
-            <Field name="birthday">
+            {/* <Field name="birthday">
               {({ field, form }) => (
                 <DatePicker
                   selected={field.value}
@@ -157,13 +155,12 @@ const UserForm = () => {
                   customInput={<InputField />}
                 />
               )}
-            </Field>
+            </Field> */}
 
             <StyledDatepicker
               selectedDate={formik.values.birthday}
               setSelectedDate={date => formik.setFieldValue('birthday', date)}
             />
-
           </WrapperInputField>
 
           <WrapperRadio>
