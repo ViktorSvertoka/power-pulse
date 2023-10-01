@@ -26,14 +26,15 @@ const DailyStatsCards = ({
         <Label>{label}</Label>
       </KeyWrap>
 
-      <KeyValue>{keyValue}</KeyValue>
+      <KeyValue>{String(keyValue)}</KeyValue>
     </CardWrap>
   );
 };
 
 DailyStatsCards.propTypes = {
   icon: PropTypes.string.isRequired,
-  keyValue: PropTypes.string.isRequired,
+  keyValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired,
   label: PropTypes.string.isRequired,
   border: PropTypes.oneOf(['green', 'red', 'default']),
   fill: PropTypes.oneOf(['true', 'false']),

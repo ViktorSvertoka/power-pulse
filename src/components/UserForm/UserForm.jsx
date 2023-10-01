@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
+import StyledDatepicker from '../Datepicker/StyledDatepicker';
 import RadioOption from '../RadioOption/RadioOption';
 import {
   FormContainer,
@@ -143,6 +144,7 @@ const UserForm = () => {
               <SectionTitle>Desired Weight</SectionTitle>
               <Field type="number" name="desiredWeight" as={InputField} />
             </div>
+
             <Field name="birthday">
               {({ field, form }) => (
                 <DatePicker
@@ -156,6 +158,12 @@ const UserForm = () => {
                 />
               )}
             </Field>
+
+            <StyledDatepicker
+              selectedDate={formik.values.birthday}
+              setSelectedDate={date => formik.setFieldValue('birthday', date)}
+            />
+
           </WrapperInputField>
 
           <WrapperRadio>

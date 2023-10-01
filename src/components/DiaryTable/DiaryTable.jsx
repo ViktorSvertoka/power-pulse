@@ -67,9 +67,9 @@ const TableForDiary = ({
                       <Cell>{item.amount}</Cell>
                       <Cell>
                         <BeforeForCell
-                          bgcolor={item.recommend ? '#419B09' : '#E9101D'}
+                          bgcolor={item.recommended ? '#419B09' : '#E9101D'}
                         />
-                        {item.recommend ? 'Yes' : 'No'}
+                        {item.recommended ? 'Yes' : 'No'}
                       </Cell>
                       <Cell>
                         <DeleteBtn onClick={() => onDelete({ id: item._id })}>

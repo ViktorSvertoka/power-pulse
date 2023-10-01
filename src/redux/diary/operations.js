@@ -54,7 +54,6 @@ export const deleteProduct = createAsyncThunk(
   'deleteProduct',
   async (productDetails, { rejectWithValue }) => {
     const { id, date } = productDetails;
-    console.log('productDetailsDELETE', productDetails);
 
     try {
       await axios.delete(`/diary/deleteproduct?id=${id}&date=${date}`);
