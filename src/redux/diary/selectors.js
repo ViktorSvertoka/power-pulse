@@ -4,6 +4,12 @@ export const getDiaryExercises = state => state.diary.exercises;
 
 export const getIsLoadingDiary = state => state.diary.isLoading;
 
+export const getCalories = state => state.diary.consumedCalories;
+
+export const getDoneExercisesTime = state => state.diary.doneExercisesTime;
+
+export const getBurnedCalories = state => state.diary.burnedCalories;
+
 export const getError = state => state.diary.error;
 
 export const getErrorProductsAndExercisesError = state =>
