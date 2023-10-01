@@ -1,8 +1,9 @@
-// import { useEffect } from 'react';
+import { parseISO } from 'date-fns';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 
+import StyledDatepicker from '../Datepicker/StyledDatepicker';
 import RadioOption from '../RadioOption/RadioOption';
 import {
   FormContainer,
@@ -64,7 +65,9 @@ const UserForm = () => {
     },
   ];
 
-  const formattedDate = new Date(user.birthday).toISOString().split('T')[0];
+  const formattedDate = parseISO(
+    new Date(user.birthday).toISOString().split('T')[0],
+  );
 
   const initialValues = {
     name: user.name || 'Name',
@@ -137,7 +140,10 @@ const UserForm = () => {
               <SectionTitle>Desired Weight</SectionTitle>
               <Field type="number" name="desiredWeight" as={InputField} />
             </div>
-            <Field type="date" name="birthday" as={InputField} />
+            <StyledDatepicker
+              selectedDate={formik.values.birthday}
+              setSelectedDate={date => formik.setFieldValue('birthday', date)}
+            />
           </WrapperInputField>
 
           <WrapperRadio>
