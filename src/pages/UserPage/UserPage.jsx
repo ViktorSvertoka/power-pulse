@@ -10,26 +10,19 @@ import UserForm from '../../components/UserForm/UserForm';
 import Logout from '../../components/Logout/Logout';
 import UserProfile from '../../components/UserProfile/UserProfile';
 import Daily from '../../components/Daily/Daily';
-import { useState } from 'react';
+
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../redux/auth/selectors';
 
 const UserPage = () => {
   const user = useSelector(selectUser);
-  const [avatarUrl, setAvatarUrl] = useState('');
-  const uploadAvatarToServer = url => {
-    setAvatarUrl(url);
-  };
 
   return (
     <Container>
       <Title>Profile Settings</Title>
       <WrapperContent>
         <div>
-          <UserProfile
-            avatarUrl={avatarUrl}
-            handleChangeAvatar={uploadAvatarToServer}
-          />
+          <UserProfile />
           <Wrapper>
             <Daily
               color="var(--orange-color)"
@@ -48,7 +41,7 @@ const UserPage = () => {
           <Logout />
         </div>
         <WrapperForm>
-          <UserForm avatarUrl={avatarUrl} />
+          <UserForm />
         </WrapperForm>
       </WrapperContent>
     </Container>

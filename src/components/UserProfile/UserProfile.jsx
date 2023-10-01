@@ -37,7 +37,7 @@ const UserProfile = () => {
     }
 
     try {
-      dispatch(updateAvatar(file)); // Assuming this dispatch works correctly
+      dispatch(updateAvatar(file));
       console.log(file);
     } catch (error) {
       console.error('Помилка при відправленні файлу на сервер', error);
