@@ -1,7 +1,9 @@
-// import { useEffect } from 'react';
+import { parseISO } from 'date-fns';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 import RadioOption from '../RadioOption/RadioOption';
 import {
@@ -64,7 +66,9 @@ const UserForm = () => {
     },
   ];
 
-  const formattedDate = new Date(user.birthday).toISOString().split('T')[0];
+  const formattedDate = parseISO(
+    new Date(user.birthday).toISOString().split('T')[0],
+  );
 
   const initialValues = {
     name: user.name || 'Name',
@@ -117,7 +121,9 @@ const UserForm = () => {
                 type="text"
                 name="email"
                 defaultValue={user.email}
+                style={{ color: 'rgba(239, 237, 232, 0.60)' }}
                 readOnly
+                disabled
               />
             </div>
           </FormContainer>
@@ -137,7 +143,19 @@ const UserForm = () => {
               <SectionTitle>Desired Weight</SectionTitle>
               <Field type="number" name="desiredWeight" as={InputField} />
             </div>
-            <Field type="date" name="birthday" as={InputField} />
+            <Field name="birthday">
+              {({ field, form }) => (
+                <DatePicker
+                  selected={field.value}
+                  onChange={date => form.setFieldValue(field.name, date)}
+                  dateFormat="yyyy-MM-dd"
+                  showYearDropdown
+                  showMonthDropdown
+                  dropdownMode="select"
+                  customInput={<InputField />}
+                />
+              )}
+            </Field>
           </WrapperInputField>
 
           <WrapperRadio>
