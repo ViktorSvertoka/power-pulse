@@ -18,7 +18,7 @@ import {
 } from './UserForm.styled';
 
 import { selectUser } from '../../redux/auth/selectors';
-import { getUserParams, updateUserParams } from '../../redux/auth/operations';
+import { updateUserParams } from '../../redux/auth/operations';
 
 const UserForm = () => {
   const dispatch = useDispatch();
@@ -65,9 +65,7 @@ const UserForm = () => {
     },
   ];
 
-  const formattedDate = parseISO(
-    new Date(user.birthday).toISOString().split('T')[0],
-  );
+  const formattedDate = parseISO(user.birthday);
 
   const initialValues = {
     name: user.name || 'Name',
@@ -99,7 +97,7 @@ const UserForm = () => {
       ...values,
     };
     dispatch(updateUserParams(sendData));
-    dispatch(getUserParams());
+    console.log(sendData);
   };
 
   return (
@@ -142,24 +140,12 @@ const UserForm = () => {
               <SectionTitle>Desired Weight</SectionTitle>
               <Field type="number" name="desiredWeight" as={InputField} />
             </div>
-
-            {/* <Field name="birthday">
-              {({ field, form }) => (
-                <DatePicker
-                  selected={field.value}
-                  onChange={date => form.setFieldValue(field.name, date)}
-                  dateFormat="yyyy-MM-dd"
-                  showYearDropdown
-                  showMonthDropdown
-                  dropdownMode="select"
-                  customInput={<InputField />}
-                />
-              )}
-            </Field> */}
-
             <StyledDatepicker
               selectedDate={formik.values.birthday}
-              setSelectedDate={date => formik.setFieldValue('birthday', date)}
+              setSelectedDate={date => {
+                const formattedDate = parseISO(date.toISOString());
+                formik.setFieldValue('birthday', formattedDate);
+              }}
             />
           </WrapperInputField>
 
