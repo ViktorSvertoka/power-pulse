@@ -32,7 +32,7 @@ export const CalendarGlobalStyles = createGlobalStyle`
   }
   .react-datepicker__header {
     position: relative;
-    background-color: #ef8964;
+    background-color: #ef8964;    
   }
 
   .react-datepicker__header:not(.react-datepicker__header--has-time-select) {
@@ -45,14 +45,14 @@ export const CalendarGlobalStyles = createGlobalStyle`
     outline: none;
     border: none;
   }
-  // .react-datepicker__current-month {
-  //   color: #efede8;
-  //   font-family: 'Roboto', sans-serif;
-  //   font-size: 16px;
-  //   font-weight: 500;
-  //   line-height: normal;
-  //   margin-bottom: 14px;
-  // }
+  .react-datepicker__current-month {
+    color: #efede8;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 14px;
+  }
   .react-datepicker__day-name {
     margin: 0;
     color: rgba(239, 237, 232, 0.5);
