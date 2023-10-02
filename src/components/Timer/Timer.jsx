@@ -16,22 +16,17 @@ import symbolDefs from '../../../src/images/sprite.svg';
 import { useState } from 'react';
 
 const Timer = ({ data }) => {
-  // const {
-  //   path,
-  //   pathLength,
-  //   stroke,
-  //   strokeDashoffset,
-  //   remainingTime,
-  //   elapsedTime,
-  //   size,
-  //   strokeWidth,
-  // } = useCountdown({ isPlaying: true, duration: 7, colors: '#abc' });
   const [isPlaying, setIsPlaying] = useState(false);
 
   const handlePlay = () => {
     setIsPlaying(!isPlaying);
   };
+  const children = ({ remainingTime }) => {
+    const minutes = Math.floor(remainingTime / 60);
+    const seconds = remainingTime % 60;
 
+    return `${minutes}:${seconds}`;
+  };
   return (
     <TimerWrapper>
       <TimerTitle>Time</TimerTitle>
@@ -41,9 +36,15 @@ const Timer = ({ data }) => {
         isPlaying={isPlaying}
         duration={data.time * 60}
         colors={'var(--orange-color)'}
-        colorsTime={[7, 5, 2, 0]}
+        remainingTime={data.time * 60}
+        initialRemainingTime={data.time * 60}
+        // colorsTime={[7, 5, 2, 0]}
       >
-        {({ remainingTime }) => remainingTime}
+        {({ remainingTime }) => (
+          <div style={{ color: '#fff' }} role="timer" aria-live="assertive">
+            {children({ remainingTime })}
+          </div>
+        )}
       </CountdownCircleTimer>
       <FormattedTitle>{data.time} minutes</FormattedTitle>
       <TimerBtn onClick={handlePlay}>
