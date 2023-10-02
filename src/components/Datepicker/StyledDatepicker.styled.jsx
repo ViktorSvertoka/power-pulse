@@ -1,8 +1,15 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, styled } from 'styled-components';
+
+export const IconSvg = styled.svg`
+  position: absolute;
+  top: 14px;
+  right: 14px;
+`;
 
 export const CalendarGlobalStyles = createGlobalStyle`
  .react-datepicker__wrapper {
-    position: absolute;
+    position: relative;
+    
   }
   .react-datepicker {
     position: absolute;
@@ -11,8 +18,7 @@ export const CalendarGlobalStyles = createGlobalStyle`
     transform: translate(-15%, 0%);
     display: flex;
     flex-direction: column;
-    align-items: center;
-
+    align-items: center;    
     padding: 14px;
     background-color: #ef8964;
     font-family: 'Roboto', sans-serif;
