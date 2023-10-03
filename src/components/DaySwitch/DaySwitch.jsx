@@ -12,37 +12,25 @@ import {
 } from './DaySwitch.styled';
 import sprite from '../../images/sprite.svg';
 
-const formatDate = date => {
-  const day = String(date.getDate()).padStart(2, '0');
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const year = date.getFullYear();
-  return `${day}/${month}/${year}`;
-};
-
 const DaySwitch = ({ onDateChange }) => {
-  const [currentDate, setCurrentDate] = useState(() => {
-    const savedDate = localStorage.getItem('selectedDate');
-    if (savedDate) {
-      const parsedDate = new Date(savedDate);
-      if (!isNaN(parsedDate.getTime())) {
-        return parsedDate;
-      }
-    }
-    return new Date();
-  });
-
+  const [currentDate, setCurrentDate] = useState(new Date());
   const [isDatepickerOpen, setIsDatepickerOpen] = useState(false);
 
-  useEffect(() => {
-    localStorage.setItem('selectedDate', currentDate.toISOString());
-  }, [currentDate]);
+  const formatDate = date => {
+    const formattedDate = new Date(date);
+    const day = String(formattedDate.getDate()).padStart(2, '0');
+    const month = String(formattedDate.getMonth() + 1).padStart(2, '0');
+    const year = formattedDate.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
 
   const switchToPreviousDay = () => {
     const previousDay = new Date(currentDate);
     previousDay.setDate(previousDay.getDate() - 1);
+    const formattedDate = formatDate(previousDay);
     setCurrentDate(previousDay);
     if (onDateChange) {
-      onDateChange(previousDay);
+      onDateChange(formattedDate);
     }
   };
 
@@ -61,29 +49,29 @@ const DaySwitch = ({ onDateChange }) => {
     setIsDatepickerOpen(prev => !prev);
   };
 
-  const handleOutsideClick = event => {
-    const calenderBtn = document.getElementById('calenderBtn');
+  // const handleOutsideClick = event => {
+  //   const calenderBtn = document.getElementById('calenderBtn');
 
-    if (calenderBtn && !calenderBtn.contains(event.target)) {
-      setIsDatepickerOpen(false);
-    }
-  };
+  //   if (calenderBtn && !calenderBtn.contains(event.target)) {
+  //     setIsDatepickerOpen(false);
+  //   }
+  // };
 
-  const handleKeyDown = event => {
-    if (event.key === 'Enter' || event.key === 'Escape') {
-      setIsDatepickerOpen(false);
-    }
-  };
+  // const handleKeyDown = event => {
+  //   if (event.key === 'Enter' || event.key === 'Escape') {
+  //     setIsDatepickerOpen(false);
+  //   }
+  // };
 
-  useEffect(() => {
-    window.addEventListener('click', handleOutsideClick);
-    window.addEventListener('keydown', handleKeyDown);
+  // useEffect(() => {
+  //   window.addEventListener('click', handleOutsideClick);
+  //   window.addEventListener('keydown', handleKeyDown);
 
-    return () => {
-      window.removeEventListener('click', handleOutsideClick);
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener('click', handleOutsideClick);
+  //     window.removeEventListener('keydown', handleKeyDown);
+  //   };
+  // }, []);
 
   return (
     <Wrap>
