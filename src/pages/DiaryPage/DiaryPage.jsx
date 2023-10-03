@@ -31,30 +31,25 @@ const Diary = () => {
 
   const dispatch = useDispatch();
 
-  const handleSelectedDateChange = date => {
-    if (date) {
-      const formattedDate = `${String(date.getDate()).padStart(
-        2,
-        '0',
-      )}/${String(date.getMonth() + 1).padStart(2, '0')}/${date.getFullYear()}`;
-      setFormatDate(formattedDate);
+  const handleSelectedDateChange = async formattedDate => {
+    if (formattedDate) {
+      await setFormatDate(formattedDate);
       dispatch(getDiaryList(formattedDate));
     }
   };
 
   useEffect(() => {
-    const savedDate = localStorage.getItem('selectedDate');
-    if (savedDate) {
-      const parsedDate = new Date(savedDate);
-      if (!isNaN(parsedDate.getTime())) {
-        handleSelectedDateChange(parsedDate);
-        return;
-      }
+    if (!formatDate) {
+      const date = new Date();
+      const formattedDate = `${String(date.getDate()).padStart(
+        2,
+        '0',
+      )}/${String(date.getMonth() + 1).padStart(2, '0')}/${date.getFullYear()}`;
+      setFormatDate(formattedDate);
     }
-    const currentDate = new Date();
 
-    handleSelectedDateChange(currentDate);
-  }, []);
+    dispatch(getDiaryList(formatDate));
+  }, [dispatch, formatDate]);
 
   return (
     <Container>
