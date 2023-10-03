@@ -120,7 +120,6 @@ export const WrapperRadio = styled.div`
     position: absolute;
     top: 3px;
     left: 0;
-    z-index: 1;
   }
 
   .radio-label::after {

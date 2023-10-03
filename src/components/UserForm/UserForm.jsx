@@ -97,7 +97,6 @@ const UserForm = () => {
       ...values,
     };
     dispatch(updateUserParams(sendData));
-    console.log(sendData);
   };
 
   return (
