@@ -1,7 +1,10 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 // import sprite from '../../../../src/images/sprite.svg';
-import {useDispatch, useSelector } from 'react-redux';
-import { useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+
+import isPropValid from '@emotion/is-prop-valid';
+import { StyleSheetManager } from 'styled-components';
 
 import { getUserParams } from '../../../redux/auth/operations';
 import { selectUser } from '../../../redux/auth/selectors';
@@ -23,12 +26,11 @@ import {
 export const ProductsItem = ({ el, openModalToggle }) => {
   const dispatch = useDispatch();
   const data = useSelector(selectUser);
-  const bloodType =data.blood
+  const bloodType = data.blood;
 
   useEffect(() => {
     dispatch(getUserParams());
   }, [dispatch]);
-
 
   return (
     <ProductsCard>
@@ -37,9 +39,15 @@ export const ProductsItem = ({ el, openModalToggle }) => {
           <ProductsCardDietText>diet</ProductsCardDietText>
         </ProductsCardDiet>
         <ProductsCardStatusCount>
-          <ProductsCardStatusCountTrue isRecommended={el.groupBloodNotAllowed[bloodType]}>
-            {el.groupBloodNotAllowed[bloodType] ? 'Recommended' : 'Not recommended'}
-          </ProductsCardStatusCountTrue>
+          <StyleSheetManager shouldForwardProp={isPropValid}>
+            <ProductsCardStatusCountTrue
+              isRecommended={el.groupBloodNotAllowed[bloodType]}
+            >
+              {el.groupBloodNotAllowed[bloodType]
+                ? 'Recommended'
+                : 'Not recommended'}
+            </ProductsCardStatusCountTrue>
+          </StyleSheetManager>
 
           <ProductsCardStatusAdd
             onClick={() => {
@@ -70,7 +78,6 @@ export const ProductsItem = ({ el, openModalToggle }) => {
     </ProductsCard>
   );
 };
-
 
 ProductsItem.propTypes = {
   el: PropTypes.object.isRequired,
