@@ -24,36 +24,29 @@ import DiaryProductsItemOrExercisesItem from '../../components/DiaryProductsItem
 import CustomLoader from '../../components/Loader/Loader';
 
 const Diary = () => {
-  const [formatDate, setFormatDate] = useState('');
+  const [currentDate, setCurrentDate] = useState(new Date());
+  const [formattedDate, setFormattedDate] = useState();
   const productsList = useSelector(getDiaryProducts);
   const exercisesList = useSelector(getDiaryExercises);
   const isLoadingDairy = useSelector(getIsLoadingDiary);
 
   const dispatch = useDispatch();
 
-  const handleSelectedDateChange = async formattedDate => {
-    if (formattedDate) {
-      await setFormatDate(formattedDate);
-      dispatch(getDiaryList(formattedDate));
-    }
-  };
-
   useEffect(() => {
-    if (!formatDate) {
-      const date = new Date();
-      const formattedDate = `${String(date.getDate()).padStart(
-        2,
-        '0',
-      )}/${String(date.getMonth() + 1).padStart(2, '0')}/${date.getFullYear()}`;
-      setFormatDate(formattedDate);
-    }
-
-    dispatch(getDiaryList(formatDate));
-  }, [dispatch, formatDate]);
+    const formattedDate = `${String(currentDate.getDate()).padStart(
+      2,
+      '0',
+    )}/${String(currentDate.getMonth() + 1).padStart(
+      2,
+      '0',
+    )}/${currentDate.getFullYear()}`;
+    setFormattedDate(formattedDate);
+    dispatch(getDiaryList(formattedDate));
+  }, [dispatch, currentDate]);
 
   return (
     <Container>
-      {/* {isLoadingDairy ? (
+      {isLoadingDairy ? (
         <div
           style={{
             position: 'fixed',
@@ -74,48 +67,49 @@ const Diary = () => {
             z-index={9999}
           />
         </div>
-      ) : ( */}
-      <DiaryWrapper>
-        <TitleAndSwitchContainer>
-          <StyledTitle>Diary</StyledTitle>
-          <DaySwitch
-            setSelectedDate={handleSelectedDateChange}
-            onDateChange={handleSelectedDateChange}
-          />
-        </TitleAndSwitchContainer>
-
-        <DiaryPageContainer>
-          <WrapperCards>
-            <DairyStatisticList />
-            <DescriptionWrapper>
-              <ExclamationCircle />
-              <DescriptionText>
-                Record all your meals in a calorie diary every day. This will
-                help me be aware of my nutrition and make me responsible for my
-                choices.
-              </DescriptionText>
-            </DescriptionWrapper>
-          </WrapperCards>
-
-          <CustomDivForTables>
-            <DiaryProductsItemOrExercisesItem
-              key={formatDate}
-              marginBottom={40}
-              list={productsList}
-              productTable
-              date={formatDate}
-              to={'/products'}
+      ) : (
+        <DiaryWrapper>
+          <TitleAndSwitchContainer>
+            <StyledTitle>Diary</StyledTitle>
+            <DaySwitch
+              currentDate={currentDate}
+              setCurrentDate={setCurrentDate}
+              formattedDate={formattedDate}
             />
-            <DiaryProductsItemOrExercisesItem
-              list={exercisesList}
-              exerciseTable
-              date={formatDate}
-              to={'/exercises'}
-            />
-          </CustomDivForTables>
-        </DiaryPageContainer>
-      </DiaryWrapper>
-      {/* )} */}
+          </TitleAndSwitchContainer>
+
+          <DiaryPageContainer>
+            <WrapperCards>
+              <DairyStatisticList />
+              <DescriptionWrapper>
+                <ExclamationCircle />
+                <DescriptionText>
+                  Record all your meals in a calorie diary every day. This will
+                  help me be aware of my nutrition and make me responsible for
+                  my choices.
+                </DescriptionText>
+              </DescriptionWrapper>
+            </WrapperCards>
+
+            <CustomDivForTables>
+              <DiaryProductsItemOrExercisesItem
+                key={formattedDate}
+                marginBottom={40}
+                list={productsList}
+                productTable
+                date={formattedDate}
+                to={'/products'}
+              />
+              <DiaryProductsItemOrExercisesItem
+                list={exercisesList}
+                exerciseTable
+                date={formattedDate}
+                to={'/exercises'}
+              />
+            </CustomDivForTables>
+          </DiaryPageContainer>
+        </DiaryWrapper>
+      )}
     </Container>
   );
 };
