@@ -15,6 +15,7 @@ import {
   WrapperRadio,
   Wrapper,
   WrapperLevel,
+  WrappInput,
 } from './UserForm.styled';
 
 import { selectUser } from '../../redux/auth/selectors';
@@ -110,7 +111,12 @@ const UserForm = () => {
           <FormContainer>
             <div>
               <SectionTitle>Basic info</SectionTitle>
-              <Field name="name" type="text" as={Input} />
+              <Field
+                name="name"
+                type="text"
+                placeholder="Your name"
+                as={Input}
+              />
             </div>
             <div>
               <Input
@@ -125,20 +131,40 @@ const UserForm = () => {
           </FormContainer>
 
           <WrapperInputField>
-            <div>
-              <SectionTitle>Height</SectionTitle>
-              <Field type="number" name="height" as={InputField} />
-            </div>
+            <WrappInput>
+              <Field
+                type="number"
+                name="height"
+                id="height"
+                placeholder=""
+                as={InputField}
+              />
+              <label htmlFor="height">Height</label>
+            </WrappInput>
             <Wrapper>
-              <SectionTitle>Current Weight</SectionTitle>
-              <Field type="number" name="currentWeight" as={InputField} />
+              <WrappInput>
+                <Field
+                  type="number"
+                  name="currentWeight"
+                  id="currentWeight"
+                  placeholder=""
+                  as={InputField}
+                />
+                <label htmlFor="currentWeight">Current Weight</label>
+              </WrappInput>
             </Wrapper>
           </WrapperInputField>
           <WrapperInputField>
-            <div>
-              <SectionTitle>Desired Weight</SectionTitle>
-              <Field type="number" name="desiredWeight" as={InputField} />
-            </div>
+            <WrappInput>
+              <Field
+                type="number"
+                name="desiredWeight"
+                id="desiredWeight"
+                placeholder=""
+                as={InputField}
+              />
+              <label htmlFor="desiredWeight">Desired Weight</label>
+            </WrappInput>
             <StyledDatepicker
               selectedDate={formik.values.birthday}
               setSelectedDate={date => {
