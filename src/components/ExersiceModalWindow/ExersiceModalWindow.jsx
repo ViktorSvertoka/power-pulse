@@ -37,6 +37,7 @@ export const ExersiceModalWindow = ({ data, onClick, closeModal }) => {
   } = data;
 
   const [dinamicBurnCal, setDinamicBurnCal] = useState(0);
+  const [dinamicTime, setDinamicTime] = useState(0);
 
   const dispatch = useDispatch();
   // const [quantity, setQuantity] = useState(1);
@@ -71,7 +72,7 @@ export const ExersiceModalWindow = ({ data, onClick, closeModal }) => {
         date: formattedDate, // Use the formatted date
         bodyPart,
         target,
-        time,
+        time: dinamicTime,
         exerciseId: _id,
         equipment,
         name,
@@ -93,6 +94,7 @@ export const ExersiceModalWindow = ({ data, onClick, closeModal }) => {
             data={data}
             setDinamicBurnCal={setDinamicBurnCal}
             dinamicBurnCal={dinamicBurnCal}
+            setDinamicTime={setDinamicTime}
           />
         </ExersiceModalTimer>
         <ExersiceModalWindowList
