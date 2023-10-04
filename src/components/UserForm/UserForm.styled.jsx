@@ -16,6 +16,9 @@ export const SectionTitle = styled.p`
   color: var(--normal-color);
   margin-bottom: 4px;
   font-size: 12px;
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 export const Input = styled.input`
@@ -166,5 +169,30 @@ export const WrapperLevel = styled.div`
     display: flex;
     flex-direction: column;
     gap: 8px;
+  }
+`;
+
+export const WrappInput = styled.div`
+  position: relative;
+  margin-top: 40px;
+
+  label {
+    position: absolute;
+    font-size: 14px;
+    top: 50%;
+    left: 14px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition:
+      top 0.2s,
+      left 0.2s,
+      transform 0.2s;
+    color: var(--normal-color);
+  }
+
+  input[type='number']:focus + label,
+  input[type='number']:not(:placeholder-shown) + label {
+    color: var(--normal-color);
+    transform: translateY(-44px);
   }
 `;
