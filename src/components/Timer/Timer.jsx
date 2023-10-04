@@ -14,9 +14,8 @@ import { useState } from 'react';
 import _ from 'lodash.throttle';
 // import { duration } from '@mui/material';
 
-const Timer = ({ data, setDinamicBurnCal, dinamicBurnCal }) => {
+const Timer = ({ data, setDinamicBurnCal, dinamicBurnCal, setDinamicTime }) => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [remainingTime, setRemainingTime] = useState(data.time * 60);
 
   const handlePlay = () => {
     setIsPlaying(!isPlaying);
@@ -30,6 +29,7 @@ const Timer = ({ data, setDinamicBurnCal, dinamicBurnCal }) => {
       const burnCal = time * data.burnedCalories;
       return Math.round(burnCal);
     });
+    setDinamicTime(() => duration - remainingTime);
 
     const minutes = Math.floor(remainingTime / 60);
     const seconds = remainingTime % 60;
