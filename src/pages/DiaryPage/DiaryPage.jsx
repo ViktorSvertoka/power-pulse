@@ -53,7 +53,7 @@ const Diary = () => {
 
   return (
     <Container>
-      {isLoadingDairy ? (
+      {/* {isLoadingDairy ? (
         <div
           style={{
             position: 'fixed',
@@ -65,7 +65,7 @@ const Diary = () => {
           <CustomLoader
             height={50}
             width={50}
-            color="#E6533C"
+            color="var(--orange-color)"
             visible={true}
             ariaLabel="three-circles-rotating"
             outerCircleColor=""
@@ -74,48 +74,48 @@ const Diary = () => {
             z-index={9999}
           />
         </div>
-      ) : (
-        <DiaryWrapper>
-          <TitleAndSwitchContainer>
-            <StyledTitle>Diary</StyledTitle>
-            <DaySwitch
-              setSelectedDate={handleSelectedDateChange}
-              onDateChange={handleSelectedDateChange}
+      ) : ( */}
+      <DiaryWrapper>
+        <TitleAndSwitchContainer>
+          <StyledTitle>Diary</StyledTitle>
+          <DaySwitch
+            setSelectedDate={handleSelectedDateChange}
+            onDateChange={handleSelectedDateChange}
+          />
+        </TitleAndSwitchContainer>
+
+        <DiaryPageContainer>
+          <WrapperCards>
+            <DairyStatisticList />
+            <DescriptionWrapper>
+              <ExclamationCircle />
+              <DescriptionText>
+                Record all your meals in a calorie diary every day. This will
+                help me be aware of my nutrition and make me responsible for my
+                choices.
+              </DescriptionText>
+            </DescriptionWrapper>
+          </WrapperCards>
+
+          <CustomDivForTables>
+            <DiaryProductsItemOrExercisesItem
+              key={formatDate}
+              marginBottom={40}
+              list={productsList}
+              productTable
+              date={formatDate}
+              to={'/products'}
             />
-          </TitleAndSwitchContainer>
-
-          <DiaryPageContainer>
-            <WrapperCards>
-              <DairyStatisticList />
-              <DescriptionWrapper>
-                <ExclamationCircle />
-                <DescriptionText>
-                  Record all your meals in a calorie diary every day. This will
-                  help me be aware of my nutrition and make me responsible for
-                  my choices.
-                </DescriptionText>
-              </DescriptionWrapper>
-            </WrapperCards>
-
-            <CustomDivForTables>
-              <DiaryProductsItemOrExercisesItem
-                key={formatDate}
-                marginBottom={40}
-                list={productsList}
-                productTable
-                date={formatDate}
-                to={'/products'}
-              />
-              <DiaryProductsItemOrExercisesItem
-                list={exercisesList}
-                exerciseTable
-                date={formatDate}
-                to={'/exercises'}
-              />
-            </CustomDivForTables>
-          </DiaryPageContainer>
-        </DiaryWrapper>
-      )}
+            <DiaryProductsItemOrExercisesItem
+              list={exercisesList}
+              exerciseTable
+              date={formatDate}
+              to={'/exercises'}
+            />
+          </CustomDivForTables>
+        </DiaryPageContainer>
+      </DiaryWrapper>
+      {/* )} */}
     </Container>
   );
 };

@@ -1,7 +1,7 @@
 const ExclamationCircle = () => {
   return (
     <svg width="24" height="24">
-      <circle cx="12" cy="12" r="12" fill="#EFA082" />
+      <circle cx="12" cy="12" r="12" fill="var(--beige-color)" />
       <text
         x="50%"
         y="50%"

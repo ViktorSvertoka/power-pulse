@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import StyledDatepicker from '../../components/StyledDatepicker/StyledDatepicker';
 import {

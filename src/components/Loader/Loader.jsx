@@ -13,7 +13,7 @@ const CustomLoader = () => {
       <Loader
         height={50}
         width={50}
-        color="#E6533C"
+        color="var(--orange-color)"
         visible={true}
         ariaLabel="three-circles-rotating"
         outerCircleColor=""

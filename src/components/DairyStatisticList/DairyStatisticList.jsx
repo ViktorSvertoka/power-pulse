@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { List } from './DairyStatisticList.styled';
 import DailyStatsCards from '../DailyStatsCards/DailyStatsCards';
 import { useSelector } from 'react-redux';
