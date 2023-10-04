@@ -11,10 +11,9 @@ import {
 } from './ExersiceModalWindow.styles';
 import Timer from '../Timer/Timer';
 import { getUserParams } from '../../redux/auth/operations';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import { selectUser } from '../../redux/auth/selectors';
 import { addExercise } from '../../redux/diary/operations';
 // const AddProductForm = ({ eldata, onClick, closeModal }) => {
 
@@ -76,10 +75,11 @@ export const ExersiceModalWindow = ({ data, onClick, closeModal }) => {
         exerciseId: _id,
         equipment,
         name,
-        burnedCalories,
+        burnedCalories: dinamicBurnCal,
       }),
     );
-    closeModal();
+    onClick();
+    // closeModal();
   };
 
   return (

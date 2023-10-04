@@ -27,10 +27,8 @@ const Timer = ({ data, setDinamicBurnCal, dinamicBurnCal }) => {
     setDinamicBurnCal(() => {
       const time = (duration - remainingTime) / duration;
 
-      console.log(time);
       const burnCal = time * data.burnedCalories;
-      console.log(burnCal);
-      return burnCal;
+      return Math.round(burnCal);
     });
 
     const minutes = Math.floor(remainingTime / 60);
@@ -69,7 +67,7 @@ const Timer = ({ data, setDinamicBurnCal, dinamicBurnCal }) => {
         </PlayIcon>
       </TimerBtn>
       <TimerText>
-        Burned calories:<TimerSub>{Math.round(dinamicBurnCal)}</TimerSub>
+        Burned calories:<TimerSub>{dinamicBurnCal}</TimerSub>
       </TimerText>
     </TimerWrapper>
   );
