@@ -34,7 +34,7 @@ export const ColumnNameProducts = styled.p`
   font-size: 12px;
   line-height: 1.5;
 
-  color: #ef8964;
+  color: var(--orange-light-color);
 
   :nth-of-type(1) {
     margin-right: 188px;
@@ -77,7 +77,7 @@ export const ColumnNameExercises = styled.p`
   font-size: 12px;
   line-height: 1.5;
 
-  color: #ef8964;
+  color: var(--orange-light-color);
 
   :nth-of-type(1) {
     margin-right: 45px;
@@ -199,13 +199,13 @@ export const BASELINE_THEME = {
     font-size: 16px;
     line-height: 1.5;
     background-color: inherit;
-    color: #EFEDE8;
+    color: var(--white-color);
   `,
   HeaderRow: `
     background-color: inherit;`,
   BaseCell: ``,
   HeaderCell: `
-    color: #EF8964;
+    color: var(--orange-light-color);
     margin-bottom: 8px;
     font-size: 12px;
     line-height: 1.5;

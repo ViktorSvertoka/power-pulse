@@ -39,8 +39,8 @@ export const Wrapper = styled.div`
 export const Svg = styled.svg`
   width: 16px;
   height: 16px;
-  fill: #e6533c;
-  stroke: #e6533c;
+  fill: var(--orange-color);
+  stroke: var(--orange-color);
 `;
 
 export const Text = styled.p`
@@ -58,7 +58,7 @@ export const Text = styled.p`
 `;
 
 export const Value = styled.p`
-  color: #efede8;
+  color: var(--white-color);
   font-family: 'RobotoBold';
   font-size: 24px;
   line-height: 1.3;

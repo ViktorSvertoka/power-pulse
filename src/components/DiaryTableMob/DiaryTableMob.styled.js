@@ -85,7 +85,7 @@ export const Cell = styled.div`
   font-size: 12px;
   line-height: 1.5;
 
-  color: #ef8964;
+  color: var(--orange-light-color);
 `;
 
 export const CellValue = styled.p`
@@ -104,7 +104,7 @@ export const CellValue = styled.p`
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.2);
 
-  color: #efede8;
+  color: var(--white-color);
 
   &::before {
     ${props =>

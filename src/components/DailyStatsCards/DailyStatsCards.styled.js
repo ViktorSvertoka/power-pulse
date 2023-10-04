@@ -5,13 +5,13 @@ export const CardWrap = styled.div`
   border: 1px solid;
 
   border: ${props => {
-    if (props.border === 'green') return '1px solid #3CBF61';
+    if (props.border === 'green') return '1px solid var(--success-color)';
     if (props.border === 'red') return '1px solid #E9101D';
     return '1px solid rgba(239, 237, 232, 0.30)';
   }};
 
   background-color: ${props =>
-    props.fill === 'true' ? '#E6533C' : 'rgba(239, 237, 232, 0.05)'};
+    props.fill === 'true' ? 'var(--hover-color)' : 'rgba(239, 237, 232, 0.05)'};
   height: 96px;
   border-radius: 12px;
   display: flex;
@@ -44,7 +44,7 @@ export const Svg = styled.svg`
   width: 20px;
   height: 20px;
 
-  fill: #ef8964;
+  fill: var(--orange-light-color);
 `;
 
 export const Label = styled.span`
@@ -63,7 +63,7 @@ export const Label = styled.span`
 `;
 
 export const KeyValue = styled.p`
-  color: #efede8;
+  color: var(--white-color);
   margin: 0;
 
   font-family: 'RobotoBold';

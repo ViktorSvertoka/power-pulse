@@ -48,7 +48,7 @@ export const AddLink = styled(NavLink)`
   display: flex;
   align-items: center;
 
-  color: #e6533c;
+  color: var(--orange-color);
   @media screen and (min-width: 768px) {
     font-size: 16px;
     font-weight: 500;
