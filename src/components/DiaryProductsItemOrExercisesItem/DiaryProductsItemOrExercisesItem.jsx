@@ -29,15 +29,7 @@ const DiaryProductsItemOrExercisesItem = ({
 }) => {
   const dispatch = useDispatch();
 
-  const savedDate = localStorage.getItem('selectedDate');
-  let date = new Date(); // Default to current date
-
-  if (savedDate) {
-    const parsedDate = new Date(savedDate);
-    if (!isNaN(parsedDate.getTime())) {
-      date = parsedDate; // Use parsed date if valid
-    }
-  }
+  let date = new Date();
 
   const formattedDate = formatDate(date);
 

@@ -40,15 +40,7 @@ const AddProductForm = ({ eldata, onClick, closeModal }) => {
 
   const amount = Math.round((quantity * calories) / 100);
 
-  const savedDate = localStorage.getItem('selectedDate');
-  let date = new Date(); // Default to current date
-
-  if (savedDate) {
-    const parsedDate = new Date(savedDate);
-    if (!isNaN(parsedDate.getTime())) {
-      date = parsedDate; // Use parsed date if valid
-    }
-  }
+  let date = new Date();
 
   const formattedDate = formatDate(date);
 
@@ -57,7 +49,7 @@ const AddProductForm = ({ eldata, onClick, closeModal }) => {
       toast.error('Must be greater than 0');
       return;
     }
-
+    console.log('formattedDate', formattedDate);
     dispatch(
       addDiaryProduct({
         date: formattedDate, // Use the formatted date

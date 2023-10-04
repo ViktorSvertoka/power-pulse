@@ -32,17 +32,19 @@ const Diary = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const formattedDate = `${String(currentDate.getDate()).padStart(
-      2,
-      '0',
-    )}/${String(currentDate.getMonth() + 1).padStart(
-      2,
-      '0',
-    )}/${currentDate.getFullYear()}`;
-    setFormattedDate(formattedDate);
-    dispatch(getDiaryList(formattedDate));
-  }, [dispatch, currentDate]);
+  useEffect(
+    () => {
+      const day = String(currentDate.getDate()).padStart(2, '0');
+      const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+      const year = currentDate.getFullYear();
+      const formattedDate = `${day}/${month}/${year}`;
+      setFormattedDate(formattedDate);
+      dispatch(getDiaryList(formattedDate));
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+
+    [currentDate, dispatch],
+  );
 
   return (
     <Container>
