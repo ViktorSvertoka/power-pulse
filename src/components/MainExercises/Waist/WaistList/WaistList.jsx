@@ -16,6 +16,7 @@ import { ExersiceModalWindow } from '../../../ExersiceModalWindow/ExersiceModalW
 import { SuccessExerciseModalWindow } from '../../../ExersiceModalWindow/SuccessExerciseModalWindow/SuccessExerciseModalWindow';
 
 export const WaistList = ({ exerciseName }) => {
+  const [modalChange, setModalChange] = useState('');
   const [modalData, setModalData] = useState(null);
   const dispatch = useDispatch();
 
@@ -31,6 +32,10 @@ export const WaistList = ({ exerciseName }) => {
     setModalData(null);
   };
 
+  const changeModal = () => {
+    setModalChange('well');
+  };
+
   const exercises = useSelector(selectExercises);
   const visibleExercises = exercises.filter(
     exercise =>
@@ -42,11 +47,11 @@ export const WaistList = ({ exerciseName }) => {
     <>
       {modalData && (
         <BasicModalWindow isOpenModalToggle={closeModal}>
-          {modalData.gifUrl ? (
+          {modalChange !== 'well' ? (
             <ExersiceModalWindow
               data={modalData}
               closeModal={closeModal}
-              onClick={openModalToggle}
+              onClick={changeModal}
             />
           ) : (
             <SuccessExerciseModalWindow

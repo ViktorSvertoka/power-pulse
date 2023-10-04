@@ -20,15 +20,17 @@ export const SuccessExerciseModalWindow = ({ data, closeModal }) => {
     <SuccessModalWindow>
       <SuccessModalWindowWrap>
         <SuccessModalWindowWrapImg>
-          <SuccessModalWindowImg src={like} alt="avocado" />
+          <SuccessModalWindowImg src={like} alt="Like" />
           <SuccessModalWindowTitle>Well done</SuccessModalWindowTitle>
           <SuccessModalWindowText>
             Time
-            <SuccessModalWindowSpan>{data}</SuccessModalWindowSpan>
+            <SuccessModalWindowSpan>{data.time}</SuccessModalWindowSpan>
           </SuccessModalWindowText>
           <SuccessModalWindowText>
             Burned calories
-            <SuccessModalWindowSpan>{data}</SuccessModalWindowSpan>
+            <SuccessModalWindowSpan>
+              {data.burnedCalories}
+            </SuccessModalWindowSpan>
           </SuccessModalWindowText>
         </SuccessModalWindowWrapImg>
         <Link to="/exercises" onClick={closeModal}>
