@@ -1,8 +1,5 @@
-import Circle from './Circle/Circle';
-import {
-  CountdownCircleTimer,
-  useCountdown,
-} from 'react-countdown-circle-timer';
+// import Circle from './Circle/Circle';
+import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import {
   FormattedTitle,
   PlayIcon,
@@ -14,14 +11,28 @@ import {
 } from './Timer.styles';
 import symbolDefs from '../../../src/images/sprite.svg';
 import { useState } from 'react';
+import _ from 'lodash.throttle';
+// import { duration } from '@mui/material';
 
-const Timer = ({ data }) => {
+const Timer = ({ data, setDinamicBurnCal, dinamicBurnCal }) => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [remainingTime, setRemainingTime] = useState(data.time * 60);
 
   const handlePlay = () => {
     setIsPlaying(!isPlaying);
   };
   const children = ({ remainingTime }) => {
+    const duration = data.time * 60;
+
+    setDinamicBurnCal(() => {
+      const time = (duration - remainingTime) / duration;
+
+      console.log(time);
+      const burnCal = time * data.burnedCalories;
+      console.log(burnCal);
+      return burnCal;
+    });
+
     const minutes = Math.floor(remainingTime / 60);
     const seconds = remainingTime % 60;
 
@@ -37,7 +48,6 @@ const Timer = ({ data }) => {
         duration={data.time * 60}
         colors={'var(--orange-color)'}
         remainingTime={data.time * 60}
-        initialRemainingTime={data.time * 60}
         // colorsTime={[7, 5, 2, 0]}
       >
         {({ remainingTime }) => (
@@ -59,7 +69,7 @@ const Timer = ({ data }) => {
         </PlayIcon>
       </TimerBtn>
       <TimerText>
-        Burned calories:<TimerSub>{data.burnedCalories}</TimerSub>
+        Burned calories:<TimerSub>{Math.round(dinamicBurnCal)}</TimerSub>
       </TimerText>
     </TimerWrapper>
   );

@@ -37,6 +37,8 @@ export const ExersiceModalWindow = ({ data, onClick, closeModal }) => {
     time,
   } = data;
 
+  const [dinamicBurnCal, setDinamicBurnCal] = useState(0);
+
   const dispatch = useDispatch();
   // const [quantity, setQuantity] = useState(1);
 
@@ -87,7 +89,11 @@ export const ExersiceModalWindow = ({ data, onClick, closeModal }) => {
           <ExersiceModalImg src={gifUrl} alt={name} />
         </ExersiceModalImgWrapper>
         <ExersiceModalTimer>
-          <Timer data={data} />
+          <Timer
+            data={data}
+            setDinamicBurnCal={setDinamicBurnCal}
+            dinamicBurnCal={dinamicBurnCal}
+          />
         </ExersiceModalTimer>
         <ExersiceModalWindowList
           name={name}
