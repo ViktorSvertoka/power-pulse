@@ -89,15 +89,7 @@ export const refreshUser = createAsyncThunk(
 export const updateUserParams = createAsyncThunk(
   'auth/params',
   async (params, thunkAPI) => {
-    // const state = thunkAPI.getState();
-    // const persistedToken = state.auth.token;
-
-    // if (persistedToken === null) {
-    //   // If there is no token, exit without performing any request
-    //   return thunkAPI.rejectWithValue('Unable to fetch user');
-    // }
     try {
-      // setAuthHeader(persistedToken);
       const res = await axios.patch('/api/auth/params', params);
       return res.data;
     } catch (error) {
@@ -109,15 +101,7 @@ export const updateUserParams = createAsyncThunk(
 export const addUserData = createAsyncThunk(
   'auth/data',
   async (params, thunkAPI) => {
-    // const state = thunkAPI.getState();
-    // const persistedToken = state.auth.token;
-
-    // if (persistedToken === null) {
-    //   // If there is no token, exit without performing any request
-    //   return thunkAPI.rejectWithValue('Unable to fetch user');
-    // }
     try {
-      // setAuthHeader(persistedToken);
       const res = await axios.patch('/api/auth', params);
       return res.data;
     } catch (error) {

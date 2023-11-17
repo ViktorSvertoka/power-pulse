@@ -10,76 +10,65 @@ import ProductsPage from './pages/ProductsPage/ProductsPage';
 import ExercisesPage from './pages/ExercisesPage/ExercisesPage';
 import UserPage from './pages/UserPage/UserPage';
 import HomePage from './pages/HomePage/HomePage';
-// import SignUpAccessPage from './pages/SignUpAccessPage/SignUpAccessPage';
-// import SignUpBloodPage from './pages/SignUpBloodPage/SignUpBloodPage';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { refreshUser } from './redux/auth/operations';
 import { useAuth } from './hooks/useAuth';
-// import {
-//   PrivateRoute,
-//   RestrictedRoute,
-// } from './components/RestrictedRoute/RestrictedRoute';
 
 function App() {
   const dispatch = useDispatch();
-  const { goToParams, isRefreshing, isLoggedIn } = useAuth();
-  // const shouldRedirect = !isRefreshing && !isLoggedIn;
+  const { goToParams, isLoggedIn } = useAuth();
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
 
   return (
-    !isRefreshing && (
-      <Routes>
-        <Route path="/" element={<SharedLayout />}>
-          <Route
-            index
-            element={
-              isLoggedIn ? <Navigate to="/diary" replace /> : <HomePage />
-            }
-          />
-          <Route
-            path="signup"
-            element={
-              goToParams ? <Navigate to="/params" replace /> : <SignUpPage />
-            }
-          />
-          <Route
-            path="params"
-            element={
-              goToParams ? <SignUpBodyPage /> : <Navigate to="/diary" replace />
-            }
-          />
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route
+          index
+          element={isLoggedIn ? <Navigate to="/diary" replace /> : <HomePage />}
+        />
+        <Route
+          path="signup"
+          element={
+            goToParams ? <Navigate to="/params" replace /> : <SignUpPage />
+          }
+        />
+        <Route
+          path="params"
+          element={
+            goToParams ? <SignUpBodyPage /> : <Navigate to="/diary" replace />
+          }
+        />
 
-          <Route
-            path="signin"
-            element={
-              isLoggedIn ? <Navigate to="/diary" replace /> : <SignInPage />
-            }
-          />
-          <Route
-            path="diary"
-            element={isLoggedIn ? <DiaryPage /> : <Navigate to="/" />}
-          />
-          <Route
-            path="products"
-            element={!isLoggedIn ? <Navigate to="/" /> : <ProductsPage />}
-          />
-          <Route
-            path="exercises"
-            element={!isLoggedIn ? <Navigate to="/" /> : <ExercisesPage />}
-          />
-          <Route
-            path="profile"
-            element={!isLoggedIn ? <Navigate to="/" /> : <UserPage />}
-          />
+        <Route
+          path="signin"
+          element={
+            isLoggedIn ? <Navigate to="/diary" replace /> : <SignInPage />
+          }
+        />
+        <Route
+          path="diary"
+          element={isLoggedIn ? <DiaryPage /> : <Navigate to="/" />}
+        />
+        <Route
+          path="products"
+          element={!isLoggedIn ? <Navigate to="/" /> : <ProductsPage />}
+        />
+        <Route
+          path="exercises"
+          element={!isLoggedIn ? <Navigate to="/" /> : <ExercisesPage />}
+        />
+        <Route
+          path="profile"
+          element={!isLoggedIn ? <Navigate to="/" /> : <UserPage />}
+        />
 
-          <Route path="*" element={<ErrorPage />} />
-        </Route>
-      </Routes>
-    )
+        <Route path="*" element={<ErrorPage />} />
+      </Route>
+    </Routes>
   );
 }
 export default App;
